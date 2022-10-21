@@ -15,16 +15,14 @@
         "parser": "@typescript-eslint/parser",
         "sourceType": "module"
     },
-    "plugins": [
-        "vue",
-        "@typescript-eslint"
-    ],
+    "plugins": ["vue", "@typescript-eslint"],
     "ignorePatterns": ["package-lock.json"],
     "rules": {
+        "vue/html-indent": ["error", 4],
         "indent": ["error", 4],
         "quotes": ["error", "double"],
         "semi": ["error", "always"],
-        "eol-last": ["warn", "never"],
+        "eol-last": ["error", "always"],
         "quote-props": ["error", "always"]
     }
 }
