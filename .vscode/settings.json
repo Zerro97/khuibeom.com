@@ -1,8 +1,7 @@
 {
     "prettier.tabWidth": 4,
-    "eslint.validate": [
-        "javascript",
-        "typescript"
-    ],
-    "editor.tabSize": 4
+    "eslint.validate": ["javascript", "typescript"],
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
