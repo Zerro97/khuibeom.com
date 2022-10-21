@@ -8,6 +8,8 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
     "@nuxtjs/eslint-config-typescript": "^11.0.0",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
