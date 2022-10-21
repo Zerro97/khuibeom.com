@@ -16,13 +16,16 @@
     "devDependencies": {
         "@commitlint/cli": "^17.1.2",
         "@commitlint/config-conventional": "^17.1.0",
+        "@nuxt/content": "^2.2.0",
         "@nuxt/test-utils-edge": "^3.0.0-rc.13-27769897.0f2ef5d",
         "@nuxtjs/eslint-config-typescript": "^11.0.0",
+        "@nuxtjs/tailwindcss": "^6.0.1",
         "@typescript-eslint/eslint-plugin": "^5.40.0",
         "@typescript-eslint/parser": "^5.40.0",
         "commitizen": "^4.2.5",
         "cz-conventional-changelog": "3.3.0",
         "eslint": "^8.25.0",
+        "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-vue": "^9.6.0",
         "husky": "^8.0.0",
         "nuxt": "^3.0.0-rc.12",
@@ -35,5 +38,6 @@
         "commitizen": {
             "path": "./node_modules/cz-conventional-changelog"
         }
-    }
+    },
+    "dependencies": {}
 }
