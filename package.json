@@ -1,35 +1,39 @@
 {
-  "private": true,
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "prepare": "husky install",
-    "commit": "cz"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^17.1.2",
-    "@commitlint/config-conventional": "^17.1.0",
-    "@nuxt/test-utils-edge": "^3.0.0-rc.13-27769897.0f2ef5d",
-    "@nuxtjs/eslint-config-typescript": "^11.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.40.0",
-    "@typescript-eslint/parser": "^5.40.0",
-    "commitizen": "^4.2.5",
-    "cz-conventional-changelog": "3.3.0",
-    "eslint": "^8.25.0",
-    "eslint-plugin-vue": "^9.6.0",
-    "husky": "^8.0.0",
-    "nuxt": "^3.0.0-rc.12",
-    "prettier": "^2.7.1",
-    "typescript": "^4.8.4",
-    "vite-plugin-eslint": "^1.8.1",
-    "vitest": "^0.24.3"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+    "private": true,
+    "scripts": {
+        "build": "nuxt build",
+        "test": "vitest --run --reporter verbose",
+        "test:watch": "vitest",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare",
+        "prepare": "husky install",
+        "commit": "cz",
+        "lint": "eslint . --ext .ts,.js,.vue",
+        "lint:fix": "eslint . --ext .ts,.js,.vue --fix"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^17.1.2",
+        "@commitlint/config-conventional": "^17.1.0",
+        "@nuxt/test-utils-edge": "^3.0.0-rc.13-27769897.0f2ef5d",
+        "@nuxtjs/eslint-config-typescript": "^11.0.0",
+        "@typescript-eslint/eslint-plugin": "^5.40.0",
+        "@typescript-eslint/parser": "^5.40.0",
+        "commitizen": "^4.2.5",
+        "cz-conventional-changelog": "3.3.0",
+        "eslint": "^8.25.0",
+        "eslint-plugin-vue": "^9.6.0",
+        "husky": "^8.0.0",
+        "nuxt": "^3.0.0-rc.12",
+        "prettier": "^2.7.1",
+        "typescript": "^4.8.4",
+        "vite-plugin-eslint": "^1.8.1",
+        "vitest": "^0.24.3"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
     }
-  }
 }

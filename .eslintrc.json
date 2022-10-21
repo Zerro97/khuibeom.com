@@ -19,9 +19,12 @@
         "vue",
         "@typescript-eslint"
     ],
+    "ignorePatterns": ["package-lock.json"],
     "rules": {
         "indent": ["error", 4],
         "quotes": ["error", "double"],
-        "semi": ["error", "always"]
+        "semi": ["error", "always"],
+        "eol-last": ["warn", "never"],
+        "quote-props": ["error", "always"]
     }
 }
