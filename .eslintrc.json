@@ -19,5 +19,9 @@
         "vue",
         "@typescript-eslint"
     ],
-    "rules": {}
+    "rules": {
+        "indent": ["error", 4],
+        "quotes": ["error", "double"],
+        "semi": ["error", "always"]
+    }
 }
