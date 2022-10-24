@@ -1,7 +1,8 @@
 <script setup lang="ts"></script>
 
 <template>
-    <div>
-        <h1>Logo</h1>
+    <div class="bg-gradient-to-tr from-slate-900 to-slate-800 min-w-screen min-h-screen">
+        <NavBar />
+        <slot />
     </div>
 </template>
