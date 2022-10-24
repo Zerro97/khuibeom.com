@@ -10,6 +10,6 @@ This repository is based off [nuxt boilerplate](https://github.com/Zerro97/nuxt-
 -   [x] Husky & CommitLint & Lint-Staged & Commitizen
 -   [x] Vitest
 -   [x] Tailwind
--   [x] UnPlugin
+-   [x] UnPlugin Icons
 -   [ ] Nuxt Content
 -   [ ] Headless UI
