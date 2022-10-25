@@ -7,6 +7,9 @@ export default defineNuxtConfig({
         "@nuxt/content", 
         "unplugin-icons/nuxt"
     ],
+    "build": {
+        "transpile": ["@headlessui/vue"],
+    },
     "vite": {
         "plugins": [
             UnpluginComponentsVite({
