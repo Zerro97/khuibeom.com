@@ -1,0 +1,34 @@
+name: "\U0001F41E Bug report"
+description: Create a bug report to help improve the project
+labels: ["pending triage"]
+body:
+  - type: textarea
+    id: bug-env
+    attributes:
+      label: Environment
+      description: Describe your OS, Node version, Package Manager version and other applicable settings.
+      placeholder: Environment
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Please list down steps required for the reproduction. Better, you can provide a link to a repo that can reproduce the problem you ran into.
+      placeholder: Reproduction
+    validations:
+      required: true
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: Bug description
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Optional if provided reproduction. Please try not to insert an image but copy paste the log text.
+      render: shell
