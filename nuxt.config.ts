@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     },
   },
   css: ['@unocss/reset/tailwind.css'],
+  // @ts-expect-error unocss does not exist in NuxtConfig type
   unocss: {
     uno: true,
     icons: true,
