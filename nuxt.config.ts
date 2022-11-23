@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     'nuxt-headlessui',
     '@unocss/nuxt',
   ],
+  css: ['@unocss/reset/tailwind.css'],
   unocss: {
     uno: true,
     icons: true,
