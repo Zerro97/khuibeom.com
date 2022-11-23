@@ -3,6 +3,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     'nuxt-icon',
     'nuxt-headlessui',
+    '@unocss/nuxt',
   ],
   unocss: {
     uno: true,
