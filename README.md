@@ -18,11 +18,11 @@ This repository is based off [nuxt boilerplate](https://github.com/Zerro97/nuxt-
 - This repository is MIT licensed. Feel free to use 😄
 - I used `pnpm` package manager. [Here](https://pnpm.io/installation) is how to set it up
 - While Nuxt 3 just became stable in [2022 November 17](https://github.com/nuxt/framework/discussions/9064), some of its modules are still in beta.
-- For using icon, check out [icones.js.org](https://icones.js.org)
+- If you want to look up icon names, check out [icones.js.org](https://icones.js.org)
 
 ## License 📎
 [MIT License](./LICENSE)
 
 <!-- Badges -->
 [license-src]: https://img.shields.io/github/license/nuxt-modules/icon.svg?style=flat&colorA=002438&colorB=28CF8D
-[license-href]: https://github.com/nuxt-modules/icon/blob/main/LICENSE
+[license-href]: https://github.com/Zerro97/nuxt-blog/blob/develop/LICENSE
