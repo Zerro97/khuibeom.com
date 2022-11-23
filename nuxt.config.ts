@@ -13,5 +13,5 @@ export default defineNuxtConfig({
   },
   headlessui: {
     prefix: 'Headless',
-  }
+  },
 })
