@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: ⬇️ Build
+    name: 🛠 Build
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -18,9 +18,10 @@ jobs:
       - name: 🚥 Checkout repo
         uses: actions/checkout@v3
 
-      - run: corepack enable
+      - name: ✅ NPM Corepack Set
+        run: corepack enable
 
-      - name: ⎔ Setup node
+      - name: 🔨 Setup node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
@@ -29,11 +30,11 @@ jobs:
       - name: 📥 Install dependencies
         run: pnpm install
 
-      - name: ⬇️ Build
+      - name: 🛠 Build
         run: pnpm generate
 
   lint:
-    name: ⬣ ESLint
+    name: 🛠 ESLint
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -44,9 +45,10 @@ jobs:
       - name: 🚥 Checkout repo
         uses: actions/checkout@v3
 
-      - run: corepack enable
+      - name: ✅ NPM Corepack Set
+        run: corepack enable
 
-      - name: ⎔ Setup node
+      - name: 🔨 Setup node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
@@ -59,19 +61,23 @@ jobs:
         run: pnpm lint
 
   typecheck:
-    name: ʦ TypeScript
+    name: 💻 TypeScript
     runs-on: ubuntu-latest
     steps:
       - name: 🚥 Checkout repo
         uses: actions/checkout@v3
 
-      - run: corepack enable
+      - name: ✅ NPM Corepack Set
+        run: corepack enable
 
-      - name: ⎔ Setup node
+      - name: 🔨 Setup node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
           cache: pnpm
+
+      - name: 📥 Install dependencies
+        run: pnpm install
 
       - name: 🔎 Type check
         run: pnpm typecheck
