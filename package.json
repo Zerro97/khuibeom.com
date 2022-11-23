@@ -6,8 +6,11 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "commit": "cz",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "test": "vitest --run --reporter verbose",
+    "test:watch": "vitest"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.31.0",
@@ -20,5 +23,10 @@
     "nuxt": "3.0.0",
     "typescript": "^4.9.3",
     "vitest": "^0.25.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
