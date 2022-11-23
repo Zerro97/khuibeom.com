@@ -5,6 +5,15 @@ export default defineNuxtConfig({
     'nuxt-headlessui',
     '@unocss/nuxt',
   ],
+  app: {
+    head: {
+      title: 'Hui Beom',
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    },
+  },
   css: ['@unocss/reset/tailwind.css'],
   unocss: {
     uno: true,
