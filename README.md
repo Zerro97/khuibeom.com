@@ -2,13 +2,14 @@
 
 Welcome! This is a personal developer blog made with Nuxt 3.
 
-This repository is based off [nuxt boilerplate](https://github.com/Zerro97/nuxt-boilerplate) which I created for easy Nuxt project set up with eslint, prettier, husky, commitlint and lint-staged enabled.
+This repository is based off [nuxt boilerplate](https://github.com/Zerro97/nuxt-boilerplate) which I created for Nuxt project set up with eslint, husky, commitlint, lint-staged and commitizen enabled.
 
 ## Features
 
--   [x] ESLint & Prettier
--   [x] Husky & CommitLint & Lint-Staged
+-   [x] ESLint
+-   [x] Husky & CommitLint & Lint-Staged & Commitizen
 -   [x] Vitest
--   [ ] Nuxt Content
+-   [x] UnoCSS
+-   [x] Nuxt Icons
+-   [x] Nuxt Content
 -   [ ] Headless UI
--   [ ] Tailwind
