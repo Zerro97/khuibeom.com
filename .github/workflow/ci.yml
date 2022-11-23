@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: ⬇️ Build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [16]
+    timeout-minutes: 8
+    steps:
+      - name: 🚥 Checkout repo
+        uses: actions/checkout@v3
+
+      - run: corepack enable
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: pnpm
+
+      - name: 📥 Install dependencies
+        run: pnpm install
+
+      - name: ⬇️ Build
+        run: pnpm generate
+
+  lint:
+    name: ⬣ ESLint
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [16]
+    timeout-minutes: 8
+    steps:
+      - name: 🚥 Checkout repo
+        uses: actions/checkout@v3
+
+      - run: corepack enable
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: pnpm
+
+      - name: 📥 Install dependencies
+        run: pnpm install
+
+      - name: 🔬 Lint
+        run: pnpm lint
+
+  typecheck:
+    name: ʦ TypeScript
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚥 Checkout repo
+        uses: actions/checkout@v3
+
+      - run: corepack enable
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: pnpm
+
+      - name: 🔎 Type check
+        run: pnpm typecheck
