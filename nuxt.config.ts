@@ -1,8 +1,17 @@
 export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
+    'nuxt-icon',
+    'nuxt-headlessui',
   ],
-  build: {
-    transpile: ['@headlessui/vue'],
+  unocss: {
+    uno: true,
+    icons: true,
+    attributify: true,
+    shortcuts: [],
+    rules: [],
   },
+  headlessui: {
+    prefix: 'Headless',
+  }
 })
