@@ -1,8 +1,8 @@
 export default defineNuxtConfig({
-    "modules": [
-        "@nuxt/content", 
-    ],
-    "build": {
-        "transpile": ["@headlessui/vue"],
-    },
-});
+  modules: [
+    '@nuxt/content',
+  ],
+  build: {
+    transpile: ['@headlessui/vue'],
+  },
+})
