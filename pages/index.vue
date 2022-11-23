@@ -2,11 +2,14 @@
 
 <template>
   <div class="px-20 py-10">
-    <div class="flex items-center">
-      <h1 class="text-3xl text-zinc-200">
-        Hi
+    <div class="flex flex-col">
+      <h1 class="text-5xl text-zinc-100">
+        Hi! I'm Hui Beom
       </h1>
-      <img class="w-10 h-10" src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif">
+      <p>
+        I'm a software developer from South Korea. <br>
+        I enjoy learning new frameworks and concepts especially with frontend
+      </p>
     </div>
   </div>
 </template>

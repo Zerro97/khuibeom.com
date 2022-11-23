@@ -14,7 +14,10 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon/favicon.ico' }],
     },
   },
-  css: ['@unocss/reset/tailwind.css'],
+  css: [
+    '@unocss/reset/tailwind.css',
+    '~/assets/css/main.css',
+  ],
   // @ts-expect-error unocss does not exist in NuxtConfig type
   unocss: {
     uno: true,
