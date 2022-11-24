@@ -16,17 +16,37 @@
   </section>
   <section class="flex flex-col mt-20">
     <h2>My Skill Sets</h2>
-    <div class="mt-4">
+    <div class="mt-6">
       <h4>Scripting & Programming Languages</h4>
+      <div class="grid grid-cols-3 gap-2 mt-2">
+        <SkillCard />
+        <SkillCard />
+        <SkillCard />
+      </div>
     </div>
-    <div class="mt-4">
+    <div class="mt-6">
       <h4>Web Frameworks</h4>
+      <div class="grid grid-cols-3 gap-2 mt-2">
+        <SkillCard />
+        <SkillCard />
+        <SkillCard />
+      </div>
     </div>
-    <div class="mt-4">
+    <div class="mt-6">
       <h4>DBMS</h4>
+      <div class="grid grid-cols-3 gap-2 mt-2">
+        <SkillCard />
+        <SkillCard />
+        <SkillCard />
+      </div>
     </div>
-    <div class="mt-4">
+    <div class="mt-6">
       <h4>DevOps & Cloud</h4>
+      <div class="grid grid-cols-3 gap-2 mt-2">
+        <SkillCard />
+        <SkillCard />
+        <SkillCard />
+      </div>
     </div>
   </section>
 </template>
