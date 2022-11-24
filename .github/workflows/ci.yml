@@ -62,7 +62,12 @@ jobs:
 
   typecheck:
     name: 💻 TypeScript
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [16]
+    timeout-minutes: 8
     steps:
       - name: 🚥 Checkout repo
         uses: actions/checkout@v3
