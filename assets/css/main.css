@@ -32,6 +32,9 @@ h6 {
     @apply text-lg font-medium text-zinc-100;
 }
 
-p {
+p,
+a,
+ul,
+ol {
     @apply text-lg text-zinc-100;
 }

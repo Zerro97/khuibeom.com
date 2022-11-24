@@ -8,6 +8,7 @@
       <div class="mt-8">
         <slot />
       </div>
+      <TheFooter />
     </div>
   </div>
 </template>

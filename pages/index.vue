@@ -47,7 +47,7 @@ const projects = ref([{
 <template>
   <section class="flex flex-col w-full mt-20">
     <h1>
-      Hi! I'm Hui Beom
+      Hi, I'm Hui Beom
     </h1>
     <p class="mt-6 max-w-[450px]">
       Welcome to my site. 👋<br><br>
