@@ -3,29 +3,34 @@ html {
 }
 
 body {
-    @apply overflow-x-hidden dark:text-zinc-300 text-zinc-700;
+    @apply overflow-x-hidden text-zinc-100;
+    font-family: "SUIT";
 }
 
 h1 {
-    font-size: 3.75rem;
+    @apply text-5xl font-bold text-white;
 }
 
 h2 {
-    font-size: 3rem;
+    @apply text-4xl font-semibold text-white;
 }
 
 h3 {
-    font-size: 2.25rem;
+    @apply text-3xl font-medium text-white;
 }
 
 h4 {
-    font-size: 1.875rem;
+    @apply text-2xl font-medium text-white;
 }
 
 h5 {
-    font-size: 1.5rem;
+    @apply text-xl font-medium text-zinc-100;
 }
 
 h6 {
-    font-size: 1.25rem;
+    @apply text-lg font-medium text-zinc-100;
+}
+
+p {
+    @apply text-lg text-zinc-100;
 }

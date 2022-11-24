@@ -1,3 +1,5 @@
+import transformerDirective from '@unocss/transformer-directives'
+
 export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
@@ -16,6 +18,7 @@ export default defineNuxtConfig({
   },
   css: [
     '@unocss/reset/tailwind.css',
+    '~/assets/css/font.css',
     '~/assets/css/main.css',
   ],
   // @ts-expect-error unocss does not exist in NuxtConfig type
@@ -25,6 +28,7 @@ export default defineNuxtConfig({
     attributify: true,
     shortcuts: [],
     rules: [],
+    transformers: [transformerDirective({ enforce: 'pre' })],
   },
   headlessui: {
     prefix: 'Headless',
