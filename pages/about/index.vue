@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="mt-6">
-      <h4>Web Frameworks</h4>
+      <h4>Web Frameworks & Libraries</h4>
       <div class="grid grid-cols-3 gap-2 mt-2">
         <SkillCard name="React" logo="logos:react" :cur-level="4" :max-level="8" />
         <SkillCard name="Vue" logo="logos:vue" :cur-level="4" :max-level="8" />
@@ -44,6 +44,8 @@
         <SkillCard name="Strapi" logo="logos:strapi-icon" :cur-level="1" :max-level="3" />
         <SkillCard name="Spring" logo="logos:spring-icon" :cur-level="3" :max-level="8" />
         <SkillCard name=".NET Framework" logo="logos:dotnet" :cur-level="1" :max-level="8" />
+        <SkillCard name="Tailwind" logo="logos:tailwindcss-icon" :cur-level="2" :max-level="4" />
+        <SkillCard name="UnoCSS" logo="logos:unocss" :cur-level="2" :max-level="4" />
       </div>
     </div>
     <div class="mt-6">
@@ -62,6 +64,15 @@
         <SkillCard name="Nginx" logo="logos:nginx" :cur-level="1" :max-level="3" />
         <SkillCard name="Github Actions" logo="logos:github-octocat" :cur-level="1" :max-level="3" />
         <SkillCard name="AWS" logo="logos:aws" :cur-level="2" :max-level="8" />
+      </div>
+    </div>
+    <div class="mt-6">
+      <h4>My Current Favorite Stack</h4>
+      <div class="flex gap-x-4 mt-2">
+        <Icon name="logos:nuxt-icon" class="text-4xl" />
+        <Icon name="logos:vue" class="text-4xl" />
+        <Icon name="logos:javascript" class="text-4xl" />
+        <Icon name="logos:tailwindcss-icon" class="text-4xl" />
       </div>
     </div>
   </section>
