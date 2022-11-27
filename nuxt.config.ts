@@ -33,4 +33,10 @@ export default defineNuxtConfig({
   headlessui: {
     prefix: 'Headless',
   },
+  content: {
+    highlight: {
+      // Theme used in all color schemes.
+      theme: 'github-dark',
+    },
+  },
 })
