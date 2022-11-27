@@ -20,50 +20,50 @@
       This is my personal, opinionated view of the current skills.
     </TheAlert>
     <div class="mt-6">
-      <h4>Scripting & Programming Languages</h4>
+      <h4>Languages</h4>
       <div class="grid grid-cols-3 gap-2 mt-2">
-        <SkillCard name="HTML" logo="logos:html-5" :cur-level="2" :max-level="3" />
-        <SkillCard name="CSS" logo="logos:css-3" :cur-level="5" :max-level="8" />
-        <SkillCard name="Javascript" logo="logos:javascript" :cur-level="5" :max-level="8" />
-        <SkillCard name="Typescript" logo="logos:typescript-icon" :cur-level="1" :max-level="6" />
-        <SkillCard name="Java" logo="logos:java" :cur-level="4" :max-level="10" />
-        <SkillCard name="C" logo="logos:c" :cur-level="2" :max-level="10" />
-        <SkillCard name="Python" logo="logos:python" :cur-level="2" :max-level="8" />
+        <CardSkill name="HTML" logo="logos:html-5" :cur-level="2" :max-level="3" />
+        <CardSkill name="CSS" logo="logos:css-3" :cur-level="5" :max-level="8" />
+        <CardSkill name="Javascript" logo="logos:javascript" :cur-level="5" :max-level="8" />
+        <CardSkill name="Typescript" logo="logos:typescript-icon" :cur-level="1" :max-level="6" />
+        <CardSkill name="Java" logo="logos:java" :cur-level="4" :max-level="10" />
+        <CardSkill name="C" logo="logos:c" :cur-level="2" :max-level="10" />
+        <CardSkill name="Python" logo="logos:python" :cur-level="2" :max-level="8" />
       </div>
     </div>
     <div class="mt-6">
       <h4>Web Frameworks & Libraries</h4>
       <div class="grid grid-cols-3 gap-2 mt-2">
-        <SkillCard name="React" logo="logos:react" :cur-level="4" :max-level="8" />
-        <SkillCard name="Vue" logo="logos:vue" :cur-level="4" :max-level="8" />
-        <SkillCard name="Nuxt" logo="logos:nuxt-icon" :cur-level="2" :max-level="8" />
-        <SkillCard name="Angular" logo="logos:angular-icon" :cur-level="1" :max-level="8" />
-        <SkillCard name="Svelte" logo="logos:svelte-icon" :cur-level="2" :max-level="8" />
-        <SkillCard name="NodeJS" logo="logos:nodejs-icon" :cur-level="4" :max-level="8" />
-        <SkillCard name="Gatsby" logo="logos:gatsby" :cur-level="1" :max-level="7" />
-        <SkillCard name="Strapi" logo="logos:strapi-icon" :cur-level="1" :max-level="3" />
-        <SkillCard name="Spring" logo="logos:spring-icon" :cur-level="3" :max-level="8" />
-        <SkillCard name=".NET Framework" logo="logos:dotnet" :cur-level="1" :max-level="8" />
-        <SkillCard name="Tailwind" logo="logos:tailwindcss-icon" :cur-level="2" :max-level="4" />
-        <SkillCard name="UnoCSS" logo="logos:unocss" :cur-level="2" :max-level="4" />
+        <CardSkill name="React" logo="logos:react" :cur-level="4" :max-level="8" />
+        <CardSkill name="Vue" logo="logos:vue" :cur-level="4" :max-level="8" />
+        <CardSkill name="Nuxt" logo="logos:nuxt-icon" :cur-level="2" :max-level="8" />
+        <CardSkill name="Angular" logo="logos:angular-icon" :cur-level="1" :max-level="8" />
+        <CardSkill name="Svelte" logo="logos:svelte-icon" :cur-level="2" :max-level="8" />
+        <CardSkill name="NodeJS" logo="logos:nodejs-icon" :cur-level="4" :max-level="8" />
+        <CardSkill name="Gatsby" logo="logos:gatsby" :cur-level="1" :max-level="7" />
+        <CardSkill name="Strapi" logo="logos:strapi-icon" :cur-level="1" :max-level="3" />
+        <CardSkill name="Spring" logo="logos:spring-icon" :cur-level="3" :max-level="8" />
+        <CardSkill name=".NET Framework" logo="logos:dotnet" :cur-level="1" :max-level="8" />
+        <CardSkill name="Tailwind" logo="logos:tailwindcss-icon" :cur-level="2" :max-level="5" />
+        <CardSkill name="UnoCSS" logo="logos:unocss" :cur-level="2" :max-level="5" />
       </div>
     </div>
     <div class="mt-6">
       <h4>DBMS</h4>
       <div class="grid grid-cols-3 gap-2 mt-2">
-        <SkillCard name="MySQL" logo="logos:mysql-icon" :cur-level="3" :max-level="8" />
-        <SkillCard name="Oracle" logo="logos:oracle" :cur-level="3" :max-level="8" />
-        <SkillCard name="Postgresql" logo="logos:postgresql" :cur-level="2" :max-level="8" />
-        <SkillCard name="MongoDB" logo="logos:mongodb-icon" :cur-level="1" :max-level="8" />
+        <CardSkill name="MySQL" logo="logos:mysql-icon" :cur-level="3" :max-level="8" />
+        <CardSkill name="Oracle" logo="logos:oracle" :cur-level="3" :max-level="8" />
+        <CardSkill name="Postgresql" logo="logos:postgresql" :cur-level="2" :max-level="8" />
+        <CardSkill name="MongoDB" logo="logos:mongodb-icon" :cur-level="1" :max-level="8" />
       </div>
     </div>
     <div class="mt-6">
       <h4>DevOps & Cloud</h4>
       <div class="grid grid-cols-3 gap-2 mt-2">
-        <SkillCard name="Docker" logo="logos:docker-icon" :cur-level="2" :max-level="5" />
-        <SkillCard name="Nginx" logo="logos:nginx" :cur-level="1" :max-level="3" />
-        <SkillCard name="Github Actions" logo="logos:github-octocat" :cur-level="1" :max-level="3" />
-        <SkillCard name="AWS" logo="logos:aws" :cur-level="2" :max-level="8" />
+        <CardSkill name="Docker" logo="logos:docker-icon" :cur-level="2" :max-level="5" />
+        <CardSkill name="Nginx" logo="logos:nginx" :cur-level="1" :max-level="3" />
+        <CardSkill name="Github Actions" logo="logos:github-octocat" :cur-level="1" :max-level="3" />
+        <CardSkill name="AWS" logo="logos:aws" :cur-level="2" :max-level="8" />
       </div>
     </div>
     <div class="mt-6">

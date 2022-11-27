@@ -5,9 +5,9 @@
     <TopBar />
     <div class="max-w-[60rem] w-2/3 mx-auto">
       <NavBar />
-      <div class="mt-8">
+      <main class="mt-6">
         <slot />
-      </div>
+      </main>
       <TheFooter />
     </div>
   </div>
