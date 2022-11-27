@@ -63,7 +63,7 @@
         <CardSkill name="Docker" logo="logos:docker-icon" :cur-level="2" :max-level="5" />
         <CardSkill name="Nginx" logo="logos:nginx" :cur-level="1" :max-level="3" />
         <CardSkill name="Github Actions" logo="logos:github-octocat" :cur-level="1" :max-level="4" />
-        <CardSkill name="AWS" logo="logos:aws" :cur-level="2" :max-level="8" />
+        <CardSkill name="AWS" logo="logos:aws" :cur-level="2" :max-level="10" />
       </div>
     </div>
     <div class="mt-6">

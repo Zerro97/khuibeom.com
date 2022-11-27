@@ -8,7 +8,7 @@
     >
   </section>
   <section class="grid grid-cols-3 mt-6 gap-4">
-    <CardPost />
+    <CardPost link="intro" />
     <CardPost />
     <CardPost />
     <CardPost />

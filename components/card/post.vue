@@ -5,11 +5,12 @@ const props = defineProps({
   date: String,
   time: Number,
   image: String,
+  link: String,
 })
 </script>
 
 <template>
-  <div class="w-full rounded flex flex-col hover:bg-zinc-800 hover:cursor-pointer overflow-hidden">
+  <NuxtLink :to="`/blog/${link}`" class="w-full rounded flex flex-col hover:bg-zinc-800 hover:cursor-pointer overflow-hidden">
     <div class="relative">
       <img v-if="image" src="">
       <div v-else class="bg-violet-500 w-full h-[110px]" />
@@ -37,5 +38,5 @@ const props = defineProps({
         Description
       </p>
     </div>
-  </div>
+  </NuxtLink>
 </template>
