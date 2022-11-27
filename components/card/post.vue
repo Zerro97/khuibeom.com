@@ -13,6 +13,9 @@ const props = defineProps({
     <div class="relative">
       <img v-if="image" src="">
       <div v-else class="bg-violet-500 w-full h-[110px]" />
+      <div class="absolute top-0 ml-4 mt-2">
+        <TagPost />
+      </div>
       <div class="absolute bottom-0 bg-zinc-800 rounded p-2 ml-4 translate-y-1/4 border border-zinc-700">
         <Icon name="logos:vitest" class="text-3xl" />
       </div>

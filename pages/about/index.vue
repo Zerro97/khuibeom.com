@@ -62,7 +62,7 @@
       <div class="grid grid-cols-3 gap-2 mt-2">
         <CardSkill name="Docker" logo="logos:docker-icon" :cur-level="2" :max-level="5" />
         <CardSkill name="Nginx" logo="logos:nginx" :cur-level="1" :max-level="3" />
-        <CardSkill name="Github Actions" logo="logos:github-octocat" :cur-level="1" :max-level="3" />
+        <CardSkill name="Github Actions" logo="logos:github-octocat" :cur-level="1" :max-level="4" />
         <CardSkill name="AWS" logo="logos:aws" :cur-level="2" :max-level="8" />
       </div>
     </div>
