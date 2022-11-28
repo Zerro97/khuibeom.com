@@ -1,6 +1,8 @@
 <template>
-  <ContentDoc v-slot="{ doc }">
-    <h1>{{ doc.title }}</h1>
-    <ContentRenderer :value="doc" />
-  </ContentDoc>
+  <article class="prose">
+    <ContentDoc v-slot="{ doc }">
+      <h1>{{ doc.title }}</h1>
+      <ContentRenderer :value="doc" />
+    </ContentDoc>
+  </article>
 </template>
