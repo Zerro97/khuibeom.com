@@ -20,7 +20,6 @@
     "@nuxt/content": "^2.2.2",
     "@nuxt/test-utils-edge": "3.0.1-rc.0-27817270.4f2bfbe",
     "@unocss/nuxt": "^0.46.5",
-    "@unocss/preset-typography": "^0.46.5",
     "@unocss/reset": "^0.46.5",
     "@unocss/transformer-directives": "^0.46.5",
     "commitizen": "^4.2.5",

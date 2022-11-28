@@ -21,6 +21,9 @@ export default defineNuxtConfig({
     '~/assets/css/font.css',
     '~/assets/css/main.css',
   ],
+  nitro: {
+    serveStatic: true,
+  },
   // @ts-expect-error unocss does not exist in NuxtConfig type
   unocss: {
     uno: true,
@@ -37,10 +40,6 @@ export default defineNuxtConfig({
     highlight: {
       // Theme used in all color schemes.
       theme: 'github-dark',
-    },
-    anchorLinks: {
-      depth: 5,
-      exclude: [],
     },
   },
 })

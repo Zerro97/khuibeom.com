@@ -21,14 +21,6 @@ export default defineComponent({
     },
   },
 })
-
-function copy() {
-  navigator.clipboard.writeText('TEST')
-}
-
-function alert() {
-  alert('test')
-}
 </script>
 
 <template>
@@ -39,12 +31,7 @@ function alert() {
           {{ language }}
         </p>
       </div>
-      <button
-        class="absolute px-2 py-1 border rounded top-2 right-2 border-zinc-700 w-max hover:bg-zinc-700 hover:cursor-pointer"
-        @click="alert"
-      >
-        <Icon name="mdi:content-copy" />
-      </button>
+      <ButtonCopy />
     </div>
     <div class="px-5 py-2">
       <slot />
