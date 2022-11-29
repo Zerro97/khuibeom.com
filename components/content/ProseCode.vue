@@ -31,7 +31,7 @@ export default defineComponent({
           {{ language }}
         </p>
       </div>
-      <ButtonCopy />
+      <ButtonCopy :content="code" />
     </div>
     <div class="px-5 py-2">
       <slot />
