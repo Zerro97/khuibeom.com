@@ -32,9 +32,6 @@ const tabs = ref([{
       <NuxtLink to="https://github.com/Zerro97" class="p-1">
         <Icon name="mdi:github-face" class="text-3xl text-zinc-300 hover:text-zinc-100" />
       </NuxtLink>
-      <NuxtLink to="https://www.linkedin.com/in/hui-beom-kim-4a0849165/" class="p-1">
-        <Icon name="mdi:linkedin" class="text-3xl text-zinc-300 hover:text-zinc-100" />
-      </NuxtLink>
     </div>
   </div>
 </template>
