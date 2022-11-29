@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   logo: String
-  size: 'lg' | 'base'
+  size?: 'lg' | 'base'
 }>()
 </script>
 

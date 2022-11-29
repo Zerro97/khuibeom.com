@@ -1,10 +1,10 @@
 ---
 date: 2022-11-30
 title: 'Vitest: Getting Started With Javascript Testing'
-banner: '~/assets/images/profile.jpg'
+banner: '/images/banners/post-1.jpg'
 icon: 'logos:vitest'
 time: 4
-slug: getting-started-with-git
+slug: vitest-getting-started-with-javascript-testing
 categories:
   - Tools
 tags:

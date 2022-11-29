@@ -13,7 +13,7 @@ const print = (test) => {
         <div class="relative mb-6">
           <nuxt-img
             v-if="doc.banner"
-            src="/images/banners/post-1.jpg"
+            :src="doc.banner"
             sizes="sm:400px md:600px lg:700px"
             class="w-full h-[300px] object-cover rounded"
           />
