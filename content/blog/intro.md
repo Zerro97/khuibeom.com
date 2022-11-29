@@ -1,8 +1,8 @@
 ---
-date: 2015-09-24
+date: 2022-11-30
 title: 'Getting Started with Git'
-template: post
-thumbnail: '../thumbnails/git.png'
+banner: '~/assets/images/profile.jpg'
+icon: 'logos:vitest'
 slug: getting-started-with-git
 categories:
   - Tools

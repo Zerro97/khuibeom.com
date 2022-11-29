@@ -18,6 +18,7 @@
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
     "@nuxt/content": "^2.2.2",
+    "@nuxt/image-edge": "1.0.0-27827328.bc9ddc0",
     "@nuxt/test-utils-edge": "3.0.1-rc.0-27817270.4f2bfbe",
     "@unocss/nuxt": "^0.46.5",
     "@unocss/reset": "^0.46.5",
