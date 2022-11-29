@@ -3,6 +3,7 @@ import transformerDirective from '@unocss/transformer-directives'
 export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
+    '@nuxt/image-edge',
     'nuxt-icon',
     'nuxt-headlessui',
     '@unocss/nuxt',

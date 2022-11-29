@@ -17,7 +17,7 @@
   <section class="flex flex-col mt-20">
     <h2>My Skill Sets</h2>
     <TheAlert class="mt-3">
-      This is my personal, opinionated view of the current skills.
+      This is a personal, opinionated view of my current skills.
     </TheAlert>
     <div class="mt-6">
       <h4>Languages</h4>
@@ -68,7 +68,7 @@
     </div>
     <div class="mt-6">
       <h4>My Current Favorite Stack</h4>
-      <div class="flex gap-x-4 mt-2">
+      <div class="flex mt-2 gap-x-4">
         <Icon name="logos:nuxt-icon" class="text-4xl" />
         <Icon name="logos:vue" class="text-4xl" />
         <Icon name="logos:javascript" class="text-4xl" />
