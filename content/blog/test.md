@@ -1,16 +1,16 @@
 ---
 date: 2022-11-30
-title: 'Vitest: Getting Started With Javascript Testing'
+title: 'Test'
 description: 'An introduction to javascript testing using Vitest'
 banner: '/images/banners/post-1.jpg'
 icon: 'logos:vitest'
 time: 4
-slug: vitest-getting-started-with-javascript-testing
-category: Tools
+slug: test
+category: Front End
 tags:
   - git
-  - setup
-  - version control
+  - testing
+  - react
 ---
 
 ## Introduction
