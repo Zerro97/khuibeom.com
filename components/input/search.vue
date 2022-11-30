@@ -44,8 +44,8 @@ watch([searchWord, tags, categories], () => {
 </script>
 
 <template>
-  <div class="flex items-center w-full mt-5 border rounded bg-zinc-800 border-zinc-700">
-    <div :class="`flex ${Object.keys(tokens).length && 'ml-1'} gap-x-1`">
+  <div class="flex items-center w-full mt-5 overflow-auto border rounded bg-zinc-800 border-zinc-700">
+    <div :class="`flex ${Object.keys(tokens).length && 'ml-1'} gap-x-1 gap-y-1 py-1`">
       <InputToken
         v-for="(value, key) in tokens"
         :key="key"
@@ -57,7 +57,7 @@ watch([searchWord, tags, categories], () => {
     </div>
     <input
       v-model="searchWord"
-      class="w-full h-full px-4 py-2 bg-zinc-800"
+      class="w-full min-w-[240px] h-full px-4 py-2 shrink bg-zinc-800"
       type="text"
       placeholder="Search"
     >

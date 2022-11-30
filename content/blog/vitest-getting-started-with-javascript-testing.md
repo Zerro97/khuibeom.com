@@ -12,6 +12,7 @@ tags:
   - git
   - setup
   - version control
+  - version control control control
 ---
 
 ## Introduction
