@@ -5,7 +5,7 @@ const props = defineProps({
   title: String,
   description: String,
   tags: Array,
-  category: String,
+  categories: Array,
   date: String,
   time: Number,
   banner: String,
@@ -32,15 +32,19 @@ const props = defineProps({
       <p class="text-base font-medium text-zinc-400">
         {{ format(parseISO(date), 'MMMM dd, yyyy') }}
       </p>
-      <div class="flex items-center mt-1 gap-x-1">
-        <Icon name="mdi:clock-time-eight-outline" class="text-lg" />
-        <p class="mr-3 text-sm">
-          {{ time }} min read
-        </p>
-        <Icon name="mdi:tag-outline" class="text-lg" />
-        <p class="text-sm">
-          {{ category }}
-        </p>
+      <div class="flex mt-1 gap-x-3">
+        <div class="flex items-center gap-x-1">
+          <Icon name="mdi:clock-time-eight-outline" class="text-lg" />
+          <p class="text-sm">
+            {{ time }} min read
+          </p>
+        </div>
+        <div v-for="category in categories" :key="category" class="flex items-center gap-x-1">
+          <Icon name="mdi:tag-outline" class="text-lg" />
+          <p class="text-sm">
+            {{ category }}
+          </p>
+        </div>
       </div>
       <p class="mt-3 text-base text-zinc-400">
         {{ description }}

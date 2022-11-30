@@ -5,55 +5,45 @@ const {
   extractCategories,
 } = useFilterPost()
 
-// Original List
+// Post
 const posts = usePosts()
+const selectedPosts = useSelectedPosts()
+
+// Filter
 const tags = useTags()
 const categories = useCategories()
-
-// Filtered List
 const searchWord = useSearchWord()
-const selectedTags = useSelectedTags()
-const selectedCategories = useSelectedCategories()
-const selectedPosts = useSelectedPosts()
 
 // Init Lists
 onMounted(async () => {
   posts.value = await queryContent('blog').find()
+  selectedPosts.value = posts.value
+
   extractTags()
   extractCategories()
-
   searchWord.value = ''
-  selectedTags.value = []
-  selectedCategories.value = []
-  selectedPosts.value = posts.value
 })
 
 // Filter Functions
-const filterTag = (tag: String) => {
-  if (selectedTags.value.includes(tag))
-    selectedTags.value = [...selectedTags.value.filter(selectedTag => selectedTag !== tag)]
-  else
-    selectedTags.value = [...selectedTags.value, tag]
+const filterTag = (tag: string) => {
+  tags.value[tag] = !tags.value[tag]
 }
 
-const filterCategory = (category: String) => {
-  if (selectedTags.value.includes(category))
-    selectedCategories.value = [...selectedCategories.value.filter(selectedCategory => selectedCategory !== category)]
-  else
-    selectedCategories.value = [...selectedCategories.value, category]
+const filterCategory = (category: string) => {
+  categories.value[category] = !categories.value[category]
 }
 
 // Whenever tag, category, search changes, filter the posts
-watch([searchWord, selectedTags, selectedCategories], () => {
+watch([searchWord, tags, categories], () => {
   filter()
-})
+}, { deep: true })
 </script>
 
 <template>
   <section>
     <h1>Blog</h1>
     <input
-      v-model="search"
+      v-model="searchWord"
       class="w-full px-4 py-2 mt-5 border rounded bg-zinc-800 border-zinc-700"
       type="text"
       placeholder="Search"
@@ -74,23 +64,23 @@ watch([searchWord, selectedTags, selectedCategories], () => {
       <HeadlessTabPanels>
         <HeadlessTabPanel class="flex gap-x-2">
           <button
-            v-for="tag in tags"
-            :key="tag"
-            class="px-3 rounded bg-zinc-800 w-max"
-            @click="filterTag(tag)"
+            v-for="(value, key) in tags"
+            :key="key"
+            :class="`${value && 'text-violet-400'} bg-zinc-800 px-3 rounded w-max`"
+            @click="filterTag(key)"
           >
-            {{ tag }}
+            {{ key }}
           </button>
         </HeadlessTabPanel>
         <HeadlessTabPanel class="flex gap-x-2">
-          <div
-            v-for="category in categories"
-            :key="category"
-            class="px-3 rounded bg-zinc-800 w-max"
-            @click="filterCategory(category)"
+          <button
+            v-for="(value, key) in categories"
+            :key="key"
+            :class="`${value && 'text-violet-400'} bg-zinc-800 px-3 rounded w-max`"
+            @click="filterCategory(key)"
           >
-            <p>{{ category }}</p>
-          </div>
+            {{ key }}
+          </button>
         </HeadlessTabPanel>
       </HeadlessTabPanels>
     </HeadlessTabGroup>
@@ -101,7 +91,7 @@ watch([searchWord, selectedTags, selectedCategories], () => {
       v-for="post in selectedPosts"
       :key="post.slug"
       :tags="post.tags"
-      :category="post.category"
+      :categories="post.categories"
       :title="post.title"
       :description="post.description"
       :date="post.date"

@@ -1,28 +1,39 @@
 export const usePosts = () => useState<any[]>('posts', () => [])
-export const useTags = () => useState<String[]>('tags', () => [])
-export const useCategories = () => useState<String[]>('categories', () => [])
-
 export const useSelectedPosts = () => useState<any[]>('selectedPosts', () => [])
-export const useSelectedTags = () => useState<String[]>('selectedTags', () => [])
-export const useSelectedCategories = () => useState<String[]>('selectedCategories', () => [])
+
+export const useTags = () => useState<{ [key: string]: Boolean }>('tags')
+export const useCategories = () => useState<{ [key: string]: Boolean }>('categories')
 export const useSearchWord = () => useState<String>('searchWord', () => '')
 
 export const useFilterPost = () => {
   const postContainsTag = (post: any) => {
-    const selectedTags = useSelectedTags()
+    const tags = useTags()
 
-    if (!selectedTags.value.length)
+    // If every tags are not selected, return true
+    if (Object.values(tags.value).every(tag => tag === false))
       return true
 
-    return selectedTags.value.every(tag => post.tags.includes(tag))
+    // Check if given post contains all of the selected tag
+    return Object.entries(tags.value).every(([key, value]) => {
+      if (!value)
+        return true
+      return post.tags.includes(key)
+    })
   }
 
   const postContainsCategory = (post: any) => {
-    const selectedCategories = useSelectedCategories()
+    const categories = useCategories()
 
-    if (!selectedCategories.value.length)
+    // If every tags are not selected, return true
+    if (Object.values(categories.value).every(category => category === false))
       return true
-    return selectedCategories.value.every(category => post.categories.includes(category))
+
+    // Check if given post contains all of the selected tag
+    return Object.entries(categories.value).every(([key, value]) => {
+      if (!value)
+        return true
+      return post.categories.includes(key)
+    })
   }
 
   const postContainsSearch = (post: any) => {
@@ -55,21 +66,17 @@ export const useFilterPost = () => {
    * @param posts
    * @returns
    */
-  const extractTags = (): String[] => {
+  const extractTags = (): { [key: string]: Boolean } => {
     const posts = usePosts()
     const tags = useTags()
 
     // Extract tags from the post objet
-    const tagSet = posts.value.reduce((acc, post) => {
-      post.tags.forEach((tag: String) => {
-        acc.add(tag)
+    tags.value = posts.value.reduce((acc, post) => {
+      post.tags.forEach((tag: string) => {
+        acc[tag] = false
       })
       return acc
-    }, new Set())
-
-    // Convert tag set to tag array
-    const tagArray: String[] = Array.from(tagSet)
-    tags.value = tagArray.sort()
+    }, {})
 
     return tags.value
   }
@@ -79,21 +86,17 @@ export const useFilterPost = () => {
    * @param posts
    * @returns
    */
-  const extractCategories = (): String[] => {
+  const extractCategories = (): { [key: string]: Boolean } => {
     const posts = usePosts()
     const categories = useCategories()
 
-    // Extract category from the post objet
-    const categorySet = posts.value.reduce((acc, post) => {
-      post.categories.forEach((category: String) => {
-        acc.add(category)
+    // Extract tags from the post objet
+    categories.value = posts.value.reduce((acc, post) => {
+      post.categories.forEach((category: string) => {
+        acc[category] = false
       })
       return acc
-    }, new Set())
-
-    // Convert category set to category array
-    const categoryArray: String[] = Array.from(categorySet)
-    categories.value = categoryArray.sort()
+    }, {})
 
     return categories.value
   }

@@ -8,6 +8,7 @@ time: 4
 slug: test
 categories: 
   - Front End
+  - Back End
 tags:
   - git
   - testing
