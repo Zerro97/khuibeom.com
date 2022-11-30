@@ -20,12 +20,14 @@ import { format, parseISO } from 'date-fns'
           {{ doc.title }}
         </h1>
         <p class="text-zinc-400">
-          {{ format(parseISO(doc.date), 'MMMM dd, yyyy') }}
+          {{ format(parseISO(doc.from_date), 'MMMM yyyy') }}
+          ~
+          {{ doc.to_date.toLowerCase() === 'present' ? doc.to_date : format(parseISO(doc.to_date), 'MMMM yyyy') }}
         </p>
-        <div class="flex items-center mt-4 mb-2 gap-x-2">
-          <Icon name="mdi:clock-time-two-outline" />
+        <div class="flex items-center mt-1 mb-2 gap-x-2">
+          <Icon name="mdi:human-male-male" />
           <p class="text-base text-zinc-200">
-            {{ doc.time }} min read
+            {{ doc.team === 1 ? 'Solo' : doc.team }}
           </p>
         </div>
         <LineBreak class="mt-1" />
