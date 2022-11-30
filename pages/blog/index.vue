@@ -2,29 +2,36 @@
 const {
   getTags,
   getCategories,
-  filterByCategory,
-  filterBySearch,
-  filterByTag,
+  filter,
 } = useFilterPost()
 
 // Original List
-const articles = await queryContent('blog').find()
-const tags: String[] = getTags(articles)
-const categories = getCategories(articles)
+const posts = await queryContent('blog').find()
+const tags: String[] = getTags(posts)
+const categories: String[] = getCategories(posts)
 
 // Filter Ref
-const search = ref()
-const selectedTag = ref()
-const selectedCategory = ref()
-const selectedArticle = ref()
+const search = ref<String>()
+const selectedTags = ref<String[]>([])
+const selectedCategories = ref<String[]>([])
+const selectedPosts = ref<any[]>(posts)
 
 // Filter Functions
 const filterTag = (tag: String) => {
-  selectedTag.value = tag
-  selectedArticle.value = filterByTag(articles, tag)
+  if (selectedTags.value.includes(tag))
+    selectedTags.value = [...selectedTags.value.filter(selectedTag => selectedTag !== tag)]
+  else
+    selectedTags.value = [...selectedTags.value, tag]
 }
-const filterCategory = ref()
-const filterArticle = ref()
+const filterCategory = (category: String) => {
+  if (selectedTags.value.includes(category))
+    selectedCategories.value = [...selectedCategories.value.filter(selectedCategory => selectedCategory !== category)]
+  else
+    selectedCategories.value = [...selectedCategories.value, category]
+}
+watch([search, selectedTags, selectedCategories], () => {
+  selectedPosts.value = filter(posts, selectedTags.value, selectedCategories.value, search.value)
+})
 </script>
 
 <template>
@@ -39,14 +46,14 @@ const filterArticle = ref()
     <HeadlessTabGroup>
       <HeadlessTabList class="flex mt-2 mb-3 gap-x-4">
         <HeadlessTab v-slot="{ selected }">
-          <button :class="`${selected && 'text-violet-400'} text-lg`">
+          <p :class="`${selected && 'text-violet-400 border-b-2 border-violet-400'} text-lg`">
             Tags
-          </button>
+          </p>
         </HeadlessTab>
         <HeadlessTab v-slot="{ selected }">
-          <button :class="`${selected && 'text-violet-400'} text-lg`">
+          <p :class="`${selected && 'text-violet-400 border-b-2 border-violet-400'} text-lg`">
             Categories
-          </button>
+          </p>
         </HeadlessTab>
       </HeadlessTabList>
       <HeadlessTabPanels>
@@ -65,6 +72,7 @@ const filterArticle = ref()
             v-for="category in categories"
             :key="category"
             class="px-3 rounded bg-zinc-800 w-max"
+            @click="filterCategory(category)"
           >
             <p>{{ category }}</p>
           </div>
@@ -75,16 +83,16 @@ const filterArticle = ref()
   </section>
   <section class="grid grid-cols-2 gap-4 mt-6">
     <CardPost
-      v-for="article in articles"
-      :key="article.slug"
-      :tags="article.tags"
-      :category="article.category"
-      :title="article.title"
-      :description="article.description"
-      :date="article.date"
-      :time="article.time"
-      :banner="article.banner"
-      :link="article.slug"
+      v-for="post in selectedPosts"
+      :key="post.slug"
+      :tags="post.tags"
+      :category="post.category"
+      :title="post.title"
+      :description="post.description"
+      :date="post.date"
+      :time="post.time"
+      :banner="post.banner"
+      :link="post.slug"
     />
   </section>
 </template>

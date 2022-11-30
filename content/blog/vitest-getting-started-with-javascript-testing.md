@@ -6,7 +6,8 @@ banner: '/images/banners/post-1.jpg'
 icon: 'logos:vitest'
 time: 4
 slug: vitest-getting-started-with-javascript-testing
-category: Tools
+categories:
+  - Tools
 tags:
   - git
   - setup

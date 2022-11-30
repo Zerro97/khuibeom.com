@@ -6,7 +6,8 @@ banner: '/images/banners/post-1.jpg'
 icon: 'logos:vitest'
 time: 4
 slug: test
-category: Front End
+categories: 
+  - Front End
 tags:
   - git
   - testing
