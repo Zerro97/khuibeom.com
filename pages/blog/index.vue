@@ -12,7 +12,6 @@ const selectedPosts = useSelectedPosts()
 // Filter
 const tags = useTags()
 const categories = useCategories()
-const searchWord = useSearchWord()
 
 // Init Lists
 onMounted(async () => {
@@ -21,7 +20,6 @@ onMounted(async () => {
 
   extractTags()
   extractCategories()
-  searchWord.value = ''
 })
 
 // Filter Functions
@@ -34,7 +32,7 @@ const filterCategory = (category: string) => {
 }
 
 // Whenever tag, category, search changes, filter the posts
-watch([searchWord, tags, categories], () => {
+watch([tags, categories], () => {
   filter()
 }, { deep: true })
 </script>
@@ -42,12 +40,7 @@ watch([searchWord, tags, categories], () => {
 <template>
   <section>
     <h1>Blog</h1>
-    <input
-      v-model="searchWord"
-      class="w-full px-4 py-2 mt-5 border rounded bg-zinc-800 border-zinc-700"
-      type="text"
-      placeholder="Search"
-    >
+    <InputSearch />
     <HeadlessTabGroup>
       <HeadlessTabList class="flex mt-2 mb-3 gap-x-4">
         <HeadlessTab v-slot="{ selected }">

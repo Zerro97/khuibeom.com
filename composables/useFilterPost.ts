@@ -41,7 +41,8 @@ export const useFilterPost = () => {
 
     if (!searchWord.value)
       return true
-    return post.title.includes(searchWord.value) || post.description.includes(searchWord.value)
+    return post.title.toLowerCase().includes(searchWord.value.toLocaleLowerCase())
+      || post.description.toLowerCase().includes(searchWord.value.toLowerCase())
   }
 
   /**
