@@ -18,7 +18,7 @@ const print = (test) => {
             class="w-full h-[300px] object-cover rounded"
           />
           <div v-else class="w-full h-[300px] bg-violet-500 rounded mb-4" />
-          <CardIcon size="lg" logo="logos:vitest" class="absolute bottom-0 left-4 translate-y-1/4" />
+          <CardIcon size="lg" :logo="doc.icon" class="absolute bottom-0 left-4 translate-y-1/4" />
         </div>
         <h1 class="text-4xl">
           {{ doc.title }}
