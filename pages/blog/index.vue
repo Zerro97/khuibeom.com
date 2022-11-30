@@ -1,20 +1,32 @@
 <script setup lang="ts">
 const {
-  getTags,
-  getCategories,
   filter,
+  extractTags,
+  extractCategories,
 } = useFilterPost()
 
 // Original List
-const posts = await queryContent('blog').find()
-const tags: String[] = getTags(posts)
-const categories: String[] = getCategories(posts)
+const posts = usePosts()
+const tags = useTags()
+const categories = useCategories()
 
-// Filter Ref
-const search = ref<String>()
-const selectedTags = ref<String[]>([])
-const selectedCategories = ref<String[]>([])
-const selectedPosts = ref<any[]>(posts)
+// Filtered List
+const searchWord = useSearchWord()
+const selectedTags = useSelectedTags()
+const selectedCategories = useSelectedCategories()
+const selectedPosts = useSelectedPosts()
+
+// Init Lists
+onMounted(async () => {
+  posts.value = await queryContent('blog').find()
+  extractTags()
+  extractCategories()
+
+  searchWord.value = ''
+  selectedTags.value = []
+  selectedCategories.value = []
+  selectedPosts.value = posts.value
+})
 
 // Filter Functions
 const filterTag = (tag: String) => {
@@ -23,14 +35,17 @@ const filterTag = (tag: String) => {
   else
     selectedTags.value = [...selectedTags.value, tag]
 }
+
 const filterCategory = (category: String) => {
   if (selectedTags.value.includes(category))
     selectedCategories.value = [...selectedCategories.value.filter(selectedCategory => selectedCategory !== category)]
   else
     selectedCategories.value = [...selectedCategories.value, category]
 }
-watch([search, selectedTags, selectedCategories], () => {
-  selectedPosts.value = filter(posts, selectedTags.value, selectedCategories.value, search.value)
+
+// Whenever tag, category, search changes, filter the posts
+watch([searchWord, selectedTags, selectedCategories], () => {
+  filter()
 })
 </script>
 

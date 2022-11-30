@@ -12,7 +12,7 @@ This repository is based off [nuxt boilerplate](https://github.com/Zerro97/nuxt-
 -   [x] 💨 UnoCSS
 -   [x] 🗂 Icon Components ([Nuxt Icons](https://github.com/nuxt-modules/icon))
 -   [x] 📚 Content Management ([Nuxt Content](https://content.nuxtjs.org/))
--   [ ] ✨ Headless UI
+-   [x] ✨ Headless UI
 
 ## Notes 👌
 - This repository is MIT licensed. Feel free to use 😄
