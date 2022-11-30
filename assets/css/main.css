@@ -1,8 +1,8 @@
+/* GLOBAL */
 :root {
     color-scheme: dark;
 }
   
-
 html {
     scroll-behavior: smooth;
 }
@@ -12,7 +12,6 @@ body {
     font-family: "SUIT";
 }
 
-/* TYPOGRAPHY */
 h1 {
     @apply text-5xl font-bold text-white;
 }
@@ -38,8 +37,19 @@ h6 {
 }
 
 p,
-a,
 ul,
 ol {
     @apply text-lg text-zinc-100;
+}
+
+ul {
+    @apply list-disc list-inside;
+}
+
+ol {
+    @apply list-decimal list-inside;
+}
+
+strong {
+    @apply font-bold;
 }
