@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { format, parseISO } from 'date-fns'
+
+const renderer = ref()
 </script>
 
 <template>
@@ -13,7 +15,7 @@ import { format, parseISO } from 'date-fns'
             sizes="sm:400px md:600px lg:700px"
             class="w-full h-[300px] object-cover rounded"
           />
-          <div v-else class="w-full h-[300px] bg-violet-500 rounded mb-4" />
+          <div v-else class="w-full h-[300px] bg-violet-500 rounded" />
           <CardIcon size="lg" :logo="doc.icon" class="absolute bottom-0 left-4 translate-y-1/4" />
         </div>
         <h1 class="text-4xl">
@@ -27,12 +29,17 @@ import { format, parseISO } from 'date-fns'
         <div class="flex items-center mt-1 mb-2 gap-x-2">
           <Icon name="mdi:human-male-male" />
           <p class="text-base text-zinc-200">
-            {{ doc.team === 1 ? 'Solo' : doc.team }}
+            {{ doc.team }}
           </p>
         </div>
         <LineBreak class="mt-1" />
       </section>
-      <ContentRenderer class="first:m-0" :value="doc" />
+      <div class="flex gap-x-2">
+        <ContentRenderer ref="renderer" class="first:m-0" :value="doc" />
+        <ClientOnly>
+          <TableOfContent :post="doc" :renderer="renderer" />
+        </ClientOnly>
+      </div>
     </ContentDoc>
   </article>
 </template>

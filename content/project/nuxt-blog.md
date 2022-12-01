@@ -5,6 +5,7 @@ to_date: 'Present'
 title: 'khuibeom.com'
 description: 'The source of this website.'
 image: '/images/projects/slmed.png'
+icon: 'mdi:web'
 slug: nuxt-blog
 livelink: ''
 repo: 'https://github.com/Zerro97/nuxt-blog'

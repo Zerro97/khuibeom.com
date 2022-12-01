@@ -12,7 +12,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="flex flex-col justify-between p-4 rounded bg-zinc-800">
+  <div class="flex flex-col justify-between p-4 border rounded border-zinc-700 hover:bg-zinc-800">
     <div class="flex flex-col">
       <div class="flex justify-between">
         <div>
