@@ -90,6 +90,7 @@ watch([tags, categories], () => {
       :date="post.date"
       :time="post.time"
       :banner="post.banner"
+      :icon="post.icon"
       :link="post.slug"
     />
   </section>

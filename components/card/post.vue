@@ -9,6 +9,7 @@ const props = defineProps({
   date: String,
   time: Number,
   banner: String,
+  icon: String,
   link: String,
 })
 </script>
@@ -23,7 +24,7 @@ const props = defineProps({
           {{ tag }}
         </TagPost>
       </div>
-      <CardIcon logo="logos:vitest" class="absolute bottom-0 left-4 translate-y-1/4" />
+      <CardIcon :logo="icon" class="absolute bottom-0 left-4 translate-y-1/4" />
     </div>
     <div class="p-4 mt-1">
       <h5 class="font-bold">
