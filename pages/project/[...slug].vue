@@ -34,7 +34,7 @@ const renderer = ref()
         </div>
         <LineBreak class="mt-1" />
       </section>
-      <div class="flex gap-x-4">
+      <div class="flex gap-x-6 document-article">
         <ContentRenderer class="w-full first:m-0" :value="doc" />
         <!-- <ClientOnly> -->
         <TableOfContent />
