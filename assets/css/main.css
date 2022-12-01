@@ -39,7 +39,7 @@ h6 {
 p,
 ul,
 ol {
-    @apply text-lg text-zinc-100;
+    @apply text-lg text-zinc-200;
 }
 
 ul {

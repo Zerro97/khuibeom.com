@@ -34,11 +34,11 @@ const renderer = ref()
         </div>
         <LineBreak class="mt-1" />
       </section>
-      <div class="flex gap-x-2">
-        <ContentRenderer ref="renderer" class="first:m-0" :value="doc" />
-        <ClientOnly>
-          <TableOfContent :post="doc" :renderer="renderer" />
-        </ClientOnly>
+      <div class="flex gap-x-4">
+        <ContentRenderer class="w-full first:m-0" :value="doc" />
+        <!-- <ClientOnly> -->
+        <TableOfContent />
+        <!-- </ClientOnly> -->
       </div>
     </ContentDoc>
   </article>

@@ -30,7 +30,12 @@ import { format, parseISO } from 'date-fns'
         </div>
         <LineBreak class="mt-1" />
       </section>
-      <ContentRenderer class="first:m-0" :value="doc" />
+      <div class="relative flex gap-x-4">
+        <ContentRenderer class="w-full first:m-0" :value="doc" />
+        <!-- <ClientOnly> -->
+        <TableOfContent />
+        <!-- </ClientOnly> -->
+      </div>
     </ContentDoc>
   </article>
 </template>

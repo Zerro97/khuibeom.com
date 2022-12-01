@@ -24,7 +24,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="my-2 rounded bg-zinc-800">
+  <div class="my-4 rounded bg-zinc-800">
     <div v-if="language" class="relative px-5">
       <div class="px-4 py-0 border border-t-0 rounded w-max border-zinc-700">
         <p class="text-violet-400">

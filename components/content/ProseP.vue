@@ -1,5 +1,5 @@
 <template>
-  <p class="mb-3 text-zinc-100">
+  <p class="mt-2 text-zinc-300">
     <slot />
   </p>
 </template>
