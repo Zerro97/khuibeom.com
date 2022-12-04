@@ -73,7 +73,7 @@
           <Icon name="logos:nuxt-icon" class="text-4xl" />
           <Icon name="logos:vue" class="text-4xl" />
           <Icon name="logos:javascript" class="text-4xl" />
-          <Icon name="logos:tailwindcss-icon" class="text-4xl" />
+          <Icon name="logos:unocss" class="text-4xl" />
         </div>
       </div>
     </section>
