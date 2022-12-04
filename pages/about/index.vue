@@ -33,7 +33,7 @@
         </div>
       </div>
       <div class="mt-6">
-        <h4>Web Frameworks & Libraries</h4>
+        <h4>Web Frameworks/Libraries</h4>
         <div class="grid grid-cols-3 gap-2 mt-2">
           <CardSkill name="React" logo="logos:react" :cur-level="4" :max-level="8" />
           <CardSkill name="Vue" logo="logos:vue" :cur-level="4" :max-level="8" />
@@ -70,10 +70,38 @@
       <div class="mt-6">
         <h4>My Current Favorite Stack</h4>
         <div class="flex mt-2 gap-x-4">
-          <Icon name="logos:nuxt-icon" class="text-4xl text-zinc-500" />
-          <Icon name="logos:vue" class="text-4xl" />
-          <Icon name="logos:javascript" class="text-4xl" />
-          <Icon name="logos:unocss" class="text-4xl" />
+          <TheTooltip>
+            <template #trigger>
+              <Icon name="logos:nuxt-icon" class="text-4xl text-zinc-500" />
+            </template>
+            <template #tooltip>
+              <p>Nuxt 3</p>
+            </template>
+          </TheTooltip>
+          <TheTooltip>
+            <template #trigger>
+              <Icon name="logos:vue" class="text-4xl" />
+            </template>
+            <template #tooltip>
+              <p>Vue 3</p>
+            </template>
+          </TheTooltip>
+          <TheTooltip>
+            <template #trigger>
+              <Icon name="logos:javascript" class="text-4xl" />
+            </template>
+            <template #tooltip>
+              <p>Javascript</p>
+            </template>
+          </TheTooltip>
+          <TheTooltip>
+            <template #trigger>
+              <Icon name="logos:unocss" class="text-4xl" />
+            </template>
+            <template #tooltip>
+              <p>UnoCSS</p>
+            </template>
+          </TheTooltip>
         </div>
       </div>
     </section>
