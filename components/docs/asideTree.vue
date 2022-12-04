@@ -19,7 +19,6 @@ const props = defineProps({
 const route = useRoute()
 
 const isActive = (link: any) => {
-  console.log(route.path, link._path, route.path === link._path)
   return route.path === link._path
 }
 
