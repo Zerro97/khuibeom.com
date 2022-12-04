@@ -8,9 +8,13 @@ const tabs = ref([{
   link: '/blog',
   id: 2,
 }, {
+  label: 'Docs',
+  link: '/docs',
+  id: 3,
+}, {
   label: 'Projects',
   link: '/project',
-  id: 3,
+  id: 4,
 }])
 </script>
 
