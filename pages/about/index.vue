@@ -70,7 +70,7 @@
       <div class="mt-6">
         <h4>My Current Favorite Stack</h4>
         <div class="flex mt-2 gap-x-4">
-          <Icon name="logos:nuxt-icon" class="text-4xl" />
+          <Icon name="logos:nuxt-icon" class="text-4xl text-zinc-500" />
           <Icon name="logos:vue" class="text-4xl" />
           <Icon name="logos:javascript" class="text-4xl" />
           <Icon name="logos:unocss" class="text-4xl" />

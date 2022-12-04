@@ -15,7 +15,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <NuxtLink :to="`/blog/${link}`" class="flex flex-col w-full overflow-hidden border rounded border-zinc-700 hover:bg-zinc-800 hover:cursor-pointer">
+  <NuxtLink :to="`/blog/${link}`" class="flex flex-col w-full overflow-hidden border rounded border-zinc-700 bg-zinc-900 hover:bg-zinc-800 hover:cursor-pointer">
     <div class="relative">
       <nuxt-img v-if="banner" :src="banner" class="object-cover w-full h-[140px]" />
       <div v-else class="bg-violet-500 w-full h-[140px]" />
