@@ -5,11 +5,13 @@
     <TopBar />
     <div class="lg:w-[64rem] md:w-full px-10 mx-auto">
       <NavBar />
-      <main class="mt-6">
-        <nav>
+      <main class="flex mt-6 gap-x-8">
+        <nav class="min-w-[220px] max-w-[220px]">
           <DocsAside />
         </nav>
-        <slot />
+        <div class="w-full">
+          <slot />
+        </div>
       </main>
       <TheFooter />
     </div>

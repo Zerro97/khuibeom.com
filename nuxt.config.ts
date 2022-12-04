@@ -38,6 +38,9 @@ export default defineNuxtConfig({
     prefix: 'Headless',
   },
   content: {
+    navigation: {
+      fields: ['icon'],
+    },
     highlight: {
       // Theme used in all color schemes.
       theme: 'github-dark',
