@@ -5,6 +5,7 @@ const props = defineProps({
   title: String,
   description: String,
   image: String,
+  link: String,
 })
 </script>
 
@@ -20,7 +21,13 @@ const props = defineProps({
       <p class="text-2xl text-white">
         {{ title }}
       </p>
-      <p>{{ description }}</p>
+      <NuxtLink v-if="link" :to="link" class="flex items-center gap-x-1 text-zinc-200">
+        {{ description }}
+        <Icon name="uil:external-link-alt" />
+      </NuxtLink>
+      <p v-else class="text-zinc-200">
+        {{ description }} {{ link }}
+      </p>
     </div>
   </div>
 </template>

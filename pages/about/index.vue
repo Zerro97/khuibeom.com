@@ -5,18 +5,21 @@ const workHistory = ref([{
   title: 'Web Developer',
   description: 'SLMED',
   image: '/images/about/slmed-logo.png',
+  link: 'https://slmed.co.kr',
 }, {
   dateFrom: 'August 2022',
   dateTo: 'September 2022',
   title: 'Frontend Developer',
   description: 'DP Planning (Contract)',
   image: '/images/about/dpplanning-logo.png',
+  link: 'http://www.dpplanning.co.kr/main/index.html',
 }, {
   dateFrom: 'Novemeber 2020',
   dateTo: 'August 2022',
-  title: 'Fullstack Developer',
+  title: 'Full Stack Developer',
   description: 'Republic of Korea Air Force',
   image: '/images/about/rokaf-logo.png',
+  link: '',
 }])
 
 const educationHistory = ref([{
@@ -25,12 +28,14 @@ const educationHistory = ref([{
   title: 'B.S. Computer Science',
   description: 'University of Wisconsin, Madison (USA)',
   image: '/images/about/UW-logo.png',
+  link: '',
 }, {
   dateFrom: 'Spring 2016',
   dateTo: 'Spring 2017',
   title: 'Applied Science',
   description: 'Taylor\'s University (Malaysia)',
   image: '/images/about/taylors-logo.png',
+  link: '',
 }])
 </script>
 
@@ -66,6 +71,7 @@ const educationHistory = ref([{
             :title="history.title"
             :description="history.description"
             :image="history.image"
+            :link="history.link"
           />
         </div>
       </div>
@@ -80,6 +86,7 @@ const educationHistory = ref([{
             :title="history.title"
             :description="history.description"
             :image="history.image"
+            :link="history.link"
           />
         </div>
       </div>
