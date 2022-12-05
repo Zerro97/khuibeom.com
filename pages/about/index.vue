@@ -1,5 +1,37 @@
 <script setup lang="ts">
+const workHistory = ref([{
+  dateFrom: 'October 2022',
+  dateTo: 'Present',
+  title: 'Web Developer',
+  description: 'SLMED',
+  image: '/images/about/slmed-logo.png',
+}, {
+  dateFrom: 'August 2022',
+  dateTo: 'September 2022',
+  title: 'Frontend Developer',
+  description: 'DP Planning (Contract)',
+  image: '/images/about/dpplanning-logo.png',
+}, {
+  dateFrom: 'Novemeber 2020',
+  dateTo: 'August 2022',
+  title: 'Fullstack Developer',
+  description: 'Republic of Korea Air Force',
+  image: '/images/about/rokaf-logo.png',
+}])
 
+const educationHistory = ref([{
+  dateFrom: 'Fall 2017',
+  dateTo: 'Spring 2020',
+  title: 'B.S. Computer Science',
+  description: 'University of Wisconsin, Madison (USA)',
+  image: '/images/about/UW-logo.png',
+}, {
+  dateFrom: 'Spring 2016',
+  dateTo: 'Spring 2017',
+  title: 'Applied Science',
+  description: 'Taylor\'s University (Malaysia)',
+  image: '/images/about/taylors-logo.png',
+}])
 </script>
 
 <template>
@@ -22,13 +54,34 @@
         I have been working on migrating a website using Nuxt 3 as well as making this blog. Along with the work, I'm picking up DevOps skill as well.
       </p>
     </section>
-    <section class="grid grid-cols-2 mt-10">
+    <section class="grid grid-cols-2 mt-20">
       <div>
-        <h2>Experience</h2>
-        <CardAbout />
+        <h2>Work History</h2>
+        <div class="flex flex-col mt-4 gap-y-6">
+          <CardAbout
+            v-for="history in workHistory"
+            :key="history.description"
+            :date-from="history.dateFrom"
+            :date-to="history.dateTo"
+            :title="history.title"
+            :description="history.description"
+            :image="history.image"
+          />
+        </div>
       </div>
       <div>
         <h2>Education</h2>
+        <div class="flex flex-col mt-4 gap-y-6">
+          <CardAbout
+            v-for="history in educationHistory"
+            :key="history.description"
+            :date-from="history.dateFrom"
+            :date-to="history.dateTo"
+            :title="history.title"
+            :description="history.description"
+            :image="history.image"
+          />
+        </div>
       </div>
     </section>
     <section class="flex flex-col mt-20">

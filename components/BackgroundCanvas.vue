@@ -23,7 +23,7 @@ interface CanvasObject {
   width: number
   height: number
   opacity: number
-  opacityCount: number
+  timer: number
 }
 
 const fireflies: CanvasObject[] = []
@@ -51,8 +51,8 @@ const getInScreenPos = () => {
 
 // UPDATE
 const updateOpacity = (entity: CanvasObject) => {
-  entity.opacityCount++
-  entity.opacity = sinLerp(entity.opacityCount) - 0.2
+  entity.timer++
+  entity.opacity = sinLerp(entity.timer) - 0.2
 }
 
 const updatePos = (entity: CanvasObject) => {
@@ -75,7 +75,7 @@ const updateWhenOffScreen = (entity: CanvasObject) => {
     entity.y = Math.random() * canvas.height
     entity.velX = entity.type === 'firefly' ? getVelocity() : 0
     entity.velY = entity.type === 'firefly' ? getVelocity() : Math.random() - 1.5 * 0.5
-    entity.opacityCount = 0
+    entity.timer = 0
   }
 }
 
@@ -94,8 +94,18 @@ const clearCanvas = () => {
 
 const drawFirefly = () => {
   fireflies.forEach((firefly) => {
-    ctx.fillStyle = `rgba(183, 255, 0, ${firefly.opacity})`
-    ctx.fillRect(firefly.x, firefly.y, firefly.width, firefly.height)
+    if (firefly.type === 'base') {
+      ctx.fillStyle = `rgba(183, 255, 0, ${firefly.opacity})`
+      ctx.fillRect(firefly.x, firefly.y, firefly.width, firefly.height)
+    }
+    else if (firefly.type === 'big') {
+      ctx.fillStyle = `rgba(255, 162, 0, ${firefly.opacity})`
+      ctx.fillRect(firefly.x, firefly.y, firefly.width + 0.5, firefly.height + 0.5)
+    }
+    else {
+      ctx.fillStyle = `rgba(186, 186, 186, ${firefly.opacity})`
+      ctx.fillRect(firefly.x, firefly.y, firefly.width - 0.5, firefly.height - 0.5)
+    }
   })
 }
 
@@ -127,16 +137,19 @@ const loop = () => {
 
 // INIT
 const generateFirefly = () => {
+  const size = Math.random() + 2.5
+  const type = Math.random() < 0.75 ? 'base' : Math.random() < 0.3 ? 'big' : 'small'
+
   const newFirefly = {
-    type: 'firefly',
+    type,
     x: getInScreenPos(),
     y: Math.random() * canvas.height,
     velX: getVelocity(),
     velY: getVelocity(),
-    width: 3,
-    height: 3,
+    width: size,
+    height: size,
     opacity: 0,
-    opacityCount: Math.random() * 360,
+    timer: Math.random() * 360,
   }
   fireflies.push(newFirefly)
 }
@@ -145,7 +158,10 @@ onMounted(() => {
   if (process.client) {
     initCanvas()
 
-    for (let i = 0; i < 8; i++)
+    const fireflyCount = canvas.width > 1920
+      ? 26
+      : canvas.width > 1540 ? 20 : 12
+    for (let i = 0; i < fireflyCount; i++)
       generateFirefly()
 
     loopReq = requestAnimationFrame(loop)
