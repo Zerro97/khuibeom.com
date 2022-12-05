@@ -4,7 +4,7 @@ let ctx: any = null
 
 // width of side visible screen (excluding main screen area)
 let spawnWidth = 0
-const CONTENT_WIDTH = 1060
+const CONTENT_WIDTH = 1000
 
 const initCanvas = () => {
   canvas = document.getElementById('canvas')
@@ -27,7 +27,6 @@ interface CanvasObject {
 }
 
 const fireflies: CanvasObject[] = []
-const lanterns: CanvasObject[] = []
 
 // HELPER
 const sinLerp = (t: number) => {
@@ -53,7 +52,7 @@ const getInScreenPos = () => {
 // UPDATE
 const updateOpacity = (entity: CanvasObject) => {
   entity.opacityCount++
-  entity.opacity = sinLerp(entity.opacityCount)
+  entity.opacity = sinLerp(entity.opacityCount) - 0.2
 }
 
 const updatePos = (entity: CanvasObject) => {
@@ -86,12 +85,6 @@ const update = () => {
     updateOpacity(firefly)
     updatePos(firefly)
   })
-
-  lanterns.forEach((lantern) => {
-    updateWhenOffScreen(lantern)
-    updateOpacity(lantern)
-    updatePos(lantern)
-  })
 }
 
 // RENDER
@@ -106,26 +99,9 @@ const drawFirefly = () => {
   })
 }
 
-const drawLentern = () => {
-  // Fill with gradient
-  lanterns.forEach((lantern) => {
-    const grd = ctx.createRadialGradient(lantern.x + 8, lantern.y + 10, 0, lantern.x + 8, lantern.y + 10, 16)
-    grd.addColorStop(0, 'red')
-    grd.addColorStop(1, 'orange')
-
-    ctx.filter = 'blur(4px)'
-    ctx.fillStyle = grd
-    ctx.globalAlpha = Math.abs(lantern.opacity)
-    ctx.fillRect(lantern.x, lantern.y, lantern.width, lantern.height)
-  })
-  ctx.globalAlpha = 1
-  ctx.filter = 'blur(0px)'
-}
-
 const render = () => {
   clearCanvas()
   drawFirefly()
-  drawLentern()
 }
 
 // MAIN LOOP
@@ -164,29 +140,11 @@ const generateFirefly = () => {
   fireflies.push(newFirefly)
 }
 
-const generateLantern = () => {
-  const newLatern = {
-    type: 'lantern',
-    x: getInScreenPos(),
-    y: Math.random() * canvas.height,
-    velX: 0,
-    velY: (Math.random() - 1.5) * 0.5,
-    width: 16,
-    height: 20,
-    opacity: 0,
-    opacityCount: Math.random() * 360,
-  }
-  lanterns.push(newLatern)
-}
-
 if (process.client) {
   initCanvas()
 
   for (let i = 0; i < 8; i++)
     generateFirefly()
-
-  for (let i = 0; i < 4; i++)
-    generateLantern()
 
   loop()
 }
