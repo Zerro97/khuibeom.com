@@ -72,7 +72,7 @@
         <div class="flex mt-2 gap-x-4">
           <TheTooltip>
             <template #trigger>
-              <Icon name="logos:nuxt-icon" class="text-4xl text-zinc-500" />
+              <Icon name="logos:nuxt-icon" class="text-4xl hover:grayscale-0 grayscale" />
             </template>
             <template #tooltip>
               <p>Nuxt 3</p>
@@ -80,7 +80,7 @@
           </TheTooltip>
           <TheTooltip>
             <template #trigger>
-              <Icon name="logos:vue" class="text-4xl" />
+              <Icon name="logos:vue" class="text-4xl hover:grayscale-0 grayscale" />
             </template>
             <template #tooltip>
               <p>Vue 3</p>
@@ -88,7 +88,7 @@
           </TheTooltip>
           <TheTooltip>
             <template #trigger>
-              <Icon name="logos:javascript" class="text-4xl" />
+              <Icon name="logos:javascript" class="text-4xl hover:grayscale-0 grayscale" />
             </template>
             <template #tooltip>
               <p>Javascript</p>
@@ -96,7 +96,7 @@
           </TheTooltip>
           <TheTooltip>
             <template #trigger>
-              <Icon name="logos:unocss" class="text-4xl" />
+              <Icon name="logos:unocss" class="text-4xl hover:grayscale-0 grayscale" />
             </template>
             <template #tooltip>
               <p>UnoCSS</p>

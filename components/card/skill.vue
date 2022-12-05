@@ -7,16 +7,21 @@ const props = defineProps({
 })
 
 const levelPercent = computed(() => props.curLevel / props.maxLevel * 100.0)
+const curPercent = setTimeout(() => {
+
+}, 1000)
 </script>
 
 <template>
-  <div class="flex w-full px-5 py-2 rounded gap-x-5 bg-zinc-800 hover:bg-zinc-700">
+  <div class="flex w-full px-5 py-2 rounded gap-x-5 bg-zinc-800 hover:bg-zinc-700 group">
     <Icon :name="logo" class="h-full text-4xl rounded aspect-square" />
     <div class="flex flex-col w-full">
       <h4>{{ name }}</h4>
       <div class="w-full mt-1">
         <div class="relative w-full h-5 overflow-hidden rounded bg-zinc-900">
-          <div class="absolute flex items-center justify-center h-full bg-violet-500" :style="{ width: `${levelPercent}%` }" />
+          <Transition>
+            <div class="absolute flex items-center justify-center h-full bg-violet-500" :style="{ width: `${levelPercent}%` }" />
+          </Transition>
           <p class="absolute w-full text-sm font-semibold text-center text-zinc-300 whitespace-nowrap">
             {{ curLevel }} / {{ maxLevel }}
           </p>
@@ -25,3 +30,14 @@ const levelPercent = computed(() => props.curLevel / props.maxLevel * 100.0)
     </div>
   </div>
 </template>
+
+<style>
+@keyframes progress {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+</style>

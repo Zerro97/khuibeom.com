@@ -6,9 +6,11 @@ const projects = await queryContent('project').find()
 <template>
   <NuxtLayout>
     <section class="flex flex-col w-full mt-20">
-      <h1>
-        Hi, I'm Hui Beom
-      </h1>
+      <transition name="fade" mode="out-in">
+        <h1 v-if="true">
+          Hi, I'm Hui Beom
+        </h1>
+      </transition>
       <p class="mt-6 max-w-[450px]">
         Welcome to my site. 👋<br><br>
         I aim to use this site to share and document what I have learnt. Hope you enjoy!
@@ -23,7 +25,7 @@ const projects = await queryContent('project').find()
       </div>
     </section>
     <section class="flex flex-col w-full mt-20">
-      <div class="flex justify-between items-center">
+      <div class="flex items-center justify-between">
         <h2>
           Latest Posts
         </h2>
@@ -49,7 +51,7 @@ const projects = await queryContent('project').find()
       </div>
     </section>
     <section class="flex flex-col w-full mt-20">
-      <div class="flex justify-between items-center">
+      <div class="flex items-center justify-between">
         <h2>
           Projects
         </h2>
@@ -73,3 +75,15 @@ const projects = await queryContent('project').find()
     </section>
   </NuxtLayout>
 </template>
+
+<style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
