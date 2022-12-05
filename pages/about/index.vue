@@ -1,3 +1,7 @@
+<script setup lang="ts">
+
+</script>
+
 <template>
   <NuxtLayout>
     <section class="flex">
@@ -11,9 +15,21 @@
     </section>
     <section class="flex flex-col mt-10">
       <h2>What I'm working on now</h2>
-      <p class="mt-3">
+      <p class="mt-3 text-zinc-400">
+        Last Updated: Dec 5th
+      </p>
+      <p class="mt-2">
         I have been working on migrating a website using Nuxt 3 as well as making this blog. Along with the work, I'm picking up DevOps skill as well.
       </p>
+    </section>
+    <section class="grid grid-cols-2 mt-10">
+      <div>
+        <h2>Experience</h2>
+        <CardAbout />
+      </div>
+      <div>
+        <h2>Education</h2>
+      </div>
     </section>
     <section class="flex flex-col mt-20">
       <h2>My Skill Sets</h2>

@@ -2,14 +2,20 @@
 let canvas: HTMLCanvasElement | null = null
 let ctx: any = null
 
+// width of side visible screen (excluding main screen area)
+let spawnWidth = 0
+const CONTENT_WIDTH = 1060
+
 const initCanvas = () => {
   canvas = document.getElementById('canvas')
   canvas.width = window.innerWidth
   canvas.height = window.innerHeight
   ctx = canvas.getContext('2d')
+  spawnWidth = (window.innerWidth - CONTENT_WIDTH) / 2
 }
 
-interface Firefly {
+interface CanvasObject {
+  type: string
   x: number
   y: number
   velX: number
@@ -20,62 +26,71 @@ interface Firefly {
   opacityCount: number
 }
 
-const fireflies: Firefly[] = []
+const fireflies: CanvasObject[] = []
+const lanterns: CanvasObject[] = []
 
 // HELPER
-const lerp = (a: number, b: number, t: number) => {
-  return a + (b - a) * t
+const sinLerp = (t: number) => {
+  return Math.sin(t * Math.PI / 180)
 }
 
-const sinLerp = (t: number) => {
-  return Math.abs(Math.sin(t * Math.PI / 180))
+const getVelocity = () => {
+  if (Math.random() < 0.5)
+    return (Math.random() + 0.5) * 0.5
+
+  else
+    return (Math.random() - 1.5) * 0.5
+}
+
+const getInScreenPos = () => {
+  if (Math.random() < 0.5)
+    return Math.random() * spawnWidth
+
+  else
+    return Math.random() * spawnWidth + (spawnWidth + CONTENT_WIDTH)
 }
 
 // UPDATE
-const getVelocity = () => {
-  if (Math.random() < 0.5)
-    return Math.random() + 0.5 * 0.5
-
-  else
-    return Math.random() - 1.5 * 0.5
+const updateOpacity = (entity: CanvasObject) => {
+  entity.opacityCount++
+  entity.opacity = sinLerp(entity.opacityCount)
 }
 
-const updateVelocity = (firefly: Firefly) => {
-//   firefly.velX = Math.random() * 2
+const updatePos = (entity: CanvasObject) => {
+  entity.x += entity.velX
+  entity.y += entity.velY
 }
 
-const updateOpacity = (firefly: Firefly) => {
-  firefly.opacityCount += 0.5
-  firefly.opacity = sinLerp(firefly.opacityCount)
-}
-
-const moveFirefly = (firefly: Firefly) => {
-  firefly.x += firefly.velX
-  firefly.y += firefly.velY
-}
-
-const isOffScreen = (firefly: Firefly) => {
-  if (firefly.x < 0 || firefly.x > screen.width || firefly.y < 0 || firefly.y > screen.height)
+const isOffScreen = (entity: CanvasObject) => {
+  if (entity.x < 0 || entity.x > canvas.width
+  || (entity.x > spawnWidth && entity.x < (CONTENT_WIDTH + spawnWidth))
+  || entity.y < 0 || entity.y > canvas.height)
     return true
 
   return false
 }
 
-const updatePosWhenOffScreen = (firefly: Firefly) => {
-  if (isOffScreen(firefly)) {
-    firefly.x = Math.random() * canvas.width
-    firefly.y = Math.random() * canvas.height
-    firefly.velX = getVelocity()
-    firefly.velY = getVelocity()
+const updateWhenOffScreen = (entity: CanvasObject) => {
+  if (isOffScreen(entity)) {
+    entity.x = getInScreenPos()
+    entity.y = Math.random() * canvas.height
+    entity.velX = entity.type === 'firefly' ? getVelocity() : 0
+    entity.velY = entity.type === 'firefly' ? getVelocity() : Math.random() - 1.5 * 0.5
+    entity.opacityCount = 0
   }
 }
 
 const update = () => {
   fireflies.forEach((firefly) => {
-    updatePosWhenOffScreen(firefly)
+    updateWhenOffScreen(firefly)
     updateOpacity(firefly)
-    updateVelocity(firefly)
-    moveFirefly(firefly)
+    updatePos(firefly)
+  })
+
+  lanterns.forEach((lantern) => {
+    updateWhenOffScreen(lantern)
+    updateOpacity(lantern)
+    updatePos(lantern)
   })
 }
 
@@ -91,23 +106,53 @@ const drawFirefly = () => {
   })
 }
 
+const drawLentern = () => {
+  // Fill with gradient
+  lanterns.forEach((lantern) => {
+    const grd = ctx.createRadialGradient(lantern.x + 8, lantern.y + 10, 0, lantern.x + 8, lantern.y + 10, 16)
+    grd.addColorStop(0, 'red')
+    grd.addColorStop(1, 'orange')
+
+    ctx.filter = 'blur(4px)'
+    ctx.fillStyle = grd
+    ctx.globalAlpha = Math.abs(lantern.opacity)
+    ctx.fillRect(lantern.x, lantern.y, lantern.width, lantern.height)
+  })
+  ctx.globalAlpha = 1
+  ctx.filter = 'blur(0px)'
+}
+
 const render = () => {
   clearCanvas()
   drawFirefly()
+  drawLentern()
 }
 
 // MAIN LOOP
+const fps = 30
+const fpsInterval = 1000 / fps
+let now = null
+let then = Date.now()
+let elapsed = null
+
 const loop = () => {
   requestAnimationFrame(loop)
 
-  update()
-  render()
+  now = Date.now()
+  elapsed = now - then
+
+  if (elapsed > fpsInterval) {
+    then = now - (elapsed % fpsInterval)
+    update()
+    render()
+  }
 }
 
 // INIT
 const generateFirefly = () => {
   const newFirefly = {
-    x: Math.random() * canvas.width,
+    type: 'firefly',
+    x: getInScreenPos(),
     y: Math.random() * canvas.height,
     velX: getVelocity(),
     velY: getVelocity(),
@@ -119,15 +164,34 @@ const generateFirefly = () => {
   fireflies.push(newFirefly)
 }
 
+const generateLantern = () => {
+  const newLatern = {
+    type: 'lantern',
+    x: getInScreenPos(),
+    y: Math.random() * canvas.height,
+    velX: 0,
+    velY: (Math.random() - 1.5) * 0.5,
+    width: 16,
+    height: 20,
+    opacity: 0,
+    opacityCount: Math.random() * 360,
+  }
+  lanterns.push(newLatern)
+}
+
 if (process.client) {
   initCanvas()
-  for (let i = 0; i < 20; i++)
+
+  for (let i = 0; i < 8; i++)
     generateFirefly()
+
+  for (let i = 0; i < 4; i++)
+    generateLantern()
 
   loop()
 }
 </script>
 
 <template>
-  <canvas id="canvas" class="fixed z-0" />
+  <canvas id="canvas" class="fixed z-0 hidden lg:block" />
 </template>
