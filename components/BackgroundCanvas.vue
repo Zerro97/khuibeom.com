@@ -110,6 +110,7 @@ const fpsInterval = 1000 / fps
 let now = null
 let then = Date.now()
 let elapsed = null
+let loopReq = null
 
 const loop = () => {
   requestAnimationFrame(loop)
@@ -140,14 +141,20 @@ const generateFirefly = () => {
   fireflies.push(newFirefly)
 }
 
-if (process.client) {
-  initCanvas()
+onMounted(() => {
+  if (process.client) {
+    initCanvas()
 
-  for (let i = 0; i < 8; i++)
-    generateFirefly()
+    for (let i = 0; i < 8; i++)
+      generateFirefly()
 
-  loop()
-}
+    loopReq = requestAnimationFrame(loop)
+  }
+})
+
+onBeforeUnmount(() => {
+  cancelAnimationFrame(loopReq)
+})
 </script>
 
 <template>
