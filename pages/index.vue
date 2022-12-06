@@ -1,6 +1,11 @@
 <script setup lang="ts">
 const posts = await queryContent('blog').find()
 const projects = await queryContent('project').find()
+
+const { visibleHeadings } = useScrollSpy()
+watch(visibleHeadings, () => {
+  console.log(visibleHeadings)
+})
 </script>
 
 <template>

@@ -4,7 +4,7 @@ from_date: 2022-11
 to_date: 'Present'
 title: 'khuibeom.com'
 description: 'The source of this website.'
-image: '/images/projects/slmed.png'
+image: '/images/projects/nuxt-blog.png'
 icon: 'mdi:web'
 slug: nuxt-blog
 livelink: ''

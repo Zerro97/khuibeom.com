@@ -48,7 +48,7 @@ const educationHistory = ref([{
           I'm Hui Beom, a software developer from South Korea. I mostly dealt with frontend web development in my career and a bit of backend work as well.
         </p>
       </div>
-      <img src="~/assets/images/profile.jpg" class="w-[240px] aspect-square rounded">
+      <nuxt-img src="/images/profile/profile.jpg" class="w-[240px] aspect-square rounded" />
     </section>
     <section class="flex flex-col mt-10">
       <h2>What I'm working on now</h2>

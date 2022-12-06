@@ -31,7 +31,6 @@ const props = defineProps({
         {{ description }}
       </p>
     </div>
-    <!-- <nuxt-img :src="image" /> -->
     <div class="flex flex-wrap mt-4 gap-x-4 gap-y-4">
       <nuxt-img :src="image" class="object-cover object-top w-full h-[150px] rounded" />
       <NuxtLink v-if="slug" class="flex items-center px-4 py-1 rounded w-max gap-x-1 bg-zinc-800 hover:bg-zinc-700" :to="`/project/${slug}`">
