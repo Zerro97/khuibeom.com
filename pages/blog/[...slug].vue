@@ -40,12 +40,22 @@ import { format, parseISO } from 'date-fns'
           <LineBreak class="mt-1" />
         </section>
         <div class="relative flex gap-x-6 document-article">
-          <ContentRenderer class="w-full first:m-0 shrink" :value="doc" />
-          <!-- <ClientOnly> -->
+          <ContentRenderer class="w-full renderer shrink" :value="doc" />
           <TableOfContent />
-        <!-- </ClientOnly> -->
         </div>
       </ContentDoc>
     </article>
   </NuxtLayout>
 </template>
+
+<style>
+.renderer h2:first-of-type {
+  @apply mt-0;
+}
+.renderer h3:first-of-type {
+  @apply mt-0;
+}
+.renderer h4:first-of-type {
+  @apply mt-0;
+}
+</style>

@@ -22,7 +22,7 @@ const props = defineProps({
           <h4>{{ title }}</h4>
         </div>
         <button v-if="repo" class="flex items-center justify-center w-8 h-8 rounded gap-x-1 hover:bg-zinc-800">
-          <NuxtLink>
+          <NuxtLink :to="repo">
             <Icon name="mdi:github" class="text-2xl" />
           </NuxtLink>
         </button>
