@@ -41,7 +41,7 @@ import { format, parseISO } from 'date-fns'
         </section>
         <div class="relative flex gap-x-6 document-article">
           <ContentRenderer class="w-full renderer shrink" :value="doc" />
-          <TableOfContent />
+          <TableOfContent class="hidden md:block" />
         </div>
       </ContentDoc>
     </article>

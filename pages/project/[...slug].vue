@@ -36,12 +36,24 @@ const renderer = ref()
           <LineBreak class="mt-1" />
         </section>
         <div class="flex gap-x-6 document-article">
-          <ContentRenderer class="w-full first:m-0" :value="doc" />
+          <ContentRenderer class="w-full renderer first:m-0" :value="doc" />
           <!-- <ClientOnly> -->
-          <TableOfContent />
+          <TableOfContent class="hidden md:block" />
         <!-- </ClientOnly> -->
         </div>
       </ContentDoc>
     </article>
   </NuxtLayout>
 </template>
+
+<style>
+.renderer h2:first-of-type {
+  @apply mt-0;
+}
+.renderer h3:first-of-type {
+  @apply mt-0;
+}
+.renderer h4:first-of-type {
+  @apply mt-0;
+}
+</style>
