@@ -33,7 +33,7 @@ CSS, a shorthand for Cascading Style Sheet, is a design language proposed by Hå
 While CSS was not the only proposal for stylesheets, it distinguished itself from other proposals in that it allowed cascading of styles. Cascading style allowed for different author, reader, display device and browser to define their own styles and combine them together. For instance, every browser (aka user agent), have their own style sheets called user-agent **stylesheets**. This is used to give default styles to a document rendered in browser. On top of user-agent stylesheet that browser use, there is **author stylesheets** that web developers define. Lastly, there is **user stylesheets** in which the reader of the website can choose to override the styles as tailored to his own taste. With CSS, these styles are cascaded and combined together so that the design is not defined by single individual.
 
 ## CSS Levels
-Ever since it was first introduced, CSS has evolved, from CSS Level 1 to modular CSS Level 4 as maintained by [CSS Working Group](https://www.w3.org/Style/CSS/members) (CSSWG). 
+Ever since it was first introduced, CSS has evolved, from CSS Level 1 to modular CSS Level 3 as maintained by [CSS Working Group](https://www.w3.org/Style/CSS/members) (CSSWG). 
 
 What do I mean by CSS level? Level here refers to the specification of CSS and how it builds on top of previous specification. For instance, CSS 4 builds on CSS 3 specification, CSS 3 builds on CSS2 and CSS2 builds on CSS1. 
 
