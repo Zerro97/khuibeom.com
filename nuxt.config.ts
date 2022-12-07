@@ -38,7 +38,7 @@ export default defineNuxtConfig({
     theme: {
       breakpoints: {
         sm: '540px',
-        md: '768px',
+        md: '740px',
       },
     },
     transformers: [transformerDirective({ enforce: 'pre' })],
