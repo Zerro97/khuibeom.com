@@ -21,7 +21,6 @@ Before CSS, developers used formatting markup to design webpage, which looked li
 <BODY>
   <P SIZE="8" COLOR="GREEN">SOME TEXTS</P>
   <BR>
-  <Font face=Arial color=#000000 size=6>
   <IMG align=left border=2>
 </BODY>
 ```

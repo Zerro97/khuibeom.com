@@ -33,7 +33,7 @@ const projects = await queryContent('project').find()
           View All
         </LinkButton>
       </div>
-      <div class="grid grid-cols-2 gap-4 mt-6">
+      <div class="grid grid-cols-1 gap-4 mt-6 md:grid-cols-2">
         <CardPost
           v-for="(post, index) in posts"
           :key="post.slug"
@@ -59,7 +59,7 @@ const projects = await queryContent('project').find()
           View All
         </LinkButton>
       </div>
-      <div class="grid w-full grid-cols-3 gap-2 mt-6">
+      <div class="grid w-full grid-cols-1 gap-2 mt-6 sm:grid-cols-2 lg:grid-cols-3">
         <CardProject
           v-for="project in projects"
           :key="project.slug"

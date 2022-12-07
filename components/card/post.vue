@@ -15,10 +15,10 @@ const props = defineProps({
 </script>
 
 <template>
-  <NuxtLink :to="`/blog/${link}`" class="flex flex-col w-full overflow-hidden border rounded border-zinc-700 bg-zinc-900 hover:bg-zinc-800 hover:cursor-pointer">
+  <NuxtLink :to="`/blog/${link}`" class="flex flex-col w-full overflow-hidden border rounded aspect-auto border-zinc-700 bg-zinc-900 hover:bg-zinc-800 hover:cursor-pointer">
     <div class="relative">
-      <nuxt-img v-if="banner" :src="banner" class="object-cover w-full h-[140px]" />
-      <div v-else class="bg-violet-500 w-full h-[140px]" />
+      <nuxt-img v-if="banner" :src="banner" class="object-cover w-full h-full aspect-[6/2]" />
+      <div v-else class="w-full h-full bg-violet-500" />
       <div class="absolute top-0 flex mt-2 ml-4 gap-x-1">
         <TagPost v-for="tag in tags" :key="tag">
           {{ tag }}
@@ -26,7 +26,7 @@ const props = defineProps({
       </div>
       <CardIcon :logo="icon" class="absolute bottom-0 left-4 translate-y-1/4" />
     </div>
-    <div class="p-4 mt-1">
+    <div class="p-4 mt-1 min-h-max">
       <h5 class="font-bold">
         {{ title }}
       </h5>

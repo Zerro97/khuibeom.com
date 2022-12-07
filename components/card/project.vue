@@ -32,7 +32,7 @@ const props = defineProps({
       </p>
     </div>
     <div class="flex flex-wrap mt-4 gap-x-4 gap-y-4">
-      <nuxt-img :src="image" class="object-cover object-top w-full h-[150px] rounded" />
+      <nuxt-img :src="image" class="object-cover object-top w-full rounded aspect-[4/2]" />
       <NuxtLink v-if="slug" class="flex items-center px-4 py-1 rounded w-max gap-x-1 bg-zinc-800 hover:bg-zinc-700" :to="`/project/${slug}`">
         <button class="">
           See More

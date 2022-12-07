@@ -5,7 +5,7 @@
     <TopBar />
     <div class="lg:w-[64rem] md:w-full px-10 mx-auto z-10 bg-zinc-900">
       <NavBar />
-      <main class="mt-6">
+      <main class="mt-4">
         <slot />
       </main>
       <TheFooter />
