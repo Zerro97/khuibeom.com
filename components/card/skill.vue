@@ -13,8 +13,8 @@ const curPercent = setTimeout(() => {
 </script>
 
 <template>
-  <div class="flex w-full px-5 py-2 rounded gap-x-5 bg-zinc-800 hover:bg-zinc-700 group">
-    <Icon :name="logo" class="h-full text-4xl rounded aspect-square" />
+  <div class="flex items-center w-full px-5 py-2 rounded gap-x-5 bg-zinc-800 hover:bg-zinc-700 group">
+    <Icon :name="logo" class="min-h-[40px] min-w-[40px] text-4xl rounded" />
     <div class="flex flex-col w-full">
       <h4>{{ name }}</h4>
       <div class="w-full mt-1">

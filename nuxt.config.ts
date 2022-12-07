@@ -35,6 +35,12 @@ export default defineNuxtConfig({
       [/^m-(\d+)$/, ([, d]) => ({ margin: `${d / 4}rem` })],
       [/^p-(\d+)$/, match => ({ padding: `${match[1] / 4}rem` })],
     ],
+    theme: {
+      breakpoints: {
+        sm: '540px',
+        md: '768px',
+      },
+    },
     transformers: [transformerDirective({ enforce: 'pre' })],
   },
   headlessui: {

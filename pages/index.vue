@@ -5,7 +5,7 @@ const projects = await queryContent('project').find()
 
 <template>
   <NuxtLayout>
-    <section class="flex flex-col w-full mt-20">
+    <section class="flex flex-col w-full mt-14 sm:mt-16 md:mt-20">
       <transition name="fade" mode="out-in">
         <h1 v-if="true">
           Hi, I'm Hui Beom
@@ -24,7 +24,7 @@ const projects = await queryContent('project').find()
         </LinkButton>
       </div>
     </section>
-    <section class="flex flex-col w-full mt-20">
+    <section class="flex flex-col w-full mt-14 sm:mt-16 md:mt-20">
       <div class="flex items-center justify-between">
         <h2>
           Latest Posts
@@ -50,7 +50,7 @@ const projects = await queryContent('project').find()
         />
       </div>
     </section>
-    <section class="flex flex-col w-full mt-20">
+    <section class="flex flex-col w-full mt-14 sm:mt-16 md:mt-20">
       <div class="flex items-center justify-between">
         <h2>
           Projects

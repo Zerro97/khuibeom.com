@@ -41,14 +41,14 @@ const educationHistory = ref([{
 
 <template>
   <NuxtLayout>
-    <section class="flex">
-      <div class="flex flex-col mr-14">
-        <h1>About Me</h1>
-        <p class="mt-3">
+    <section class="flex flex-col">
+      <h1>About Me</h1>
+      <div class="flex flex-col sm:flex-row-reverse">
+        <nuxt-img src="/images/profile/profile.jpg" class="mt-3 sm:mt-0 max-w-[180px] max-h-[180px] sm:max-w-[220px] sm:max-h-[220px] rounded" />
+        <p class="mt-3 mr-14">
           I'm Hui Beom, a software developer from South Korea. I mostly dealt with frontend web development in my career and a bit of backend work as well.
         </p>
       </div>
-      <nuxt-img src="/images/profile/profile.jpg" class="w-[240px] aspect-square rounded" />
     </section>
     <section class="flex flex-col mt-10">
       <h2>What I'm working on now</h2>
@@ -59,7 +59,7 @@ const educationHistory = ref([{
         I have been working on migrating a website using Nuxt 3 as well as making this blog. Along with the work, I'm picking up DevOps skill as well.
       </p>
     </section>
-    <section class="grid grid-cols-2 mt-20">
+    <section class="grid grid-cols-1 mt-14 sm:mt-16 md:mt-20 md:grid-cols-2">
       <div>
         <h2>Work History</h2>
         <div class="flex flex-col mt-4 gap-y-6">
@@ -75,7 +75,7 @@ const educationHistory = ref([{
           />
         </div>
       </div>
-      <div>
+      <div class="mt-16 md:mt-0">
         <h2>Education</h2>
         <div class="flex flex-col mt-4 gap-y-6">
           <CardAbout
@@ -91,14 +91,14 @@ const educationHistory = ref([{
         </div>
       </div>
     </section>
-    <section class="flex flex-col mt-20">
+    <section class="flex flex-col mt-14 sm:mt-16 md:mt-20">
       <h2>My Skill Sets</h2>
       <TheAlert class="mt-3">
         This is a personal, opinionated view of my current skills.
       </TheAlert>
       <div class="mt-6">
         <h4>Languages</h4>
-        <div class="grid grid-cols-3 gap-2 mt-2">
+        <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
           <CardSkill name="HTML" logo="logos:html-5" :cur-level="2" :max-level="3" />
           <CardSkill name="CSS" logo="logos:css-3" :cur-level="5" :max-level="8" />
           <CardSkill name="Javascript" logo="logos:javascript" :cur-level="5" :max-level="8" />
@@ -110,7 +110,7 @@ const educationHistory = ref([{
       </div>
       <div class="mt-6">
         <h4>Web Frameworks/Libraries</h4>
-        <div class="grid grid-cols-3 gap-2 mt-2">
+        <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
           <CardSkill name="React" logo="logos:react" :cur-level="4" :max-level="8" />
           <CardSkill name="Vue" logo="logos:vue" :cur-level="4" :max-level="8" />
           <CardSkill name="Nuxt" logo="logos:nuxt-icon" :cur-level="2" :max-level="8" />
@@ -127,7 +127,7 @@ const educationHistory = ref([{
       </div>
       <div class="mt-6">
         <h4>DBMS</h4>
-        <div class="grid grid-cols-3 gap-2 mt-2">
+        <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
           <CardSkill name="MySQL" logo="logos:mysql-icon" :cur-level="3" :max-level="8" />
           <CardSkill name="Oracle" logo="logos:oracle" :cur-level="3" :max-level="8" />
           <CardSkill name="Postgresql" logo="logos:postgresql" :cur-level="2" :max-level="8" />
@@ -136,7 +136,7 @@ const educationHistory = ref([{
       </div>
       <div class="mt-6">
         <h4>DevOps & Cloud</h4>
-        <div class="grid grid-cols-3 gap-2 mt-2">
+        <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
           <CardSkill name="Docker" logo="logos:docker-icon" :cur-level="2" :max-level="5" />
           <CardSkill name="Nginx" logo="logos:nginx" :cur-level="1" :max-level="3" />
           <CardSkill name="Github Actions" logo="logos:github-octocat" :cur-level="1" :max-level="4" />
