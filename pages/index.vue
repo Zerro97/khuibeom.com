@@ -6,11 +6,9 @@ const projects = await queryContent('project').find()
 <template>
   <NuxtLayout>
     <section class="flex flex-col w-full mt-14 sm:mt-16 md:mt-20">
-      <transition name="fade" mode="out-in">
-        <h1 v-if="true">
-          Hi, I'm Hui Beom
-        </h1>
-      </transition>
+      <h1>
+        Hi, I'm Hui Beom
+      </h1>
       <p class="mt-6 max-w-[450px]">
         Welcome to my site. 👋<br><br>
         I aim to use this site to share and document what I have learnt. Hope you enjoy!
