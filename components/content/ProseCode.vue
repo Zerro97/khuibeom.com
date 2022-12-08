@@ -24,7 +24,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="my-4 rounded bg-zinc-800">
+  <div class="w-full my-4 overflow-hidden rounded bg-zinc-800">
     <div v-if="language" class="relative px-5">
       <div class="px-4 py-0 border border-t-0 rounded w-max border-zinc-700">
         <p class="text-violet-400">
@@ -33,7 +33,7 @@ export default defineComponent({
       </div>
       <ButtonCopy :content="code" />
     </div>
-    <div class="px-5 py-2">
+    <div class="w-full px-5 py-2 code-block">
       <slot />
     </div>
   </div>
@@ -43,5 +43,10 @@ export default defineComponent({
 pre code .line {
   display: block;
   min-height: 1rem;
+  width: 0px;
+}
+
+.code-block pre {
+  overflow-x: auto;
 }
 </style>

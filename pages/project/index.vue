@@ -8,7 +8,7 @@ const projects = await queryContent('project').find()
       <h1>Projects</h1>
       <LineBreak class="mt-4" />
     </section>
-    <section class="grid grid-cols-3 gap-4 mt-4">
+    <section class="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 lg:grid-cols-3">
       <CardProject
         v-for="project in projects"
         :key="project.slug"

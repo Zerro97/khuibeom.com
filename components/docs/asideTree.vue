@@ -56,7 +56,7 @@ const hasNesting = computed(() => props.links.some((link: any) => link.children)
 </script>
 
 <template>
-  <ul class="list-none my-1">
+  <ul class="my-1 list-none">
     <li
       v-for="link in links"
       :key="link._path"
@@ -66,9 +66,9 @@ const hasNesting = computed(() => props.links.some((link: any) => link.children)
       ]"
     >
       <button v-if="link.children" class="flex justify-between w-full py-1" @click="toggleCollapse(link)">
-        <span class="text-xl">
-          <Icon v-if="link?.navigation?.icon || link.icon" :name="link?.navigation?.icon || link.icon" class="mr-2" />
-          <span>{{ link?.navigation?.title || link.title || link._path }}</span>
+        <span class="text-xl flex items-center justify-start">
+          <Icon v-if="link?.navigation?.icon || link.icon" :name="link?.navigation?.icon || link.icon" class="mr-2 grayscale" />
+          <span class="text-left">{{ link?.navigation?.title || link.title || link._path }}</span>
         </span>
         <span>
           <Icon :name="isCollapsed(link) ? 'lucide:chevrons-up-down' : 'lucide:chevrons-down-up'" class="text-zinc-500" />

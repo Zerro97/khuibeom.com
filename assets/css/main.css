@@ -53,3 +53,13 @@ ol {
 strong {
     @apply font-bold;
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
