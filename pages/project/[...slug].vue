@@ -8,7 +8,7 @@ const renderer = ref()
   <NuxtLayout>
     <article>
       <ContentDoc v-slot="{ doc }">
-        <section class="flex flex-col mb-6">
+        <section v-if="doc.title" class="flex flex-col mb-6">
           <div class="relative mb-6">
             <nuxt-img
               v-if="doc.banner"
@@ -52,9 +52,16 @@ const renderer = ref()
           <LineBreak class="mt-1" />
         </section>
         <div class="flex gap-x-6 document-article">
-          <ContentRenderer class="w-full renderer first:m-0" :value="doc" />
+          <ContentRenderer class="w-full renderer first:m-0" :value="doc">
+            <template #empty>
+              <div class="flex flex-col items-center justify-center w-full py-20">
+                <h1>404</h1>
+                <p>Page Not Found</p>
+              </div>
+            </template>
+          </ContentRenderer>
           <!-- <ClientOnly> -->
-          <TableOfContent class="hidden md:block" />
+          <TableOfContent v-if="doc.title" class="hidden md:block" />
         <!-- </ClientOnly> -->
         </div>
       </ContentDoc>
