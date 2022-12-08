@@ -28,14 +28,14 @@ const educationHistory = ref([{
   title: 'B.S. Computer Science',
   description: 'University of Wisconsin, Madison (USA)',
   image: '/images/about/UW-logo.png',
-  link: '',
+  link: 'https://www.wisc.edu/',
 }, {
   dateFrom: 'Spring 2016',
   dateTo: 'Spring 2017',
   title: 'Applied Science',
   description: 'Taylor\'s University (Malaysia)',
   image: '/images/about/taylors-logo.png',
-  link: '',
+  link: 'https://university.taylors.edu.my/en.html',
 }])
 </script>
 
@@ -112,8 +112,8 @@ const educationHistory = ref([{
         <h4>Web Frameworks/Libraries</h4>
         <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
           <CardSkill name="React" logo="logos:react" :cur-level="4" :max-level="8" />
-          <CardSkill name="Vue" logo="logos:vue" :cur-level="4" :max-level="8" />
-          <CardSkill name="Nuxt" logo="logos:nuxt-icon" :cur-level="2" :max-level="8" />
+          <CardSkill name="Vue 3" logo="logos:vue" :cur-level="4" :max-level="8" />
+          <CardSkill name="Nuxt 3" logo="logos:nuxt-icon" :cur-level="2" :max-level="8" />
           <CardSkill name="Angular" logo="logos:angular-icon" :cur-level="1" :max-level="8" />
           <CardSkill name="Svelte" logo="logos:svelte-icon" :cur-level="2" :max-level="8" />
           <CardSkill name="NodeJS" logo="logos:nodejs-icon" :cur-level="4" :max-level="8" />
