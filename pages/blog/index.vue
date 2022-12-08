@@ -56,7 +56,7 @@ watch([tags, categories], () => {
           </HeadlessTab>
         </HeadlessTabList>
         <HeadlessTabPanels>
-          <HeadlessTabPanel class="flex gap-x-2">
+          <HeadlessTabPanel class="flex flex-wrap gap-x-2 gap-y-2">
             <button
               v-for="(value, key) in tags"
               :key="key"
@@ -66,7 +66,7 @@ watch([tags, categories], () => {
               {{ key }}
             </button>
           </HeadlessTabPanel>
-          <HeadlessTabPanel class="flex gap-x-2">
+          <HeadlessTabPanel class="flex flex-wrap gap-x-2 gap-y-2">
             <button
               v-for="(value, key) in categories"
               :key="key"
@@ -80,7 +80,7 @@ watch([tags, categories], () => {
       </HeadlessTabGroup>
       <LineBreak class="my-4" />
     </section>
-    <section class="grid grid-cols-2 gap-4 mt-6">
+    <section class="grid grid-cols-1 gap-4 mt-6 md:grid-cols-2">
       <CardPost
         v-for="post in selectedPosts"
         :key="post.slug"
