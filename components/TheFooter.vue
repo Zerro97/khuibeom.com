@@ -4,9 +4,6 @@
       <NuxtLink to="https://github.com/Zerro97/nuxt-blog" class="hover:underline decoration-violet-600 decoration-4">
         Source Code
       </NuxtLink>
-      <NuxtLink to="/rss.xml" class="hover:underline decoration-violet-600 decoration-4">
-        RSS
-      </NuxtLink>
       <NuxtLink to="https://www.linkedin.com/in/hui-beom-kim-4a0849165/" class="hover:underline decoration-violet-600 decoration-4">
         LinkedIn
       </NuxtLink>
