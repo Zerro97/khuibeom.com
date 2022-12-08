@@ -1,7 +1,7 @@
 # Nuxt 3 Blog
 [![License][license-src]][license-href]
 
-Welcome! This is a personal developer blog made with Nuxt 3.
+Welcome! This is my personal developer blog made with Nuxt 3.
 
 This repository is based off [nuxt boilerplate](https://github.com/Zerro97/nuxt-boilerplate) which I created for quick Nuxt project set up.
 
