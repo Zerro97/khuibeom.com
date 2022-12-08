@@ -5,7 +5,7 @@ defineProps({
 </script>
 
 <template>
-  <button class="bg-zinc-900 border-zinc-700 border hover:bg-zinc-800 transition duration-100 rounded px-4 py-2">
+  <button class="px-4 py-2 border rounded bg-zinc-900 border-zinc-700 hover:bg-zinc-800">
     <NuxtLink :to="to">
       <slot />
     </NuxtLink>

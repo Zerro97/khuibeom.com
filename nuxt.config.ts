@@ -24,6 +24,9 @@ export default defineNuxtConfig({
   ],
   nitro: {
     serveStatic: true,
+    prerender: {
+      routes: ['/docs'],
+    },
   },
   // @ts-expect-error unocss does not exist in NuxtConfig type
   unocss: {

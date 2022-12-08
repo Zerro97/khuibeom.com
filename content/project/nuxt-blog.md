@@ -20,8 +20,8 @@ I also wanted to create my own blog to share with the world what I have learnt. 
 ## What I learned
 At the time when I started working on this blog, it was my first time leveraging Nuxt 3. Since Nuxt 3 was so new (released in [2022 November 17](https://github.com/nuxt/framework/discussions/9064)) it was a little rough looking for answers online.
 
-This was actually good for me, however, as I got to learn to ask things online through platforms like stackexchange, discord channel and github. On the process of asking, I actually got to participate in one of the nuxt ecosystem, which is quite cool.
+This was actually good for me as I got to learn to ask things online through platforms like stackexchange, discord channel and github. On the process of asking, I got to participate in one of the nuxt ecosystem as well.
 
-It was also interesting to see how the open source project gets released in real time. The Nuxt team was fanatically working towards the release while also answering questions posted on github. Seeing their responses on github and other platforms, I felt that the nuxt team members were also people like us.
+It was also interesting to see how the open source project got released in real time. The Nuxt team was fanatically working towards the release while also answering questions posted on github. Seeing their responses on github and other platforms, I felt that the nuxt team members were also people like us.
 
 Apart from the experience with open source projects, I also learnt to use Nuxt content for content management, UnoCSS for styling and github actions for devops.

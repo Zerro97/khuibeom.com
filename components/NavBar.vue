@@ -9,7 +9,7 @@ const tabs = ref([{
   id: 2,
 }, {
   label: 'Docs',
-  link: '/docs',
+  link: '/docs/introduction',
   id: 3,
 }, {
   label: 'Projects',
@@ -25,10 +25,14 @@ const tabs = ref([{
         <nuxt-img sizes="sm:100vw md:50vw lg:400px" width="34" height="34" src="/logo/ladybug.png" />
       </NuxtLink>
       <div class="flex items-center h-full gap-x-4 sm:gap-x-6 md:gap-x-8">
-        <NuxtLink v-for="tab in tabs" :key="tab.id" :to="tab.link">
-          <p class="text-base md:text-lg text-zinc-300 hover:text-zinc-100">
-            {{ tab.label }}
-          </p>
+        <NuxtLink
+          v-for="tab in tabs"
+          :key="tab.id"
+          :to="tab.link"
+          class="text-base text-zinc-300 md:text-lg border-violet-500 hover:text-zinc-100"
+          active-class="border-b-3"
+        >
+          {{ tab.label }}
         </NuxtLink>
       </div>
     </div>
