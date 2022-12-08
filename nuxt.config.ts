@@ -35,8 +35,8 @@ export default defineNuxtConfig({
     attributify: true,
     shortcuts: [],
     rules: [
-      [/^m-(\d+)$/, ([, d]) => ({ margin: `${d / 4}rem` })],
-      [/^p-(\d+)$/, match => ({ padding: `${match[1] / 4}rem` })],
+      [/^m-(\d+)$/, ([, d]: any) => ({ margin: `${d / 4}rem` })],
+      [/^p-(\d+)$/, (match: number[]) => ({ padding: `${match[1] / 4}rem` })],
     ],
     theme: {
       breakpoints: {
