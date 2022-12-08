@@ -19,7 +19,13 @@ const renderer = ref()
             <div v-else class="w-full h-[300px] bg-violet-500 rounded" />
             <CardIcon size="lg" :logo="doc.icon" class="absolute bottom-0 left-4 translate-y-1/4" />
           </div>
-          <h1 class="text-4xl">
+          <NuxtLink v-if="doc.livelink" target="_blank" :to="doc.livelink" class="flex items-center gap-x-2">
+            <h1 class="text-4xl">
+              {{ doc.title }}
+            </h1>
+            <Icon name="uil:external-link-alt" class="text-2xl" />
+          </NuxtLink>
+          <h1 v-else class="text-4xl">
             {{ doc.title }}
           </h1>
           <p class="text-zinc-400">
@@ -27,11 +33,21 @@ const renderer = ref()
             ~
             {{ doc.to_date.toLowerCase() === 'present' ? doc.to_date : format(parseISO(doc.to_date), 'MMMM yyyy') }}
           </p>
-          <div class="flex items-center mt-1 mb-2 gap-x-2">
-            <Icon name="mdi:human-male-male" />
-            <p class="text-base text-zinc-200">
-              {{ doc.team }}
-            </p>
+          <div class="flex items-center gap-x-4">
+            <div class="flex items-center mt-1 mb-2 gap-x-1">
+              <Icon name="mdi:human-male-male" />
+              <p class="text-base text-zinc-200">
+                {{ doc.team }} contributor
+              </p>
+            </div>
+            <div v-if="doc.repo">
+              <NuxtLink :to="doc.repo" target="_blank" class="flex items-center mt-1 mb-2 gap-x-1">
+                <Icon name="mdi:github" />
+                <p class="underline decoration-violet-400 decoration-2 text-violet-300">
+                  Source Code
+                </p>
+              </NuxtLink>
+            </div>
           </div>
           <LineBreak class="mt-1" />
         </section>
