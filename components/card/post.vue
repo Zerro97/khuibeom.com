@@ -20,6 +20,7 @@ const props = defineProps({
       <nuxt-img
         v-if="banner"
         provider="cloudinary"
+        :alt="title"
         width="600px"
         height="200px"
         loading="lazy"

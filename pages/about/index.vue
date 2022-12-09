@@ -54,6 +54,7 @@ const educationHistory = ref([{
           sizes="sm:180px md:220px"
           width="220px"
           height="220px"
+          alt="profile"
           class="mt-3 sm:mt-0 max-w-[180px] max-h-[180px] sm:max-w-[220px] sm:max-h-[220px] rounded"
           loading="lazy"
         />

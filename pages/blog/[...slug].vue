@@ -15,6 +15,7 @@ import { format, parseISO } from 'date-fns'
                 :src="doc.banner"
                 width="900px"
                 height="300px"
+                :alt="doc.title"
                 class="w-full aspect-[3/1] object-cover rounded"
               />
               <div v-else class="w-full h-[300px] bg-violet-500 rounded mb-4" />
