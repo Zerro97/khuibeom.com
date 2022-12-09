@@ -7,8 +7,8 @@
       <NavBar />
       <div class="block md:hidden">
         <HeadlessDisclosure>
-          <HeadlessDisclosureButton class="py-2">
-            <Icon name="mdi:menu" />
+          <HeadlessDisclosureButton class="p-2 -translate-x-2">
+            <Icon class="text-xl" name="mdi:menu" />
           </HeadlessDisclosureButton>
           <HeadlessDisclosurePanel class="text-gray-500">
             <DocsDropdown>
@@ -19,7 +19,7 @@
           </HeadlessDisclosurePanel>
         </HeadlessDisclosure>
       </div>
-      <main class="flex min-h-screen mt-4">
+      <main class="flex mt-4">
         <nav class="relative">
           <DocsAside class="hidden md:block min-w-[220px] max-w-[220px]" />
         </nav>
