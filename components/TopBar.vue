@@ -1,4 +1,3 @@
 <template>
-  <NuxtLoadingIndicator class="z-20" color="#5b21b6" :height="8" />
-  <div class="w-screen h-2 bg-violet-600" />
+  <NuxtLoadingIndicator class="z-20" color="#7c3aed" :height="3" />
 </template>
