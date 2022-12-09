@@ -1,4 +1,8 @@
 <script setup lang="ts">
+useHead({
+  title: 'Blog',
+})
+
 const {
   filter,
   extractTags,

@@ -1,4 +1,8 @@
 <script setup lang="ts">
+useHead({
+  title: 'Project',
+})
+
 const projects = await queryContent('project').find()
 </script>
 

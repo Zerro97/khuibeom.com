@@ -1,4 +1,8 @@
 <script setup lang="ts">
+useHead({
+  title: 'About Me',
+})
+
 const workHistory = ref([{
   dateFrom: 'October 2022',
   dateTo: 'Present',
@@ -44,7 +48,15 @@ const educationHistory = ref([{
     <section class="flex flex-col">
       <h1>About Me</h1>
       <div class="flex flex-col sm:flex-row-reverse">
-        <nuxt-img src="/images/profile/profile.jpg" class="mt-3 sm:mt-0 max-w-[180px] max-h-[180px] sm:max-w-[220px] sm:max-h-[220px] rounded" />
+        <nuxt-img
+          src="/images/profile/profile.jpg"
+          sizes="sm:180px md:220px"
+          width="220px"
+          height="220px"
+          class="mt-3 sm:mt-0 max-w-[180px] max-h-[180px] sm:max-w-[220px] sm:max-h-[220px] rounded"
+          :placeholder="[10, 10, 80]"
+          loading="lazy"
+        />
         <p class="mt-3 mr-14">
           I'm Hui Beom, a software developer from South Korea. I mostly dealt with frontend web development in my career and a bit of backend work as well.
         </p>
@@ -53,7 +65,7 @@ const educationHistory = ref([{
     <section class="flex flex-col mt-10">
       <h2>What I'm working on now</h2>
       <p class="mt-3 text-zinc-400">
-        Last Updated: Dec 5th
+        Last Updated: Dec 5th, 2022
       </p>
       <p class="mt-2">
         I have been working on migrating a website using Nuxt 3 as well as making this blog. Along with the work, I'm picking up DevOps skill as well.

@@ -60,13 +60,14 @@ const hasNesting = computed(() => props.links.some((link: any) => link.children)
     <li
       v-for="link in links"
       :key="link._path"
+      class="flex flex-col"
       :class="[
-        { 'pl-4 border-l': level > 0 },
-        isActive(link) ? 'border-l-violet-400' : 'border-l-zinc-800 hover:border-l-zinc-700',
+        { 'pl-3 ml-2 border-l-2': level > 0 },
+        isActive(link) ? 'border-l-violet-400 font-medium' : 'border-l-zinc-800 hover:border-l-zinc-700',
       ]"
     >
       <button v-if="link.children" class="flex justify-between w-full py-1" @click="toggleCollapse(link)">
-        <span class="text-xl flex items-center justify-start">
+        <span class="flex items-center justify-start text-xl">
           <Icon v-if="link?.navigation?.icon || link.icon" :name="link?.navigation?.icon || link.icon" class="mr-2 grayscale" />
           <span class="text-left">{{ link?.navigation?.title || link.title || link._path }}</span>
         </span>
@@ -77,10 +78,10 @@ const hasNesting = computed(() => props.links.some((link: any) => link.children)
       <NuxtLink
         v-else
         :to="link.redirect ? link.redirect : link._path"
-        class="link"
         :exact="link.exact"
+        class="flex"
       >
-        <span :class="`text-base ${isActive(link) ? 'text-violet-400' : 'text-zinc-500 hover:text-zinc-400'}`">
+        <span :class="`text-base w-full py-0.5 ${isActive(link) ? 'text-violet-400' : 'text-zinc-500 hover:text-zinc-400'}`">
           <Icon v-if="link?.navigation?.icon || link.icon" :name="link?.navigation?.icon || link.icon" class="icon" />
           <span>{{ link?.navigation?.title || link.title || link._path }}</span>
         </span>

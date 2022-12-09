@@ -1,4 +1,8 @@
 <script setup lang="ts">
+useHead({
+  title: 'Home',
+})
+
 const posts = await queryContent('blog').find()
 const projects = await queryContent('project').find()
 </script>

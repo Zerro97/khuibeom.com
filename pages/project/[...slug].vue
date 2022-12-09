@@ -8,18 +8,25 @@ const renderer = ref()
   <NuxtLayout>
     <article>
       <ContentDoc v-slot="{ doc }">
-        <section class="flex flex-col mb-6">
+        <section v-if="doc.title" class="flex flex-col mb-6">
           <div class="relative mb-6">
             <nuxt-img
               v-if="doc.banner"
               :src="doc.banner"
+              :placeholder="[30, 10, 80]"
               sizes="sm:400px md:600px lg:700px"
               class="w-full h-[300px] object-cover rounded"
             />
             <div v-else class="w-full h-[300px] bg-violet-500 rounded" />
             <CardIcon size="lg" :logo="doc.icon" class="absolute bottom-0 left-4 translate-y-1/4" />
           </div>
-          <h1 class="text-4xl">
+          <NuxtLink v-if="doc.livelink" target="_blank" :to="doc.livelink" class="flex items-center gap-x-2">
+            <h1 class="text-4xl">
+              {{ doc.title }}
+            </h1>
+            <Icon name="uil:external-link-alt" class="text-2xl" />
+          </NuxtLink>
+          <h1 v-else class="text-4xl">
             {{ doc.title }}
           </h1>
           <p class="text-zinc-400">
@@ -27,18 +34,35 @@ const renderer = ref()
             ~
             {{ doc.to_date.toLowerCase() === 'present' ? doc.to_date : format(parseISO(doc.to_date), 'MMMM yyyy') }}
           </p>
-          <div class="flex items-center mt-1 mb-2 gap-x-2">
-            <Icon name="mdi:human-male-male" />
-            <p class="text-base text-zinc-200">
-              {{ doc.team }}
-            </p>
+          <div class="flex items-center gap-x-4">
+            <div class="flex items-center mt-1 mb-2 gap-x-1">
+              <Icon name="mdi:human-male-male" />
+              <p class="text-base text-zinc-200">
+                {{ doc.team }} contributor
+              </p>
+            </div>
+            <div v-if="doc.repo">
+              <NuxtLink :to="doc.repo" target="_blank" class="flex items-center mt-1 mb-2 gap-x-1">
+                <Icon name="mdi:github" />
+                <p class="underline decoration-violet-400 decoration-2 text-violet-300">
+                  Source Code
+                </p>
+              </NuxtLink>
+            </div>
           </div>
           <LineBreak class="mt-1" />
         </section>
         <div class="flex gap-x-6 document-article">
-          <ContentRenderer class="w-full renderer first:m-0" :value="doc" />
+          <ContentRenderer class="w-full renderer first:m-0" :value="doc">
+            <template #empty>
+              <div class="flex flex-col items-center justify-center w-full py-20">
+                <h1>404</h1>
+                <p>Page Not Found</p>
+              </div>
+            </template>
+          </ContentRenderer>
           <!-- <ClientOnly> -->
-          <TableOfContent class="hidden md:block" />
+          <TableOfContent v-if="doc.title" class="hidden md:block" />
         <!-- </ClientOnly> -->
         </div>
       </ContentDoc>
