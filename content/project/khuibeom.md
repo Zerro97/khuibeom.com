@@ -4,11 +4,11 @@ from_date: 2022-11
 to_date: 'Present'
 title: 'khuibeom.com'
 description: 'The source of this website.'
-image: '/images/projects/nuxt-blog.png'
+image: '/images/projects/khuibeom.png'
 icon: 'mdi:web'
-slug: nuxt-blog
+slug: khuibeom
 livelink: ''
-repo: 'https://github.com/Zerro97/nuxt-blog'
+repo: 'https://github.com/Zerro97/khuibeom.com'
 team: 1
 ---
 

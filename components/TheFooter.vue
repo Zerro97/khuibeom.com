@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col w-full py-6 mt-10 border-t-2 border-zinc-800 gap-y-6">
     <div class="flex justify-center w-full gap-x-12">
-      <NuxtLink to="https://github.com/Zerro97/nuxt-blog" class="hover:underline decoration-violet-600 decoration-4">
+      <NuxtLink to="https://github.com/Zerro97/khuibeom.com" class="hover:underline decoration-violet-600 decoration-4">
         Source Code
       </NuxtLink>
       <NuxtLink to="https://www.linkedin.com/in/hui-beom-kim-4a0849165/" class="hover:underline decoration-violet-600 decoration-4">
