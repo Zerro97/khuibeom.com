@@ -22,7 +22,7 @@ const tabs = ref([{
   <div class="flex justify-between w-full h-16 md:h-20 backdrop-blur-md bg-zinc-900">
     <div class="flex items-center justify-center h-full w-max">
       <NuxtLink to="/" class="p-1 mr-3 rounded sm:p-2 sm:mr-4 md:mr-8 hover:bg-zinc-800">
-        <nuxt-img sizes="sm:100vw md:50vw lg:400px" width="34" height="34" src="/logo/ladybug.png" />
+        <nuxt-img width="34" height="34" src="/logo/ladybug.png" />
       </NuxtLink>
       <div class="flex items-center h-full gap-x-4 sm:gap-x-6 md:gap-x-8">
         <NuxtLink

@@ -13,6 +13,7 @@ const renderer = ref()
             <nuxt-img
               v-if="doc.banner"
               :src="doc.banner"
+              :placeholder="[30, 10, 80]"
               sizes="sm:400px md:600px lg:700px"
               class="w-full h-[300px] object-cover rounded"
             />

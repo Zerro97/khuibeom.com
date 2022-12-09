@@ -12,7 +12,7 @@ import { format, parseISO } from 'date-fns'
               <nuxt-img
                 v-if="doc.banner"
                 :src="doc.banner"
-                sizes="sm:400px md:600px lg:700px"
+                :placeholder="[30, 10, 80]"
                 class="w-full h-[300px] object-cover rounded"
               />
               <div v-else class="w-full h-[300px] bg-violet-500 rounded mb-4" />
