@@ -14,9 +14,9 @@ const renderer = ref()
               v-if="doc.banner"
               provider="cloudinary"
               :src="doc.banner"
-              :placeholder="[30, 10, 80]"
-              sizes="sm:400px md:600px lg:700px"
-              class="w-full h-[300px] object-cover rounded"
+              width="900px"
+              height="300px"
+              class="w-full aspect-[3/1] object-cover rounded"
             />
             <div v-else class="w-full h-[300px] bg-violet-500 rounded" />
             <CardIcon size="lg" :logo="doc.icon" class="absolute bottom-0 left-4 translate-y-1/4" />
