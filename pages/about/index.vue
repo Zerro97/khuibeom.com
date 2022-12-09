@@ -8,21 +8,21 @@ const workHistory = ref([{
   dateTo: 'Present',
   title: 'Web Developer',
   description: 'SLMED',
-  image: '/images/about/slmed-logo.png',
+  image: '/about/slmed-logo.png',
   link: 'https://slmed.co.kr',
 }, {
   dateFrom: 'August 2022',
   dateTo: 'September 2022',
   title: 'Frontend Developer',
   description: 'DP Planning (Contract)',
-  image: '/images/about/dpplanning-logo.png',
+  image: '/about/dpplanning-logo.png',
   link: 'http://www.dpplanning.co.kr/main/index.html',
 }, {
   dateFrom: 'Novemeber 2020',
   dateTo: 'August 2022',
   title: 'Full Stack Developer',
   description: 'Republic of Korea Air Force',
-  image: '/images/about/rokaf-logo.png',
+  image: '/about/rokaf-logo.png',
   link: '',
 }])
 
@@ -31,14 +31,14 @@ const educationHistory = ref([{
   dateTo: 'Spring 2020',
   title: 'B.S. Computer Science',
   description: 'University of Wisconsin, Madison (USA)',
-  image: '/images/about/UW-logo.png',
+  image: '/about/UW-logo.png',
   link: 'https://www.wisc.edu/',
 }, {
   dateFrom: 'Spring 2016',
   dateTo: 'Spring 2017',
   title: 'Applied Science',
   description: 'Taylor\'s University (Malaysia)',
-  image: '/images/about/taylors-logo.png',
+  image: '/about/taylors-logo.png',
   link: 'https://university.taylors.edu.my/en.html',
 }])
 </script>
@@ -49,12 +49,12 @@ const educationHistory = ref([{
       <h1>About Me</h1>
       <div class="flex flex-col sm:flex-row-reverse">
         <nuxt-img
-          src="/images/profile/profile.jpg"
+          provider="cloudinary"
+          src="/profile/profile.jpg"
           sizes="sm:180px md:220px"
           width="220px"
           height="220px"
           class="mt-3 sm:mt-0 max-w-[180px] max-h-[180px] sm:max-w-[220px] sm:max-h-[220px] rounded"
-          :placeholder="[10, 10, 80]"
           loading="lazy"
         />
         <p class="mt-3 mr-14">

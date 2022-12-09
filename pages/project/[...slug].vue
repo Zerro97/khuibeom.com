@@ -12,6 +12,7 @@ const renderer = ref()
           <div class="relative mb-6">
             <nuxt-img
               v-if="doc.banner"
+              provider="cloudinary"
               :src="doc.banner"
               :placeholder="[30, 10, 80]"
               sizes="sm:400px md:600px lg:700px"

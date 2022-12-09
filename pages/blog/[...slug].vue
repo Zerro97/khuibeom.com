@@ -11,6 +11,7 @@ import { format, parseISO } from 'date-fns'
             <div class="relative mb-6">
               <nuxt-img
                 v-if="doc.banner"
+                provider="cloudinary"
                 :src="doc.banner"
                 :placeholder="[30, 10, 80]"
                 class="w-full h-[300px] object-cover rounded"
