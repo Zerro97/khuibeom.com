@@ -11,13 +11,14 @@ const projects = await queryContent('project').find()
   <NuxtLayout>
     <section class="flex flex-col w-full mt-14 sm:mt-16 md:mt-20">
       <h1>
-        Hi, I'm Hui Beom
+        Hi, I'm
+        <span class="whitespace-nowrap">Hui Beom</span>
       </h1>
       <p class="mt-6 max-w-[450px]">
         Welcome to my site. 👋<br><br>
         I aim to use this site to share and document what I have learnt. Hope you enjoy!
       </p>
-      <div class="flex mt-8 gap-x-4">
+      <div class="flex flex-wrap mt-8 gap-y-2 gap-x-4">
         <LinkButton to="/about">
           Learn more about me
         </LinkButton>

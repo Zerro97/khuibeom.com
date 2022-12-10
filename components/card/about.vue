@@ -12,7 +12,7 @@ const props = defineProps({
 <template>
   <div class="flex items-center rounded bg-zinc-900 gap-x-4">
     <div class="p-2 overflow-hidden rounded w-14 h-14 bg-zinc-800">
-      <nuxt-img v-if="image" :src="image" class="object-contain w-full h-full" />
+      <nuxt-img v-if="image" provider="cloudinary" :alt="title" width="40px" :src="image" class="object-contain w-full h-full" />
     </div>
     <div>
       <p class="text-sm text-zinc-400">

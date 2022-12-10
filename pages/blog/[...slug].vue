@@ -11,9 +11,13 @@ import { format, parseISO } from 'date-fns'
             <div class="relative mb-6">
               <nuxt-img
                 v-if="doc.banner"
+                provider="cloudinary"
+                :placeholder="[30, 10]"
                 :src="doc.banner"
-                :placeholder="[30, 10, 80]"
-                class="w-full h-[300px] object-cover rounded"
+                width="900px"
+                height="300px"
+                :alt="doc.title"
+                class="w-full aspect-[3/1] object-cover rounded"
               />
               <div v-else class="w-full h-[300px] bg-violet-500 rounded mb-4" />
               <CardIcon size="lg" :logo="doc.icon" class="absolute bottom-0 left-4 translate-y-1/4" />
