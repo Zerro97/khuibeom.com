@@ -17,7 +17,17 @@ const props = defineProps({
 <template>
   <NuxtLink :to="`/blog/${link}`" class="flex flex-col w-full overflow-hidden border rounded aspect-auto border-zinc-700 bg-zinc-900 hover:bg-zinc-800 hover:cursor-pointer">
     <div class="relative">
-      <nuxt-img v-if="banner" :placeholder="[30, 10, 80]" loading="lazy" :src="banner" class="object-cover w-full h-full aspect-[6/2]" />
+      <nuxt-img
+        v-if="banner"
+        provider="cloudinary"
+        :alt="title"
+        :placeholder="[30, 10]"
+        width="600px"
+        height="200px"
+        loading="lazy"
+        :src="banner"
+        class="object-cover w-full h-full aspect-[6/2]"
+      />
       <div v-else class="w-full h-full bg-violet-500" />
       <div class="absolute top-0 flex mt-2 ml-4 gap-x-1">
         <TagPost v-for="tag in tags" :key="tag">

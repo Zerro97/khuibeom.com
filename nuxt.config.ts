@@ -39,6 +39,11 @@ export default defineNuxtConfig({
   nitro: {
     serveStatic: true,
   },
+  image: {
+    cloudinary: {
+      baseURL: 'https://res.cloudinary.com/dpdm96hjl/image/upload/v1670587534/khuibeom.com',
+    },
+  },
   // @ts-expect-error unocss does not exist in NuxtConfig type
   unocss: {
     uno: true,
