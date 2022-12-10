@@ -12,6 +12,7 @@ import { format, parseISO } from 'date-fns'
               <nuxt-img
                 v-if="doc.banner"
                 provider="cloudinary"
+                :placeholder="[30, 10]"
                 :src="doc.banner"
                 width="900px"
                 height="300px"

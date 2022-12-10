@@ -21,6 +21,7 @@ const props = defineProps({
         v-if="banner"
         provider="cloudinary"
         :alt="title"
+        :placeholder="[30, 10]"
         width="600px"
         height="200px"
         loading="lazy"

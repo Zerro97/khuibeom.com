@@ -51,6 +51,7 @@ const educationHistory = ref([{
         <nuxt-img
           provider="cloudinary"
           src="/profile/profile.jpg"
+          :placeholder="[10, 10]"
           sizes="sm:180px md:220px"
           width="220px"
           height="220px"
