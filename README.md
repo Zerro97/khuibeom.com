@@ -1,7 +1,10 @@
-# Nuxt 3 Blog
-[![License][license-src]][license-href]
+<div align="center">
+  <h1>khuibeom.com</h1>
+  <p>💻 Personal developer blog made with Nuxt 3</p>
+</div>
 
-Welcome! This is my personal developer blog made with Nuxt 3.
+## Description 💬
+[![License][license-src]][license-href]
 
 This repository is based off [nuxt boilerplate](https://github.com/Zerro97/nuxt-boilerplate) which I created for quick Nuxt project set up.
 
