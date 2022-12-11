@@ -24,7 +24,6 @@ const props = defineProps({
         :placeholder="[30, 10]"
         width="600px"
         height="200px"
-        loading="lazy"
         :src="banner"
         class="object-cover w-full h-full aspect-[6/2]"
       />

@@ -57,7 +57,6 @@ const educationHistory = ref([{
           height="220px"
           alt="profile"
           class="mt-3 sm:mt-0 max-w-[180px] max-h-[180px] sm:max-w-[220px] sm:max-h-[220px] rounded"
-          loading="lazy"
         />
         <p class="mt-3 mr-14">
           I'm Hui Beom, a software developer from South Korea. I mostly dealt with frontend web development in my career and a bit of backend work as well.

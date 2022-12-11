@@ -39,11 +39,10 @@ const props = defineProps({
         provider="cloudinary"
         width="400px"
         height="200px"
-        loading="lazy"
         class="object-cover object-top w-full rounded aspect-[4/2]"
       />
       <NuxtLink v-if="slug" class="flex items-center px-4 py-1 rounded w-max gap-x-1 bg-zinc-800 hover:bg-zinc-700" :to="`/project/${slug}`">
-        See More
+        More Details
         <Icon name="ic:baseline-subdirectory-arrow-right" />
       </NuxtLink>
       <NuxtLink v-if="livelink" class="flex items-center px-4 py-1 rounded w-max gap-x-1 bg-zinc-800 hover:bg-zinc-700" :to="livelink">
