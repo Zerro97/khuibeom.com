@@ -19,10 +19,10 @@ const projects = await queryContent('project').find()
         I aim to use this site to share and document what I have learnt. Hope you enjoy!
       </p>
       <div class="flex flex-wrap mt-8 gap-y-2 gap-x-4">
-        <LinkButton to="/about">
+        <LinkButton to="/about" label="about">
           Learn more about me
         </LinkButton>
-        <LinkButton to="/blog">
+        <LinkButton to="/blog" label="blog">
           Blog
         </LinkButton>
       </div>
@@ -32,7 +32,7 @@ const projects = await queryContent('project').find()
         <h2>
           Latest Posts
         </h2>
-        <LinkButton to="/blog">
+        <LinkButton to="/blog" label="blog">
           View All
         </LinkButton>
       </div>
@@ -58,7 +58,7 @@ const projects = await queryContent('project').find()
         <h2>
           Projects
         </h2>
-        <LinkButton to="/project">
+        <LinkButton to="/project" label="project">
           View All
         </LinkButton>
       </div>

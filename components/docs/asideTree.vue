@@ -66,7 +66,7 @@ const hasNesting = computed(() => props.links.some((link: any) => link.children)
         isActive(link) ? 'border-l-violet-400 font-medium' : 'border-l-zinc-800 hover:border-l-zinc-700',
       ]"
     >
-      <button v-if="link.children" class="flex justify-between w-full py-1" @click="toggleCollapse(link)">
+      <button v-if="link.children" aria-label="Navigation Header" class="flex justify-between w-full py-1" @click="toggleCollapse(link)">
         <span class="flex items-center justify-start text-xl">
           <Icon v-if="link?.navigation?.icon || link.icon" :name="link?.navigation?.icon || link.icon" class="mr-2 grayscale" />
           <span class="text-left">{{ link?.navigation?.title || link.title || link._path }}</span>
