@@ -1,4 +1,10 @@
 <script setup lang="ts">
+useHead({
+  htmlAttrs: {
+    lang: 'en',
+  },
+})
+
 const route = useRoute()
 const routePath = ref('')
 const isCanvasShown = ref(false)
