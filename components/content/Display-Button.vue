@@ -4,7 +4,7 @@ const isOpen = ref(false)
 
 <template>
   <div>
-    <button class="flex items-center px-4 py-1 mt-4 border rounded display border-zinc-700 gap-x-2" @click="(isOpen = !isOpen)">
+    <button aria-label="Show More" class="flex items-center px-4 py-1 mt-4 border rounded display border-zinc-700 gap-x-2" @click="(isOpen = !isOpen)">
       <slot>
         Show More
       </slot>

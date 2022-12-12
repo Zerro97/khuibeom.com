@@ -4,6 +4,7 @@
     font-weight: 100;
     src: url("/fonts/SUIT/SUIT-Thin.woff2") format('woff2'),
          url("/fonts/SUIT/SUIT-Thin.ttf") format('truetype');
+    font-display: swap;
 }
 @font-face {
     font-family: 'SUIT';
@@ -11,6 +12,7 @@
     font-weight: 200;
     src: url("/fonts/SUIT/SUIT-ExtraLight.woff2") format('woff2'),
          url("/fonts/SUIT/SUIT-ExtraLight.ttf") format('truetype');
+    font-display: swap;
 }
 @font-face {
     font-family: 'SUIT';
@@ -18,6 +20,7 @@
     font-weight: 300;
     src: url("/fonts/SUIT/SUIT-Light.woff2") format('woff2'),
          url("/fonts/SUIT/SUIT-Light.ttf") format('truetype');
+    font-display: swap;
 }
 @font-face {
     font-family: 'SUIT';
@@ -25,6 +28,7 @@
     font-weight: 400;
     src: url("/fonts/SUIT/SUIT-Regular.woff2") format('woff2'),
          url("/fonts/SUIT/SUIT-Regular.ttf") format('truetype');
+    font-display: swap;
 }
 @font-face {
     font-family: 'SUIT';
@@ -32,6 +36,7 @@
     font-weight: 500;
     src: url("/fonts/SUIT/SUIT-Medium.woff2") format('woff2'),
          url("/fonts/SUIT/SUIT-Medium.ttf") format('truetype');
+    font-display: swap;
 }
 @font-face {
     font-family: 'SUIT';
@@ -39,6 +44,7 @@
     font-weight: 600;
     src: url("/fonts/SUIT/SUIT-SemiBold.woff2") format('woff2'),
          url("/fonts/SUIT/SUIT-SemiBold.ttf") format('truetype');
+    font-display: swap;
 }
 @font-face {
     font-family: 'SUIT';
@@ -46,6 +52,7 @@
     font-weight: 700;
     src: url("/fonts/SUIT/SUIT-Bold.woff2") format('woff2'),
          url("/fonts/SUIT/SUIT-Bold.ttf") format('truetype');
+    font-display: swap;
 }
 @font-face {
     font-family: 'SUIT';
@@ -53,6 +60,7 @@
     font-weight: 800;
     src: url("/fonts/SUIT/SUIT-ExtraBold.woff2") format('woff2'),
          url("/fonts/SUIT/SUIT-ExtraBold.ttf") format('truetype');
+    font-display: swap;
 }
 @font-face {
     font-family: 'SUIT';
@@ -60,4 +68,5 @@
     font-weight: 900;
     src: url("/fonts/SUIT/SUIT-Heavy.woff2") format('woff2'),
          url("/fonts/SUIT/SUIT-Heavy.ttf") format('truetype');
+    font-display: swap;
 }

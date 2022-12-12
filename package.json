@@ -20,6 +20,7 @@
     "@nuxt/content": "^2.2.2",
     "@nuxt/image-edge": "1.0.0-27827328.bc9ddc0",
     "@nuxt/test-utils-edge": "3.0.1-rc.0-27817270.4f2bfbe",
+    "@nuxtjs/robots": "^3.0.0",
     "@nuxtjs/web-vitals": "^0.2.2",
     "@unocss/nuxt": "^0.46.5",
     "@unocss/reset": "^0.46.5",

@@ -21,8 +21,8 @@ const props = defineProps({
           </p>
           <h4>{{ title }}</h4>
         </div>
-        <button v-if="repo" class="flex items-center justify-center w-8 h-8 rounded gap-x-1 hover:bg-zinc-800">
-          <NuxtLink :to="repo">
+        <button v-if="repo" aria-label="Github Link" class="flex items-center justify-center w-8 h-8 rounded gap-x-1 hover:bg-zinc-800">
+          <NuxtLink aria-label="Link to Github" :to="repo">
             <Icon name="mdi:github" class="text-2xl" />
           </NuxtLink>
         </button>
@@ -39,19 +39,14 @@ const props = defineProps({
         provider="cloudinary"
         width="400px"
         height="200px"
-        loading="lazy"
         class="object-cover object-top w-full rounded aspect-[4/2]"
       />
-      <NuxtLink v-if="slug" class="flex items-center px-4 py-1 rounded w-max gap-x-1 bg-zinc-800 hover:bg-zinc-700" :to="`/project/${slug}`">
-        <button class="">
-          See More
-        </button>
+      <NuxtLink v-if="slug" aria-label="Read more about this project" class="flex items-center px-4 py-1 rounded w-max gap-x-1 bg-zinc-800 hover:bg-zinc-700" :to="`/project/${slug}`">
+        More Details
         <Icon name="ic:baseline-subdirectory-arrow-right" />
       </NuxtLink>
-      <NuxtLink v-if="livelink" class="flex items-center px-4 py-1 rounded w-max gap-x-1 bg-zinc-800 hover:bg-zinc-700" :to="livelink">
-        <button>
-          Live Site
-        </button>
+      <NuxtLink v-if="livelink" aria-label="Link to live site" class="flex items-center px-4 py-1 rounded w-max gap-x-1 bg-zinc-800 hover:bg-zinc-700" :to="livelink">
+        Live Site
         <Icon name="mdi:link-variant" />
       </NuxtLink>
     </div>
