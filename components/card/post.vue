@@ -15,7 +15,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <NuxtLink :to="`/blog/${link}`" class="flex flex-col w-full overflow-hidden border rounded aspect-auto border-zinc-700 bg-zinc-900 hover:bg-zinc-800 hover:cursor-pointer">
+  <NuxtLink :to="`/blog/${link}`" aria-label="Link to article" class="flex flex-col w-full overflow-hidden border rounded aspect-auto border-zinc-700 bg-zinc-900 hover:bg-zinc-800 hover:cursor-pointer">
     <div class="relative">
       <nuxt-img
         v-if="banner"
@@ -24,7 +24,6 @@ const props = defineProps({
         :placeholder="[30, 10]"
         width="600px"
         height="200px"
-        loading="lazy"
         :src="banner"
         class="object-cover w-full h-full aspect-[6/2]"
       />
@@ -37,9 +36,9 @@ const props = defineProps({
       <CardIcon :logo="icon" class="absolute bottom-0 left-4 translate-y-1/4" />
     </div>
     <div class="p-4 mt-1 min-h-max">
-      <h5 class="font-bold">
+      <h4>
         {{ title }}
-      </h5>
+      </h4>
       <p class="text-base font-medium text-zinc-400">
         {{ format(parseISO(date), 'MMMM dd, yyyy') }}
       </p>

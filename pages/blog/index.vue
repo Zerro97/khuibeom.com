@@ -64,6 +64,7 @@ watch([tags, categories], () => {
             <button
               v-for="(value, key) in tags"
               :key="key"
+              aria-label="Tag"
               :class="`${value && 'text-violet-400'} bg-zinc-800 px-3 rounded w-max`"
               @click="filterTag(key)"
             >
@@ -74,6 +75,7 @@ watch([tags, categories], () => {
             <button
               v-for="(value, key) in categories"
               :key="key"
+              aria-label="Category"
               :class="`${value && 'text-violet-400'} bg-zinc-800 px-3 rounded w-max`"
               @click="filterCategory(key)"
             >

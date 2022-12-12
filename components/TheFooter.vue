@@ -11,7 +11,7 @@
     <div class="flex justify-center w-full gap-x-8">
       <p class="text-zinc-400">
         Made with
-        <NuxtLink to="https://nuxt.com/">
+        <NuxtLink to="https://nuxt.com/" aria-label="Link to Nuxt 3 website">
           <Icon class="ml-1 text-2xl" name="logos:nuxt-icon" />
         </NuxtLink>
       </p>
