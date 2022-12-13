@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { isAfter, parseISO } from 'date-fns'
+
 useHead({
   title: 'Blog',
 })
@@ -19,7 +21,9 @@ const categories = useCategories()
 
 // Init Lists
 onMounted(async () => {
-  posts.value = await queryContent('blog').find()
+  posts.value = await (await queryContent('blog').find()).sort((a, b) => {
+    return isAfter(parseISO(a.date), parseISO(b.date)) ? -1 : 0
+  })
   selectedPosts.value = posts.value
 
   extractTags()
