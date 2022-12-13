@@ -1,9 +1,13 @@
 <script setup lang="ts">
+import { isAfter, parseISO } from 'date-fns'
+
 useHead({
   title: 'Project',
 })
 
-const projects = await queryContent('project').find()
+const projects = await (await queryContent('project').find()).sort((a, b) => {
+  return isAfter(parseISO(a.from_date), parseISO(b.from_date)) ? -1 : 0
+})
 </script>
 
 <template>

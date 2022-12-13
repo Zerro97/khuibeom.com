@@ -57,7 +57,7 @@ export const useFilterPost = () => {
     const posts = usePosts()
     const selectedPosts = useSelectedPosts()
 
-    selectedPosts.value = posts.value.filter((post) => {
+    selectedPosts.value = posts.value.filter((post: any) => {
       return postContainsTag(post) && postContainsCategory(post) && postContainsSearch(post)
     })
   }
@@ -72,7 +72,7 @@ export const useFilterPost = () => {
     const tags = useTags()
 
     // Extract tags from the post objet
-    tags.value = posts.value.reduce((acc, post) => {
+    tags.value = posts.value.reduce((acc: any, post: any) => {
       post.tags.forEach((tag: string) => {
         acc[tag] = false
       })
@@ -92,7 +92,7 @@ export const useFilterPost = () => {
     const categories = useCategories()
 
     // Extract tags from the post objet
-    categories.value = posts.value.reduce((acc, post) => {
+    categories.value = posts.value.reduce((acc: any, post: any) => {
       post.categories.forEach((category: string) => {
         acc[category] = false
       })
