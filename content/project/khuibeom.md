@@ -27,7 +27,7 @@ It was also interesting to see how the open source project got released in real 
 ## What I learned
 I learnt to use Nuxt content for content management, UnoCSS for styling and github actions for devops.
 
-Apart from picking up new tools, I also learnt to follow lighthouse guideline and manage SEO meta tags. Below is lighthouse score which I feel quite proud of.
+Apart from picking up new tools, I also learnt to follow lighthouse guideline and manage SEO meta tags.
 
 ::cloudinaryImage
 ---
@@ -38,4 +38,4 @@ figure: Lighthouse score as of Dec 13, 2022
 ::
 
 ## What can be improved
-I want to include PWA for better offline support. I'm also thinking of adding RSS and newsletter to my blog as well.
+I might include PWA for better offline support in future. I'm also thinking of adding RSS and newsletter to my blog as well. 
