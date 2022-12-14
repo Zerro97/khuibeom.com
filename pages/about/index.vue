@@ -106,93 +106,104 @@ const educationHistory = ref([{
     </section>
     <section class="flex flex-col mt-14 sm:mt-16 md:mt-20">
       <h2>My Skill Sets</h2>
-      <TheAlert class="mt-3">
-        This is a personal, opinionated view of my current skills.
-      </TheAlert>
-      <div class="mt-6">
-        <h4>Languages</h4>
-        <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
-          <CardSkill name="HTML" logo="logos:html-5" :cur-level="2" :max-level="3" />
-          <CardSkill name="CSS" logo="logos:css-3" :cur-level="5" :max-level="8" />
-          <CardSkill name="Javascript" logo="logos:javascript" :cur-level="5" :max-level="8" />
-          <CardSkill name="Typescript" logo="logos:typescript-icon" :cur-level="1" :max-level="6" />
-          <CardSkill name="Java" logo="logos:java" :cur-level="4" :max-level="10" />
-          <CardSkill name="C" logo="logos:c" :cur-level="2" :max-level="10" />
-          <CardSkill name="Python" logo="logos:python" :cur-level="2" :max-level="8" />
-        </div>
-      </div>
-      <div class="mt-6">
-        <h4>Web Frameworks/Libraries</h4>
-        <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
-          <CardSkill name="React" logo="logos:react" :cur-level="4" :max-level="8" />
-          <CardSkill name="Vue 3" logo="logos:vue" :cur-level="4" :max-level="8" />
-          <CardSkill name="Nuxt 3" logo="logos:nuxt-icon" :cur-level="2" :max-level="8" />
-          <CardSkill name="Angular" logo="logos:angular-icon" :cur-level="1" :max-level="8" />
-          <CardSkill name="Svelte" logo="logos:svelte-icon" :cur-level="2" :max-level="8" />
-          <CardSkill name="NodeJS" logo="logos:nodejs-icon" :cur-level="4" :max-level="8" />
-          <CardSkill name="Gatsby" logo="logos:gatsby" :cur-level="1" :max-level="7" />
-          <CardSkill name="Strapi" logo="logos:strapi-icon" :cur-level="1" :max-level="3" />
-          <CardSkill name="Spring" logo="logos:spring-icon" :cur-level="3" :max-level="8" />
-          <CardSkill name=".NET Framework" logo="logos:dotnet" :cur-level="1" :max-level="8" />
-          <CardSkill name="Tailwind" logo="logos:tailwindcss-icon" :cur-level="2" :max-level="5" />
-          <CardSkill name="UnoCSS" logo="logos:unocss" :cur-level="2" :max-level="5" />
-        </div>
-      </div>
-      <div class="mt-6">
-        <h4>DBMS</h4>
-        <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
-          <CardSkill name="MySQL" logo="logos:mysql-icon" :cur-level="3" :max-level="8" />
-          <CardSkill name="Oracle" logo="logos:oracle" :cur-level="3" :max-level="8" />
-          <CardSkill name="Postgresql" logo="logos:postgresql" :cur-level="2" :max-level="8" />
-          <CardSkill name="MongoDB" logo="logos:mongodb-icon" :cur-level="1" :max-level="8" />
-        </div>
-      </div>
-      <div class="mt-6">
-        <h4>DevOps & Cloud</h4>
-        <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
-          <CardSkill name="Docker" logo="logos:docker-icon" :cur-level="2" :max-level="5" />
-          <CardSkill name="Nginx" logo="logos:nginx" :cur-level="1" :max-level="3" />
-          <CardSkill name="Github Actions" logo="logos:github-octocat" :cur-level="1" :max-level="4" />
-          <CardSkill name="AWS" logo="logos:aws" :cur-level="2" :max-level="10" />
-        </div>
-      </div>
-      <div class="mt-6">
-        <h4>My Current Favorite Stack</h4>
-        <div class="flex mt-2 gap-x-4">
-          <TheTooltip>
-            <template #trigger>
-              <Icon name="logos:nuxt-icon" class="text-4xl hover:grayscale-0 grayscale" />
-            </template>
-            <template #tooltip>
-              <p>Nuxt 3</p>
-            </template>
-          </TheTooltip>
-          <TheTooltip>
-            <template #trigger>
-              <Icon name="logos:vue" class="text-4xl hover:grayscale-0 grayscale" />
-            </template>
-            <template #tooltip>
-              <p>Vue 3</p>
-            </template>
-          </TheTooltip>
-          <TheTooltip>
-            <template #trigger>
-              <Icon name="logos:javascript" class="text-4xl hover:grayscale-0 grayscale" />
-            </template>
-            <template #tooltip>
-              <p>Javascript</p>
-            </template>
-          </TheTooltip>
-          <TheTooltip>
-            <template #trigger>
-              <Icon name="logos:unocss" class="text-4xl hover:grayscale-0 grayscale" />
-            </template>
-            <template #tooltip>
-              <p>UnoCSS</p>
-            </template>
-          </TheTooltip>
-        </div>
-      </div>
+      <p class="mt-4">
+        While I believe that a good software developer is not defined by different technologies that they know, I thought it would still be beneficial to include it here for people who are curious
+      </p>
+      <HeadlessDisclosure v-slot="{ open }">
+        <HeadlessDisclosureButton class="px-4 py-2 mt-4 border rounded max-w-max border-zinc-700">
+          Display Skill Sets
+          <Icon :name="`${open ? 'mdi:chevron-up' : 'mdi:chevron-down'}`" />
+        </HeadlessDisclosureButton>
+        <HeadlessDisclosurePanel>
+          <TheAlert class="mt-3">
+            This is a personal, opinionated view of my current skills.
+          </TheAlert>
+          <div class="mt-6">
+            <h4>Languages</h4>
+            <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
+              <CardSkill name="HTML" logo="logos:html-5" :cur-level="2" :max-level="3" />
+              <CardSkill name="CSS" logo="logos:css-3" :cur-level="5" :max-level="8" />
+              <CardSkill name="Javascript" logo="logos:javascript" :cur-level="5" :max-level="8" />
+              <CardSkill name="Typescript" logo="logos:typescript-icon" :cur-level="1" :max-level="6" />
+              <CardSkill name="Java" logo="logos:java" :cur-level="4" :max-level="10" />
+              <CardSkill name="C" logo="logos:c" :cur-level="2" :max-level="10" />
+              <CardSkill name="Python" logo="logos:python" :cur-level="2" :max-level="8" />
+            </div>
+          </div>
+          <div class="mt-6">
+            <h4>Web Frameworks/Libraries</h4>
+            <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
+              <CardSkill name="React" logo="logos:react" :cur-level="4" :max-level="8" />
+              <CardSkill name="Vue 3" logo="logos:vue" :cur-level="4" :max-level="8" />
+              <CardSkill name="Nuxt 3" logo="logos:nuxt-icon" :cur-level="2" :max-level="8" />
+              <CardSkill name="Angular" logo="logos:angular-icon" :cur-level="1" :max-level="8" />
+              <CardSkill name="Svelte" logo="logos:svelte-icon" :cur-level="2" :max-level="8" />
+              <CardSkill name="NodeJS" logo="logos:nodejs-icon" :cur-level="4" :max-level="8" />
+              <CardSkill name="Gatsby" logo="logos:gatsby" :cur-level="1" :max-level="7" />
+              <CardSkill name="Strapi" logo="logos:strapi-icon" :cur-level="1" :max-level="3" />
+              <CardSkill name="Spring" logo="logos:spring-icon" :cur-level="3" :max-level="8" />
+              <CardSkill name=".NET Framework" logo="logos:dotnet" :cur-level="1" :max-level="8" />
+              <CardSkill name="Tailwind" logo="logos:tailwindcss-icon" :cur-level="2" :max-level="5" />
+              <CardSkill name="UnoCSS" logo="logos:unocss" :cur-level="2" :max-level="5" />
+            </div>
+          </div>
+          <div class="mt-6">
+            <h4>DBMS</h4>
+            <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
+              <CardSkill name="MySQL" logo="logos:mysql-icon" :cur-level="3" :max-level="8" />
+              <CardSkill name="Oracle" logo="logos:oracle" :cur-level="3" :max-level="8" />
+              <CardSkill name="Postgresql" logo="logos:postgresql" :cur-level="2" :max-level="8" />
+              <CardSkill name="MongoDB" logo="logos:mongodb-icon" :cur-level="1" :max-level="8" />
+            </div>
+          </div>
+          <div class="mt-6">
+            <h4>DevOps & Cloud</h4>
+            <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
+              <CardSkill name="Docker" logo="logos:docker-icon" :cur-level="2" :max-level="5" />
+              <CardSkill name="Nginx" logo="logos:nginx" :cur-level="1" :max-level="3" />
+              <CardSkill name="Github Actions" logo="logos:github-octocat" :cur-level="1" :max-level="4" />
+              <CardSkill name="AWS" logo="logos:aws" :cur-level="2" :max-level="10" />
+            </div>
+          </div>
+          <div class="mt-6">
+            <h4>My Current Favorite Stack</h4>
+            <div class="flex mt-2 gap-x-4">
+              <TheTooltip>
+                <template #trigger>
+                  <Icon name="logos:nuxt-icon" class="text-4xl hover:grayscale-0 grayscale" />
+                </template>
+                <template #tooltip>
+                  <p>Nuxt 3</p>
+                </template>
+              </TheTooltip>
+              <TheTooltip>
+                <template #trigger>
+                  <Icon name="logos:vue" class="text-4xl hover:grayscale-0 grayscale" />
+                </template>
+                <template #tooltip>
+                  <p>Vue 3</p>
+                </template>
+              </TheTooltip>
+              <TheTooltip>
+                <template #trigger>
+                  <Icon name="logos:javascript" class="text-4xl hover:grayscale-0 grayscale" />
+                </template>
+                <template #tooltip>
+                  <p>Javascript</p>
+                </template>
+              </TheTooltip>
+              <TheTooltip>
+                <template #trigger>
+                  <Icon name="logos:unocss" class="text-4xl hover:grayscale-0 grayscale" />
+                </template>
+                <template #tooltip>
+                  <p>UnoCSS</p>
+                </template>
+              </TheTooltip>
+            </div>
+          </div>
+        </HeadlessDisclosurePanel>
+      </HeadlessDisclosure>
     </section>
     <section class="flex flex-col mt-14 sm:mt-16 md:mt-20">
       <h2>Miscellaneous</h2>

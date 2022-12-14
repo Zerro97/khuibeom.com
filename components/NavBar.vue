@@ -37,7 +37,7 @@ const tabs = ref([{
       </div>
     </div>
     <div class="items-center justify-center hidden h-full w-max gap-x-1 sm:flex">
-      <NuxtLink to="https://github.com/Zerro97" class="p-1" aria-label="Link to github">
+      <NuxtLink to="https://github.com/Zerro97" class="p-1" aria-label="Link to github" target="_blank">
         <Icon name="mdi:github-face" class="text-3xl text-zinc-300 hover:text-zinc-100" />
       </NuxtLink>
     </div>

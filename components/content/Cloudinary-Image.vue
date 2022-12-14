@@ -24,10 +24,10 @@ const props = defineProps({
 
 <template>
   <figure v-if="figure">
-    <nuxt-img class="rounded" provider="cloudinary" :src="src" :alt="alt" :width="width" :height="height" />
+    <nuxt-img class="mt-2 rounded" provider="cloudinary" :src="src" :alt="alt" :width="width" :height="height" />
     <figcaption class="text-zinc-500">
       {{ figure }}
     </figcaption>
   </figure>
-  <nuxt-img v-else class="rounded" provider="cloudinary" :src="src" :alt="alt" :width="width" :height="height" />
+  <nuxt-img v-else class="mt-2 rounded" provider="cloudinary" :src="src" :alt="alt" :width="width" :height="height" />
 </template>
