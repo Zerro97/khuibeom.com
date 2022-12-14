@@ -21,11 +21,11 @@ const props = defineProps({
           </p>
           <h4>{{ title }}</h4>
         </div>
-        <button v-if="repo" aria-label="Github Link" class="flex items-center justify-center w-8 h-8 rounded gap-x-1 hover:bg-zinc-800">
-          <NuxtLink aria-label="Link to Github" :to="repo">
+        <NuxtLink aria-label="Link to Github" :to="repo" target="_blank">
+          <button v-if="repo" aria-label="Github Link" class="flex items-center justify-center w-8 h-8 rounded gap-x-1 hover:bg-zinc-800">
             <Icon name="mdi:github" class="text-2xl" />
-          </NuxtLink>
-        </button>
+          </button>
+        </NuxtLink>
       </div>
       <p class="text-base text-zinc-400">
         {{ description }}
@@ -45,7 +45,7 @@ const props = defineProps({
         More Details
         <Icon name="ic:baseline-subdirectory-arrow-right" />
       </NuxtLink>
-      <NuxtLink v-if="livelink" aria-label="Link to live site" class="flex items-center px-4 py-1 rounded w-max gap-x-1 bg-zinc-800 hover:bg-zinc-700" :to="livelink">
+      <NuxtLink v-if="livelink" aria-label="Link to live site" target="_blank" class="flex items-center px-4 py-1 rounded w-max gap-x-1 bg-zinc-800 hover:bg-zinc-700" :to="livelink">
         Live Site
         <Icon name="mdi:link-variant" />
       </NuxtLink>

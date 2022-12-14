@@ -38,4 +38,4 @@ figure: Lighthouse score as of Dec 13, 2022
 ::
 
 ## What can be improved
-I might include PWA for better offline support in future. I'm also thinking of adding RSS and newsletter to my blog as well. 
+I might include PWA for better offline mobile support in future. I'm also thinking of adding RSS and newsletter to my blog as well. 
