@@ -40,6 +40,7 @@ export default defineNuxtConfig({
   nitro: {
     serveStatic: true,
   },
+  // @ts-expect-error
   unocss: {
     uno: true,
     icons: true,
