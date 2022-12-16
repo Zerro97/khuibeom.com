@@ -3,7 +3,7 @@ date: 2022-12-16
 title: 'Object Oriented Programming in Java'
 description: 'Summary on object oriented programming in java'
 time: 6
-banner: '/banners/post-1.jpg'
+banner: '/blogs/post-2.jpg'
 icon: 'logos:java'
 slug: object-oriented-programming-in-java
 categories:
