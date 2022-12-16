@@ -32,7 +32,7 @@ class Cat {
 
 Here, I have defined a **class** called Cat. We can think about class as a blueprint, something that defines what the entity is going to be like. We call **object** as an **instance** of the class and we create the object by **instantiating** the class. 
 
-So we could have other class instantiating the Cat class, creating the object:
+So, we could have other class instantiating the Cat class:
 ```java
 class Main {
     public static void main(String args[]) {
