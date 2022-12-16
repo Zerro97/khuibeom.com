@@ -78,7 +78,7 @@ In java, we achieve different levels of abstraction using **access modifier**. A
 | `protected`{lang="java"} | variable, method and class are only accessible on the package it belongs |
 | `public`{lang="java"} | variable, method and class are accessible everywhere |
 
-It is generally good practice to use `private`{lang="java"} over `public`{lang="java"} since using `public`{lang="java"} makes any change on the internal structure of class very difficult since it affects all clients using it. 
+It is generally good practice to use `private`{lang="java"} over `public`{lang="java"} since using `public`{lang="java"} makes any change on the internal structure of class very difficult because it affects all clients using it. 
 
 
 ## Inheritance
