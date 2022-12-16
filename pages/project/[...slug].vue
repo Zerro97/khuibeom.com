@@ -77,10 +77,4 @@ const renderer = ref()
 .renderer h2:first-of-type {
   @apply mt-0;
 }
-.renderer h3:first-of-type {
-  @apply mt-0;
-}
-.renderer h4:first-of-type {
-  @apply mt-0;
-}
 </style>
