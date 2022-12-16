@@ -21,8 +21,8 @@ const props = defineProps({
           </p>
           <h4>{{ title }}</h4>
         </div>
-        <NuxtLink aria-label="Link to Github" :to="repo" target="_blank">
-          <button v-if="repo" aria-label="Github Link" class="flex items-center justify-center w-8 h-8 rounded gap-x-1 hover:bg-zinc-800">
+        <NuxtLink v-if="repo" aria-label="Link to Github" :to="repo" target="_blank">
+          <button aria-label="Github Link" class="flex items-center justify-center w-8 h-8 rounded gap-x-1 hover:bg-zinc-800">
             <Icon name="mdi:github" class="text-2xl" />
           </button>
         </NuxtLink>

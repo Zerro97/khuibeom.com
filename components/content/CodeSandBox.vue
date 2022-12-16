@@ -10,6 +10,6 @@ const props = defineProps({
 <template>
   <iframe
     :src="src"
-    class="w-full h-[600px] rounded mt-4"
+    class="w-full h-[350px] sm:h-[500px] md:h-[600px] rounded mt-4"
   />
 </template>

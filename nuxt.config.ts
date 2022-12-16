@@ -71,6 +71,11 @@ export default defineNuxtConfig({
       fields: ['icon'],
     },
     highlight: {
+      preload: [
+        'c',
+        'cpp',
+        'java',
+      ],
       // Theme used in all color schemes.
       theme: 'github-dark',
     },
