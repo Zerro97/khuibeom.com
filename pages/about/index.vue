@@ -207,7 +207,7 @@ const educationHistory = ref([{
     </section>
     <section class="flex flex-col mt-14 sm:mt-16 md:mt-20">
       <h2>Miscellaneous</h2>
-      <LinkButton to="https://drive.google.com/file/d/1Ov4K6KSDdcgq-TZagtVONCqlckRamaIs/view" target="_blank" label="resume" class="mt-3 max-w-max">
+      <LinkButton to="https://drive.google.com/file/d/1eL_8LddDCQ_q2u-2q2f71jv4c1cWJMty/view" target="_blank" label="resume" class="mt-3 max-w-max">
         Resume
         <Icon name="uil:external-link-alt" />
       </LinkButton>
