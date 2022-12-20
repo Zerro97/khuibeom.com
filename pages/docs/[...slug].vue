@@ -1,3 +1,10 @@
+<script setup lang="ts">
+const { getDocMeta } = useMeta()
+
+const { page } = useContent()
+useContentHead(getDocMeta(page))
+</script>
+
 <template>
   <NuxtLayout name="docs">
     <ContentDoc>
