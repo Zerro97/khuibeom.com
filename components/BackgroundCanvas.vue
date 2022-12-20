@@ -4,7 +4,7 @@ let ctx: any = null
 
 // width of side visible screen (excluding main screen area)
 let spawnWidth = 0
-const CONTENT_WIDTH = 1000
+const CONTENT_WIDTH = 500
 
 const initCanvas = () => {
   canvas = document.getElementById('canvas')

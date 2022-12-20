@@ -66,6 +66,9 @@ export default defineNuxtConfig({
   headlessui: {
     prefix: 'Headless',
   },
+  robots: {
+    Sitemap: req => `https://${req.headers.host}/sitemap.xml`,
+  },
   content: {
     navigation: {
       fields: ['icon'],
