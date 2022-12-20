@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { format, parseISO } from 'date-fns'
 
-// const { page } = useContent()
-// useContentHead('page')
+const { getDocumentMeta } = useMeta()
+
+const { page } = useContent()
+useContentHead(getDocumentMeta(page))
 </script>
 
 <template>

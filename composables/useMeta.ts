@@ -6,6 +6,19 @@ interface Meta {
 }
 
 const getDocumentMeta = (document: any) => {
+  document.value.head = {
+    meta: [
+      { name: 'title', content: document.value.title },
+      { name: 'description', content: document.value.description },
+      { name: 'keywords', content: [...document.value.tags, ...document.value.categories].join(',') },
+      { name: 'og:title', content: document.value.title },
+      { name: 'og:description', content: document.value.description },
+      { name: 'og:url', content: `https://khuibeom.com/${document.value._path}` },
+      { name: 'twitter:title', content: document.value.title },
+      { name: 'twitter:description', content: document.value.description },
+      { name: 'twitter:url', content: `https://khuibeom.com/${document.value._path}` },
+    ],
+  }
   return document
 }
 
