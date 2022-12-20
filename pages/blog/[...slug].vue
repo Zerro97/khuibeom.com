@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { format, parseISO } from 'date-fns'
+
+// const { page } = useContent()
+// useContentHead('page')
 </script>
 
 <template>

@@ -1,6 +1,14 @@
 <script setup lang="ts">
+const { getMeta } = useMeta()
+
 useHead({
   title: 'About Me',
+  meta: getMeta({
+    title: 'About Me',
+    description: 'I\'m  software developer from South Korea. I mostly worked on frontend development in my career and a bit of backend works',
+    url: 'https://khuibeom.com/about',
+    keywords: 'blog, tech, about, dev, web',
+  }),
 })
 
 const workHistory = ref([{

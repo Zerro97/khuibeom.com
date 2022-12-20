@@ -12,6 +12,31 @@ tags:
   - css
   - design
   - history
+# image:
+#   src: 'https://res.cloudinary.com/dpdm96hjl/image/upload/v1670587534/khuibeom.com/blogs/post-1.jpg'
+#   alt: 'Article Image'
+# head:
+#   meta:
+#     - name: 'title'
+#       content: 'History of CSS'
+#     - name: 'og:title'
+#       content: 'History of CSS'
+#     - name: 'twitter:title'
+#       content: 'History of CSS'
+#     - name: 'description'
+#       content: 'Overview of how CSS came about and evolved over the years'
+#     - name: 'og:description'
+#       content: 'Overview of how CSS came about and evolved over the years'
+#     - name: 'twitter:description'
+#       content: 'Overview of how CSS came about and evolved over the years'
+#     - name: 'og:url'
+#       content: 'https://khuibeom.com/blog/history-of-css'
+#     - name: 'twitter:url'
+#       content: 'https://khuibeom.com/blog/history-of-css'
+#     - name: 'keywords'
+#       content: 'Front End, css, design, history'
+#     - name: 'author'
+#       content: 'Hui Beom Kim'
 ---
 
 ## How CSS came about

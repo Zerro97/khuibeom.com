@@ -11,6 +11,31 @@ categories:
 tags:
   - OOP
   - java
+# image:
+#   src: 'https://res.cloudinary.com/dpdm96hjl/image/upload/v1670587534/khuibeom.com/blogs/post-2.jpg'
+#   alt: 'Article Image'
+# head:
+#   meta:
+#     - name: 'title'
+#       content: 'Object Oriented Programming in Java'
+#     - name: 'og:title'
+#       content: 'Object Oriented Programming in Java'
+#     - name: 'twitter:title'
+#       content: 'Object Oriented Programming in Java'
+#     - name: 'description'
+#       content: 'Summary on object oriented programming in java'
+#     - name: 'og:description'
+#       content: 'Summary on object oriented programming in java'
+#     - name: 'twitter:description'
+#       content: 'Summary on object oriented programming in java'
+#     - name: 'og:url'
+#       content: 'https://khuibeom.com/blog/object-oriented-programming-in-java'
+#     - name: 'twitter:url'
+#       content: 'https://khuibeom.com/blog/object-oriented-programming-in-java'
+#     - name: 'keywords'
+#       content: 'Interview, OOP, java'
+#     - name: 'author'
+#       content: 'Hui Beom Kim'
 ---
 
 ## Introduction

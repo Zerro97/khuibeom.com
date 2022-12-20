@@ -1,8 +1,16 @@
 <script setup lang="ts">
 import { isAfter, parseISO } from 'date-fns'
 
+const { getMeta } = useMeta()
+
 useHead({
   title: 'Blog',
+  meta: getMeta({
+    title: 'Blog',
+    description: 'Sharing my learnings as I discover more about programming',
+    url: 'https://khuibeom.com/blog',
+    keywords: 'blog, tech, article, dev, web, post',
+  }),
 })
 
 const {
