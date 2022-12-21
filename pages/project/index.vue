@@ -1,8 +1,16 @@
 <script setup lang="ts">
 import { isAfter, parseISO } from 'date-fns'
 
+const { getMeta } = useMeta()
+
 useHead({
   title: 'Project',
+  meta: getMeta({
+    title: 'Project',
+    description: 'List of projects that I worked on in the past',
+    url: 'https://khuibeom.com/project',
+    keywords: 'blog, tech, project, dev, web, showcase',
+  }),
 })
 
 const projects = await (await queryContent('project').find()).sort((a, b) => {
