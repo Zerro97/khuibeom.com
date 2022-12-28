@@ -1,7 +1,7 @@
 ---
 date: 2022-12-29
 title: 'Javascript Fundamentals: What is Javascript? (Part 1)'
-description: 'A deeper inspection on how javascript work under the hood'
+description: 'A deeper inspection on what Javascript is and different aspects of Javascript'
 banner: '/blogs/post-3.jpg'
 icon: 'logos:javascript'
 time: 15
@@ -11,6 +11,8 @@ categories:
 tags:
   - javascript
   - fundamental
+  - history
+  - web assembly
 ---
 
 ## Preface
