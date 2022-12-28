@@ -1,10 +1,10 @@
 ---
-date: 2022-12-28
+date: 2022-12-29
 title: 'Javascript Fundamentals: What is Javascript? (Part 1)'
 description: 'A deeper inspection on how javascript work under the hood'
 banner: '/blogs/post-3.jpg'
 icon: 'logos:javascript'
-time: 4
+time: 15
 slug: javascript-fundamentals-what-is-javascript
 categories: 
   - Front End
@@ -184,7 +184,9 @@ figure: Abstract Syntax Tree
 
 You can explore this with online tools like [AST Explorer](https://astexplorer.net/) and [AST Visualizer](https://www.jointjs.com/demos/abstract-syntax-tree)
 
-As for JIT (just in time) compiler, it is compiler that compiles code during code execution instead of ahead of time (AOT). So in Javascript engine, there is profiler/monitor that watch how many times different statements get executed. If it gets executed multiple times, it is marked either as 'warm' or 'hot'. Baseline compiler optimize the code marked by profiler and compile them into "stub". When profiler sees that same code is getting executed again, it uses the compiled version to speed things up. As for parts of the code that becomes really "hot", the profiler send it to optimizing compiler which then creates even faster version of the code. It makes some assumptions about the code in order to do this, however, and when this assumptions become invalid, the compiled code is trashed. This trashing process is called deoptimization or bailing out. Note that, Javascript can be progressively promoted to higher level of optimization or it can drop down to slower, less optimized code.
+As for JIT (just in time) compiler, it is compiler that compiles code during code execution instead of ahead of time (AOT). So in Javascript engine, there is profiler/monitor that watch how many times different statements get executed. If it gets executed multiple times, it is marked either as 'warm' or 'hot'. Baseline compiler optimize the code marked by profiler and compile them into "stub". When profiler sees that same code is getting executed again, it uses the compiled version to speed things up. 
+
+As for parts of the code that becomes really "hot", the profiler send it to optimizing compiler which then creates even faster version of the code. It makes some assumptions about the code in order to do this, however, and when this assumptions become invalid, the compiled code is trashed. This trashing process is called deoptimization or bailing out. Note that, Javascript can be progressively promoted to higher level of optimization or it can drop down to slower, less optimized code.
 
 So again, Javascript is parsed into AST, AST is converted into bytecode by interpretor, bytecode is compiled using baseline compiler and some of it is further optimized by optimizing compiler.
 
