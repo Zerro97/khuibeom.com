@@ -14,16 +14,18 @@ tags:
 ---
 
 ## Preface
-Something that I realized while I worked on many of frontend tasks is that, it is often more efficient to look for an answer online and use them in my project rather than coming up with my own solutions. Online answers usually follow better code practices than how I would have implemented, and it takes time and effort to solve a problem on my own.
+Something that I realized while I worked on many of frontend tasks is that, I often use online resources as a confirmation of what I'm doing, even trival ones, such as using substring method in Javascript. Of course, I'm not saying referring to online resources is bad. In fact, I would encourage others to do the same since it lets you discover new and better ways of dealing with problem. 
 
-However, sometimes, I feel that I do not have enough knowledge on how all these resources work under the hood. As [Anthony Alicea](https://anthonyalicea.com/courses/) puts it, imitation can only get you so far. Having a deeper understanding of inner workings, however, can make you a successful developer.
+What was concerning for me, however, is how quickly I forget about this findings. I often end up searching for same thing over in internet. I even forgot about some of neat insights that I thought I would use again in future.
 
-Taking a step back from trying to make things work, I think it's important to take time to solidify foundational knowledge that can be applied in many situations. 
+What can I do to really ingrain a knowledge? I thought about it, and I think the problem was that I was not putting enough effort in using the answers that I found online. Instead of simply using them, I should have taken some time to understand them. This applied to my basic understanding of Javascript as well. While I have experience using Javascript through different frameworks, I didn't really spend time to dig into Javascript language itself. So to give myself better understanding of Javascript, I decided to study how Javascript work under the hood.
 
 ## Series Introduction
 I'm planning to go over Javascript fundamentals in series of posts. I will be covering many detailed bits of Javascript and it will be geared towards developers with some basic understanding of Javascript. Also kindly note that I will be referring to many online resources to reinforcement my blog article.
 
-In this part 1 of series, I will explain different aspects of Javascript language itself and define what Javascript is. Also note that most of the source of this article comes from a book called [You don't know js](https://github.com/getify/You-Dont-Know-JS). I'll be adding some additional information on top of it and summarize the book in my own words. If you have not read the book and want to gain deeper understanding of Javascript, I think it's worth a time to read through the book.
+In this part 1 of series, I will explain different aspects of Javascript and define what Javascript is. There won't be much Javascript coding since it will be about Javascript language itself.
+
+Note that most source of this article comes from a book called [You don't know js](https://github.com/getify/You-Dont-Know-JS). I'll be adding some additional information on top of it and summarize the book in my own words. If you have not read the book and want to gain deeper understanding of Javascript, it will be worth a time to read through the book.
 
 So, without further ado, let's dive into javascript fundamentals.
 
@@ -55,10 +57,6 @@ Another interesting aspect of Javascript name is that, the official trademark fo
 > The book [You don't know js](https://github.com/getify/You-Dont-Know-JS) suggests that we use the word JS instead of Javascript to distance from trademark owned by Oracle.
 
 Also note that the official name for Javascript is **ECMAScript** as formalized by TC39. Since 2016, this official name is also suffixed by the revision year (ex. ECMAScript 2022) and abbreviated as ES (ex. ES2022).
-
----
-
-That was quite number of names for Javascript. Whether you call it Javascript, JS or ECMAScript, just remember that Javascript is not a variant of Java!
 
 ## Javascript Specification
 Javascript is maintained by [TC39](https://tc39.es/), an international group of committees comprised of around 50 to 100 people from web-invested companies (Mozilla, Google, Samsung etc). TC39 is also responsible for deciding what changes are going to be applied to Javascript. 
@@ -145,7 +143,7 @@ if (!Promise.prototype.finally) {
 As you might have noticed, polyfill has to do with providing the definition for the newer syntax rather than converting it to old JS syntax. So in the above code, it checks whether the `finally` is defined in JS engine by giving `if` check and if it does not exist, it will add the polyfill (`finally()`) to the environment.
 
 ## Interpretation and Compilation
-There is ongoing debate on whether we should consider Javascript as compiled or interpreted language. While Javascript was initially considered as interpreted language, the boundary between interpreted and compiled language blurred as Javascript engine got optimized and changed over the years. To understand this better, let's look at what is meant by interpretation and compilation.
+There is ongoing debate on whether we should consider Javascript as compiled or interpreted language. While Javascript was initially considered as interpreted language, the boundary between interpreted and compiled language blurred as Javascript engine got optimized and changed over the years. To understand this better, let's look at what is meant by interpretation and compilation, as well as examining Javascript code execution process.
 
 Interpreted languages refer to languages that are executed in a top-down and step-by-step fashion without any initial parsing. Because code is executed on the fly, error is only detected if interpreter reads that line of code during execution.
 
@@ -153,11 +151,11 @@ Compiled languages refer to languages that are first parsed and then converted t
 
 ---
 
-Let's also examine how Javascript code gets processed:
+Let's also examine how Javascript code gets processed. Briefly, the following happens during code execution:
 
 1. The source code gets converted by transpiler (ex. Babel), then packed by a bundler (ex. Vite, Webpack). 
-2. Javascript engine do lexical analysis to break code into tokens and make AST(Abstract Syntax Tree)
-3. Javascript engine converts AST into bytecode which is further optimized by JIT compiler 
+2. Javascript engine parses the code into AST(Abstract Syntax Tree)
+3. Javascript engine converts AST into bytecode using interpretor which is further optimized by JIT compiler 
 4. Javascript VM executes the optimized program.
 
 So Javascript code is first parsed into AST and AST is converted to bytecode which is then optimized by JIT compiler. 
@@ -186,29 +184,96 @@ figure: Abstract Syntax Tree
 
 You can explore this with online tools like [AST Explorer](https://astexplorer.net/) and [AST Visualizer](https://www.jointjs.com/demos/abstract-syntax-tree)
 
-As for JIT (just in time) compiler, it is compiler that compiles code during code execution instead of ahead of time (AOT). So in Javascript engine, there is profiler/monitor that watch how many times different statements get executed. If it gets executed multiple times, it is marked as 'warm' or 'hot' and gets compiled into "stub". When profiler sees that same code is getting executed again, it uses the compiled version to speed things up.
+As for JIT (just in time) compiler, it is compiler that compiles code during code execution instead of ahead of time (AOT). So in Javascript engine, there is profiler/monitor that watch how many times different statements get executed. If it gets executed multiple times, it is marked either as 'warm' or 'hot'. Baseline compiler optimize the code marked by profiler and compile them into "stub". When profiler sees that same code is getting executed again, it uses the compiled version to speed things up. As for parts of the code that becomes really "hot", the profiler send it to optimizing compiler which then creates even faster version of the code. It makes some assumptions about the code in order to do this, however, and when this assumptions become invalid, the compiled code is trashed. This trashing process is called deoptimization or bailing out. Note that, Javascript can be progressively promoted to higher level of optimization or it can drop down to slower, less optimized code.
 
-> While different javascript engines handle the process differently, all the major Javascript engines (V8, SpiderMonkey, Chakra) support optimization through JIT compiler. In the case of V8 engine, it uses interpretor called Ignition to produce bytecode and use JIT compiler called TurboFan to optimize it.
+So again, Javascript is parsed into AST, AST is converted into bytecode by interpretor, bytecode is compiled using baseline compiler and some of it is further optimized by optimizing compiler.
+
+::cloudinaryImage
+---
+src: /blogs/javascript-process.png
+alt: Javascript Process
+figure: Execution of Javascript Code
+---
+::
+
+> While different javascript engines handle the process differently, all the major Javascript engines (V8, SpiderMonkey, Chakra) support optimization through JIT compiler. In the case of V8 engine, it uses interpretor called Ignition and use JIT compiler called TurboFan.
 
 ---
 
-So going back to the original question: is Javascript interpreted or compiled?
+Going back to the original question: is Javascript interpreted or compiled?
 
 There are two characteristics of compiled languages:
 1. Language is parsed
 2. Language performs code generation (after it was parsed)
 
-Remember that Javascript is parsed into AST and then converted into bytecode by the Javascript engine? Also note that Javascript informs us of syntatic errors before the code is executed. These are characterstics that are closer to compiled language than interpreted language. 
+Remember that Javascript is parsed into AST and then further optimized by the JIT compiler? Also note that Javascript informs us of syntatic errors before the code is executed. These are characterstics that are closer to compiled language than interpreted language. 
 
-Having said that, I think it is safe to say that Javascript is compiled language.
+Having said that, people today consider Javascript as compiled language and I personally think that Javascript is compiled language as well.
 
 ## Web Assembly
-Web Assembly is an emerging technology that is said to be faster than Javascript. Some even say that WASM would eventually replace Javascript in future. But what exactly is web assembly?
+I briefly explained about the Javascript code execution process and how it gets optimized through JIT compiler. However, engineers from Mozilla actually came up with ways that made the process even faster. They invented asm.js, a subset of Javascript, which focused on compiling C/C++ into Javascript. 
 
-WebAssembly is a compile-targeted language for running bytecode on the web. 
+Using Mozilla’s Emscripten compiler, C/C++ is compiled to asm.js which is then passed to Javascript engine for further processing. One thing to note about asm.js is that, it skips some of the monitoring and optimization steps as illustrated below:
+
+::cloudinaryImage
+---
+src: /blogs/asm-js.png
+alt: Javascript Process
+figure: Execution of asm.js
+---
+::
+
+Intoduction of asm.js excited many developers, especially after its demonstration of a port of the Unreal 3 game engine in a browser. It still had some room for performance improvement, however, since there were inherent delays with asm.js; asm.js is delivered to browser as obfuscated JavaScript which also needed to be parsed into AST. Seeing this, engineers from Google, Microsoft, Mozilla, and Apple started working on a project that would bring new possibilities for the web: WebAssembly.
+
+WebAssembly is a portable representation format that is delivered to the browser as modules. There are two formats associated with WebAssembly:
+
+1. Binary format
+2. Text format
+
+Text format is readable version of WASM using *.wat* extension while binary format is more compact version using *.wasm* extension. Text format looks like this:
+
+```wasm
+(module
+  (func $i (import "imports" "imported_func") (param i32))
+  (func (export "exported_func")
+    i32.const 42
+    call $i
+  )
+)
+```
+
+Notice `module` in the code above? All the WebAssembly code is distributed in separate *modules* and each module contain different *sections* (You can find the list of different sections [here](https://webassembly.github.io/spec/core/binary/modules.html)). For instance, there is `export` section, which allows the functions defined in WebAssembly to be executed by the host environment. Also note that WebAssembly doesn’t have any built-in I/O capabilities, so the only way it can communicate with outside environment is through export section or using *shared linear memory*.
+
+**Shared linear memory** is used as heap where complex data types that cannot be handled by WASM (it only supports 4 numeric data types) gets stored. Contrary to WebAssembly stack (used to store function instructions), shared linear memory is accessible by the host environment. To read from shared lineary memory, however, it first need to be decoded. This encoding/decoding logic is a bit of issue since it require encoder and decoder, but the community have developed tools like [wasm-bindgen](https://github.com/rustwasm/wasm-bindgen) to tackle this issue.
+
+::cloudinaryImage
+---
+src: /blogs/shared-linear-memory.png
+alt: Shared Linear Memory Decoding Process
+figure: Shared Linear Memory Decoding Process
+---
+::
+
+### Design Goals
+Alright, let's step back a bit and look at some of design goals of WebAssembly.
+
+#### Security 
+WebAssembly modules are *sandboxed*, meaning code execution cannot escape the runtime environment. As mentioned before, runtime environment has no I/O capability (ex. write to filesystem) and only use export/import section and shared linear memory to interact with outside environment.
+
+#### Portability 
+WASM binary format can be executed on variety of system environments, both within browser and outside browser. When WASM communicate with hosting environment, it makes no assumptions (including web specific assumptions)
+
+#### Performance
+When WASM module is passed to browser, it needs to be decoded and compiled. This process, however, is faster compared to parsing & compilation process that Javascript need to go through. Moreover, this decode/compilation can be split across multiple threads, and this whole process can take place while the module is being downloaded in the browser. WASM is simple in nature too, (it has no garbage collection, runtime APIs or reflections) and the simple validation rules contribute to fast start time and near native performance.
+
+---
+
+One final thing to note about WebAssembly is that it supports wide range of programming languages. 
+
+If you remember from earlier in this section, Emscripten compiler is used to compile C/C++, not only to asm.js but also to WebAssembly. Originally, Emscripten compiler was used to compile Rust as well. Recently though, LLVM (low level virtual machine), which is compiler as well as toolkit for building other compilers, is used to compile Rust into WebAssembly. If you come from .NET background, blazor, framework for building client side web app, is used to compile C# into WebAssembly. Other than that, there are still many other compilers that supports compiling languages such as Python, Go, Swift, Javascript and more.
 
 ## Conclusion
-This was a long article and I hope it was interesting to read through. 
+I summarized quite a bit of information from different articles and books. If the information presented here does not click and you want to gain better context to what I just wrote, try reading [You don't know js](https://github.com/getify/You-Dont-Know-JS)! It definitely gives more background information than my summarized version.
 
 ## References
 - [You don't know js](https://github.com/getify/You-Dont-Know-JS)
@@ -216,3 +281,4 @@ This was a long article and I hope it was interesting to read through.
 - [JavaScript Interpreted or Compiled? The Debate is Over](https://blog.greenroots.info/javascript-interpreted-or-compiled-the-debate-is-over)
 - [How Does JavaScript Really Work? (Part 1)](https://blog.bitsrc.io/how-does-javascript-really-work-part-1-7681dd54a36d)
 - [A crash course in just-in-time (JIT) compilers](https://hacks.mozilla.org/2017/02/a-crash-course-in-just-in-time-jit-compilers/)
+- [What Is WebAssembly?](https://learning.oreilly.com/library/view/what-is-webassembly/9781492076902/)
