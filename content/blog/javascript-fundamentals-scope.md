@@ -1,7 +1,7 @@
 ---
 date: 2023-01-10
 title: 'Javascript Fundamentals: Scope (Part 2)'
-description: 'Understanding scope in Javascript. In-depth look at lexical scope, scope chain, global scope, hoisting, closure and more'
+description: 'Understanding scope in Javascript. In-depth look at lexical scope, scope chain, global scope, hoisting, closure and module'
 banner: '/blogs/post-4.jpg'
 icon: 'logos:javascript'
 time: 15
@@ -27,16 +27,14 @@ Before I get into the article, I would like to point out that it might take time
 In this post, I will explain about Javascript scope. Namely, I will cover the following:
 - Value & Variable & Function
 - Identifying Variables
-- Identifying Lexical Scope
+- Illustrating Lexical Scope
 - Scope chain
 - Global scope
 - Hoisting
 - Closure
 - Module
 
-The first two sections will be a preparation step before we actually get to know more about the scope. Again, take your time and try to formulate your own mental model of how Javascript work. 
-
-With that in mind, let's dive into Javascript Scope!
+The first two sections will be a preparation step before we actually get to know more about the scope. Again, take your time and try to formulate your own mental model of how Javascript work!
 
 ## Value & Variable & Function
 Value is most fundamental unit of information and it is used by program to maintain state. In Javascript, we have two types of value:
@@ -142,11 +140,11 @@ actors[2] = "Tom Cruise";   // OK :(
 actors = [];                // Error!
 ```
 
-So as seen in above example, value stored in `const` variable can be mutated. `const` only prevents reassignment. 
+As seen in above example, value stored in `const` variable can be mutated. `const` only prevents reassignment. 
 
 Using `const` for objects are ill adviced. It is better to use `const` only for primitive values because by doing so, we can avoid any confusion with re-assignment (not allowed) vs. mutation (allowed).
 
-> Many people consider using `const`, a better, safer practice than using `let` and `var`. However, do we really need to prevent reassignment of object by trading off its semantic meaning?
+> Many people consider using `const` for object a better, safer practice than using `let` and `var`. However, do we really need to prevent reassignment of object by trading off its semantic meaning?
 
 ---
 In Javascript, there are different ways of defining functions, namely:
@@ -300,23 +298,117 @@ Here are the list of sources:
 
 ---
 
-Now we are starting to think a little more like how Javascript engine look at the code. Let's move on to next section to build on this mental model.
+Now we are starting to think a little more like how Javascript engine look at the code. Let's move on to next section to build on this mental model (specifically in metaphor 2).
 
-## Identifying Lexical Scope
+## Illustrating Lexical Scope
 You might be wondering what I meant by lexical scope in the section title. 
 
 In classic compiler theory there are 4 stages to compiling a language: `lexing`, `tokenization`, `parsing`, and `code generation`. Notice the word `lexing` stage? It is a stage where the parser converts source code into separate tokens. 
 
 "Lexical" scope is associated with the `lexing` stage of Javascript code execution process. Specifically, "lexical" scope is determined at compile time by the placement of functions, blocks, and variable declarations. Sounds confusing? Let's look at some metaphors to properly understand lexical scope.
 
+> Both of the metaphors that I will use come from the book. I'm just reiterating/summarizing it in my own word.
+
 ### Metaphor 1: Marble and Buckets
+Imagine pile of marbles with different colors: red, blue, green. You sort the marbles by dropping them into corresponding buckets; red marble into red bucket, blue marble into blue bucket and green marble into green bucket. Later when you need to look for blue marble, you know that it is inside a blue bucket.
+
+Here, marbles are variables and buckets are scopes. Color of marbles are determined by the color of scope/bucket it was first created at. 
+
+Ok, here is the figure from the book to better illustrate this:
+
+::cloudinaryImage
+---
+src: /blogs/marble-and-bucket.png
+alt: Code illustrating lexical scope
+figure: Code illustrating lexical scope
+width: 400
+height: 450
+---
+::
+
+1. **Bucket 1:** It is global scope with 3 identifiers: `students`, `getStudentName`, `nextStudent`
+2. **Bucket 2:** It is function scope with 1 identifier: parameter `studentID`,
+3. **Bucket 3:** It is scope of the `for` loop with 1 identifier: `student`
+
+Notice the `students` reference at line 9? It belongs to red scope despite being rerferenced from blue scope. Variables are colored/scoped based on where they are originally created at (line 1), not where they are referred from (line 9). 
+
+In perspective of Javascript engine, how did it decide that `students` (line 9) belong to red bucket/scope? We should conceptualize this determination of scope as a "lookup" process. Since `students` at line 9 was not declaration but a reference, it originally do not have any color/scope. We ask the current scope (blue) if it contains matching name and if it doesn't, we move on to outer scope (red). The outer scope have variable/marble of name `students`, so the variable reference in line 9 is determined to be red marble/scope.
+
+---
+
+Alright, let me list some of key characterstics of scope:
+- Scope is determined during compilation
+- Each scope is entirely contained within parent scope. It is never partially in 2 different outer scopes
+- Each variable's scope/color is determined by where it was originally declared at, not where it is accessed from. Conceptualize this determination as "lookup" process.
+- Refering to variable in current or outer scope is allowed. However, referring to variable from lower scope is not allowed
+
+---
+
+I hope you are starting to visualize lexical scopes with this first metaphor. I might have rushed a little, but the second metaphor will build on the first metaphor and add more contexts. Specifically, it will help us with understanding Javascript compiler/engine's perspective.
 
 ### Metaphor 2: Conversation
+What we are doing with this metaphor is listening to the conversation that 3 entities are having. These 3 entities are:
+
+1. **Engine**: handles start-to-finish compilation and execution of JavaScript program
+2. **Compiler**: handles parsing and code-generation
+3. **Scope Manager**: collects and maintains a lookup list of all the declared variables/identifiers, and enforces a set of rules as to how these are accessible to currently executing code
+
+We will also examine the below code (the same code example as before) and simulate the conversation between Javascript engine, compiler and scope manager.
+
+```javascript
+var students = [
+    { id: 14, name: "Kyle" },
+    { id: 73, name: "Suzy" },
+    { id: 112, name: "Frank" },
+    { id: 6, name: "Sarah" }
+];
+
+function getStudentName(studentID) {
+    for (let student of students) {
+        if (student.id == studentID) {
+            return student.name;
+        }
+    }
+}
+
+var nextStudent = getStudentName(73);
+
+console.log(nextStudent);
+// Suzy
+```
+
+Before we get to the conversation, one thing to note is that the code execution process happens in 2 phases: one that compiler handle during compilation and one that engine handle during code execution.
+
+Alright, let's listen to the first phase of conversation between compiler and scope manager (happens during compile/parsing phase):
+
+> **Compiler**: Hey, Scope Manager (of the global scope), I found a formal declaration for an identifier called `students`, ever heard of it?
+> 
+> **(Global) Scope Manager**: Nope, never heard of it, so I just created it for you.
+> 
+> **Compiler**: Hey, Scope Manager, I found a formal declaration for an identifier called `getStudentName`, ever heard of it?
+> 
+> **(Global) Scope Manager**: Nope, but I just created it for you.
+> 
+> **Compiler**: Hey, Scope Manager, `getStudentName` points to a function, so we need a new scope bucket.
+> 
+> **(Function) Scope Manager**: Got it, here's the scope bucket.
+> 
+> **Compiler**: Hey, Scope Manager (of the function), I found a formal parameter declaration for `studentID`, ever heard of it?
+> 
+> **(Function) Scope Manager**: Nope, but now it's created in this scope.
+>
+> **Compiler**: Hey, Scope Manager (of the function), I found a for-loop that will need its own scope bucket.
+>
+> ...
+
+
 
 ## Scope Chain
 
 ## Conclusion
 I skipped over quite number of sections from [You don't know JS](). 
+
+While I mentioned in part 1 that I will be covering Javascript fundamentals in series of posts, I need to stop this series for awhile. Well, the next part of book, which is about objects are classes, is still in working draft. I could read through the first edition of the book instead of second edition but, first edition is published in 2014 which is before ES6 and I think that is a little too old.
 
 ## References
 - [You don't know js](https://github.com/getify/You-Dont-Know-JS)
