@@ -21,23 +21,48 @@ Also bear in mind that I will be referring to a book called [You don't know JS](
 
 ---
 
-Before I get into the article, I would like to point out that it might take time to process the information that I present here. From my personal experience, studying Javascript scope required more of formulating my own mental model than simply memorizing the concepts.  While you might feel anxious (at least it was for me!), it will be worth taking time to understand the concept, because having right mental model at the back of the mind will help us in long run. 
+Before I get into the article, I would like to point out that it might take time to process the information that I present here. Personally, studying Javascript scope required more of formulating my own mental model than simply memorizing the concepts.  While you might feel anxious (at least it was for me!), it will be worth taking time to understand the concept, because having right mental model at the back of the mind will help us in long run. 
 
-### Goals
-In this post, I will explain about Javascript scope. Namely, I will cover the following:
-- Value & Variable & Function
-- Identifying Variables
-- Illustrating Lexical Scope
-- Scope chain
-- Global scope
-- Hoisting
-- Closure
-- Module
+### Table of Contents
 
-The first two sections will be a preparation step before we actually get to know more about the scope. Again, take your time and try to formulate your own mental model of how Javascript work!
+::NumberedList
+---
+contents: [{
+    title: 'Value & Variable & Function',
+    description: 'Quick overview of Javascript syntax'
+}, {
+    title: 'Identifying Variables',
+    description: 'How Javascript engine perceive and identify variables'
+}, {
+    title: 'Illustrating Lexical Scope',
+    description: 'Illustrating lexical scope using metaphors'
+}, {
+    title: 'Scope Chain',
+    description: 'Understanding how variable lookup and shadowing work'
+}, {
+    title: 'Global Scope',
+    description: 'Examining global scope in different environments'
+}, {
+    title: 'Hoisting',
+    description: 'How hoisting works and dangers of uninitialized variables (TDZ)'
+}, {
+    title: 'Closure',
+    description: 'Understanding closure and examining some of use cases for closure'
+}, {
+    title: 'Module',
+    description: 'Inspecting different ways of implementing module in Javascript'
+}]
+---
+::
+
+> I find it useful to look at high level overview of things that I study, so I made above table of content component. You can come back here to refresh memory and remind overall goal of each sections.
+
+In this post, I will explain about Javascript scope. The first two sections will be a preparation step before we actually get to know more about the scope. Each sections will build up from previous sections, so it will be useful to read from the begining. 
+
+Again, take your time and read through each section. Try to formulate your own mental model of how Javascript work!
 
 ## Value & Variable & Function
-Value is most fundamental unit of information and it is used by program to maintain state. In Javascript, we have two types of value:
+In programming, value is the most fundamental unit of information. Value is used to maintain a state inside a program. In Javascript, we have two types of value:
 1. **Primitive**
 2. **Object**
 
@@ -140,9 +165,9 @@ actors[2] = "Tom Cruise";   // OK :(
 actors = [];                // Error!
 ```
 
-As seen in above example, value stored in `const` variable can be mutated. `const` only prevents reassignment. 
+As seen in above example, value stored in `const` variable can be mutated (when using objects). `const` only prevents reassignment. 
 
-Using `const` for objects are ill adviced. It is better to use `const` only for primitive values because by doing so, we can avoid any confusion with re-assignment (not allowed) vs. mutation (allowed).
+Using `const` for objects are ill adviced. It is better to use `const` only for primitive values such as number, string or boolean because by doing so, we can avoid any confusion with re-assignment (not allowed) vs. mutation (allowed).
 
 > Many people consider using `const` for object a better, safer practice than using `let` and `var`. However, do we really need to prevent reassignment of object by trading off its semantic meaning?
 
@@ -158,7 +183,7 @@ function awesomeFunction(coolThings) {
 ```
 Above example is function declaration. 
 
-Another way of thinking about above code is, identifier `awesomeFunction` being assigned a function value. You can kind of see this as `var awesomeFunction = function() {...}` (not accurate but you get the point). So again, identifier `awesomeFunction` holding function value.
+Another way of thinking about above code is, identifier `awesomeFunction` being assigned a function value. You can kind of see this as `var awesomeFunction = function() {...}` (not accurate but conceptually useful). So again, identifier `awesomeFunction` holding function value.
 
 ```javascript
 var awesomeFunction = function(coolThings) {
@@ -167,11 +192,31 @@ var awesomeFunction = function(coolThings) {
 ```
 This is function expression. We have identifier `awesomeFunction` that is assigned function value.
 
-What is difference between function expression and function declaration? One big difference is the time at which the association between identifier and function value happens. For function declaration, association happens during compile time. For function expression, association happens during code execution. This leads to some behavioral differences, such as hoisting, but again, I will explain this later.
+What is difference between function expression and function declaration? One big difference is the time at which the association between identifier and function value happens. For function declaration, association happens during compile time. For function expression, association happens during code execution. 
+
+To add on, for function declaration, identifier `awesomeFunction` was declared during compile time but instead of waiting for `=` assignment to be executed during code execution, the association between identifier `awesomeFunction` and function value happened during compile time. This leads to some behavioral differences, such as hoisting, but again, I will explain this later.
 
 > While I did mention about this in [part 1](https://khuibeom.com/blog/javascript-fundamentals-what-is-javascript#interpretation-and-compilation) of series, I didn't really go in depth about Javascript having two phases: parsing/compilation and execution. If you are curious about whether Javascript have compilation step, read this [part](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch1.md#required-two-phases) of the book. Basically in observable sense, not theory or opinion, Javascript do have sort of compilation phase before code execution.
 
-If you have noticed, I used the word "function value". In Javascript, all functions are values that can be assigned to variable or passed around. This function behavior is essential for Javascript (or any other languages) to support a functional programming pattern.
+If you have noticed, I used the word "function value". In Javascript, all functions are values that can be assigned to variable or passed around. 
+
+Since functions are values, we can assign function as properties on objects:
+
+```javascript
+var greeting = {
+    morning() {
+        console.log("Good Morning!");
+    },
+    evening() {
+        console.log("Good Evening!");
+    }
+}
+
+greeting.morning();
+// Good Morning!
+```
+
+This function behavior is essential for Javascript (or any other languages) to support a functional programming pattern.
 
 ## Identifying Variables
 Now, let's shift our focus to Javascript engine, specifically how it identify and perceive variables as the program is compiled. 
@@ -184,7 +229,7 @@ All occurences of variables in a program serve one of two "roles": either they'r
 var studentName = myName;
 ```
 
-Here, studentName is *target* reference and myName is *source* reference.
+Here, studentName is *target* reference because value is assigned to it. All the other variable reference, myName in this case, is *source* reference.
 
 While you might think that target is always at the left side of `=` assignment operator, that is not always the case.
 
@@ -301,6 +346,8 @@ Here are the list of sources:
 Now we are starting to think a little more like how Javascript engine look at the code. Let's move on to next section to build on this mental model (specifically in metaphor 2).
 
 ## Illustrating Lexical Scope
+Scope is fundamental mechanism in which Javascript engine manage and organize variables. We will mostly look at how the engine decide which variables are accessible, 
+
 You might be wondering what I meant by lexical scope in the section title. 
 
 In classic compiler theory there are 4 stages to compiling a language: `lexing`, `tokenization`, `parsing`, and `code generation`. Notice the word `lexing` stage? It is a stage where the parser converts source code into separate tokens. 
@@ -347,13 +394,13 @@ Alright, let me list some of key characterstics of scope:
 I hope you are starting to visualize lexical scopes with this first metaphor. I might have rushed a little, but the second metaphor will build on the first metaphor and add more contexts. Specifically, it will help us with understanding Javascript compiler/engine's perspective.
 
 ### Metaphor 2: Conversation
-What we are doing with this metaphor is listening to the conversation that 3 entities are having. These 3 entities are:
+What we are doing with this metaphor is imagining the conversation that happens inside the javascript engine as different entities process and executes the code. There are 3 entities involved with conversation, which are:
 
 1. **Engine**: handles start-to-finish compilation and execution of JavaScript program
 2. **Compiler**: handles parsing and code-generation
 3. **Scope Manager**: collects and maintains a lookup list of all the declared variables/identifiers, and enforces a set of rules as to how these are accessible to currently executing code
 
-We will also examine the below code (the same code example as before) and simulate the conversation between Javascript engine, compiler and scope manager.
+To simulate this conversation, we will examine the below code (the same code example as before) and imagine what kind of interaction happens between Javascript engine, compiler and scope manager.
 
 ```javascript
 var students = [
@@ -377,9 +424,9 @@ console.log(nextStudent);
 // Suzy
 ```
 
-Before we get to the conversation, one thing to note is that the code execution process happens in 2 phases: one that compiler handle during compilation and one that engine handle during code execution.
+Before we get to the conversation, one thing to note is that the code execution process happens in 2 phases: one that compiler handle during compilation and one that engine handle during code execution. So in the first phase, there will be an interaction between compiler and scope manager and the second phase will be an interaction between engine and scope manager.
 
-Alright, let's listen to the first phase of conversation between compiler and scope manager (happens during compile/parsing phase):
+Alright, let's listen to the first phase of conversation (happens during compile/parsing phase):
 
 > **Compiler**: Hey, Scope Manager (of the global scope), I found a formal declaration for an identifier called `students`, ever heard of it?
 > 
