@@ -19,11 +19,14 @@ This is part 2 of the Javascript Fundamentals series. If you haven't, try readin
 
 Also bear in mind that I will be referring to a book called [You don't know JS](https://github.com/getify/You-Dont-Know-JS) in this article.
 
----
+## First Pillar: Scope
+In [You don't know JS](https://github.com/getify/You-Dont-Know-JS), the author categorize Javascript into 3 different pillars:
 
-Before I get into the article, I would like to point out that it might take time to process the information that I present here. Personally, studying Javascript scope required more of formulating my own mental model than simply memorizing the concepts.  While you might feel anxious (at least it was for me!), it will be worth taking time to understand the concept, because having right mental model at the back of the mind will help us in long run. 
+1. Scope & Closure
+2. Prototypes
+3. Types & Coercion
 
-### Table of Contents
+I will try to cover the first pillar, scope & closure, in 3 separate blog articles. In these 3 blog articles, I will cover the following topics:
 
 ::NumberedList
 ---
@@ -57,9 +60,13 @@ contents: [{
 
 > I find it useful to look at high level overview of things that I study, so I made above table of content component. You can come back here to refresh memory and remind overall goal of each sections.
 
-In this post, I will explain about Javascript scope. The first two sections will be a preparation step before we actually get to know more about the scope. Each sections will build up from previous sections, so it will be useful to read from the begining. 
+In this post, I will cover the first 3 sections (until Illustrating Lexical Scope). The first two sections will be a preparation step before we actually get to know more about the scope. The third section will be about lexical scope and understanding it through different metaphors. 
 
-Again, take your time and read through each section. Try to formulate your own mental model of how Javascript work!
+Also note that each sections will build up from previous sections, so it will be useful to read from the begining. 
+
+Before I get into the article, I would like to point out that it might take time to process the information that I present here. Personally, studying Javascript scope required more of formulating my own mental model than simply memorizing the concepts.  While it might require more work, it will be worth taking time to understand the concept, because having right mental model at the back of the mind will help us in long run.
+
+Alright, enough with introduction. Let's get to main parts of the article.
 
 ## Value & Variable & Function
 In programming, value is the most fundamental unit of information. Value is used to maintain a state inside a program. In Javascript, we have two types of value:
@@ -346,13 +353,15 @@ Here are the list of sources:
 Now we are starting to think a little more like how Javascript engine look at the code. Let's move on to next section to build on this mental model (specifically in metaphor 2).
 
 ## Illustrating Lexical Scope
-Scope is fundamental mechanism in which Javascript engine manage and organize variables. We will mostly look at how the engine decide which variables are accessible, 
+Scope is fundamental mechanism in which Javascript engine manage and organize variables. Specifically, engine uses scope to determine the accessibility of variables and functions. The process of determining the scopes of the variables/functions is called *lexical scoping*.
 
-You might be wondering what I meant by lexical scope in the section title. 
+Another useful way to think about lexical scope is with the word 'lexical'. In classic compiler theory there are 3 stages to compiling a language: `lexing`/`tokenization`, `parsing`, and `code generation`. Notice the word `lexing` stage? It is a stage where the parser converts source code into separate tokens. "Lexical" scope comes from this `lexing` stage of Javascript code execution process. In other words, scope is identified during lexing stage of compilation, not during code execution.
 
-In classic compiler theory there are 4 stages to compiling a language: `lexing`, `tokenization`, `parsing`, and `code generation`. Notice the word `lexing` stage? It is a stage where the parser converts source code into separate tokens. 
+It is important to note that scope is only *identified* during compilation. The Javascript engine has yet to allocate memory space for a scope, or any other variables. What engine does during compilation is creating a map of lexical scopes. Only after initial parsing, Javascript engine uses this map to define scopes and register the identifier for each scope during code execution.
 
-"Lexical" scope is associated with the `lexing` stage of Javascript code execution process. Specifically, "lexical" scope is determined at compile time by the placement of functions, blocks, and variable declarations. Sounds confusing? Let's look at some metaphors to properly understand lexical scope.
+Ok, so scope is identified during compile time but how exactly is scope determined in a program? Briefly, lexical scope is determined by the placement of functions, blocks, and variable declarations. To illustrate this better, let's look at some metaphors.
+
+<!-- If variable is block-scoped declared (`let`/`const`), it is associated with the nearest enclosing `{...}` block. If variable is function-scoped declared (`var`), it is associated with enclosing function block. -->
 
 > Both of the metaphors that I will use come from the book. I'm just reiterating/summarizing it in my own word.
 
@@ -377,7 +386,9 @@ height: 450
 2. **Bucket 2:** It is function scope with 1 identifier: parameter `studentID`,
 3. **Bucket 3:** It is scope of the `for` loop with 1 identifier: `student`
 
-Notice the `students` reference at line 9? It belongs to red scope despite being rerferenced from blue scope. Variables are colored/scoped based on where they are originally created at (line 1), not where they are referred from (line 9). 
+Identifier belongs to the scope where they are declared (using `var`, `let`, `const`). As compiler parses through the code and find variable declarations (not references), it will associate that variable to the current scope.
+
+Also, notice the `students` reference at line 9? It belongs to red scope despite being rerferenced from blue scope. Variables are colored/scoped based on where they are originally created at (line 1), not where they are referred from (line 9). 
 
 In perspective of Javascript engine, how did it decide that `students` (line 9) belong to red bucket/scope? We should conceptualize this determination of scope as a "lookup" process. Since `students` at line 9 was not declaration but a reference, it originally do not have any color/scope. We ask the current scope (blue) if it contains matching name and if it doesn't, we move on to outer scope (red). The outer scope have variable/marble of name `students`, so the variable reference in line 9 is determined to be red marble/scope.
 
@@ -386,7 +397,7 @@ In perspective of Javascript engine, how did it decide that `students` (line 9) 
 Alright, let me list some of key characterstics of scope:
 - Scope is determined during compilation
 - Each scope is entirely contained within parent scope. It is never partially in 2 different outer scopes
-- Each variable's scope/color is determined by where it was originally declared at, not where it is accessed from. Conceptualize this determination as "lookup" process.
+- Each variable's scope/color is determined by where it was originally declared at, not where it is accessed from. To determine variable refernce's scope, it will move up the scope until it finds the declaration.
 - Refering to variable in current or outer scope is allowed. However, referring to variable from lower scope is not allowed
 
 ---
@@ -394,7 +405,7 @@ Alright, let me list some of key characterstics of scope:
 I hope you are starting to visualize lexical scopes with this first metaphor. I might have rushed a little, but the second metaphor will build on the first metaphor and add more contexts. Specifically, it will help us with understanding Javascript compiler/engine's perspective.
 
 ### Metaphor 2: Conversation
-What we are doing with this metaphor is imagining the conversation that happens inside the javascript engine as different entities process and executes the code. There are 3 entities involved with conversation, which are:
+What we are doing with this metaphor is imagining the conversation that happens inside the Javascript engine. Within Javascript engine, there are 3 entities involved with conversation, which are:
 
 1. **Engine**: handles start-to-finish compilation and execution of JavaScript program
 2. **Compiler**: handles parsing and code-generation
@@ -448,14 +459,55 @@ Alright, let's listen to the first phase of conversation (happens during compile
 >
 > ...
 
+In this question-and-answer exchange, compiler ask scope manager if encountered variable declaration has already been registered. If no, scope manager creates variable and attaches it to the scope he is managing. If yes, it is skipped over. Also note that compiler signals when a new scope need to be created, such as when encountering function or block scopes.
 
+---
+This is second phase of conversation (happens during code execution phase):
 
-## Scope Chain
+> **Engine**: Hey, Scope Manager (of the global scope), before we begin, can you look up the identifier getStudentName so I can assign this function to it?
+> 
+> **(Global) Scope Manager**: Yep, here's the variable.
+> 
+> **Engine**: Hey, Scope Manager, I found a target reference for students, ever heard of it?
+> 
+> **(Global) Scope Manager**: Yes, it was formally declared for this scope, so here it is.
+> 
+> **Engine**: Thanks, I'm initializing students to undefined, so it's ready to use.
+> 
+> Hey, Scope Manager (of the global scope), I found a target reference for nextStudent, ever heard of it?
+> 
+> **(Global) Scope Manager**: Yes, it was formally declared for this scope, so here it is.
+> 
+> **Engine**: Thanks, I'm initializing nextStudent to undefined, so it's ready to use.
+> 
+> Hey, Scope Manager (of the global scope), I found a source reference for getStudentName, ever heard of it?
+> 
+> **(Global) Scope Manager**: Yes, it was formally declared for this scope. Here it is.
+> 
+> **Engine**: Great, the value in getStudentName is a function, so I'm going to execute it.
+> 
+> **Engine**: Hey, Scope Manager, now we need to instantiate the function's scope.
+> 
+> ...
+
+In above question-and-answer exchange, engine is mostly involved with assignment/initialization of variables (`=`). First engine ask scope manager to look up hoisted `getStudentName` identifier so the engine can assign function to it. Next, engine ask scope manager if `students` exist in the scope. If yes, engine initialize the variable to `undefined`.
+
+So in first phase, different identifiers are attached to the scope and in second phase, engine initialize it with value after checking with scope manager.
+
+#### Nested Scope
+So far, we only looked at the variables that are declared and identified in the same scope. Let's also look at how Javascript handles nested scopes.
+
+I explained target and source in previous section. 
 
 ## Conclusion
-I skipped over quite number of sections from [You don't know JS](). 
+Originally, I intended to cover all 8 different sections in this article. Well, obviously it didn't worked out as you can see; the article was getting too long. I decided to split it up into 3 different posts. The first post for laying ground for scope. The upcoming articles for more in depth view of scope, specifically covering scope chain, global scope and hoisting in second post. 
 
-While I mentioned in part 1 that I will be covering Javascript fundamentals in series of posts, I need to stop this series for awhile. Well, the next part of book, which is about objects are classes, is still in working draft. I could read through the first edition of the book instead of second edition but, first edition is published in 2014 which is before ES6 and I think that is a little too old.
+Other than that, I also want to mention that this article is based on my own understanding of the book. Read the [book](https://github.com/getify/You-Dont-Know-JS) if you want to look at more detailed, accurate information without my own interpretation.
+<!-- I skipped over quite number of sections from [You don't know JS]().  -->
+
+<!-- While I mentioned in part 1 that I will be covering Javascript fundamentals in series of posts, I need to stop this series for awhile. Well, the next part of book, which is about objects are classes, is still in working draft. I could read through the first edition of the book instead of second edition but, first edition is published in 2014 which is before ES6 and I think that is a little too old. -->
 
 ## References
 - [You don't know js](https://github.com/getify/You-Dont-Know-JS)
+- [Lexical Scope in JavaScript – Beginner's Guide](https://www.freecodecamp.org/news/lexical-scope-in-javascript/)
+- [The Difference Between Function, Block, And Lexical Scope](https://topinterns.io/blog/article/45)

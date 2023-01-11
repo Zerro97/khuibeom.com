@@ -12,7 +12,7 @@ const props = defineProps<Props>()
 </script>
 
 <template>
-  <div class="flex flex-col gap-y-2 mt-4">
+  <div class="flex flex-col gap-y-2 mt-6 mb-8">
     <div
       v-for="(content, index) in props.contents"
       :key="index"
