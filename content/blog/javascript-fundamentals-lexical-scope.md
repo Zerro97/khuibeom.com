@@ -1,11 +1,11 @@
 ---
 date: 2023-01-10
-title: 'Javascript Fundamentals: Scope (Part 2)'
-description: 'Understanding scope in Javascript. In-depth look at lexical scope, scope chain, global scope, hoisting, closure and module'
+title: 'Javascript Fundamentals: Lexical Scope (Part 2)'
+description: 'Understanding lexical scope and basic Javascript syntax.'
 banner: '/blogs/post-4.jpg'
 icon: 'logos:javascript'
-time: 15
-slug: javascript-fundamentals-scope
+time: 18
+slug: javascript-fundamentals-lexical-scope
 categories: 
   - Front End
 tags:
@@ -14,12 +14,12 @@ tags:
   - scope
 ---
 
-## Introduction
+## 
 This is part 2 of the Javascript Fundamentals series. If you haven't, try reading [part 1](https://khuibeom.com/blog/javascript-fundamentals-what-is-javascript) of the series! I explained various aspects of Javascript language there. 
 
 Also bear in mind that I will be referring to a book called [You don't know JS](https://github.com/getify/You-Dont-Know-JS) in this article.
 
-## First Pillar: Scope
+## Introduction
 In [You don't know JS](https://github.com/getify/You-Dont-Know-JS), the author categorize Javascript into 3 different pillars:
 
 1. Scope & Closure
@@ -147,7 +147,7 @@ console.log(gender);
 // Error!
 ```
 
-Trying to access gender results in an error because gender is block-scoped to `if` whereas myName is not. What about myName being function-scoped? I'll get to this later in the article.
+Trying to access gender results in an error because gender is block-scoped to `if` whereas myName is not. What about myName being function-scoped? I'll get to this later in the series.
 
 `const` share similar behavior to `let` except that it has additional limitation: it must be given a value at the moment it's declared, and cannot be re-assigned a different value later.
 
@@ -190,14 +190,14 @@ function awesomeFunction(coolThings) {
 ```
 Above example is function declaration. 
 
-Another way of thinking about above code is, identifier `awesomeFunction` being assigned a function value. You can kind of see this as `var awesomeFunction = function() {...}` (not accurate but conceptually useful). So again, identifier `awesomeFunction` holding function value.
+Another way of thinking about above code is, identifier `awesomeFunction` associated with a function value. You can kind of see this as `var awesomeFunction = function() {...}` (not accurate but conceptually useful). So again, identifier `awesomeFunction` pointing to function value.
 
 ```javascript
 var awesomeFunction = function(coolThings) {
   return amazingStuff;
 }
 ```
-This is function expression. We have identifier `awesomeFunction` that is assigned function value.
+This is function expression. We have identifier `awesomeFunction` that points to function value.
 
 What is difference between function expression and function declaration? One big difference is the time at which the association between identifier and function value happens. For function declaration, association happens during compile time. For function expression, association happens during code execution. 
 
@@ -361,8 +361,6 @@ It is important to note that scope is only *identified* during compilation. The 
 
 Ok, so scope is identified during compile time but how exactly is scope determined in a program? Briefly, lexical scope is determined by the placement of functions, blocks, and variable declarations. To illustrate this better, let's look at some metaphors.
 
-<!-- If variable is block-scoped declared (`let`/`const`), it is associated with the nearest enclosing `{...}` block. If variable is function-scoped declared (`var`), it is associated with enclosing function block. -->
-
 > Both of the metaphors that I will use come from the book. I'm just reiterating/summarizing it in my own word.
 
 ### Metaphor 1: Marble and Buckets
@@ -459,7 +457,7 @@ Alright, let's listen to the first phase of conversation (happens during compile
 >
 > ...
 
-In this question-and-answer exchange, compiler ask scope manager if encountered variable declaration has already been registered. If no, scope manager creates variable and attaches it to the scope he is managing. If yes, it is skipped over. Also note that compiler signals when a new scope need to be created, such as when encountering function or block scopes.
+In this question-and-answer exchange, compiler ask scope manager if encountered variable declaration has already been registered. If no, scope manager setup the variable and attaches it to the scope he is managing. If yes, it is skipped over. Also note that compiler signals when a new scope need to be created, such as when encountering function or block scopes.
 
 ---
 This is second phase of conversation (happens during code execution phase):
@@ -492,17 +490,78 @@ This is second phase of conversation (happens during code execution phase):
 
 In above question-and-answer exchange, engine is mostly involved with assignment/initialization of variables (`=`). First engine ask scope manager to look up hoisted `getStudentName` identifier so the engine can assign function to it. Next, engine ask scope manager if `students` exist in the scope. If yes, engine initialize the variable to `undefined`.
 
-So in first phase, different identifiers are attached to the scope and in second phase, engine initialize it with value after checking with scope manager.
+So in first compile phase, different identifiers are *setup* in the scope and in second execution phase, engine initialize it with value after checking with scope manager.
+
+> What I meant by identifier being *setup* in the scope is, producing machine code that will later create that identifier during code execution. The identifier is yet to be created during compile/parsing phase. I know it's a little confusing when the scope manager says *created*, but just think of it as preparation for creating variable later in code execution.
 
 #### Nested Scope
-So far, we only looked at the variables that are declared and identified in the same scope. Let's also look at how Javascript handles nested scopes.
+So far, we only looked at the variables that are declared and referenced in the same scope. Let's also look at how Javascript handles nested scopes.
 
-I explained target and source in previous section. 
+::cloudinaryImage
+---
+src: /blogs/marble-and-bucket.png
+alt: Code illustrating lexical scope
+figure: Code illustrating lexical scope
+width: 400
+height: 450
+---
+::
+
+Back in previous example, we have loop scope (green) nested inside function scope (blue) which in turn is nested inside global scope (red). 
+
+As the engine progress through the program, it will enter into each scope (during code execution phase). At the start of each scope execution, each scope creates identifiers that are previously registered by compiler, in memory. After identifiers are created, it is initialized with value. This registration process of identifiers at the start of scope is called hoisting. 
+
+What value gets assigned to identifier depends on how that identifier is declared. If the identifier came from a function declaration, that variable is initialized to its function reference (pointing to function value). If the identifier came from `var` declaration, that variable is initialized to `undefined`. If the identifier came from `let`/`const` declaration, that variable remains uninitialized (TDZ). More on this in hoisting section.
+
+---
+
+Alright, we got glimpse of what hoisting is about (happens at the start of each scope execution). Let's examine what happens after hoisting, specifically examining this snippet: `for (let student of students) {` 
+
+> **Engine**: Hey, Scope Manager (for the function), I have a source reference for students, ever heard of it?
+> 
+> **(Function) Scope Manager**: Nope, never heard of it. Try the next outer scope.
+> 
+> **Engine**: Hey, Scope Manager (for the global scope), I have a source reference for students, ever heard of it?
+> 
+> **(Global) Scope Manager**: Yep, it was formally declared, here it is.
+
+So, if the identifier reference is not found in the current scope, engine look for the identifier in the outer scope. This lookup process repeats until identifier is found or there are no more scope to ask.
+
+#### Lookup Failure
+
+If the engine fails to find a identifier (after consulting all available scopes), error is thrown. How this error is handled depends on the role of the variable and the mode of program (strict or not).
+
+Remember 2 roles (target/source) of variable from previous section? It's time to use that knowledge in use.
+
+If missing variable is source, then `ReferenceError` is thrown. If missing variable is target, `ReferenceError` is also thrown if the code is ran in strict mode.
+
+This reference error will look like this: `Reference Error: XYZ is not defined`. Here `not defined` means undeclared or missing. The variable is no where to be found in lexically available scope. 
+
+The error message is a little misleading when comparing that to `undefined` primitive value. As mentioned before, identifiers are first initialized to `undefined` at the start of scope execution. So `undefined` really means that identifier is declared but have not been assigned with value yet.
+
+---
+
+If the missing variable is target and it is in non strict mode, global scope manager will create global variable to fulfill the target assignment. For instance:
+
+```javascript
+function getStudentName() {
+    // assignment to an undeclared variable :(
+    nextStudent = "Suzy";
+}
+
+getStudentName();
+
+console.log(nextStudent);
+// "Suzy" -- oops, an accidental-global variable!
+```
+`nextStudent` was never declared but the code still runs because global scope manager created a global variable `nextStudent`. This will probably lead to bug in future and we should never rely on this accidental global variables. Always use `strict mode` to prevent such error. 
 
 ## Conclusion
+Alright, that was a little long.
+
 Originally, I intended to cover all 8 different sections in this article. Well, obviously it didn't worked out as you can see; the article was getting too long. I decided to split it up into 3 different posts. The first post for laying ground for scope. The upcoming articles for more in depth view of scope, specifically covering scope chain, global scope and hoisting in second post. 
 
-Other than that, I also want to mention that this article is based on my own understanding of the book. Read the [book](https://github.com/getify/You-Dont-Know-JS) if you want to look at more detailed, accurate information without my own interpretation.
+Other than that, I also want to mention that this article is based on my own understanding of the You don't know JS. Read the [book](https://github.com/getify/You-Dont-Know-JS) if you want to look at more detailed, accurate information without my own interpretation.
 <!-- I skipped over quite number of sections from [You don't know JS]().  -->
 
 <!-- While I mentioned in part 1 that I will be covering Javascript fundamentals in series of posts, I need to stop this series for awhile. Well, the next part of book, which is about objects are classes, is still in working draft. I could read through the first edition of the book instead of second edition but, first edition is published in 2014 which is before ES6 and I think that is a little too old. -->
