@@ -16,14 +16,14 @@ tags:
 ---
 
 ## Preface
-Something that I realized while I worked on many of frontend tasks is that, I often use online resources as a confirmation of what I'm doing, even trival ones, such as using substring method in Javascript. Of course, I'm not saying referring to online resources is bad. In fact, I would encourage others to do the same since it lets you discover new and better ways of dealing with problem. 
+Something that I realized while I worked on many of frontend tasks is that, I often use online resources as a confirmation of what I'm doing, even trival ones, such as using substring method in Javascript. I'm not saying searching for answers online is bad. Opposite of it, in fact, since it lets you discover new and better ways of dealing with problem. 
 
-What was concerning for me, however, is how quickly I forget about this findings. I often end up searching for same thing over in internet. I even forgot about some of neat insights that I thought I would use again in future.
+What was concerning for me, however, is how quickly I forget about this findings. I often end up searching for same thing over in internet, even ones that I thought interesting.
 
-What can I do to really ingrain a knowledge? I thought about it, and I think the problem was that I was not putting enough effort in using the answers that I found online. Instead of simply using them, I should have taken some time to understand them. This applied to my basic understanding of Javascript as well. While I have experience using Javascript through different frameworks, I didn't really spend time to dig into Javascript language itself. So to give myself better understanding of Javascript, I decided to study how Javascript work under the hood.
+What can I do to really ingrain a knowledge? I thought about it, and I think the problem was that I was not putting enough effort in using the answers that I found online. Instead of simply using them, I should have taken some time to understand them. This applied to my basic understanding of Javascript as well. While I have experience using Javascript through different frameworks, I didn't really spend time to dig into Javascript language itself. It's never late to learn something, so I decided go back and study how Javascript work under the hood.
 
 ## Series Introduction
-I'm planning to go over Javascript fundamentals in series of posts. I will be covering many detailed bits of Javascript and it will be geared towards developers with some basic understanding of Javascript. Also kindly note that I will be referring to many online resources to reinforcement my blog article.
+I'm planning to go over Javascript fundamentals in series of posts. I will be covering many detailed bits of Javascript and it will be geared towards developers with some basic understanding of Javascript. Also kindly note that I will be referring to many online resources to reinforce my blog article.
 
 In this part 1 of series, I will explain different aspects of Javascript and define what Javascript is. There won't be much Javascript coding since it will be about Javascript language itself.
 
