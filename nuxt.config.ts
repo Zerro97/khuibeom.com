@@ -4,7 +4,6 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     '@nuxt/image-edge',
-    '@nuxtjs/robots',
     'nuxt-icon',
     'nuxt-headlessui',
     '@unocss/nuxt',
@@ -56,9 +55,6 @@ export default defineNuxtConfig({
   },
   headlessui: {
     prefix: 'Headless',
-  },
-  robots: {
-    Sitemap: (req: any) => `https://${req.headers.host}/sitemap.xml`,
   },
   content: {
     navigation: {
