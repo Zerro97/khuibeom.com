@@ -23,7 +23,7 @@ In [You don't know JS](https://github.com/getify/You-Dont-Know-JS), the author c
 2. Prototypes
 3. Types & Coercion
 
-I will try to cover the first pillar, scope & closure, in 3 separate blog articles. In these 3 blog articles, I will cover the following topics:
+I will try to cover the first pillar, scope & closure, in 3 separate blog articles. Below is the list of  topics that will be covered:
 
 ::NumberedList
 ---
@@ -55,13 +55,11 @@ contents: [{
 ---
 ::
 
-> I find it useful to look at high level overview of things that I study, so I made above table of content component. You can come back here to refresh memory and remind overall goal of each sections.
-
-In this post, I will cover the first 3 sections (until Illustrating Lexical Scope). The first two sections will be a preparation step before we actually get to know more about the scope. The third section will be about lexical scope and understanding it through different metaphors. 
+Specifically for this post, the first 3 sections will be covered (until Illustrating Lexical Scope). The first two sections will be a preparation step before we actually get to know more about the scope. The third section will be about lexical scope and understanding it through different metaphors. 
 
 Also note that each sections will build up from previous sections, so it will be useful to read from the begining. 
 
-Before I get into the article, I would like to point out that it might take time to process the information that I present here. Personally, studying Javascript scope required more of formulating my own mental model than simply memorizing the concepts.  While it might require more work, it will be worth taking time to understand the concept, because having right mental model at the back of the mind will help us in long run.
+Before I get to the article, I would like to mention that it will be worth taking time to understand the concept. Most of the time when I thought I understood the concept, I end up discovering that I was not able to explain it to a friend. Studying requires work. Personally, I find writing a blog article (such as this one) helpful. Other than writing, explaining the concept verbally helps too!
 
 Alright, enough with introduction. Let's get to main parts of the article.
 
