@@ -1,11 +1,11 @@
 ---
 date: 2023-01-10
-title: 'Javascript Fundamentals: Lexical Scope (Part 2)'
-description: 'Understanding lexical scope and basic Javascript syntax.'
+title: 'Javascript Fundamentals: Basics & Lexical Scope (Part 2)'
+description: 'Overview of basic Javascript syntax and understanding lexical scope'
 banner: '/blogs/post-4.jpg'
 icon: 'logos:javascript'
-time: 18
-slug: javascript-fundamentals-lexical-scope
+time: 19
+slug: javascript-fundamentals-basics-and-lexical-scope
 categories: 
   - Front End
 tags:
@@ -14,12 +14,9 @@ tags:
   - scope
 ---
 
-## 
-This is part 2 of the Javascript Fundamentals series. If you haven't, try reading [part 1](https://khuibeom.com/blog/javascript-fundamentals-what-is-javascript) of the series! I explained various aspects of Javascript language there. 
-
-Also bear in mind that I will be referring to a book called [You don't know JS](https://github.com/getify/You-Dont-Know-JS) in this article.
-
 ## Introduction
+> This is part 2 of the Javascript Fundamentals series. If you haven't, try reading [part 1](https://khuibeom.com/blog/javascript-fundamentals-what-is-javascript) of the series! I explained various aspects of Javascript language there. 
+
 In [You don't know JS](https://github.com/getify/You-Dont-Know-JS), the author categorize Javascript into 3 different pillars:
 
 1. Scope & Closure
@@ -34,7 +31,7 @@ contents: [{
     title: 'Value & Variable & Function',
     description: 'Quick overview of Javascript syntax'
 }, {
-    title: 'Identifying Variables',
+    title: '2 Roles of Variable',
     description: 'How Javascript engine perceive and identify variables'
 }, {
     title: 'Illustrating Lexical Scope',
@@ -199,11 +196,7 @@ var awesomeFunction = function(coolThings) {
 ```
 This is function expression. We have identifier `awesomeFunction` that points to function value.
 
-What is difference between function expression and function declaration? One big difference is the time at which the association between identifier and function value happens. For function declaration, association happens during compile time. For function expression, association happens during code execution. 
-
-To add on, for function declaration, identifier `awesomeFunction` was declared during compile time but instead of waiting for `=` assignment to be executed during code execution, the association between identifier `awesomeFunction` and function value happened during compile time. This leads to some behavioral differences, such as hoisting, but again, I will explain this later.
-
-> While I did mention about this in [part 1](https://khuibeom.com/blog/javascript-fundamentals-what-is-javascript#interpretation-and-compilation) of series, I didn't really go in depth about Javascript having two phases: parsing/compilation and execution. If you are curious about whether Javascript have compilation step, read this [part](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch1.md#required-two-phases) of the book. Basically in observable sense, not theory or opinion, Javascript do have sort of compilation phase before code execution.
+What is difference between function expression and function declaration? One big difference is the time at which the association between identifier and function value happens. For function declaration, association happens right at the start of scope execution. For function expression, association happens during `=` operator. This leads to some behavioral differences, such as hoisting, but again, I will explain this in later part of series.
 
 If you have noticed, I used the word "function value". In Javascript, all functions are values that can be assigned to variable or passed around. 
 
@@ -225,7 +218,7 @@ greeting.morning();
 
 This function behavior is essential for Javascript (or any other languages) to support a functional programming pattern.
 
-## Identifying Variables
+## 2 Roles of Variable
 Now, let's shift our focus to Javascript engine, specifically how it identify and perceive variables as the program is compiled. 
 
 ---
@@ -350,12 +343,14 @@ Here are the list of sources:
 
 ---
 
-Now we are starting to think a little more like how Javascript engine look at the code. Let's move on to next section to build on this mental model (specifically in metaphor 2).
+Now we are starting to think a little more like how Javascript engine look at the code. Let's move on to next section to build up our mental model.
 
 ## Illustrating Lexical Scope
 Scope is fundamental mechanism in which Javascript engine manage and organize variables. Specifically, engine uses scope to determine the accessibility of variables and functions. The process of determining the scopes of the variables/functions is called *lexical scoping*.
 
 Another useful way to think about lexical scope is with the word 'lexical'. In classic compiler theory there are 3 stages to compiling a language: `lexing`/`tokenization`, `parsing`, and `code generation`. Notice the word `lexing` stage? It is a stage where the parser converts source code into separate tokens. "Lexical" scope comes from this `lexing` stage of Javascript code execution process. In other words, scope is identified during lexing stage of compilation, not during code execution.
+
+> While I did mention about this in [part 1](https://khuibeom.com/blog/javascript-fundamentals-what-is-javascript#interpretation-and-compilation) of series, I didn't really go in depth about Javascript having two phases: parsing/compilation and execution. If you are curious about whether Javascript have compilation step, read this [part](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch1.md#required-two-phases) of the book. Basically in observable sense, not theory or opinion, Javascript do have sort of compilation phase before code execution.
 
 It is important to note that scope is only *identified* during compilation. The Javascript engine has yet to allocate memory space for a scope, or any other variables. What engine does during compilation is creating a map of lexical scopes. Only after initial parsing, Javascript engine uses this map to define scopes and register the identifier for each scope during code execution.
 
@@ -388,7 +383,9 @@ Identifier belongs to the scope where they are declared (using `var`, `let`, `co
 
 Also, notice the `students` reference at line 9? It belongs to red scope despite being rerferenced from blue scope. Variables are colored/scoped based on where they are originally created at (line 1), not where they are referred from (line 9). 
 
-In perspective of Javascript engine, how did it decide that `students` (line 9) belong to red bucket/scope? We should conceptualize this determination of scope as a "lookup" process. Since `students` at line 9 was not declaration but a reference, it originally do not have any color/scope. We ask the current scope (blue) if it contains matching name and if it doesn't, we move on to outer scope (red). The outer scope have variable/marble of name `students`, so the variable reference in line 9 is determined to be red marble/scope.
+In perspective of Javascript engine, how did it decide that `students` (line 9) belong to red bucket/scope? We should *conceptualize* this determination of scope as a "lookup" process. Since `students` at line 9 was not declaration but a reference, it originally do not have any color/scope. We ask the current scope (blue) if it contains matching name and if it doesn't, we move on to outer scope (red). The outer scope have variable/marble of name `students`, so the variable reference in line 9 is determined to be red marble/scope.
+
+> I used word *conceptualize* because it is not how Javascript work exactly. The scope of identifiers are already (mostly) determined during compilation. The engine does not have to lookup through bunch of scopes to determine variable's scope because it is already known. The "lookup" process is still useful conceptually, however, and I think it's safe to think of scope chain this way.
 
 ---
 
@@ -457,7 +454,7 @@ Alright, let's listen to the first phase of conversation (happens during compile
 >
 > ...
 
-In this question-and-answer exchange, compiler ask scope manager if encountered variable declaration has already been registered. If no, scope manager setup the variable and attaches it to the scope he is managing. If yes, it is skipped over. Also note that compiler signals when a new scope need to be created, such as when encountering function or block scopes.
+In this question-and-answer exchange, compiler ask scope manager if encountered variable declaration has already been registered. If no, scope manager *creates* the variable in that scope. If yes, it is skipped over. Also note that compiler signals when a new scope need to be created, such as when encountering function or block scopes.
 
 ---
 This is second phase of conversation (happens during code execution phase):
@@ -488,11 +485,11 @@ This is second phase of conversation (happens during code execution phase):
 > 
 > ...
 
-In above question-and-answer exchange, engine is mostly involved with assignment/initialization of variables (`=`). First engine ask scope manager to look up hoisted `getStudentName` identifier so the engine can assign function to it. Next, engine ask scope manager if `students` exist in the scope. If yes, engine initialize the variable to `undefined`.
+In above question-and-answer exchange, engine is mostly involved with assignment/initialization of variables. First engine ask scope manager to look up hoisted `getStudentName` identifier so the engine can assign function to it. Next, engine ask scope manager if `students` exist in the scope. If yes, engine initialize the variable to `undefined`.
 
 So in first compile phase, different identifiers are *setup* in the scope and in second execution phase, engine initialize it with value after checking with scope manager.
 
-> What I meant by identifier being *setup* in the scope is, producing machine code that will later create that identifier during code execution. The identifier is yet to be created during compile/parsing phase. I know it's a little confusing when the scope manager says *created*, but just think of it as preparation for creating variable later in code execution.
+> What I meant by identifier being *setup* in the scope is, producing machine code that will later create that identifier during code execution. The identifier is yet to be created during compile/parsing phase. I know it's a little confusing when the scope manager says it *created* variable, but just think of it as preparation for creating variable later in code execution.
 
 #### Nested Scope
 So far, we only looked at the variables that are declared and referenced in the same scope. Let's also look at how Javascript handles nested scopes.
@@ -537,7 +534,7 @@ If missing variable is source, then `ReferenceError` is thrown. If missing varia
 
 This reference error will look like this: `Reference Error: XYZ is not defined`. Here `not defined` means undeclared or missing. The variable is no where to be found in lexically available scope. 
 
-The error message is a little misleading when comparing that to `undefined` primitive value. As mentioned before, identifiers are first initialized to `undefined` at the start of scope execution. So `undefined` really means that identifier is declared but have not been assigned with value yet.
+The error message is a little misleading when comparing that to `undefined` primitive value. As mentioned before, identifiers are first initialized to `undefined` at the start of scope execution (to be precise, for `var` declared variable). So `undefined` really means that identifier is declared but have not been assigned with value yet.
 
 ---
 
@@ -554,12 +551,12 @@ getStudentName();
 console.log(nextStudent);
 // "Suzy" -- oops, an accidental-global variable!
 ```
-`nextStudent` was never declared but the code still runs because global scope manager created a global variable `nextStudent`. This will probably lead to bug in future and we should never rely on this accidental global variables. Always use `strict mode` to prevent such error. 
+`nextStudent` was never declared but the code still runs because global scope manager created a global variable `nextStudent` at target assignment. This will probably lead to bug in future and we should never rely on this accidental global variables. Always use `strict mode` to prevent such error. 
 
 ## Conclusion
-Alright, that was a little long.
+Alright, that was it for lexical scope!
 
-Originally, I intended to cover all 8 different sections in this article. Well, obviously it didn't worked out as you can see; the article was getting too long. I decided to split it up into 3 different posts. The first post for laying ground for scope. The upcoming articles for more in depth view of scope, specifically covering scope chain, global scope and hoisting in second post. 
+I originally intended to cover all 8 different sections in this article. Well, obviously it didn't worked out as you can see; the article was getting too long. I decided to split it up into 3 different posts. The first post for laying ground for scope. The upcoming articles for more in depth view of scope, specifically covering scope chain, global scope and hoisting in second post. 
 
 Other than that, I also want to mention that this article is based on my own understanding of the You don't know JS. Read the [book](https://github.com/getify/You-Dont-Know-JS) if you want to look at more detailed, accurate information without my own interpretation.
 <!-- I skipped over quite number of sections from [You don't know JS]().  -->
