@@ -1,5 +1,5 @@
 ---
-date: 2023-01-10
+date: 2023-01-13
 title: 'Javascript Fundamentals: Basics & Lexical Scope (Part 2)'
 description: 'Overview of basic Javascript syntax and understanding lexical scope'
 banner: '/blogs/post-4.jpg'
