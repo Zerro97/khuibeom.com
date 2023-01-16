@@ -15,10 +15,10 @@ useHead({
 
 const posts = await (await queryContent('blog').find()).sort((a, b) => {
   return isAfter(parseISO(a.date), parseISO(b.date)) ? -1 : 0
-})
+}).slice(0, 4)
 const projects = await (await queryContent('project').find()).sort((a, b) => {
   return isAfter(parseISO(a.from_date), parseISO(b.from_date)) ? -1 : 0
-})
+}).slice(0, 3)
 </script>
 
 <template>
