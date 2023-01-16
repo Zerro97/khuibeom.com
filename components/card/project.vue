@@ -30,8 +30,6 @@ const props = defineProps({
       <p class="text-base text-zinc-400">
         {{ description }}
       </p>
-    </div>
-    <div class="flex flex-wrap mt-4 gap-x-4 gap-y-4">
       <nuxt-img
         :src="image"
         :alt="title"
@@ -39,15 +37,15 @@ const props = defineProps({
         provider="cloudinary"
         width="400px"
         height="200px"
-        class="object-cover object-top w-full rounded aspect-[4/2]"
+        class="object-cover object-top w-full rounded aspect-[4/2] mt-4"
       />
+    </div>
+    <div class="flex flex-wrap mt-4 gap-x-4 gap-y-2">
       <NuxtLink v-if="slug" aria-label="Read more about this project" class="flex items-center px-4 py-1 rounded w-max gap-x-1 bg-zinc-800 hover:bg-zinc-700" :to="`/project/${slug}`">
-        More Details
-        <Icon name="ic:baseline-subdirectory-arrow-right" />
+        Read More
       </NuxtLink>
       <NuxtLink v-if="livelink" aria-label="Link to live site" target="_blank" class="flex items-center px-4 py-1 rounded w-max gap-x-1 bg-zinc-800 hover:bg-zinc-700" :to="livelink">
         Live Site
-        <Icon name="mdi:link-variant" />
       </NuxtLink>
     </div>
   </div>
