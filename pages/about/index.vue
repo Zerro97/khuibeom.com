@@ -143,7 +143,7 @@ const educationHistory = ref([{
             <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
               <CardSkill name="React" logo="logos:react" :cur-level="4" :max-level="8" />
               <CardSkill name="Vue 3" logo="logos:vue" :cur-level="4" :max-level="8" />
-              <CardSkill name="Nuxt 3" logo="logos:nuxt-icon" :cur-level="2" :max-level="8" />
+              <CardSkill name="Nuxt 3" logo="logos:nuxt-icon" :cur-level="3" :max-level="8" />
               <CardSkill name="Angular" logo="logos:angular-icon" :cur-level="1" :max-level="8" />
               <CardSkill name="Svelte" logo="logos:svelte-icon" :cur-level="2" :max-level="8" />
               <CardSkill name="NodeJS" logo="logos:nodejs-icon" :cur-level="4" :max-level="8" />
@@ -153,6 +153,7 @@ const educationHistory = ref([{
               <CardSkill name=".NET Framework" logo="logos:dotnet" :cur-level="1" :max-level="8" />
               <CardSkill name="Tailwind" logo="logos:tailwindcss-icon" :cur-level="2" :max-level="5" />
               <CardSkill name="UnoCSS" logo="logos:unocss" :cur-level="2" :max-level="5" />
+              <CardSkill name="Supabase" logo="logos:supabase-icon" :cur-level="2" :max-level="7" />
             </div>
           </div>
           <div class="mt-6">
@@ -160,7 +161,7 @@ const educationHistory = ref([{
             <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
               <CardSkill name="MySQL" logo="logos:mysql-icon" :cur-level="3" :max-level="8" />
               <CardSkill name="Oracle" logo="logos:oracle" :cur-level="3" :max-level="8" />
-              <CardSkill name="Postgresql" logo="logos:postgresql" :cur-level="2" :max-level="8" />
+              <CardSkill name="Postgresql" logo="logos:postgresql" :cur-level="3" :max-level="8" />
               <CardSkill name="MongoDB" logo="logos:mongodb-icon" :cur-level="1" :max-level="8" />
             </div>
           </div>

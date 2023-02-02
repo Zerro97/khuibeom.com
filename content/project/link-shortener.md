@@ -19,4 +19,4 @@ To create a shortend links, I tried searching online for link shortener services
 
 Among many options, I tried out [kutt.it](https://github.com/thedevs-network/kutt) and [notiolink](https://github.com/theodorusclarence/notiolink). While I liked their clean looking UI of the website and the documentation of the installation process, I did not really like the fact that I still have to setup a database for user authentication. I didn't want to deal with database and possible security concerns so I created my own website whose only purpose was to redirect to another website.
 
-It was a little too simple, so I tried adding QR code for redirection as well. I'm not sure if I'll ever use the QR code, to be honest, but it was still good for learning purpose.
+Website ended up being a little too simple, so I tried adding QR code for redirection as well. I'm not sure if I'll ever use the QR code, to be honest, but it was still good for learning purpose.
