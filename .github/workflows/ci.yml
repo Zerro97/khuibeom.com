@@ -1,0 +1,91 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: 🛠 Build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [16]
+    timeout-minutes: 8
+    steps:
+      - name: 🚥 Checkout repo
+        uses: actions/checkout@v3
+
+      - name: ✅ NPM Corepack Set
+        run: corepack enable
+
+      - name: 🔨 Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: yarn
+
+      - name: 📥 Install dependencies
+        run: yarn install
+
+      - name: 🛠 Build
+        run: yarn generate
+
+  lint:
+    name: 🛠 ESLint
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [16]
+    timeout-minutes: 8
+    steps:
+      - name: 🚥 Checkout repo
+        uses: actions/checkout@v3
+
+      - name: ✅ NPM Corepack Set
+        run: corepack enable
+
+      - name: 🔨 Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: yarn
+
+      - name: 📥 Install dependencies
+        run: yarn install
+
+      - name: 🔬 Lint
+        run: yarn lint
+
+  typecheck:
+    name: 💻 TypeScript
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [16]
+    timeout-minutes: 8
+    steps:
+      - name: 🚥 Checkout repo
+        uses: actions/checkout@v3
+
+      - name: ✅ NPM Corepack Set
+        run: corepack enable
+
+      - name: 🔨 Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: yarn
+
+      - name: 📥 Install dependencies
+        run: yarn install
+
+      - name: 🔎 Type check
+        run: yarn typecheck

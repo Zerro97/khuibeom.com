@@ -1,5 +1,30 @@
+<script setup lang="ts">
+useHead({
+  htmlAttrs: {
+    lang: 'en',
+  },
+})
+
+const route = useRoute()
+const routePath = ref('')
+const isCanvasShown = ref(false)
+
+watch(route, () => {
+  if (process.client) {
+    routePath.value = route.path.toLocaleLowerCase()
+    isCanvasShown.value = !(routePath.value.includes('/docs/')
+        || routePath.value.includes('/blog/')
+        || routePath.value.includes('/project/')
+        || window.innerWidth < 1024)
+  }
+}, { immediate: true })
+</script>
+
 <template>
   <div>
-    <NuxtWelcome />
+    <ClientOnly>
+      <BackgroundCanvas v-if="isCanvasShown" />
+    </ClientOnly>
+    <NuxtPage />
   </div>
 </template>
