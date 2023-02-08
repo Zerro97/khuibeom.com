@@ -18,7 +18,7 @@ const props = defineProps<Props>()
       :key="index"
       class="flex items-center"
     >
-      <div class="rounded flex items-center justify-center w-11 h-11 bg-zinc-800 mr-2">
+      <div class="rounded flex items-center justify-center min-w-11 max-w-11 min-h-11 max-h-11 bg-zinc-800 mr-2">
         <p class="text-xl">
           {{ index }}
         </p>

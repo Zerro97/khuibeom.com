@@ -7,7 +7,7 @@ useHead({
   title: 'Blog',
   meta: getMeta({
     title: 'Blog',
-    description: 'Sharing my learnings as I discover more about programming',
+    description: 'Hi! Welcome to my blog. Here I post things about web development.',
     url: 'https://khuibeom.com/blog',
     keywords: 'blog, tech, article, dev, web, post',
   }),
