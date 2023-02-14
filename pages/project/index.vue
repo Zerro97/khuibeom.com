@@ -9,7 +9,7 @@ useHead({
 
 useSeoMeta({
   title: 'Project',
-  description: 'List of projects that I worked on in the past',
+  description: 'List of projects that I worked in the past',
 })
 
 defineOgImageStatic({

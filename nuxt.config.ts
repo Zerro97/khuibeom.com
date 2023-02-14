@@ -19,7 +19,7 @@ export default defineNuxtConfig({
     public: {
       siteUrl: 'https://khuibeom.com',
       siteName: 'Hui Beom',
-      siteDescription: 'Hi, I\'m Hui Beom. I\'m software developer from South Korea. I\'m using this site to document my learnings and share with the world what I have learnt.',
+      siteDescription: 'Hi, I\'m Hui Beom. I\'m software developer from South Korea.',
       language: 'en',
     },
   },
@@ -28,8 +28,13 @@ export default defineNuxtConfig({
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'copyright', content: 'Hui Beom Kim' },
+        { 'http-equiv': 'accept-ch', 'content': 'DPR' },
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon/favicon.ico' }],
+      link: [
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+      ],
     },
   },
   css: [
