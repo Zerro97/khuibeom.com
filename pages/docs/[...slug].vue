@@ -1,8 +1,23 @@
 <script setup lang="ts">
-const { getDocMeta } = useMeta()
-
 const { page } = useContent()
-useContentHead(getDocMeta(page))
+
+useHead({
+  meta: [
+    { name: 'keywords', content: page.value.keywords },
+  ],
+})
+
+useSeoMeta({
+  title: page.value.title,
+  description: page.value.description,
+})
+
+defineOgImageStatic({
+  component: 'MyOgImage',
+  title: page.value.title,
+  description: '',
+  background: '#27272a',
+})
 </script>
 
 <template>

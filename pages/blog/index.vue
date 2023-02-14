@@ -1,16 +1,21 @@
 <script setup lang="ts">
 import { isAfter, parseISO } from 'date-fns'
 
-const { getMeta } = useMeta()
-
 useHead({
+  meta: [
+    { name: 'keywords', content: 'blog, tech, article, dev, web, post' },
+  ],
+})
+
+useSeoMeta({
   title: 'Blog',
-  meta: getMeta({
-    title: 'Blog',
-    description: 'Hi! Welcome to my blog. Here I post things about web development.',
-    url: 'https://khuibeom.com/blog',
-    keywords: 'blog, tech, article, dev, web, post',
-  }),
+  description: 'Articles & Tutorials on Web Development',
+})
+
+defineOgImageStatic({
+  component: 'MyOgImage',
+  description: '',
+  background: '#27272a',
 })
 
 const {

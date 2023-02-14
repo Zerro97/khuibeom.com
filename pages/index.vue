@@ -1,16 +1,22 @@
 <script setup lang="ts">
 import { isAfter, parseISO } from 'date-fns'
 
-const { getMeta } = useMeta()
-
 useHead({
-  title: 'Home',
-  meta: getMeta({
-    title: 'Hui Beom',
-    description: 'Hi, I\'m Hui Beom. I\'m software developer from South Korea. I\'m using this site to document my learnings and share with the world what I have learnt.',
-    url: 'https://khuibeom.com',
-    keywords: 'blog, frontend, backend, tech, documentation, dev, web',
-  }),
+  meta: [
+    { name: 'keywords', content: 'blog, portfolio, tech, dev, web' },
+  ],
+})
+
+useSeoMeta({
+  title: 'Hi, I\'m Hui Beom',
+  description: 'Hi, I\'m Hui Beom. I\'m software developer from South Korea. I\'m using this site to document my learnings and share with the world what I have learnt.',
+})
+
+defineOgImageStatic({
+  component: 'MyOgImage',
+  title: 'Welcome to my site 👋',
+  description: '',
+  background: '#27272a',
 })
 
 const posts = await (await queryContent('blog').find()).sort((a, b) => {

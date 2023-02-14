@@ -1,10 +1,27 @@
 <script setup lang="ts">
 import { format, parseISO } from 'date-fns'
 
-const { getBlogMeta } = useMeta()
-
 const { page } = useContent()
-useContentHead(getBlogMeta(page))
+
+const keywords = [...page.value.tags, ...page.value.categories].join(',')
+
+useHead({
+  meta: [
+    { name: 'keywords', content: keywords },
+  ],
+})
+
+useSeoMeta({
+  title: page.value.title,
+  description: page.value.description,
+})
+
+defineOgImageStatic({
+  component: 'MyOgImage',
+  title: page.value.title,
+  description: '',
+  background: '#27272a',
+})
 </script>
 
 <template>

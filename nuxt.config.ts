@@ -8,18 +8,33 @@ export default defineNuxtConfig({
     'nuxt-headlessui',
     '@unocss/nuxt',
   ],
+  extends: [
+    'nuxt-seo-kit',
+  ],
+  experimental: {
+    componentIslands: true,
+  },
+  runtimeConfig: {
+    // https://github.com/harlan-zw/nuxt-seo-kit#1-define-config
+    public: {
+      siteUrl: 'https://khuibeom.com',
+      siteName: 'Hui Beom',
+      siteDescription: 'Hi, I\'m Hui Beom. I\'m software developer from South Korea.',
+      language: 'en',
+    },
+  },
   app: {
     head: {
-      title: 'Hui Beom',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'copyright', content: 'Hui Beom Kim' },
-        { property: 'og:type', content: 'website' },
-        { property: 'og:image', content: 'http://res.cloudinary.com/dpu5ywrox/image/upload/v1670490475/hzqlkk6dex5udvbs0f1j.png' },
-        { property: 'twitter:card', content: 'summary_large_image' },
-        { property: 'twitter:image', content: 'http://res.cloudinary.com/dpu5ywrox/image/upload/v1670490475/hzqlkk6dex5udvbs0f1j.png' },
+        { 'http-equiv': 'accept-ch', 'content': 'DPR' },
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon/favicon.ico' }],
+      link: [
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+      ],
     },
   },
   css: [
