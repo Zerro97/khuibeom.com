@@ -9,6 +9,7 @@ icon: 'mdi:web'
 slug: khuibeom
 livelink: ''
 repo: 'https://github.com/Zerro97/khuibeom.com'
+keywords: 'project, khuibeom.com, blog'
 team: 1
 ---
 

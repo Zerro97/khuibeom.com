@@ -8,6 +8,7 @@ image: '/projects/link-shortener.png'
 icon: 'fluent-emoji-flat:link'
 slug: link-shortener
 livelink: 'https://link.khuibeom.com/'
+keywords: 'project, url, link shortener'
 repo: ''
 team: 1
 ---

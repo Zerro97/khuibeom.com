@@ -1,14 +1,19 @@
 <script setup lang="ts">
-const { getMeta } = useMeta()
-
 useHead({
+  meta: [
+    { name: 'keywords', content: 'blog, tech, about, dev, web' },
+  ],
+})
+
+useSeoMeta({
   title: 'About Me',
-  meta: getMeta({
-    title: 'About Me',
-    description: 'Greetings! I\'m  software developer from South Korea. I mostly worked on frontend development in my career and a bit of backend works',
-    url: 'https://khuibeom.com/about',
-    keywords: 'blog, tech, about, dev, web',
-  }),
+  description: 'Hi, I\'m Hui Beom. I\'m  software developer from South Korea.',
+})
+
+defineOgImageStatic({
+  component: 'MyOgImage',
+  description: '',
+  background: '#27272a',
 })
 
 const workHistory = ref([{

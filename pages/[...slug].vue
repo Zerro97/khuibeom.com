@@ -1,10 +1,13 @@
 <script setup lang="ts">
-useHead({
+useServerSeoMeta({
   title: '404',
-  meta: [
-    { name: 'title', content: '404' },
-    { name: 'description', content: 'Sorry! This page does not exist.' },
-  ],
+  description: 'Sorry! This page does not exist.',
+})
+
+defineOgImageStatic({
+  component: 'MyOgImage',
+  title: '404',
+  background: '#27272a',
 })
 </script>
 

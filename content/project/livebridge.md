@@ -7,6 +7,7 @@ description: 'Application for bridging advertiser and showhosts. Aided in develo
 image: '/projects/livebridge.png'
 slug: ''
 livelink: 'https://www.livebridge.kr/'
+keywords: 'project, showhost, livebridge'
 repo: ''
 team: 1
 ---
