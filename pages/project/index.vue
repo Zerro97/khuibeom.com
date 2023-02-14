@@ -7,7 +7,7 @@ useHead({
   ],
 })
 
-useSeoMeta({
+useServerSeoMeta({
   title: 'Project',
   description: 'List of projects that I worked in the past',
 })

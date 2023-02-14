@@ -1,5 +1,5 @@
 <script setup lang="ts">
-useSeoMeta({
+useServerSeoMeta({
   title: 'Hi, I\'m Hui Beom',
   description: 'Hi, I\'m Hui Beom. I\'m software developer from South Korea. I\'m using this site to document my learnings and share with the world what I have learnt.',
 })

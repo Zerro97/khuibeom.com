@@ -11,7 +11,7 @@ useHead({
   ],
 })
 
-useSeoMeta({
+useServerSeoMeta({
   title: page.value.title,
   description: page.value.description,
 })

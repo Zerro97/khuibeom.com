@@ -3,12 +3,14 @@ import { isAfter, parseISO } from 'date-fns'
 
 useHead({
   meta: [
+    { name: 'title', content: 'Hui Beom' },
+    { name: 'og:title', content: 'Hui Beom' },
+    { name: 'twitter:title', content: 'Hui Beom' },
     { name: 'keywords', content: 'blog, portfolio, tech, dev, web' },
   ],
 })
 
-useSeoMeta({
-  title: 'Hi, I\'m Hui Beom',
+useServerSeoMeta({
   description: 'Hi, I\'m Hui Beom. I\'m software developer from South Korea. I\'m using this site to document my learnings and share with the world what I have learnt.',
 })
 

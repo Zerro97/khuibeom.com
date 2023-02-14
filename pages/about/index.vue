@@ -5,7 +5,7 @@ useHead({
   ],
 })
 
-useSeoMeta({
+useServerSeoMeta({
   title: 'About Me',
   description: 'Hi, I\'m Hui Beom. I\'m  software developer from South Korea.',
 })

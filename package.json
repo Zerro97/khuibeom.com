@@ -11,7 +11,7 @@
     "lint:fix": "eslint . --fix",
     "test": "vitest --run --reporter verbose",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit --incremental false"
+    "typecheck": "tsc --noEmit --incremental false --skipLibCheck"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.31.1",

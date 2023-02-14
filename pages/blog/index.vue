@@ -7,7 +7,7 @@ useHead({
   ],
 })
 
-useSeoMeta({
+useServerSeoMeta({
   title: 'Blog',
   description: 'Articles & Tutorials on Web Development',
 })
