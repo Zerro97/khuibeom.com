@@ -84,9 +84,7 @@ export default defineNuxtConfig({
       // Theme used in all color schemes.
       theme: 'github-dark',
     },
-    documentDriven: {
-      injectPage: false,
-    },
+    // documentDriven: true,
     markdown: {
       toc: {
         depth: 4,

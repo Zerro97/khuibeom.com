@@ -1,12 +1,11 @@
 <script setup lang="ts">
-const {
-  globals,
-  navigation,
-  surround,
-  page,
-} = useContent()
+// const {
+//   navigation,
+// } = useContent()
 
-const docTree = navigation.value.filter(navNode => navNode._path === '/docs')
+const { data: navigation } = await useAsyncData('navigation', () => fetchContentNavigation())
+
+const docTree = navigation.value!.filter(navNode => navNode._path === '/docs')
 </script>
 
 <template>

@@ -15,7 +15,7 @@ tags:
 ---
 
 ## Introduction
-> This is part 2 of the Javascript Fundamentals series. If you haven't, try reading [part 1](https://khuibeom.com/blog/javascript-fundamentals-what-is-javascript) of the series! I explained various aspects of Javascript language there. 
+> This is part 2 of the Javascript Fundamentals series. If you haven't, try reading [part 1](/blog/javascript-fundamentals-what-is-javascript) of the series! I explained various aspects of Javascript language there. 
 
 In [You don't know JS](https://github.com/getify/You-Dont-Know-JS), the author categorize Javascript into 3 different pillars:
 
@@ -356,7 +356,7 @@ Scope is fundamental mechanism in which Javascript engine manage and organize va
 
 Another useful way to think about lexical scope is with the word 'lexical'. In classic compiler theory there are 3 stages to compiling a language: `lexing`/`tokenization`, `parsing`, and `code generation`. Notice the word `lexing` stage? It is a stage where the parser converts source code into separate tokens. "Lexical" scope comes from this `lexing` stage of Javascript code execution process. In other words, scope is identified during lexing stage of compilation, not during code execution.
 
-> While I did mention about this in [part 1](https://khuibeom.com/blog/javascript-fundamentals-what-is-javascript#interpretation-and-compilation) of series, I didn't really go in depth about Javascript having two phases: parsing/compilation and execution. If you are curious about whether Javascript have compilation step, read this [part](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch1.md#required-two-phases) of the book. Basically in observable sense, not theory or opinion, Javascript do have sort of compilation phase before code execution.
+> While I did mention about this in [part 1](/blog/javascript-fundamentals-what-is-javascript#interpretation-and-compilation) of series, I didn't really go in depth about Javascript having two phases: parsing/compilation and execution. If you are curious about whether Javascript have compilation step, read this [part](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch1.md#required-two-phases) of the book. Basically in observable sense, not theory or opinion, Javascript do have sort of compilation phase before code execution.
 
 It is important to note that scope is only *identified* during compilation. The Javascript engine has yet to allocate memory space for a scope, or any other variables. What engine does during compilation is creating a map of lexical scopes. Only after initial parsing, Javascript engine uses this map to define scopes and register the identifier for each scope during code execution.
 

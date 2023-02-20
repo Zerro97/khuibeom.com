@@ -16,6 +16,11 @@ const tabs = ref([{
   link: '/project',
   id: 4,
 }])
+
+const route = useRoute()
+const isMatching = (path: string) => {
+  return route.path.includes(path)
+}
 </script>
 
 <template>
@@ -25,27 +30,14 @@ const tabs = ref([{
         <nuxt-img provider="cloudinary" width="34" height="34" alt="ladybug" src="/logo/ladybug.png" />
       </NuxtLink>
       <div class="flex items-center h-full gap-x-3 sm:gap-x-5 md:gap-x-8">
-        <NuxtLink to="/about">
-          About
-        </NuxtLink>
-        <NuxtLink to="/blog">
-          Blog
-        </NuxtLink>
-        <NuxtLink to="/docs/introduction">
-          Docs
-        </NuxtLink>
-        <NuxtLink to="/project">
-          Project
-        </NuxtLink>
-        <!-- <NuxtLink
+        <NuxtLink
           v-for="tab in tabs"
           :key="tab.id"
           :to="tab.link"
-          class="text-sm sm:text-base text-zinc-300 md:text-lg border-violet-500 hover:text-zinc-100"
-          active-class="!text-violet-400"
+          :class="`${isMatching(tab.link) ? 'text-violet-400' : 'text-zinc-300 hover:text-zinc-100'} text-sm sm:text-base  md:text-lg border-violet-500`"
         >
           {{ tab.label }}
-        </NuxtLink> -->
+        </NuxtLink>
       </div>
     </div>
     <div class="items-center justify-center hidden h-full w-max gap-x-1 sm:flex">

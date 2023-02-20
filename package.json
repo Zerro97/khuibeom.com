@@ -30,7 +30,7 @@
     "eslint": "^8.29.0",
     "husky": "^8.0.2",
     "lint-staged": "^13.1.2",
-    "nuxt": "^3.1.2",
+    "nuxt": "^3.2.2",
     "nuxt-headlessui": "^1.0.4",
     "nuxt-icon": "^0.1.8",
     "nuxt-seo-kit": "^1.2.3",
