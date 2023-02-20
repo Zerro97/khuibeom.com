@@ -9,7 +9,7 @@ useHead({
   ],
 })
 
-useSeoMeta({
+useServerSeoMeta({
   title: page.value.title,
   description: page.value.description,
 })
@@ -23,7 +23,7 @@ defineOgImageStatic({
 </script>
 
 <template>
-  <NuxtLayout>
+  <NuxtLayout name="main">
     <article>
       <ContentDoc v-slot="{ doc }">
         <section v-if="doc.title" class="flex flex-col mb-6">

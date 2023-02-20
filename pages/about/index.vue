@@ -5,7 +5,7 @@ useHead({
   ],
 })
 
-useSeoMeta({
+useServerSeoMeta({
   title: 'About Me',
   description: 'Hi, I\'m Hui Beom. I\'m  software developer from South Korea.',
 })
@@ -57,7 +57,7 @@ const educationHistory = ref([{
 </script>
 
 <template>
-  <NuxtLayout>
+  <NuxtLayout name="main">
     <section class="flex flex-col">
       <h1>About Me</h1>
       <div class="flex flex-col sm:flex-row-reverse">

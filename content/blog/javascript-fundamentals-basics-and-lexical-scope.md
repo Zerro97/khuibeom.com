@@ -167,11 +167,19 @@ actors[2] = "Tom Cruise";   // OK :(
 actors = [];                // Error!
 ```
 
-As seen in above example, value stored in `const` variable can be mutated (when using objects). `const` only prevents reassignment. 
+As seen in above example, value stored in `const` variable can be mutated when using objects (array is special kind of object). `const` only prevents reassignment. 
 
-Using `const` for objects are ill adviced. It is better to use `const` only for primitive values such as number, string or boolean because by doing so, we can avoid any confusion with re-assignment (not allowed) vs. mutation (allowed).
+---
 
-> Many people consider using `const` for object a better, safer practice than using `let` and `var`. However, do we really need to prevent reassignment of object by trading off its semantic meaning?
+There is practice on using `const` for almost all variable declaration (aka. `constant purism`), by utilizing linting tools to disallow `var` and use `const` if possible. Usage of `const` have pros and cons:
+
+1. **Pros**: Letting Javascript engine make certain assumptions about the code and thus make the code run faster
+2. **Pros**: Avoiding accidental re-assignment to prevent possible bug in future
+3. **Cons**: Avoiding confusion between re-assignment vs mutation by only using `const` for immutable values
+
+Personally, I think code readability is more important than preventing possible bug (bug resulting from accidental reassignment is rare) or minor improvement on code performance. This is personal preference I formed after reading the book, so it's up to the reader whether to use `const` for objects or not.
+
+> [Here](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/apA.md#const-antly-confused) is author's debate on whether to use `const` for objects
 
 ---
 In Javascript, there are different ways of defining functions, namely:
@@ -549,7 +557,9 @@ getStudentName();
 console.log(nextStudent);
 // "Suzy" -- oops, an accidental-global variable!
 ```
-`nextStudent` was never declared but the code still runs because global scope manager created a global variable `nextStudent` at target assignment. This will probably lead to bug in future and we should never rely on this accidental global variables. Always use `strict mode` to prevent such error. 
+`nextStudent` was never declared but the code still runs because global scope manager created a global variable `nextStudent` at target assignment. This will probably lead to bug in future and we should never rely on this accidental global variables. Always use `strict mode` to prevent such error.
+
+> I came across a [stackoverflow post](https://stackoverflow.com/questions/1470488/what-is-the-purpose-of-the-var-keyword-and-when-should-i-use-it-or-omit-it?rq=1) made in 2009 that discussed the difference between var declared variable and the accidental global variables. 2009 was before strict mode came out and I thought it was interesting to include it here.
 
 ## Conclusion
 Alright, that was it for lexical scope!

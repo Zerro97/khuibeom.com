@@ -11,7 +11,7 @@ useHead({
   ],
 })
 
-useSeoMeta({
+useServerSeoMeta({
   title: page.value.title,
   description: page.value.description,
 })
@@ -25,7 +25,7 @@ defineOgImageStatic({
 </script>
 
 <template>
-  <NuxtLayout>
+  <NuxtLayout name="main">
     <article>
       <ContentDoc>
         <template #default="{ doc }">
