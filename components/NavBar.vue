@@ -9,13 +9,18 @@ const tabs = ref([{
   id: 2,
 }, {
   label: 'Docs',
-  link: '/docs/introduction',
+  link: '/docs',
   id: 3,
 }, {
   label: 'Projects',
   link: '/project',
   id: 4,
 }])
+
+const route = useRoute()
+const isMatching = (path: string) => {
+  return route.path.includes(path)
+}
 </script>
 
 <template>
@@ -29,8 +34,7 @@ const tabs = ref([{
           v-for="tab in tabs"
           :key="tab.id"
           :to="tab.link"
-          class="text-sm sm:text-base text-zinc-300 md:text-lg border-violet-500 hover:text-zinc-100"
-          active-class="!text-violet-400"
+          :class="`${isMatching(tab.link) ? 'text-violet-400' : 'text-zinc-300 hover:text-zinc-100'} text-sm sm:text-base  md:text-lg border-violet-500`"
         >
           {{ tab.label }}
         </NuxtLink>
