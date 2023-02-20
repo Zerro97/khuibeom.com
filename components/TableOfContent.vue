@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const route = useRoute()
-const page = await queryContent('blog').where({ _path: route.path }).findOne()
+const page = await queryContent().where({ _path: route.path }).findOne()
 </script>
 
 <template>

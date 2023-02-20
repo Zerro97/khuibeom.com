@@ -9,7 +9,7 @@ const tabs = ref([{
   id: 2,
 }, {
   label: 'Docs',
-  link: '/docs',
+  link: '/docs/introduction',
   id: 3,
 }, {
   label: 'Projects',
