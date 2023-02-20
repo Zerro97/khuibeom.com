@@ -25,7 +25,7 @@ defineOgImageStatic({
 </script>
 
 <template>
-  <NuxtLayout>
+  <NuxtLayout name="main">
     <article>
       <ContentDoc>
         <template #default="{ doc }">

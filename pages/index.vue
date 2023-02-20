@@ -30,7 +30,7 @@ const projects = await (await queryContent('project').find()).sort((a, b) => {
 </script>
 
 <template>
-  <NuxtLayout>
+  <NuxtLayout name="main">
     <section class="flex flex-col w-full mt-14 sm:mt-16 md:mt-20">
       <h1>
         Hi, I'm

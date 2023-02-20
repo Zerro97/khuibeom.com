@@ -57,7 +57,7 @@ const educationHistory = ref([{
 </script>
 
 <template>
-  <NuxtLayout>
+  <NuxtLayout name="main">
     <section class="flex flex-col">
       <h1>About Me</h1>
       <div class="flex flex-col sm:flex-row-reverse">

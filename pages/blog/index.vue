@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { isAfter, parseISO } from 'date-fns'
 
+definePageMeta({
+  documentDriven: false,
+})
+
 useHead({
   meta: [
     { name: 'keywords', content: 'blog, tech, article, dev, web, post' },
@@ -59,7 +63,7 @@ watch([tags, categories], () => {
 </script>
 
 <template>
-  <NuxtLayout>
+  <NuxtLayout name="main">
     <section>
       <h1>Blog</h1>
       <InputSearch />
