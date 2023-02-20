@@ -4,23 +4,25 @@ import { format, parseISO } from 'date-fns'
 const route = useRoute()
 const { data: page } = await useAsyncData('blog', async () => await queryContent('project').where({ _path: route.path }).findOne())
 
-useHead({
-  meta: [
-    { name: 'keywords', content: page.value!.keywords },
-  ],
-})
+if (page.value) {
+  useHead({
+    meta: [
+      { name: 'keywords', content: page.value.keywords },
+    ],
+  })
 
-useServerSeoMeta({
-  title: page.value!.title,
-  description: page.value!.description,
-})
+  useServerSeoMeta({
+    title: page.value.title,
+    description: page.value.description,
+  })
 
-defineOgImageStatic({
-  component: 'MyOgImage',
-  title: page.value!.title,
-  description: '',
-  background: '#27272a',
-})
+  defineOgImageStatic({
+    component: 'MyOgImage',
+    title: page.value.title,
+    description: '',
+    background: '#27272a',
+  })
+}
 </script>
 
 <template>
@@ -88,8 +90,10 @@ defineOgImageStatic({
           </div>
         </template>
         <template #not-found>
-          <h1>404</h1>
-          <p>Page Not Found</p>
+          <div class="flex flex-col items-center w-full">
+            <h1>404</h1>
+            <p>Page Not Found</p>
+          </div>
         </template>
       </ContentDoc>
     </article>
