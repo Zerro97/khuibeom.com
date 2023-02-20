@@ -38,7 +38,7 @@
     "vitest": "^0.25.6"
   },
   "lint-staged": {
-    "**/*.{js,ts,vue}": [
+    "**/*.{js,ts,vue,json}": [
       "npm run lint"
     ]
   },
