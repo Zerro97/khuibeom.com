@@ -2,9 +2,9 @@
 import { format, parseISO } from 'date-fns'
 
 const route = useRoute()
-const page = await queryContent('blog').where({ _path: route.path }).findOne()
+const { data: page } = await useAsyncData('blog', async () => await queryContent('blog').where({ _path: route.path }).findOne())
 
-const keywords = [...page.tags, ...page.categories].join(',')
+const keywords = [...page.value!.tags, ...page.value!.categories].join(',')
 
 useHead({
   meta: [
@@ -13,13 +13,13 @@ useHead({
 })
 
 useServerSeoMeta({
-  title: page.title,
-  description: page.description,
+  title: page.value!.title,
+  description: page.value!.description,
 })
 
 defineOgImageStatic({
   component: 'MyOgImage',
-  title: page.title,
+  title: page.value!.title,
   description: '',
   background: '#27272a',
 })

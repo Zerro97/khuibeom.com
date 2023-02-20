@@ -1,21 +1,21 @@
 <script setup lang="ts">
 const route = useRoute()
-const page = await queryContent('docs').where({ _path: route.path }).findOne()
+const { data: page } = await useAsyncData('docs', async () => await queryContent('docs').where({ _path: route.path }).findOne())
 
 useHead({
   meta: [
-    { name: 'keywords', content: page.keywords },
+    { name: 'keywords', content: page.value!.keywords },
   ],
 })
 
 useServerSeoMeta({
-  title: page.title,
-  description: page.description,
+  title: page.value!.title,
+  description: page.value!.description,
 })
 
 defineOgImageStatic({
   component: 'MyOgImage',
-  title: page.title,
+  title: page.value!.title,
   description: '',
   background: '#27272a',
 })
