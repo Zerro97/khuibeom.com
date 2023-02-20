@@ -25,19 +25,7 @@ const tabs = ref([{
         <nuxt-img provider="cloudinary" width="34" height="34" alt="ladybug" src="/logo/ladybug.png" />
       </NuxtLink>
       <div class="flex items-center h-full gap-x-3 sm:gap-x-5 md:gap-x-8">
-        <NuxtLink to="/about">
-          About
-        </NuxtLink>
-        <NuxtLink to="/blog">
-          Blog
-        </NuxtLink>
-        <NuxtLink to="/docs/introduction">
-          Docs
-        </NuxtLink>
-        <NuxtLink to="/project">
-          Project
-        </NuxtLink>
-        <!-- <NuxtLink
+        <NuxtLink
           v-for="tab in tabs"
           :key="tab.id"
           :to="tab.link"
@@ -45,7 +33,7 @@ const tabs = ref([{
           active-class="!text-violet-400"
         >
           {{ tab.label }}
-        </NuxtLink> -->
+        </NuxtLink>
       </div>
     </div>
     <div class="items-center justify-center hidden h-full w-max gap-x-1 sm:flex">

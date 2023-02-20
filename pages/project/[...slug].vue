@@ -1,22 +1,23 @@
 <script setup lang="ts">
 import { format, parseISO } from 'date-fns'
 
-const { page } = useContent()
+const route = useRoute()
+const page = await queryContent('project').where({ _path: route.path }).findOne()
 
 useHead({
   meta: [
-    { name: 'keywords', content: page.value.keywords },
+    { name: 'keywords', content: page.keywords },
   ],
 })
 
 useServerSeoMeta({
-  title: page.value.title,
-  description: page.value.description,
+  title: page.title,
+  description: page.description,
 })
 
 defineOgImageStatic({
   component: 'MyOgImage',
-  title: page.value.title,
+  title: page.title,
   description: '',
   background: '#27272a',
 })
