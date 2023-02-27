@@ -42,9 +42,10 @@ export default defineNuxtConfig({
     '~/assets/css/font.css',
     '~/assets/css/main.css',
   ],
-  nitro: {
-    serveStatic: true,
-  },
+  // nitro: {
+  //   serveStatic: true,
+  // },
+  ssr: true,
   // @ts-expect-error defineNuxtConfig does not have unocss type
   unocss: {
     uno: true,

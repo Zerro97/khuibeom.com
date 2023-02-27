@@ -5,7 +5,7 @@ const route = useRoute()
 const { data: page } = await useAsyncData('blog', async () => await queryContent('blog').where({ _path: route.path }).findOne())
 
 if (page.value) {
-  const keywords = [...page.value.tags, ...page.value.categories].join(',')
+  const keywords = [...page.value?.tags, ...page.value.categories].join(',')
 
   useHead({
     meta: [
