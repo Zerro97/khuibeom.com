@@ -42,6 +42,9 @@ export default defineNuxtConfig({
     '~/assets/css/font.css',
     '~/assets/css/main.css',
   ],
+  ogImage: {
+    experimentalRuntimeBrowser: true,
+  },
   // nitro: {
   //   serveStatic: true,
   // },
@@ -94,3 +97,4 @@ export default defineNuxtConfig({
     },
   },
 })
+//  node-server

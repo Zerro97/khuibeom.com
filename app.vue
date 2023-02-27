@@ -1,9 +1,4 @@
 <script setup lang="ts">
-// useServerSeoMeta({
-//   title: 'Hi, I\'m Hui Beom',
-//   description: 'Hi, I\'m Hui Beom. I\'m software developer from South Korea. I\'m using this site to document my learnings and share with the world what I have learnt.',
-// })
-
 const route = useRoute()
 const routePath = ref('')
 const isCanvasShown = ref(false)
@@ -25,7 +20,6 @@ watch(route, () => {
       <BackgroundCanvas v-if="isCanvasShown" />
     </ClientOnly>
     <SeoKit />
-    <OgImageStatic />
     <NuxtPage />
   </div>
 </template>
