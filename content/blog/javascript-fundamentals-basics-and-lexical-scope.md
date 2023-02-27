@@ -175,7 +175,7 @@ There is practice on using `const` for almost all variable declaration (aka. `co
 
 1. **Pros**: Letting Javascript engine make certain assumptions about the code and thus make the code run faster
 2. **Pros**: Avoiding accidental re-assignment to prevent possible bug in future
-3. **Cons**: Avoiding confusion between re-assignment vs mutation by only using `const` for immutable values
+3. **Cons**: Confusion between re-assignment (not allowed) vs mutation (allowed)
 
 Personally, I think code readability is more important than preventing possible bug (bug resulting from accidental reassignment is rare) or minor improvement on code performance. This is personal preference I formed after reading the book, so it's up to the reader whether to use `const` for objects or not.
 
