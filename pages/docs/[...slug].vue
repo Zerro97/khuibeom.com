@@ -10,16 +10,16 @@ if (page.value) {
   })
 
   useServerSeoMeta({
-    title: page.value.title,
-    description: page.value.description,
+    title: () => page.value?.title,
+    description: () => page.value?.description,
   })
 
-  defineOgImageStatic({
-    component: 'MyOgImage',
-    title: page.value.title,
-    description: '',
-    background: '#27272a',
-  })
+  // defineOgImageStatic({
+  //   component: 'MyOgImage',
+  //   title: 'Documents',
+  //   description: '',
+  //   background: '#27272a',
+  // })
 }
 </script>
 

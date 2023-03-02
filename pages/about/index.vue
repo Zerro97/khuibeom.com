@@ -10,11 +10,11 @@ useServerSeoMeta({
   description: 'Hi, I\'m Hui Beom. I\'m  software developer from South Korea.',
 })
 
-defineOgImageStatic({
-  component: 'MyOgImage',
-  description: '',
-  background: '#27272a',
-})
+// defineOgImageStatic({
+//   component: 'MyOgImage',
+//   description: '',
+//   background: '#27272a',
+// })
 
 const workHistory = ref([{
   dateFrom: 'October 2022',
@@ -30,13 +30,6 @@ const workHistory = ref([{
   description: 'DP Planning (Contract)',
   image: '/about/dpplanning-logo.png',
   link: 'http://www.dpplanning.co.kr/main/index.html',
-}, {
-  dateFrom: 'Novemeber 2020',
-  dateTo: 'August 2022',
-  title: 'Full Stack Developer',
-  description: 'Republic of Korea Air Force',
-  image: '/about/rokaf-logo.png',
-  link: '',
 }])
 
 const educationHistory = ref([{
@@ -218,13 +211,6 @@ const educationHistory = ref([{
           </div>
         </HeadlessDisclosurePanel>
       </HeadlessDisclosure>
-    </section>
-    <section class="flex flex-col mt-14 sm:mt-16 md:mt-20">
-      <h2>Miscellaneous</h2>
-      <LinkButton to="https://drive.google.com/file/d/1YVMtIoO1nbx9ks_MD7nHo6b_qi2Z4t1Z/view" target="_blank" label="resume" class="mt-3 max-w-max">
-        Resume
-        <Icon name="uil:external-link-alt" />
-      </LinkButton>
     </section>
   </NuxtLayout>
 </template>
