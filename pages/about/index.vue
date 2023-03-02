@@ -30,13 +30,6 @@ const workHistory = ref([{
   description: 'DP Planning (Contract)',
   image: '/about/dpplanning-logo.png',
   link: 'http://www.dpplanning.co.kr/main/index.html',
-}, {
-  dateFrom: 'Novemeber 2020',
-  dateTo: 'August 2022',
-  title: 'Full Stack Developer',
-  description: 'Republic of Korea Air Force',
-  image: '/about/rokaf-logo.png',
-  link: '',
 }])
 
 const educationHistory = ref([{
