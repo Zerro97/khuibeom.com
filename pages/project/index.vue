@@ -7,9 +7,11 @@ useHead({
   ],
 })
 
-useServerSeoMeta({
-  title: 'Project',
+useSeoMeta({
+  title: 'Project | Hui Beom',
+  ogTitle: 'Project | Hui Beom',
   description: 'List of projects that I worked in the past',
+  ogDescription: 'List of projects that I worked in the past',
 })
 
 // defineOgImageStatic({

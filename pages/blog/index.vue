@@ -11,9 +11,11 @@ useHead({
   ],
 })
 
-useServerSeoMeta({
-  title: 'Blog',
+useSeoMeta({
+  title: 'Blog | Hui Beom',
+  ogTitle: 'Blog | Hui Beom',
   description: 'Articles & Tutorials on Web Development',
+  ogDescription: 'Articles & Tutorials on Web Development',
 })
 
 // defineOgImageStatic({
