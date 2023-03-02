@@ -13,7 +13,9 @@ if (page.value) {
 
   useServerSeoMeta({
     title: () => page.value?.title,
+    ogTitle: () => page.value?.title,
     description: () => page.value?.description,
+    ogDescription: () => page.value?.description,
   })
 
   // defineOgImageStatic({

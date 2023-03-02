@@ -7,7 +7,9 @@ useHead({
 
 useServerSeoMeta({
   title: 'About Me',
+  ogTitle: 'About Me',
   description: 'Hi, I\'m Hui Beom. I\'m  software developer from South Korea.',
+  ogDescription: 'Hi, I\'m Hui Beom. I\'m  software developer from South Korea.',
 })
 
 // defineOgImageStatic({

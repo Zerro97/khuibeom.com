@@ -13,7 +13,9 @@ useHead({
 
 useServerSeoMeta({
   title: 'Blog',
+  ogTitle: 'Blog',
   description: 'Articles & Tutorials on Web Development',
+  ogDescription: 'Articles & Tutorials on Web Development',
 })
 
 // defineOgImageStatic({
