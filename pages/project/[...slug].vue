@@ -11,9 +11,9 @@ if (page.value) {
     ],
   })
 
-  useServerSeoMeta({
-    title: () => page.value?.title,
-    ogTitle: () => page.value?.title,
+  useSeoMeta({
+    title: () => `${page.value?.title} | Hui Beom`,
+    ogTitle: () => `${page.value?.title} | Hui Beom`,
     description: () => page.value?.description,
     ogDescription: () => page.value?.description,
   })

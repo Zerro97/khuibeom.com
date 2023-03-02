@@ -11,9 +11,9 @@ useHead({
   ],
 })
 
-useServerSeoMeta({
-  title: 'Blog',
-  ogTitle: 'Blog',
+useSeoMeta({
+  title: 'Blog | Hui Beom',
+  ogTitle: 'Blog | Hui Beom',
   description: 'Articles & Tutorials on Web Development',
   ogDescription: 'Articles & Tutorials on Web Development',
 })
