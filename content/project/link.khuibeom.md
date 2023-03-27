@@ -2,11 +2,11 @@
 year: '2023'
 from_date: 2023-01
 to_date: 2023-01
-title: 'Link Shortener'
+title: 'link.khuibeom.com'
 description: 'Link Shortener for personal use'
 image: '/projects/link-shortener.png'
 icon: 'fluent-emoji-flat:link'
-slug: link-shortener
+slug: link.khuibeom
 livelink: 'https://link.khuibeom.com/'
 keywords: 'project, url, link shortener'
 repo: ''

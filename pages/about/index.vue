@@ -142,8 +142,10 @@ const educationHistory = ref([{
             <h4>Web Frameworks/Libraries</h4>
             <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
               <CardSkill name="React" logo="logos:react" :cur-level="4" :max-level="8" />
+              <CardSkill name="Next 13" logo="logos:nextjs-icon" :cur-level="2" :max-level="7" />
+              <CardSkill name="React Query" logo="logos:react-query-icon" :cur-level="2" :max-level="6" />
               <CardSkill name="Vue 3" logo="logos:vue" :cur-level="4" :max-level="8" />
-              <CardSkill name="Nuxt 3" logo="logos:nuxt-icon" :cur-level="3" :max-level="8" />
+              <CardSkill name="Nuxt 3" logo="logos:nuxt-icon" :cur-level="2" :max-level="7" />
               <CardSkill name="Angular" logo="logos:angular-icon" :cur-level="1" :max-level="8" />
               <CardSkill name="Svelte" logo="logos:svelte-icon" :cur-level="2" :max-level="8" />
               <CardSkill name="NodeJS" logo="logos:nodejs-icon" :cur-level="4" :max-level="8" />
