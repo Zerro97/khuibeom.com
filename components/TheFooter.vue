@@ -7,6 +7,9 @@
       <NuxtLink to="https://www.linkedin.com/in/hui-beom-kim-4a0849165/" target="_blank" class="hover:underline decoration-violet-600 decoration-4">
         LinkedIn
       </NuxtLink>
+      <NuxtLink to="https://quiz.khuibeom.com/" target="_blank" class="hover:underline decoration-violet-600 decoration-4">
+        Quiz
+      </NuxtLink>
     </div>
     <div class="flex justify-center w-full gap-x-8">
       <p class="text-zinc-400">
