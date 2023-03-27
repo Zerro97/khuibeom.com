@@ -21,7 +21,7 @@ While the project is small in scale, the project underwent few changes as I work
 ## What I learned
 This project was an experimental ground for me, since I tried out bunch of new technologies that I heard about.
 
-Specifically, I wanted to use the new server components that React 18 introduced, so I decided to go with Next 13, using the beta `app` directory. I also wanted to learn about stale-while-revalidate, so I tried out React Query for caching data fetches. While not entirely new, I got more familiar with Supabase for managing database and the PostgreSQL's row level security for authentication.
+Specifically, I wanted to use the new server components that React 18 introduced, so I decided to go with Next 13, using the beta `app` directory. I also wanted to learn about stale-while-revalidate, so I tried out React Query for caching data fetches. While not entirely new, I got more familiar with Supabase for managing database and the PostgreSQL's row level security for authentication as well!
 
 Lastly, I got more familiar with Typescript, mostly because I had to pass the type check command in order to make a commit. 
 
