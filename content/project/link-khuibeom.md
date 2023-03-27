@@ -6,7 +6,7 @@ title: 'link.khuibeom.com'
 description: 'Link Shortener for personal use'
 image: '/projects/link-shortener.png'
 icon: 'fluent-emoji-flat:link'
-slug: link.khuibeom
+slug: link-khuibeom
 livelink: 'https://link.khuibeom.com/'
 keywords: 'project, url, link shortener'
 repo: ''
