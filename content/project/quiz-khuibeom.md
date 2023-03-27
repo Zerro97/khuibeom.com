@@ -6,7 +6,7 @@ title: 'quiz.khuibeom.com'
 description: 'Quiz platform for studying'
 image: '/projects/quiz.khuibeom.png'
 icon: 'mdi:web'
-slug: quiz.khuibeom
+slug: quiz-khuibeom
 livelink: 'https://quiz.khuibeom.com'
 repo: ''
 keywords: 'project, study, quiz'
