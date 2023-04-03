@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { format, parseISO } from 'date-fns'
+import { withoutTrailingSlash } from 'ufo'
 
 const route = useRoute()
-const { data: page } = await useAsyncData(`blog ${route.path}`, async () => await queryContent('blog').where({ _path: route.path }).findOne())
+const path = withoutTrailingSlash(route.path)
+
+const { data: page } = await useAsyncData(`blog ${route.path}`, async () => await queryContent('blog').where({ _path: path }).findOne())
 
 if (page.value) {
   const keywords = [...page.value?.tags, ...page.value.categories].join(',')
