@@ -22,10 +22,11 @@ export const useScrollSpy = () => {
         visibleHeadings.value = visibleHeadings.value.filter(t => t !== id)
     })
 
-  const updateHeadings = (headings: Element[]) =>
+  const updateHeadings = (headings: Element[]) => {
     headings.forEach((heading) => {
       observer.value.observe(heading)
     })
+  }
 
   watch(visibleHeadings, (val, oldVal) => {
     if (val.length === 0)
