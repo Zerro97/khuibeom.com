@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const route = useRoute()
-const { data: page } = await useAsyncData('toc-blog', async () => await queryContent().where({ _path: route.path }).findOne())
+const { data: page } = await useAsyncData(`toc ${route.path}`, async () => await queryContent().where({ _path: route.path }).findOne())
 </script>
 
 <template>

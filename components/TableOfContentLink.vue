@@ -14,14 +14,13 @@ const { activeHeadings, updateHeadings } = useScrollSpy()
 
 if (process.client) {
   setTimeout(() => {
-    console.log('Calling observer')
     updateHeadings([
       ...document.querySelectorAll('.document-article h1'),
       ...document.querySelectorAll('.document-article h2'),
       ...document.querySelectorAll('.document-article h3'),
       ...document.querySelectorAll('.document-article h4'),
     ])
-  }, 0)
+  }, 300)
 }
 
 function scrollToHeading(id: string) {
