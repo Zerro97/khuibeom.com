@@ -1,6 +1,9 @@
 <script setup lang="ts">
 const route = useRoute()
 
+const val = await queryContent().where({ _path: route.path }).findOne()
+console.log(val)
+
 const { data: page } = await useAsyncData(`toc ${route.path}`, async () => await queryContent().where({ _path: route.path }).findOne())
 </script>
 
