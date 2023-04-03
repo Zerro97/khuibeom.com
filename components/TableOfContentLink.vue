@@ -14,6 +14,8 @@ const { activeHeadings, updateHeadings } = useScrollSpy()
 
 if (process.client) {
   setTimeout(() => {
+    console.log(document.querySelectorAll('.document-article h1'))
+    console.log(document.querySelectorAll('.document-article h2'))
     updateHeadings([
       ...document.querySelectorAll('.document-article h1'),
       ...document.querySelectorAll('.document-article h2'),
