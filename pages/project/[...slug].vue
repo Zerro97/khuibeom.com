@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { format, parseISO } from 'date-fns'
+import { withoutTrailingSlash } from 'ufo'
 
 const route = useRoute()
-const { data: page } = await useAsyncData(`blog ${route.path}`, async () => await queryContent('project').where({ _path: route.path }).findOne())
+const path = withoutTrailingSlash(route.path)
+
+const { data: page } = await useAsyncData(`blog ${route.path}`, async () => await queryContent('project').where({ _path: path }).findOne())
 
 if (page.value) {
   useHead({
