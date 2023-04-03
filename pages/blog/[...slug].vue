@@ -2,7 +2,7 @@
 import { format, parseISO } from 'date-fns'
 
 const route = useRoute()
-const { data: page } = await useAsyncData('blog', async () => await queryContent('blog').where({ _path: route.path }).findOne())
+const { data: page } = await useAsyncData(`blog ${route.path}`, async () => await queryContent('blog').where({ _path: route.path }).findOne())
 
 if (page.value) {
   const keywords = [...page.value?.tags, ...page.value.categories].join(',')
@@ -49,7 +49,7 @@ if (page.value) {
               <div v-else class="w-full h-[300px] bg-violet-500 rounded mb-4" />
               <CardIcon size="lg" :logo="doc.icon" class="absolute bottom-0 left-4 translate-y-1/4" />
             </div>
-            <h1 class="sm:text-4xl text-3xl">
+            <h1 class="text-3xl sm:text-4xl">
               {{ doc.title }}
             </h1>
             <p class="text-zinc-400">

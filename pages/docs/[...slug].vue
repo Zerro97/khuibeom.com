@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const route = useRoute()
-const { data: page } = await useAsyncData('docs', async () => await queryContent('docs').where({ _path: route.path }).findOne())
+const { data: page } = await useAsyncData(`docs ${route.path}`, async () => await queryContent('docs').where({ _path: route.path }).findOne())
 
 if (page.value) {
   useHead({
