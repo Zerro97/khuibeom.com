@@ -19,7 +19,7 @@ const tabs = ref([{
 
 const route = useRoute()
 const isMatching = (path: string) => {
-  return route.path.includes(path)
+  return route.path.includes(path === '/docs/introduction' ? '/docs' : path)
 }
 </script>
 
