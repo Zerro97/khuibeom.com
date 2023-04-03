@@ -13,14 +13,28 @@ const router = useRouter()
 const { activeHeadings, updateHeadings } = useScrollSpy()
 
 if (process.client) {
-  setTimeout(() => {
-    updateHeadings([
-      ...document.querySelectorAll('.document-article h1'),
-      ...document.querySelectorAll('.document-article h2'),
-      ...document.querySelectorAll('.document-article h3'),
-      ...document.querySelectorAll('.document-article h4'),
-    ])
-  }, 300)
+  let header1: NodeListOf<HTMLHeadingElement>
+  let header2: NodeListOf<HTMLHeadingElement>
+  let header3: NodeListOf<HTMLHeadingElement>
+  let header4: NodeListOf<HTMLHeadingElement>
+
+  const intervalId = setInterval(() => {
+    header1 = document.querySelectorAll('.document-article h1')
+    header2 = document.querySelectorAll('.document-article h2')
+    header3 = document.querySelectorAll('.document-article h3')
+    header4 = document.querySelectorAll('.document-article h4')
+
+    if (header1.length !== 0 || header2.length !== 0 || header3.length !== 0 || header4.length !== 0) {
+      updateHeadings([
+        ...header1,
+        ...header2,
+        ...header3,
+        ...header4,
+      ])
+
+      clearInterval(intervalId)
+    }
+  }, 100)
 }
 
 function scrollToHeading(id: string) {
