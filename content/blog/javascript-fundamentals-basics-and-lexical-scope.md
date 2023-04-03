@@ -173,9 +173,9 @@ As seen in above example, value stored in `const` variable can be mutated when u
 
 There is practice on using `const` for almost all variable declaration (aka. `constant purism`), by utilizing linting tools to disallow `var` and use `const` if possible. Usage of `const` have pros and cons:
 
-1. **Pros**: Letting Javascript engine make certain assumptions about the code and thus make the code run faster
-2. **Pros**: Avoiding accidental re-assignment to prevent possible bug in future
-3. **Cons**: Confusion between re-assignment (not allowed) vs mutation (allowed)
+1. **Pro**: Letting Javascript engine make certain assumptions about the code and thus make the code run faster
+2. **Pro**: Avoiding accidental re-assignment to prevent possible bug in future
+3. **Con**: Confusion between re-assignment (not allowed) vs mutation (allowed)
 
 Personally, I think code readability is more important than preventing possible bug (bug resulting from accidental reassignment is rare) or minor improvement on code performance. This is personal preference I formed after reading the book, so it's up to the reader whether to use `const` for objects or not.
 

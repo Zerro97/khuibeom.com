@@ -49,7 +49,7 @@ if (page.value) {
               <div v-else class="w-full h-[300px] bg-violet-500 rounded mb-4" />
               <CardIcon size="lg" :logo="doc.icon" class="absolute bottom-0 left-4 translate-y-1/4" />
             </div>
-            <h1 class="text-4xl">
+            <h1 class="sm:text-4xl text-3xl">
               {{ doc.title }}
             </h1>
             <p class="text-zinc-400">

@@ -48,12 +48,12 @@ if (page.value) {
               <CardIcon size="lg" :logo="doc.icon" class="absolute bottom-0 left-4 translate-y-1/4" />
             </div>
             <NuxtLink v-if="doc.livelink" target="_blank" :to="doc.livelink" class="flex items-center gap-x-2">
-              <h1 class="text-4xl">
+              <h1 class="sm:text-4xl text-3xl">
                 {{ doc.title }}
               </h1>
               <Icon name="uil:external-link-alt" class="text-2xl" />
             </NuxtLink>
-            <h1 v-else class="text-4xl">
+            <h1 v-else class="sm:text-4xl text-3xl">
               {{ doc.title }}
             </h1>
             <p class="text-zinc-400">
