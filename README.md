@@ -11,7 +11,7 @@ This repository is based off [nuxt boilerplate](https://github.com/Zerro97/nuxt-
 ## Features ✨
 -   [x] 🧹 ESLint
 -   [x] 🔨 Husky & CommitLint & Commitizen
--   [x] 🎯 Vitest
+-   [x] 🎯 Cypress & Vitest
 -   [x] 💨 UnoCSS
 -   [x] 🗂 Icon Components ([Nuxt Icons](https://github.com/nuxt-modules/icon))
 -   [x] 📚 Content Management ([Nuxt Content](https://content.nuxtjs.org/))
