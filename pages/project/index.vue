@@ -28,7 +28,9 @@ const projects = await (await queryContent('project').find()).sort((a, b) => {
 <template>
   <NuxtLayout name="main">
     <section>
-      <h1>Projects</h1>
+      <h1 data-cy="project-title">
+        Projects
+      </h1>
       <LineBreak class="mt-4" />
     </section>
     <section class="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 lg:grid-cols-3">

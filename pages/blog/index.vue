@@ -67,7 +67,9 @@ watch([tags, categories], () => {
 <template>
   <NuxtLayout name="main">
     <section>
-      <h1>Blog</h1>
+      <h1 data-cy="blog-title">
+        Blog
+      </h1>
       <InputSearch />
       <HeadlessTabGroup>
         <HeadlessTabList class="flex mt-2 mb-3 gap-x-4">
