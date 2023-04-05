@@ -170,12 +170,14 @@ const educationHistory = ref([{
             </div>
           </div>
           <div class="mt-6">
-            <h4>DevOps & Cloud</h4>
+            <h4>DevOps & Cloud & Test</h4>
             <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
               <CardSkill name="Docker" logo="logos:docker-icon" :cur-level="2" :max-level="5" />
               <CardSkill name="Nginx" logo="logos:nginx" :cur-level="1" :max-level="3" />
               <CardSkill name="Github Actions" logo="logos:github-octocat" :cur-level="1" :max-level="4" />
               <CardSkill name="AWS" logo="logos:aws" :cur-level="2" :max-level="10" />
+              <CardSkill name="Cypress" logo="logos:cypress-icon" :cur-level="1" :max-level="5" />
+              <CardSkill name="Vitest" logo="logos:vitest" :cur-level="1" :max-level="5" />
             </div>
           </div>
           <div class="mt-6">
