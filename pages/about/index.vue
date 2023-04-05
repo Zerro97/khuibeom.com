@@ -54,7 +54,9 @@ const educationHistory = ref([{
 <template>
   <NuxtLayout name="main">
     <section class="flex flex-col">
-      <h1>About Me</h1>
+      <h1 data-cy="about-title">
+        About Me
+      </h1>
       <div class="flex flex-col sm:flex-row-reverse">
         <nuxt-img
           provider="cloudinary"

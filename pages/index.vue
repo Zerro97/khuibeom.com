@@ -39,7 +39,7 @@ const { data: projects } = await useAsyncData('main-project', async () => (await
 <template>
   <NuxtLayout name="main">
     <section class="flex flex-col w-full mt-14 sm:mt-16 md:mt-20">
-      <h1>
+      <h1 data-cy="home-title">
         Hi, I'm
         <span class="whitespace-nowrap">Hui Beom</span>
       </h1>
