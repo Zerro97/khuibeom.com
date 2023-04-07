@@ -76,10 +76,10 @@ const educationHistory = ref([{
     <section class="flex flex-col mt-10">
       <h2>What I'm working on now</h2>
       <p class="mt-3 text-zinc-400">
-        Last Updated: Dec 5th, 2022
+        Last Updated: Apr 7th, 2023
       </p>
       <p class="mt-2">
-        I have been working on migrating a website using Nuxt 3 as well as making this blog. Along with the work, I'm picking up DevOps skill as well.
+        I'm currently preparing for the AWS certified developer associate exam!
       </p>
     </section>
     <section class="grid grid-cols-1 mt-14 sm:mt-16 md:mt-20 md:grid-cols-2">
