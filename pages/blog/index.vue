@@ -39,15 +39,15 @@ const tags = useTags()
 const categories = useCategories()
 
 // Init Lists
-onMounted(async () => {
-  posts.value = await (await queryContent('blog').find()).sort((a, b) => {
-    return isAfter(parseISO(a.date), parseISO(b.date)) ? -1 : 0
-  })
-  selectedPosts.value = posts.value
+const { data } = await useAsyncData('blog-content', async () => (await queryContent('blog').find()).sort((a, b) => {
+  return isAfter(parseISO(a.date), parseISO(b.date)) ? -1 : 0
+}))
 
-  extractTags()
-  extractCategories()
-})
+posts.value = data.value ?? []
+selectedPosts.value = posts.value
+
+extractTags()
+extractCategories()
 
 // Filter Functions
 const filterTag = (tag: string) => {
