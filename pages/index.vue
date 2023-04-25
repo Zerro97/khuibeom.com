@@ -14,12 +14,12 @@ useSeoMeta({
   ogDescription: 'Hi, I\'m Hui Beom. I\'m software developer from South Korea. I\'m using this site to document my learnings and share with the world what I have learnt.',
 })
 
-// defineOgImageStatic({
-//   component: 'MyOgImage',
-//   title: 'Welcome to my site 👋',
-//   description: '',
-//   background: '#27272a',
-// })
+defineOgImageStatic({
+  component: 'MyOgImage',
+  title: 'Welcome to my blog 👋',
+  content: '',
+  background: '#27272a',
+})
 
 const { data: posts } = await useAsyncData('main-blog', async () => (await queryContent('blog')
   .find())

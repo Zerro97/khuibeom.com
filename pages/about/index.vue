@@ -12,11 +12,11 @@ useSeoMeta({
   ogDescription: 'Hi, I\'m Hui Beom. I\'m  software developer from South Korea.',
 })
 
-// defineOgImageStatic({
-//   component: 'MyOgImage',
-//   description: '',
-//   background: '#27272a',
-// })
+defineOgImageStatic({
+  component: 'MyOgImage',
+  content: '',
+  background: '#27272a',
+})
 
 const workHistory = ref([{
   dateFrom: 'October 2022',

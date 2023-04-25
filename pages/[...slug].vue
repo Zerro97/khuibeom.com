@@ -4,11 +4,11 @@ useServerSeoMeta({
   description: 'Sorry! This page does not exist.',
 })
 
-// defineOgImageStatic({
-//   component: 'MyOgImage',
-//   title: '404',
-//   background: '#27272a',
-// })
+defineOgImageStatic({
+  component: 'MyOgImage',
+  content: '',
+  background: '#27272a',
+})
 </script>
 
 <template>

@@ -20,12 +20,12 @@ if (page.value) {
     ogDescription: () => page.value?.description,
   })
 
-  // defineOgImageStatic({
-  //   component: 'MyOgImage',
-  //   title: 'Documents',
-  //   description: '',
-  //   background: '#27272a',
-  // })
+  defineOgImageStatic({
+    component: 'MyOgImage',
+    title: 'Documents',
+    content: '',
+    background: '#27272a',
+  })
 }
 </script>
 

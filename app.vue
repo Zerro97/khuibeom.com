@@ -19,6 +19,7 @@ watch(route, () => {
     <ClientOnly>
       <BackgroundCanvas v-if="isCanvasShown" />
     </ClientOnly>
+    <SeoKit />
     <NuxtPage />
   </div>
 </template>

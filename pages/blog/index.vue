@@ -18,11 +18,11 @@ useSeoMeta({
   ogDescription: 'Articles & Tutorials on Web Development',
 })
 
-// defineOgImageStatic({
-//   component: 'MyOgImage',
-//   description: '',
-//   background: '#27272a',
-// })
+defineOgImageStatic({
+  component: 'MyOgImage',
+  content: '',
+  background: '#27272a',
+})
 
 const {
   filter,

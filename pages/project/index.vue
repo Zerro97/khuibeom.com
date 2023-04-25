@@ -14,11 +14,11 @@ useSeoMeta({
   ogDescription: 'List of projects that I worked in the past',
 })
 
-// defineOgImageStatic({
-//   component: 'MyOgImage',
-//   description: '',
-//   background: '#27272a',
-// })
+defineOgImageStatic({
+  component: 'MyOgImage',
+  content: '',
+  background: '#27272a',
+})
 
 const projects = await (await queryContent('project').find()).sort((a, b) => {
   return isAfter(parseISO(a.from_date), parseISO(b.from_date)) ? -1 : 0

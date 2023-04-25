@@ -8,6 +8,9 @@ export default defineNuxtConfig({
     'nuxt-headlessui',
     '@unocss/nuxt',
   ],
+  extends: [
+    'nuxt-seo-kit',
+  ],
   experimental: {
     componentIslands: true,
   },
