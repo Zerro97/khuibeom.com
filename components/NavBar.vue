@@ -1,29 +1,34 @@
 <script setup lang="ts">
+// TODO: convert link to regular expression to match for the current url (or specify it as khuibeom/<link>)
 const tabs = ref([{
   cypress: 'link-about',
   label: 'About Me',
   link: '/about',
+  regex: /about/,
   id: 1,
 }, {
   cypress: 'link-blog',
   label: 'Blog',
   link: '/blog',
+  regex: /blog$|blog\//,
   id: 2,
 }, {
   cypress: 'link-docs',
   label: 'Docs',
   link: '/docs/introduction',
+  regex: /docs\//,
   id: 3,
 }, {
   cypress: 'link-project',
   label: 'Projects',
   link: '/project',
+  regex: /project$|project\//,
   id: 4,
 }])
 
 const route = useRoute()
-const isMatching = (path: string) => {
-  return route.path.includes(path === '/docs/introduction' ? '/docs' : path)
+const isMatching = (path: RegExp) => {
+  return route.path.match(path)
 }
 </script>
 
@@ -39,7 +44,7 @@ const isMatching = (path: string) => {
           :key="tab.id"
           :data-cy="tab.cypress"
           :to="tab.link"
-          :class="`${isMatching(tab.link) ? 'text-violet-400' : 'text-zinc-300 hover:text-zinc-100'} text-sm sm:text-base  md:text-lg border-violet-500`"
+          :class="`${isMatching(tab.regex) ? 'text-violet-400' : 'text-zinc-300 hover:text-zinc-100'} text-sm sm:text-base  md:text-lg border-violet-500`"
         >
           {{ tab.label }}
         </NuxtLink>

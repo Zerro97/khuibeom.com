@@ -3,12 +3,12 @@
   <p>💻 Personal developer blog made with Nuxt 3</p>
 </div>
 
-## Description 💬
+## 💬 Description 
 [![License][license-src]][license-href]
 
-This repository is based off [nuxt boilerplate](https://github.com/Zerro97/nuxt-boilerplate) which I created for quick Nuxt project set up.
+Personal blog on the web where I post articles, projects and anything else that I want to share with the world
 
-## Features ✨
+## ✨ Features 
 -   [x] 🧹 ESLint
 -   [x] 🔨 Husky & CommitLint & Commitizen
 -   [x] 🎯 Cypress & Vitest
@@ -17,12 +17,7 @@ This repository is based off [nuxt boilerplate](https://github.com/Zerro97/nuxt-
 -   [x] 📚 Content Management ([Nuxt Content](https://content.nuxtjs.org/))
 -   [x] ✨ Headless UI
 
-## Notes 👌
-- I used `pnpm` package manager. [Here](https://pnpm.io/installation) is how to set it up
-- While Nuxt 3 just became stable in [2022 November 17](https://github.com/nuxt/framework/discussions/9064), some of its modules are still in beta.
-- If you want to look up icon names, check out [icones.js.org](https://icones.js.org)
-
-## License 📎
+## 📎 License 
 [MIT License](./LICENSE)
 
 <!-- Badges -->
