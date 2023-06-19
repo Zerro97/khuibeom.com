@@ -18,12 +18,6 @@ useSeoMeta({
   ogDescription: 'Articles & Tutorials on Web Development',
 })
 
-// defineOgImageStatic({
-//   component: 'MyOgImage',
-//   description: '',
-//   background: '#27272a',
-// })
-
 const {
   filter,
   extractTags,
@@ -39,15 +33,13 @@ const tags = useTags()
 const categories = useCategories()
 
 // Init Lists
-onMounted(async () => {
-  posts.value = await (await queryContent('blog').find()).sort((a, b) => {
-    return isAfter(parseISO(a.date), parseISO(b.date)) ? -1 : 0
-  })
-  selectedPosts.value = posts.value
-
-  extractTags()
-  extractCategories()
+posts.value = await (await queryContent('blog').find()).sort((a, b) => {
+  return isAfter(parseISO(a.date), parseISO(b.date)) ? -1 : 0
 })
+selectedPosts.value = posts.value
+
+extractTags()
+extractCategories()
 
 // Filter Functions
 const filterTag = (tag: string) => {
