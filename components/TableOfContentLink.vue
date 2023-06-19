@@ -44,7 +44,7 @@ function scrollToHeading(id: string) {
 
 <template>
   <ul class="list-none">
-    <li v-for="link in links" :key="link.text" :class="`depth-${link.depth}`">
+    <li v-for="link in links" :key="link.text" :class="`${link.depth !== 2 && 'pl-4'}`">
       <template v-if="link.depth < 5">
         <a
           :href="`#${link.id}`"
@@ -58,15 +58,3 @@ function scrollToHeading(id: string) {
     </li>
   </ul>
 </template>
-
-<style scoped>
-.depth-2 {
-    padding-left: 0.75rem;
-}
-.depth-3 {
-    padding-left: 1.5rem;
-}
-.depth-4 {
-    padding-left: 2.25rem;
-}
-</style>
