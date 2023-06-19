@@ -134,9 +134,10 @@ const educationHistory = ref([{
               <CardSkill name="HTML" logo="logos:html-5" :cur-level="2" :max-level="3" />
               <CardSkill name="CSS" logo="logos:css-3" :cur-level="5" :max-level="8" />
               <CardSkill name="Javascript" logo="logos:javascript" :cur-level="5" :max-level="8" />
-              <CardSkill name="Typescript" logo="logos:typescript-icon" :cur-level="1" :max-level="6" />
+              <CardSkill name="Typescript" logo="logos:typescript-icon" :cur-level="2" :max-level="6" />
               <CardSkill name="Java" logo="logos:java" :cur-level="4" :max-level="10" />
               <CardSkill name="C" logo="logos:c" :cur-level="2" :max-level="10" />
+              <CardSkill name="Rust" logo="logos:rust" :cur-level="1" :max-level="10" />
               <CardSkill name="Python" logo="logos:python" :cur-level="2" :max-level="8" />
             </div>
           </div>
@@ -153,7 +154,8 @@ const educationHistory = ref([{
               <CardSkill name="NodeJS" logo="logos:nodejs-icon" :cur-level="4" :max-level="8" />
               <CardSkill name="Gatsby" logo="logos:gatsby" :cur-level="1" :max-level="7" />
               <CardSkill name="Strapi" logo="logos:strapi-icon" :cur-level="1" :max-level="3" />
-              <CardSkill name="Spring" logo="logos:spring-icon" :cur-level="3" :max-level="8" />
+              <CardSkill name="Tauri" logo="logos:tauri" :cur-level="1" :max-level="7" />
+              <CardSkill name="Spring" logo="logos:spring-icon" :cur-level="2" :max-level="8" />
               <CardSkill name=".NET Framework" logo="logos:dotnet" :cur-level="1" :max-level="8" />
               <CardSkill name="Tailwind" logo="logos:tailwindcss-icon" :cur-level="2" :max-level="5" />
               <CardSkill name="UnoCSS" logo="logos:unocss" :cur-level="2" :max-level="5" />
@@ -170,16 +172,18 @@ const educationHistory = ref([{
             </div>
           </div>
           <div class="mt-6">
-            <h4>DevOps & Cloud & Test</h4>
+            <h4>Others</h4>
             <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
-              <CardSkill name="Docker" logo="logos:docker-icon" :cur-level="2" :max-level="5" />
+              <CardSkill name="Docker" logo="logos:docker-icon" :cur-level="1" :max-level="5" />
               <CardSkill name="Nginx" logo="logos:nginx" :cur-level="1" :max-level="3" />
               <CardSkill name="Github Actions" logo="logos:github-octocat" :cur-level="1" :max-level="4" />
               <CardSkill name="AWS" logo="logos:aws" :cur-level="2" :max-level="10" />
               <CardSkill name="Cypress" logo="logos:cypress-icon" :cur-level="1" :max-level="5" />
               <CardSkill name="Vitest" logo="logos:vitest" :cur-level="1" :max-level="5" />
+              <CardSkill name="OpenCV" logo="logos:opencv" :cur-level="1" :max-level="8" />
             </div>
           </div>
+          <div class="mt-6" />
           <div class="mt-6">
             <h4>My Current Favorite Stack</h4>
             <div class="flex mt-2 gap-x-4">
@@ -209,10 +213,10 @@ const educationHistory = ref([{
               </TheTooltip>
               <TheTooltip>
                 <template #trigger>
-                  <Icon name="logos:unocss" class="text-4xl hover:grayscale-0 grayscale" />
+                  <Icon name="logos:tailwindcss-icon" class="text-4xl hover:grayscale-0 grayscale" />
                 </template>
                 <template #tooltip>
-                  <p>UnoCSS</p>
+                  <p>Tailwind</p>
                 </template>
               </TheTooltip>
             </div>

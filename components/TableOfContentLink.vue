@@ -44,11 +44,12 @@ function scrollToHeading(id: string) {
 
 <template>
   <ul class="list-none">
-    <li v-for="link in links" :key="link.text" :class="`depth-${link.depth}`">
+    <li v-for="link in links" :key="link.text" class="relative">
       <template v-if="link.depth < 5">
+        <div :class="`${activeHeadings.includes(link.id) ? 'bg-violet-400' : 'bg-zinc-700'} transition absolute left-0 top-[0.35rem] h-5 w-[3px] rounded`" />
         <a
           :href="`#${link.id}`"
-          :class="`${activeHeadings.includes(link.id) ? 'text-violet-300' : 'text-zinc-500'} text-sm`"
+          :class="`depth-${link.depth} ${activeHeadings.includes(link.id) ? 'text-violet-300' : 'text-zinc-500'} text-sm`"
           @click.prevent="scrollToHeading(link.id)"
         >
           {{ link.text }}
@@ -59,14 +60,16 @@ function scrollToHeading(id: string) {
   </ul>
 </template>
 
-<style scoped>
+<style>
 .depth-2 {
-    padding-left: 0.75rem;
+  padding-left: 1rem;
 }
+
 .depth-3 {
-    padding-left: 1.5rem;
+  padding-left: 2rem;
 }
+
 .depth-4 {
-    padding-left: 2.25rem;
+  padding-left: 3rem;
 }
 </style>
