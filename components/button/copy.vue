@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import MdiCheck from '~icons/mdi/check'
+import MdiContentCopy from '~icons/mdi/content-copy'
+
 const props = defineProps<{
   content: string
 }>()
@@ -25,6 +28,7 @@ const copyToClip = () => {
     aria-label="Copy Code"
     @click="copyToClip"
   >
-    <Icon :name="`${isClicked ? 'mdi:check' : 'mdi:content-copy'}`" :class="`${isClicked && 'text-green-400'}`" />
+    <MdiCheck v-if="isClicked" class="text-green-400" />
+    <MdiContentCopy v-else />
   </button>
 </template>

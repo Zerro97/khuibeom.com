@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/image-edge',
     'nuxt-icon',
+    'unplugin-icons/nuxt',
     'nuxt-headlessui',
     '@unocss/nuxt',
   ],
