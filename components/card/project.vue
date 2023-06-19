@@ -22,7 +22,7 @@ const props = defineProps({
           <h4>{{ title }}</h4>
         </div>
         <NuxtLink v-if="repo" aria-label="Link to Github" :to="repo" target="_blank">
-          <button aria-label="Github Link" class="flex items-center justify-center w-8 h-8 rounded gap-x-1 hover:bg-zinc-800">
+          <button aria-label="Github Link" class="transition flex items-center justify-center w-8 h-8 rounded gap-x-1 hover:bg-zinc-800">
             <Icon name="mdi:github" class="text-2xl" />
           </button>
         </NuxtLink>
@@ -41,10 +41,10 @@ const props = defineProps({
       />
     </div>
     <div class="flex flex-wrap mt-4 gap-x-4 gap-y-2">
-      <NuxtLink v-if="slug" aria-label="Read more about this project" class="flex items-center px-4 py-1 rounded w-max gap-x-1 bg-zinc-800 hover:bg-zinc-700" :to="`/project/${slug}`">
+      <NuxtLink v-if="slug" aria-label="Read more about this project" class="flex items-center px-4 py-1 rounded w-max gap-x-1 bg-zinc-800 transition hover:bg-zinc-700" :to="`/project/${slug}`">
         Read More
       </NuxtLink>
-      <NuxtLink v-if="livelink" aria-label="Link to live site" target="_blank" class="flex items-center px-4 py-1 rounded w-max gap-x-1 bg-zinc-800 hover:bg-zinc-700" :to="livelink">
+      <NuxtLink v-if="livelink" aria-label="Link to live site" target="_blank" class="flex items-center px-4 py-1 rounded w-max gap-x-1 bg-zinc-800 transition hover:bg-zinc-700" :to="livelink">
         Live Site
       </NuxtLink>
     </div>

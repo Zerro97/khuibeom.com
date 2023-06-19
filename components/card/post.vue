@@ -15,7 +15,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <NuxtLink :to="`/blog/${link}`" aria-label="Link to article" class="flex flex-col w-full overflow-hidden border rounded aspect-auto border-zinc-700 bg-zinc-900 hover:bg-zinc-800 hover:cursor-pointer">
+  <NuxtLink :to="`/blog/${link}`" aria-label="Link to article" class="transition flex flex-col w-full overflow-hidden border rounded aspect-auto border-zinc-700 bg-zinc-900 hover:bg-zinc-800 hover:cursor-pointer">
     <div class="relative">
       <nuxt-img
         v-if="banner"
