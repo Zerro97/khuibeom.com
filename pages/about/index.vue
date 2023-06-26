@@ -183,7 +183,17 @@ const educationHistory = ref([{
               <CardSkill name="OpenCV" logo="logos:opencv" :cur-level="1" :max-level="8" />
             </div>
           </div>
-          <div class="mt-6" />
+          <div class="mt-6">
+            <h4>Certifications</h4>
+            <div class="grid grid-cols-1 gap-2 mt-2 grid-cols-1 sm:grid-cols-2">
+              <CardCertificate
+                link="https://www.credly.com/badges/27629b54-ebe0-4bdf-abc9-1d43087f5870/public_url"
+                name="AWS Certified Developer - Associate"
+                image="aws-developer-associate"
+                date="May 21, 2023"
+              />
+            </div>
+          </div>
           <div class="mt-6">
             <h4>My Current Favorite Stack</h4>
             <div class="flex mt-2 gap-x-4">
