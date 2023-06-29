@@ -274,7 +274,7 @@ When WASM module is passed to browser, it needs to be decoded and compiled. This
 
 One final thing to note about WebAssembly is that it supports wide range of programming languages. 
 
-If you remember from earlier in this section, Emscripten compiler is used to compile C/C++, not only to asm.js but also to WebAssembly. Originally, Emscripten compiler was used to compile Rust as well. Recently though, LLVM (low level virtual machine), which is compiler as well as toolkit for building other compilers, is used to compile Rust into WebAssembly. If you come from .NET background, blazor, framework for building client side web app, is used to compile C# into WebAssembly. Other than that, there are still many other compilers that supports compiling languages such as Python, Go, Swift, Javascript and more.
+If you remember from earlier in this section, Emscripten compiler is used to compile C/C++, not only to asm.js but also to WebAssembly. Originally, Emscripten compiler was used to compile Rust as well. Recently though, LLVM (low level virtual machine), which is a toolkit for building other compilers, is used to compile Rust into WebAssembly. If you come from .NET background, blazor, framework for building client side web app, is used to compile C# into WebAssembly. Other than that, there are still many other compilers that supports compiling languages such as Python, Go, Swift, Javascript and more.
 
 ## Conclusion
 I summarized quite a bit of information from different articles and books. If the information presented here does not click and you want to gain better context to what I just wrote, try reading [You don't know js](https://github.com/getify/You-Dont-Know-JS)! It definitely gives more background information than my summarized version.
