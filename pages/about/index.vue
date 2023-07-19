@@ -132,12 +132,12 @@ const educationHistory = ref([{
             <h4>Languages</h4>
             <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
               <CardSkill name="HTML" logo="logos:html-5" :cur-level="2" :max-level="3" />
-              <CardSkill name="CSS" logo="logos:css-3" :cur-level="5" :max-level="8" />
+              <CardSkill name="CSS" logo="logos:css-3" :cur-level="4" :max-level="6" />
               <CardSkill name="Javascript" logo="logos:javascript" :cur-level="5" :max-level="8" />
-              <CardSkill name="Typescript" logo="logos:typescript-icon" :cur-level="2" :max-level="6" />
+              <CardSkill name="Typescript" logo="logos:typescript-icon" :cur-level="3" :max-level="8" />
               <CardSkill name="Java" logo="logos:java" :cur-level="4" :max-level="10" />
-              <CardSkill name="C" logo="logos:c" :cur-level="2" :max-level="10" />
-              <CardSkill name="Rust" logo="logos:rust" :cur-level="1" :max-level="10" />
+              <CardSkill name="C" logo="logos:c" :cur-level="2" :max-level="8" />
+              <CardSkill name="Rust" logo="logos:rust" :cur-level="2" :max-level="8" />
               <CardSkill name="Python" logo="logos:python" :cur-level="2" :max-level="8" />
             </div>
           </div>
