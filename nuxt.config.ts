@@ -11,6 +11,7 @@ export default defineNuxtConfig({
   ],
   experimental: {
     componentIslands: true,
+    payloadExtraction: true,
   },
   runtimeConfig: {
     // https://github.com/harlan-zw/nuxt-seo-kit#1-define-config
