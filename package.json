@@ -1,5 +1,6 @@
 {
   "private": true,
+  "packageManager": "pnpm@8.7.0+sha1.4a6f863625170af87d027789f72662e0601ecb57",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -38,7 +39,7 @@
     "nuxt-seo-kit": "^1.3.9",
     "typescript": "^4.9.5",
     "unplugin-icons": "^0.16.5",
-    "vitest": "^0.25.8"
+    "vitest": "^3.2.4"
   },
   "lint-staged": {
     "**/*.{js,ts,vue,json}": [

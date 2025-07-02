@@ -28,13 +28,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-          cache: yarn
+          cache: pnpm
 
       - name: 📥 Install dependencies
-        run: yarn install
+        run: pnpm install
 
       - name: 🛠 Build
-        run: yarn generate
+        run: pnpm generate
 
   lint:
     name: 🛠 ESLint
@@ -55,10 +55,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-          cache: yarn
+          cache: pnpm
 
       - name: 📥 Install dependencies
-        run: yarn install
+        run: pnpm install
 
       - name: 🔬 Lint
-        run: yarn lint
+        run: pnpm lint
