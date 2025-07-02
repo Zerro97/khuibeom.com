@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { isAfter, parseISO } from 'date-fns'
-
 definePageMeta({
   layout: 'main',
 })
@@ -24,9 +22,9 @@ useSeoMeta({
 //   background: '#27272a',
 // })
 
-const projects = await (await queryContent('project').find()).sort((a, b) => {
-  return isAfter(parseISO(a.from_date), parseISO(b.from_date)) ? -1 : 0
-})
+const projects = await queryCollection('project')
+  .order('from_date', 'DESC')
+  .all()
 </script>
 
 <template>

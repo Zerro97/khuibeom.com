@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { isAfter, parseISO } from 'date-fns'
-
 definePageMeta({
   layout: 'main',
 })
@@ -25,19 +23,19 @@ useSeoMeta({
 //   background: '#27272a',
 // })
 
-const { data: posts } = await useAsyncData('main-blog', async () => (await queryContent('blog')
-  .find())
-  .sort((a, b) => {
-    return isAfter(parseISO(a.date), parseISO(b.date)) ? -1 : 0
-  })
-  .slice(0, 4))
+const { data: posts } = await useAsyncData('main.post', () => {
+  return queryCollection('blog')
+    .order('date', 'DESC')
+    .limit(4)
+    .all()
+})
 
-const { data: projects } = await useAsyncData('main-project', async () => (await queryContent('project')
-  .find())
-  .sort((a, b) => {
-    return isAfter(parseISO(a.from_date), parseISO(b.from_date)) ? -1 : 0
-  })
-  .slice(0, 3))
+const { data: projects } = await useAsyncData('main.projects', () => {
+  return queryCollection('project')
+    .order('from_date', 'DESC')
+    .limit(4)
+    .all()
+})
 </script>
 
 <template>

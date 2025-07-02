@@ -12,7 +12,7 @@ defineProps({
 const router = useRouter()
 const { activeHeadings, updateHeadings } = useScrollSpy()
 
-if (process.client) {
+if (import.meta.client) {
   let header1: NodeListOf<HTMLHeadingElement>
   let header2: NodeListOf<HTMLHeadingElement>
   let header3: NodeListOf<HTMLHeadingElement>

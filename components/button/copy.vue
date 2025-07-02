@@ -21,11 +21,11 @@ function copyToClip() {
 
 <template>
   <button
-    class="absolute px-2 py-1 border rounded top-2 right-2 border-zinc-700 w-max hover:bg-zinc-700 hover:cursor-pointer"
+    class="px-2 pt-1 rounded w-max hover:bg-zinc-700 hover:cursor-pointer"
     aria-label="Copy Code"
     @click="copyToClip"
   >
-    <Icon v-if="isClicked" name="mdi:check" class="text-green-400" />
-    <Icon v-else name="mdi:content-copy" />
+    <Icon v-if="isClicked" name="i-mdi-check" class="text-green-400" />
+    <Icon v-else name="i-mdi-content-copy" />
   </button>
 </template>

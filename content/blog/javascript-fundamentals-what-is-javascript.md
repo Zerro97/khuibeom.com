@@ -84,7 +84,7 @@ As mentioned earlier, there is only single Javascript specification. However, va
 
 Take a look at below code:
 
-```javascript
+```js
 alert('Hello World!')
 ```
 
@@ -121,7 +121,7 @@ Both of the concept has to do with solving forward compatible issue by making su
 
 Here is the example of polyfill from [You don't know js](https://github.com/getify/You-Dont-Know-JS):
 
-```javascript
+```js
 if (!Promise.prototype.finally) {
   Promise.prototype.finally = function f(fn) {
     return this.then(
@@ -166,7 +166,7 @@ What do I mean by AST and JIT compiler?
 
 Abstract Syntax Tree (AST) is tree representation of source code. Below code:
 
-```javascript
+```js
 const a = 42
 
 function add(b, c) {

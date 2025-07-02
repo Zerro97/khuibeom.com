@@ -156,7 +156,7 @@ function generateFirefly() {
 }
 
 onMounted(() => {
-  if (process.client) {
+  if (import.meta.client) {
     initCanvas()
 
     const fireflyCount = canvas.width > 1920

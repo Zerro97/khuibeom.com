@@ -4,7 +4,7 @@ const routePath = ref('')
 const isCanvasShown = ref(false)
 
 watch(route, () => {
-  if (process.client) {
+  if (import.meta.client) {
     routePath.value = route.path.toLocaleLowerCase()
     isCanvasShown.value = !(routePath.value.includes('/docs/')
       || routePath.value.includes('/blog/')

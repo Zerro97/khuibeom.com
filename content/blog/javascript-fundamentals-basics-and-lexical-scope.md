@@ -71,7 +71,7 @@ Going further, we have 7 different built-in **primitive** value types:
 
 The simplest way of using value in Javascript is through *literals*:
 
-```javascript
+```js
 while (true) {
   printString('Hello World!')
   console.log(3.141)
@@ -86,7 +86,7 @@ Brief explanation for 7 primitive types
 #content
 When using string literals, we either use double quote `"` or single quote `'` or backtick `` ` `` character to *delimit* (surround, separate) the string value. While difference between double quote and single quote is purely stylistic, backtick has behavioral difference as well. For instance:
 
-```javascript
+```js
 console.log(`Hi ${name}!`)
 ```
 
@@ -98,14 +98,14 @@ In Javascript, number value type is always decimal (including floating-point val
 
 The maximum safe integer value that Javascript engine can store is `9007199254740991`. To support even higher value, we need to use bigint value type. To use bigint, we add suffix `n` to a number:
 
-```javascript
+```js
 myAge = 42n
 ```
 
 As for `null` and `undefined` value types, they both are used to indicate emptiness of a value. I'll come back to this later in the post.
 
 Lastly for `symbol`, it is hidden, unguessable value that ensures uniqueness of a key used in objects.
-```javascript
+```js
 obj[Symbol('private')]
 ```
 ::
@@ -121,7 +121,7 @@ There are 3 syntax forms that are used to declare variable:
 
 The obvious difference between `var` and `let` is, while `var` is function-scoped, `let` is block-scoped. For instance:
 
-```javascript
+```js
 if (true) {
   var myName = 'Hui Beom'
   const gender = 'Male'
@@ -138,7 +138,7 @@ Trying to access gender results in an error because gender is block-scoped to `i
 
 `const` share similar behavior to `let` except that it has additional limitation: it must be given a value at the moment it's declared, and cannot be re-assigned a different value later.
 
-```javascript
+```js
 const myBirthday = true
 let age = 39
 
@@ -150,7 +150,7 @@ if (myBirthday) {
 
 So reassignment results in error when using `const`. However, its value can still be mutated when using object values.
 
-```javascript
+```js
 const actors = [
   'Morgan Freeman',
   'Jennifer Aniston'
@@ -179,7 +179,7 @@ In Javascript, there are different ways of defining functions, namely:
 1. Function Declaration
 2. Function Expression
 
-```javascript
+```js
 function awesomeFunction(coolThings) {
   return amazingStuff
 }
@@ -188,7 +188,7 @@ Above example is function declaration.
 
 Another way of thinking about above code is, identifier `awesomeFunction` associated with a function value. You can kind of see this as `var awesomeFunction = function() {...}` (not accurate but conceptually useful). So again, identifier `awesomeFunction` pointing to function value.
 
-```javascript
+```js
 function awesomeFunction(coolThings) {
   return amazingStuff
 }
@@ -201,7 +201,7 @@ If you have noticed, I used the word "function value". In Javascript, all functi
 
 Since functions are values, we can assign function as properties on objects:
 
-```javascript
+```js
 const greeting = {
   morning() {
     console.log('Good Morning!')
@@ -224,7 +224,7 @@ Now, let's shift our focus to Javascript engine, specifically how it identify an
 
 All occurences of variables in a program serve one of two "roles": either they're the target of an assignment or they're the source of a value. So when a value is assigned to variable, that variable is a *target*. If not, it is a *source*. For instance,
 
-```javascript
+```js
 const studentName = myName
 ```
 
@@ -234,7 +234,7 @@ While you might think that target is always at the left side of `=` assignment o
 
 To explore this target assignment a little more, let's take a look at a code snippet from [You don't know JS](https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch1.md#compiler-speak):
 
-```javascript
+```js
 const students = [
   { id: 14, name: 'Kyle' },
   { id: 73, name: 'Suzy' },
@@ -285,7 +285,7 @@ Alright.
 
 The first two obvious ones are:
 
-```javascript
+```js
 // students is target
 const students = [
   { id: 14, name: 'Kyle' },
@@ -294,7 +294,7 @@ const students = [
   { id: 6, name: 'Sarah' }
 ]
 ```
-```javascript
+```js
 // nextStudent is target
 const nextStudent = getStudentName(73)
 ```
@@ -302,7 +302,7 @@ const nextStudent = getStudentName(73)
 ---
 
 The third target assignment is:
-```javascript
+```js
 // getStudentName is target
 function getStudentName(studentID) {
 ```
@@ -310,7 +310,7 @@ As mentioned before, the identifier `getStudentName` is target reference of func
 
 ---
 
-```javascript
+```js
 // student is target
 for (let student of students) {
 ```
@@ -319,7 +319,7 @@ For each iteration of the loop, `student` is assigned a value from `students`.
 ---
 
 Lastly:
-```javascript
+```js
 // studentId is target
 function getStudentName(studentID) {
 // ..
@@ -407,7 +407,7 @@ What we are doing with this metaphor is imagining the conversation that happens 
 
 To simulate this conversation, we will examine the below code (the same code example as before) and imagine what kind of interaction happens between Javascript engine, compiler and scope manager.
 
-```javascript
+```js
 const students = [
   { id: 14, name: 'Kyle' },
   { id: 73, name: 'Suzy' },
@@ -539,7 +539,7 @@ The error message is a little misleading when comparing that to `undefined` prim
 
 If the missing variable is target and it is in non strict mode, global scope manager will create global variable to fulfill the target assignment. For instance:
 
-```javascript
+```js
 function getStudentName() {
   // assignment to an undeclared variable :(
   nextStudent = 'Suzy'

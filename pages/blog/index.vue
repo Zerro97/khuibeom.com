@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { isAfter, parseISO } from 'date-fns'
-
 definePageMeta({
   layout: 'main',
   documentDriven: false,
@@ -34,9 +32,9 @@ const tags = useTags()
 const categories = useCategories()
 
 // Init Lists
-posts.value = await (await queryContent('blog').find()).sort((a, b) => {
-  return isAfter(parseISO(a.date), parseISO(b.date)) ? -1 : 0
-})
+posts.value = await queryCollection('blog')
+  .order('date', 'DESC')
+  .all()
 selectedPosts.value = posts.value
 
 extractTags()

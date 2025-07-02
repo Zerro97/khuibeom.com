@@ -19,17 +19,17 @@ const props = defineProps({
 const route = useRoute()
 
 function isActive(link: any) {
-  return route.path === link._path
+  return route.path === link.path
 }
 
-const collapsedMap = useState(`docs-collapsed-${props.parent?._path || '/'}`, () => {
+const collapsedMap = useState(`docs-collapsed-${props.parent?.path || '/'}`, () => {
   if (props.level === 0)
     return {}
 
   return props.links
     .filter(link => !!link.children)
     .reduce((map, link) => {
-      map[link._path] = true
+      map[link.path] = true
       return map
     }, {})
 })
@@ -37,8 +37,8 @@ const collapsedMap = useState(`docs-collapsed-${props.parent?._path || '/'}`, ()
 function isCollapsed(link) {
   if (link.children) {
     // Directory has been toggled manually, use its state
-    if (typeof collapsedMap.value[link._path] !== 'undefined')
-      return collapsedMap.value[link._path]
+    if (typeof collapsedMap.value[link.path] !== 'undefined')
+      return collapsedMap.value[link.path]
 
     // Return value grabbed from the link
     if (link?.collapsed)
@@ -49,7 +49,7 @@ function isCollapsed(link) {
 }
 
 function toggleCollapse(link) {
-  collapsedMap.value[link._path] = !isCollapsed(link)
+  collapsedMap.value[link.path] = !isCollapsed(link)
 }
 
 // const hasNesting = computed(() => props.links.some((link: any) => link.children))
@@ -59,7 +59,7 @@ function toggleCollapse(link) {
   <ul class="my-1 list-none">
     <li
       v-for="link in links"
-      :key="link._path"
+      :key="link.path"
       class="flex flex-col"
       :class="[
         { 'pl-3 ml-2 border-l-2': level > 0 },
@@ -69,7 +69,7 @@ function toggleCollapse(link) {
       <button v-if="link.children" aria-label="Navigation Header" class="flex justify-between w-full py-1" @click="toggleCollapse(link)">
         <span class="flex items-center justify-start text-xl">
           <Icon v-if="link?.navigation?.icon || link.icon" :name="link?.navigation?.icon || link.icon" class="mr-2 grayscale" />
-          <span class="text-left">{{ link?.navigation?.title || link.title || link._path }}</span>
+          <span class="text-left">{{ link?.navigation?.title || link.title || link.path }}</span>
         </span>
         <span>
           <Icon :name="isCollapsed(link) ? 'lucide:chevrons-up-down' : 'lucide:chevrons-down-up'" class="text-zinc-500" />
@@ -77,13 +77,13 @@ function toggleCollapse(link) {
       </button>
       <NuxtLink
         v-else
-        :to="link.redirect ? link.redirect : link._path"
+        :to="link.redirect ? link.redirect : link.path"
         :exact="link.exact"
         class="flex"
       >
         <span :class="`text-base w-full py-0.5 ${isActive(link) ? 'text-violet-400' : 'text-zinc-500 hover:text-zinc-400'}`">
           <Icon v-if="link?.navigation?.icon || link.icon" :name="link?.navigation?.icon || link.icon" class="icon" />
-          <span>{{ link?.navigation?.title || link.title || link._path }}</span>
+          <span>{{ link?.navigation?.title || link.title || link.path }}</span>
         </span>
       </NuxtLink>
       <DocsAsideTree
