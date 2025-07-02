@@ -1,11 +1,11 @@
 export const usePosts = () => useState<any[]>('posts', () => [])
 export const useSelectedPosts = () => useState<any[]>('selectedPosts', () => [])
 
-export const useTags = () => useState<{ [key: string]: Boolean }>('tags')
-export const useCategories = () => useState<{ [key: string]: Boolean }>('categories')
-export const useSearchWord = () => useState<String>('searchWord', () => '')
+export const useTags = () => useState<{ [key: string]: boolean }>('tags')
+export const useCategories = () => useState<{ [key: string]: boolean }>('categories')
+export const useSearchWord = () => useState<string>('searchWord', () => '')
 
-export const useFilterPost = () => {
+export function useFilterPost() {
   const postContainsTag = (post: any) => {
     const tags = useTags()
 
@@ -67,7 +67,7 @@ export const useFilterPost = () => {
    * @param posts
    * @returns
    */
-  const extractTags = (): { [key: string]: Boolean } => {
+  const extractTags = (): { [key: string]: boolean } => {
     const posts = usePosts()
     const tags = useTags()
 
@@ -87,7 +87,7 @@ export const useFilterPost = () => {
    * @param posts
    * @returns
    */
-  const extractCategories = (): { [key: string]: Boolean } => {
+  const extractCategories = (): { [key: string]: boolean } => {
     const posts = usePosts()
     const categories = useCategories()
 

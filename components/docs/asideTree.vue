@@ -18,7 +18,7 @@ const props = defineProps({
 
 const route = useRoute()
 
-const isActive = (link: any) => {
+function isActive(link: any) {
   return route.path === link._path
 }
 
@@ -34,7 +34,7 @@ const collapsedMap = useState(`docs-collapsed-${props.parent?._path || '/'}`, ()
     }, {})
 })
 
-const isCollapsed = (link) => {
+function isCollapsed(link) {
   if (link.children) {
     // Directory has been toggled manually, use its state
     if (typeof collapsedMap.value[link._path] !== 'undefined')
@@ -48,11 +48,11 @@ const isCollapsed = (link) => {
   return false
 }
 
-const toggleCollapse = (link) => {
+function toggleCollapse(link) {
   collapsedMap.value[link._path] = !isCollapsed(link)
 }
 
-const hasNesting = computed(() => props.links.some((link: any) => link.children))
+// const hasNesting = computed(() => props.links.some((link: any) => link.children))
 </script>
 
 <template>

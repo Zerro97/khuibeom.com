@@ -6,7 +6,7 @@ banner: '/blogs/post-1.jpg'
 icon: 'logos:css-3'
 time: 4
 slug: history-of-css
-categories: 
+categories:
   - Front End
 tags:
   - css
@@ -32,18 +32,18 @@ CSS, a shorthand for Cascading Style Sheet, is a design language proposed by Hå
 While CSS was not the only proposal for stylesheets, it distinguished itself from other proposals in that it allowed cascading of styles. Cascading style allowed for different author, reader, display device and browser to define their own styles and combine them together. For instance, every browser (aka user agent), have their own style sheets called **user-agent stylesheets**. This is used to give default styles to a document rendered in browser. On top of user-agent stylesheet that browser use, there is **author stylesheets** that web developers define. Lastly, there is **user stylesheets** in which the reader of the website can choose to override the styles as tailored to his own taste. With CSS, these styles are cascaded and combined together so that the design is not defined by single individual.
 
 ## CSS Levels
-Ever since it was first introduced, CSS has evolved, from CSS Level 1 to modular CSS Level 3 as maintained by [CSS Working Group](https://www.w3.org/Style/CSS/members) (CSSWG). 
+Ever since it was first introduced, CSS has evolved, from CSS Level 1 to modular CSS Level 3 as maintained by [CSS Working Group](https://www.w3.org/Style/CSS/members) (CSSWG).
 
-What do I mean by CSS level? Level here refers to the specification of CSS and how it builds on top of previous specification. For instance, CSS 4 builds on CSS 3 specification, CSS 3 builds on CSS2 and CSS2 builds on CSS1. 
+What do I mean by CSS level? Level here refers to the specification of CSS and how it builds on top of previous specification. For instance, CSS 4 builds on CSS 3 specification, CSS 3 builds on CSS2 and CSS2 builds on CSS1.
 
 Note that beyond CSS level 2, CSS specification has become modular, so all the current CSS specification modules have their own levels to them. For instance, [color module](https://www.w3.org/TR/2022/CRD-css-color-4-20221101/) and [selectors module](https://www.w3.org/TR/2022/WD-selectors-4-20221111/) are currently at level 4 while [flexible box layout module](https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/) is currently at level 1 and [grid layout module](https://www.w3.org/TR/2020/CRD-css-grid-2-20201218/) at level 2.
 
-The reason that CSSWG separated css specification into modules, were to break down monolithic CSS specification into separate chunks and allow for more rapid, immediate improvements to CSS. 
+The reason that CSSWG separated css specification into modules, were to break down monolithic CSS specification into separate chunks and allow for more rapid, immediate improvements to CSS.
 
-While we often refer to CSS3 as a whole, I think it's still useful to remember that each of CSS modules have their own pacing. Some might be waiting for CSS4 to come out, but strictly speaking, CSS 4 is just marketing term. 
+While we often refer to CSS3 as a whole, I think it's still useful to remember that each of CSS modules have their own pacing. Some might be waiting for CSS4 to come out, but strictly speaking, CSS 4 is just marketing term.
 
 > *Peter-Paul Koch*
-> 
+>
 > I am proposing that we web developers, supported by the W3C CSS WG, start saying “CSS4 is here!” and excitedly chatter about how it will hit the market any moment now and transform the practice of CSS.
 > Of course “CSS4” has no technical meaning whatsoever. All current CSS specifications have their own specific versions ranging from 1 to 4, but CSS as a whole does not have a version, and it doesn’t need one, either.
 > Regardless of what we say or do, CSS 4 will not hit the market and will not transform anything. It also does not describe any technical reality.
@@ -63,13 +63,13 @@ CSS Level 1, released in 1996, featured properties like following:
 While it was better than the previous formatting markup, CSS Level 1 lacked layout tools. In order to layout page, developers came up with hacky way of using `float`. With `float`, developers were able to move things left or right of the page and since then, the developers were stuck with using float to design layout for quite some time. Original purpose of `float`, however, was to allow web developers to create magazine-style layouts by having text wrapping around an image. As a matter of fact, `table` was the recommended way of making a layout at the time.
 
 ## CSS 2
-CSS Level 2, released in 1998, introduced `display` property and added support for different media types. With `display` property, CSS2 promised the ability to dissociate the layout from the html tags. 
+CSS Level 2, released in 1998, introduced `display` property and added support for different media types. With `display` property, CSS2 promised the ability to dissociate the layout from the html tags.
 
 ```css
 .sidebar, .main { display: table-cell; }
 ```
 
-However, due to browser compatibility issue, there were several bugs and inconsistent behavior among different browsers. To address this, CSS Working Group started CSS 2 revision 1 and worked on fixing errors and building [test suits](https://test.csswg.org/harness/). 
+However, due to browser compatibility issue, there were several bugs and inconsistent behavior among different browsers. To address this, CSS Working Group started CSS 2 revision 1 and worked on fixing errors and building [test suits](https://test.csswg.org/harness/).
 
 ## CSS 3
 As mentioned before, css specification was modularized beyond CSS 2, each modules having their own pace of levelling up.
@@ -81,7 +81,7 @@ In CSS 3, 4 major improvements were made:
 3. **Typography and Internationalization:** Vertical text, custom fonts, line-breaking and justification controls
 4. **Layout:** Flexbox, Grid, regions & exclusions and multi column
 
-Out of these 4 efforts, CSS's layout capabilities has seen the most change in past years. 
+Out of these 4 efforts, CSS's layout capabilities has seen the most change in past years.
 
 Notably, [flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) offered flexible way of designing elements that adapts to different screen sizes and [grid layout](https://css-tricks.com/snippets/css/complete-guide-grid/) gave expressive way of architecturing overall page layout.
 

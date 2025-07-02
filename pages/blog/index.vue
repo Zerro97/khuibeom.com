@@ -43,11 +43,11 @@ extractTags()
 extractCategories()
 
 // Filter Functions
-const filterTag = (tag: string) => {
+function filterTag(tag: string) {
   tags.value[tag] = !tags.value[tag]
 }
 
-const filterCategory = (category: string) => {
+function filterCategory(category: string) {
   categories.value[category] = !categories.value[category]
 }
 
@@ -119,4 +119,3 @@ watch([tags, categories], () => {
     />
   </section>
 </template>
-

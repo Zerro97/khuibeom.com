@@ -7,9 +7,9 @@ watch(route, () => {
   if (process.client) {
     routePath.value = route.path.toLocaleLowerCase()
     isCanvasShown.value = !(routePath.value.includes('/docs/')
-        || routePath.value.includes('/blog/')
-        || routePath.value.includes('/project/')
-        || window.innerWidth < 1024)
+      || routePath.value.includes('/blog/')
+      || routePath.value.includes('/project/')
+      || window.innerWidth < 1024)
   }
 }, { immediate: true })
 </script>

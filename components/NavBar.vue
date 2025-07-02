@@ -27,7 +27,7 @@ const tabs = ref([{
 }])
 
 const route = useRoute()
-const isMatching = (path: RegExp) => {
+function isMatching(path: RegExp) {
   return route.path.match(path)
 }
 </script>

@@ -41,7 +41,7 @@
   },
   "lint-staged": {
     "**/*.{js,ts,vue,json}": [
-      "npm run lint"
+      "pnpm lint"
     ]
   },
   "config": {

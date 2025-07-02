@@ -6,7 +6,7 @@ import type { Ref } from 'vue'
  *
  * Based on https://github.com/nuxt-themes/docus/blob/dev/composables/useScrollspy.ts
  */
-export const useScrollSpy = () => {
+export function useScrollSpy() {
   const observer = ref() as Ref<IntersectionObserver>
   const visibleHeadings = ref([]) as Ref<string[]>
   const activeHeadings = ref([]) as Ref<string[]>
