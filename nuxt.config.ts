@@ -7,6 +7,8 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@unocss/nuxt',
     'nuxt-headlessui',
+    '@nuxtjs/color-mode',
+    '@nuxtjs/seo',
   ],
   experimental: {
     componentIslands: true,
@@ -74,23 +76,15 @@ export default defineNuxtConfig({
     prefix: 'Headless',
   },
   content: {
-    navigation: {
-      fields: ['icon'],
-    },
-    highlight: {
-      preload: [
-        'c',
-        'cpp',
-        'java',
-      ],
-      // Theme used in all color schemes.
-      theme: 'github-dark',
-    },
-    // documentDriven: true,
-    markdown: {
-      toc: {
-        depth: 4,
-        searchDepth: 4,
+    build: {
+      markdown: {
+        highlight: {
+          theme: 'aurora-x',
+          langs: [
+            'java',
+            'js',
+          ],
+        },
       },
     },
   },
