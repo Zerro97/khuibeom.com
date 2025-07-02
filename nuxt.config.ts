@@ -4,10 +4,9 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     '@nuxt/image',
-    'nuxt-icon',
-    'unplugin-icons/nuxt',
-    'nuxt-headlessui',
+    '@nuxt/icon',
     '@unocss/nuxt',
+    'nuxt-headlessui',
   ],
   experimental: {
     componentIslands: true,
