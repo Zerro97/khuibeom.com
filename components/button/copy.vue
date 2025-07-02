@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import MdiCheck from '~icons/mdi/check'
-import MdiContentCopy from '~icons/mdi/content-copy'
-
 const props = defineProps<{
   content: string
 }>()
@@ -13,7 +10,7 @@ const revertBackIcon = useDebounce(() => {
 }, 1500)
 
 // Copy the contents of the code block to clipboard
-const copyToClip = () => {
+function copyToClip() {
   navigator.clipboard.writeText(props.content)
 
   isClicked.value = true
@@ -28,7 +25,7 @@ const copyToClip = () => {
     aria-label="Copy Code"
     @click="copyToClip"
   >
-    <MdiCheck v-if="isClicked" class="text-green-400" />
-    <MdiContentCopy v-else />
+    <Icon v-if="isClicked" name="mdi:check" class="text-green-400" />
+    <Icon v-else name="mdi:content-copy" />
   </button>
 </template>

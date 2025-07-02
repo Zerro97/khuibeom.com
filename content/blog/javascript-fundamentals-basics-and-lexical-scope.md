@@ -27,31 +27,23 @@ I will try to cover the first pillar, scope & closure, in 3 separate blog articl
 
 ::NumberedList
 ---
-contents: [{
-    title: 'Value & Variable & Function',
+contents:
+  - title: 'Value & Variable & Function'
     description: 'Quick overview of Javascript syntax'
-}, {
-    title: '2 Roles of Variable',
+  - title: '2 Roles of Variable'
     description: 'How Javascript engine perceive and identify variables'
-}, {
-    title: 'Illustrating Lexical Scope',
+  - title: 'Illustrating Lexical Scope'
     description: 'Illustrating lexical scope using metaphors'
-}, {
-    title: 'Scope Chain',
+  - title: 'Scope Chain'
     description: 'Understanding how variable lookup and shadowing work'
-}, {
-    title: 'Global Scope',
+  - title: 'Global Scope'
     description: 'Examining global scope in different environments'
-}, {
-    title: 'Hoisting',
+  - title: 'Hoisting'
     description: 'How hoisting works and dangers of uninitialized variables (TDZ)'
-}, {
-    title: 'Closure',
+  - title: 'Closure'
     description: 'Understanding closure and examining some of use cases for closure'
-}, {
-    title: 'Module',
+  - title: 'Module'
     description: 'Inspecting different ways of implementing module in Javascript'
-}]
 ---
 ::
 
