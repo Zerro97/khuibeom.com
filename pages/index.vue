@@ -22,15 +22,14 @@ useSeoMeta({
 //   description: '',
 //   background: '#27272a',
 // })
-
-const { data: posts } = await useAsyncData('main.post', () => {
+const route = useRoute()
+const { data: posts } = await useAsyncData(`${route.path}_post`, () => {
   return queryCollection('blog')
     .order('date', 'DESC')
     .limit(4)
     .all()
 })
-
-const { data: projects } = await useAsyncData('main.projects', () => {
+const { data: projects } = await useAsyncData(`${route.path}_project`, () => {
   return queryCollection('project')
     .order('from_date', 'DESC')
     .limit(4)
