@@ -129,38 +129,46 @@ const educationHistory = ref([{
       </HeadlessDisclosureButton>
       <HeadlessDisclosurePanel>
         <TheAlert class="mt-3">
-          This is a personal, opinionated view of my current skills.
+          This is a personal, opinionated view of my current skills. <br>
+          Frequently used skills are highlighted with <span class="text-purple-400">purple</span> background.
         </TheAlert>
         <div class="mt-6">
           <h4>Languages</h4>
           <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
-            <CardSkill name="Javascript" logo="logos:javascript" :cur-level="4" :max-level="8" />
-            <CardSkill name="Typescript" logo="logos:typescript-icon" :cur-level="3" :max-level="8" />
-            <CardSkill name="Python" logo="logos:python" :cur-level="2" :max-level="8" />
+            <CardSkill experienced name="Javascript" logo="logos:javascript" :cur-level="4" :max-level="8" />
+            <CardSkill experienced name="Typescript" logo="logos:typescript-icon" :cur-level="3" :max-level="8" />
+            <CardSkill experienced name="Kotlin" logo="logos:kotlin-icon" :cur-level="3" :max-level="8" />
+            <CardSkill experienced name="Rust" logo="logos:rust" :cur-level="3" :max-level="8" />
             <CardSkill name="Java" logo="logos:java" :cur-level="2" :max-level="8" />
-            <CardSkill name="Kotlin" logo="logos:kotlin" :cur-level="3" :max-level="8" />
-            <CardSkill name="Golang" logo="logos:golang" :cur-level="3" :max-level="8" />
-            <CardSkill name="Rust" logo="logos:rust" :cur-level="2" :max-level="8" />
+            <CardSkill name="Golang" logo="logos:go" :cur-level="2" :max-level="8" />
+            <CardSkill name="Python" logo="logos:python" :cur-level="2" :max-level="8" />
             <CardSkill name="C" logo="logos:c" :cur-level="1" :max-level="8" />
           </div>
         </div>
         <div class="mt-6">
           <h4>Web Frameworks/Libraries</h4>
           <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
-            <CardSkill name="React" logo="logos:react" :cur-level="3" :max-level="8" />
+            <CardSkill experienced name="React" logo="logos:react" :cur-level="3" :max-level="8" />
+            <CardSkill experienced name="Vue" logo="logos:vue" :cur-level="4" :max-level="8" />
+            <CardSkill experienced name="Nuxt" logo="logos:nuxt-icon" :cur-level="4" :max-level="8" />
+            <CardSkill experienced name="Tailwind" logo="logos:tailwindcss-icon" :cur-level="2" :max-level="4" />
+            <CardSkill name="Express.js" logo="skill-icons:expressjs-dark" :cur-level="3" :max-level="6" />
             <CardSkill name="Next.js" logo="logos:nextjs-icon" :cur-level="2" :max-level="8" />
-            <CardSkill name="React Query" logo="logos:react-query-icon" :cur-level="2" :max-level="6" />
-            <CardSkill name="Vue" logo="logos:vue" :cur-level="4" :max-level="8" />
-            <CardSkill name="Nuxt" logo="logos:nuxt-icon" :cur-level="4" :max-level="8" />
+            <CardSkill name="Tanstack Query" logo="logos:react-query-icon" :cur-level="2" :max-level="6" />
             <CardSkill name="Angular" logo="logos:angular-icon" :cur-level="1" :max-level="8" />
-            <CardSkill name="Svelte" logo="logos:svelte-icon" :cur-level="2" :max-level="8" />
-            <CardSkill name="Tailwind" logo="logos:tailwindcss-icon" :cur-level="2" :max-level="5" />
-            <CardSkill name="NodeJS" logo="logos:nodejs-icon" :cur-level="4" :max-level="8" />
+            <CardSkill name="Svelte" logo="logos:svelte-icon" :cur-level="1" :max-level="8" />
             <CardSkill name="Spring" logo="logos:spring-icon" :cur-level="2" :max-level="8" />
             <CardSkill name=".NET Framework" logo="logos:dotnet" :cur-level="1" :max-level="8" />
             <CardSkill name="Supabase" logo="logos:supabase-icon" :cur-level="2" :max-level="6" />
+          </div>
+        </div>
+        <div class="mt-6">
+          <h4>Mobile & Desktop</h4>
+          <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
+            <CardSkill experienced name="Jetpack Compose" logo="devicon:jetpackcompose" :cur-level="2" :max-level="8" />
+            <CardSkill name="Ktor" logo="logos:ktor-icon" :cur-level="2" :max-level="6" />
+            <CardSkill name="GTK4-rs" logo="skill-icons:gtk-dark" :cur-level="2" :max-level="8" />
             <CardSkill name="Tauri" logo="logos:tauri" :cur-level="2" :max-level="8" />
-            <CardSkill name="Jetpack Compose" logo="logos:tauri" :cur-level="2" :max-level="8" />
           </div>
         </div>
         <div class="mt-6">
@@ -175,14 +183,19 @@ const educationHistory = ref([{
         <div class="mt-6">
           <h4>Others</h4>
           <div class="grid grid-cols-1 gap-2 mt-2 sm:grid-cols-2 md:grid-cols-3">
-            <CardSkill name="Docker" logo="logos:docker-icon" :cur-level="1" :max-level="5" />
-            <CardSkill name="Kubernetes" logo="logos:docker-icon" :cur-level="1" :max-level="8" />
-            <CardSkill name="Nginx" logo="logos:nginx" :cur-level="1" :max-level="3" />
-            <CardSkill name="Github Actions" logo="logos:github-octocat" :cur-level="1" :max-level="4" />
-            <CardSkill name="AWS" logo="logos:aws" :cur-level="2" :max-level="10" />
-            <CardSkill name="Cypress" logo="logos:cypress-icon" :cur-level="1" :max-level="5" />
+            <CardSkill experienced name="Docker" logo="logos:docker-icon" :cur-level="2" :max-level="5" />
+            <CardSkill name="Kubernetes" logo="devicon:kubernetes" :cur-level="1" :max-level="8" />
+            <CardSkill name="Nginx" logo="logos:nginx" :cur-level="1" :max-level="5" />
+            <CardSkill name="Github Actions" logo="logos:github-octocat" :cur-level="1" :max-level="5" />
+            <CardSkill name="AWS" logo="mdi:aws" :cur-level="2" :max-level="8" />
+            <CardSkill name="Cypress" logo="vscode-icons:file-type-cypress" :cur-level="1" :max-level="5" />
             <CardSkill name="Vitest" logo="logos:vitest" :cur-level="1" :max-level="5" />
-            <CardSkill name="OpenCV" logo="logos:opencv" :cur-level="1" :max-level="8" />
+            <CardSkill name="OpenCV" logo="logos:opencv" :cur-level="1" :max-level="6" />
+            <CardSkill name="Hugging Face" logo="logos:hugging-face-icon" :cur-level="1" :max-level="5" />
+            <CardSkill name="GStreamer" logo="simple-icons:gstreamer" :cur-level="1" :max-level="6" />
+            <CardSkill name="Nix" logo="vscode-icons:file-type-nix" :cur-level="2" :max-level="6" />
+            <CardSkill name="Unity" logo="mdi:unity" :cur-level="1" :max-level="8" />
+            <CardSkill name="Bevy" logo="devicon:bevyengine" :cur-level="1" :max-level="8" />
           </div>
         </div>
         <div class="mt-6">
@@ -194,43 +207,6 @@ const educationHistory = ref([{
               image="aws-developer-associate"
               date="May 21, 2023"
             />
-          </div>
-        </div>
-        <div class="mt-6">
-          <h4>My Current Favorite Stack</h4>
-          <div class="flex mt-2 gap-x-4">
-            <TheTooltip>
-              <template #trigger>
-                <Icon name="logos:nuxt-icon" class="text-4xl hover:grayscale-0 grayscale" />
-              </template>
-              <template #tooltip>
-                <p>Nuxt 3</p>
-              </template>
-            </TheTooltip>
-            <TheTooltip>
-              <template #trigger>
-                <Icon name="logos:vue" class="text-4xl hover:grayscale-0 grayscale" />
-              </template>
-              <template #tooltip>
-                <p>Vue 3</p>
-              </template>
-            </TheTooltip>
-            <TheTooltip>
-              <template #trigger>
-                <Icon name="logos:javascript" class="text-4xl hover:grayscale-0 grayscale" />
-              </template>
-              <template #tooltip>
-                <p>Javascript</p>
-              </template>
-            </TheTooltip>
-            <TheTooltip>
-              <template #trigger>
-                <Icon name="logos:tailwindcss-icon" class="text-4xl hover:grayscale-0 grayscale" />
-              </template>
-              <template #tooltip>
-                <p>Tailwind</p>
-              </template>
-            </TheTooltip>
           </div>
         </div>
       </HeadlessDisclosurePanel>
