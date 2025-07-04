@@ -45,11 +45,14 @@ export default defineNuxtConfig({
   ogImage: {
     experimentalRuntimeBrowser: true,
   },
-  // nitro: {
-  //   serveStatic: true,
-  // },
+  nitro: {
+    preset: 'cloudflare_pages',
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true,
+    },
+  },
   ssr: true,
-  // @ts-expect-error defineNuxtConfig does not have unocss type
   unocss: {
     uno: true,
     icons: true,
@@ -65,7 +68,7 @@ export default defineNuxtConfig({
         md: '740px',
       },
     },
-    transformers: [transformerDirective({ enforce: 'pre' })],
+    transformers: [transformerDirective()],
   },
   image: {
     cloudinary: {
@@ -89,4 +92,3 @@ export default defineNuxtConfig({
     },
   },
 })
-//  node-server
