@@ -9,7 +9,6 @@ const props = defineProps<{
 
 const levelPercent = computed(() => props.curLevel / props.maxLevel * 100.0)
 // const curPercent = setTimeout(() => {
-
 // }, 1000)
 </script>
 

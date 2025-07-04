@@ -73,6 +73,10 @@ export default defineNuxtConfig({
     prefix: 'Headless',
   },
   content: {
+    database: {
+      type: 'd1',
+      bindingName: 'NUXT_CONTENT_DB',
+    },
     build: {
       markdown: {
         highlight: {
