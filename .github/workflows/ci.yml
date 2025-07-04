@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [16]
+        node: [22]
     timeout-minutes: 8
     steps:
       - name: 🚥 Checkout repo
@@ -42,7 +42,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [16]
+        node: [22]
     timeout-minutes: 8
     steps:
       - name: 🚥 Checkout repo
