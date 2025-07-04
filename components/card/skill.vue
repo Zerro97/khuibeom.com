@@ -14,7 +14,7 @@ const levelPercent = computed(() => props.curLevel / props.maxLevel * 100.0)
 </script>
 
 <template>
-  <div :class="`flex items-center w-full px-5 py-2 rounded gap-x-5 group border-2 ${experienced ? 'bg-purple-950/70 border-purple-800/70' : 'bg-zinc-800/50 border-zinc-800'}`">
+  <div :class="`flex items-center w-full px-5 py-2 rounded gap-x-5 group border-2 ${experienced ? 'bg-zinc-600/40 border-zinc-700' : 'bg-zinc-800/50 border-zinc-800'}`">
     <Icon :name="logo" class="min-h-[40px] min-w-[40px] max-w-[40px] text-4xl rounded" />
     <div class="flex flex-col w-full">
       <h4 :class="`${experienced ? 'text-purple-50' : 'text-zinc-400'}`">

@@ -130,7 +130,7 @@ const educationHistory = ref([{
       <HeadlessDisclosurePanel>
         <TheAlert class="mt-3">
           This is a personal, opinionated view of my current skills. <br>
-          Frequently used skills are highlighted with <span class="text-purple-400">purple</span> background.
+          Frequently used skills are highlighted with <span class="text-zinc-100">brighter</span> background.
         </TheAlert>
         <div class="mt-6">
           <h4>Languages</h4>
