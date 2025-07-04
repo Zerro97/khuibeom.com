@@ -77,6 +77,9 @@ devDependencies:
   typescript:
     specifier: ^5.8.3
     version: 5.8.3
+  unocss:
+    specifier: ^66.3.2
+    version: 66.3.2(@unocss/webpack@66.3.2)(postcss@8.5.6)(vite@7.0.1)(vue@3.5.17)
   vitest:
     specifier: ^3.2.4
     version: 3.2.4(@types/node@24.0.10)

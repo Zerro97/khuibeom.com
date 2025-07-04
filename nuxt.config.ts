@@ -15,7 +15,6 @@ export default defineNuxtConfig({
     payloadExtraction: true,
   },
   runtimeConfig: {
-    // https://github.com/harlan-zw/nuxt-seo-kit#1-define-config
     public: {
       siteUrl: 'https://khuibeom.com',
       siteName: 'Hui Beom',
@@ -55,17 +54,12 @@ export default defineNuxtConfig({
   ssr: true,
   unocss: {
     uno: true,
-    icons: true,
     attributify: true,
-    shortcuts: [],
-    rules: [
-      [/^m-(\d+)$/, ([, d]: any) => ({ margin: `${d / 4}rem` })],
-      [/^p-(\d+)$/, (match: number[]) => ({ padding: `${match[1] / 4}rem` })],
-    ],
     theme: {
       breakpoints: {
         sm: '540px',
         md: '740px',
+        lg: '1024px',
       },
     },
     transformers: [transformerDirective()],
