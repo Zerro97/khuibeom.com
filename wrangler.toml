@@ -3,4 +3,4 @@ name = "khuibeom-blog"
 [[d1_databases]]
 binding = "NUXT_CONTENT_DB"
 database_name = "content_db"
-database_id = "850c1b23-5d49-4c8f-930d-d7fbdf035027"
+database_id = "f69b57b4-620a-42c4-ac42-decdeac52de1"
