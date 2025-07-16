@@ -3,17 +3,18 @@ import transformerDirective from '@unocss/transformer-directives'
 export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
-    '@nuxt/image-edge',
-    'nuxt-icon',
-    'unplugin-icons/nuxt',
-    'nuxt-headlessui',
+    '@nuxt/image',
+    '@nuxt/icon',
     '@unocss/nuxt',
+    'nuxt-headlessui',
+    '@nuxtjs/color-mode',
+    '@nuxtjs/seo',
   ],
   experimental: {
     componentIslands: true,
+    payloadExtraction: true,
   },
   runtimeConfig: {
-    // https://github.com/harlan-zw/nuxt-seo-kit#1-define-config
     public: {
       siteUrl: 'https://khuibeom.com',
       siteName: 'Hui Beom',
@@ -43,27 +44,25 @@ export default defineNuxtConfig({
   ogImage: {
     experimentalRuntimeBrowser: true,
   },
-  // nitro: {
-  //   serveStatic: true,
-  // },
+  nitro: {
+    preset: 'cloudflare_pages',
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true,
+    },
+  },
   ssr: true,
-  // @ts-expect-error defineNuxtConfig does not have unocss type
   unocss: {
     uno: true,
-    icons: true,
     attributify: true,
-    shortcuts: [],
-    rules: [
-      [/^m-(\d+)$/, ([, d]: any) => ({ margin: `${d / 4}rem` })],
-      [/^p-(\d+)$/, (match: number[]) => ({ padding: `${match[1] / 4}rem` })],
-    ],
     theme: {
       breakpoints: {
         sm: '540px',
         md: '740px',
+        lg: '1024px',
       },
     },
-    transformers: [transformerDirective({ enforce: 'pre' })],
+    transformers: [transformerDirective()],
   },
   image: {
     cloudinary: {
@@ -74,25 +73,21 @@ export default defineNuxtConfig({
     prefix: 'Headless',
   },
   content: {
-    navigation: {
-      fields: ['icon'],
+    database: {
+      type: 'd1',
+      bindingName: 'NUXT_CONTENT_DB',
     },
-    highlight: {
-      preload: [
-        'c',
-        'cpp',
-        'java',
-      ],
-      // Theme used in all color schemes.
-      theme: 'github-dark',
-    },
-    // documentDriven: true,
-    markdown: {
-      toc: {
-        depth: 4,
-        searchDepth: 4,
+    build: {
+      markdown: {
+        highlight: {
+          theme: 'aurora-x',
+          langs: [
+            'java',
+            'js',
+          ],
+        },
       },
     },
   },
+  compatibilityDate: '2024-09-19',
 })
-//  node-server

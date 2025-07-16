@@ -14,7 +14,7 @@ team: 1
 ---
 
 ## Introduction
-Whenever I had to attach a link to some of my social media or portfolio websites, it always nagged me that I have to type out the full url like this: [https://www.linkedin.com/in/hui-beom-kim-4a0849165/](https://www.linkedin.com/in/hui-beom-kim-4a0849165/). 
+Whenever I had to attach a link to some of my social media or portfolio websites, it always nagged me that I have to type out the full url like this: [https://www.linkedin.com/in/hui-beom-kim-4a0849165/](https://www.linkedin.com/in/hui-beom-kim-4a0849165/).
 
 To create a shortend links, I tried searching online for link shortener services. Most of them, however, uses their own domain names for free plan. I wanted use my own custom domain name so I looked at open source projects to self host the service instead.
 

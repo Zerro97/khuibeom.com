@@ -3,12 +3,12 @@
   <p>💻 Personal developer blog made with Nuxt 3</p>
 </div>
 
-## 💬 Description 
+## 💬 Description
 [![License][license-src]][license-href]
 
 Personal blog on the web where I post articles, projects and anything else that I want to share with the world
 
-## ✨ Features 
+## ✨ Features
 -   [x] 🧹 ESLint
 -   [x] 🔨 Husky & CommitLint & Commitizen
 -   [x] 🎯 Cypress & Vitest
@@ -17,7 +17,7 @@ Personal blog on the web where I post articles, projects and anything else that 
 -   [x] 📚 Content Management ([Nuxt Content](https://content.nuxtjs.org/))
 -   [x] ✨ Headless UI
 
-## 📎 License 
+## 📎 License
 [MIT License](./LICENSE)
 
 <!-- Badges -->

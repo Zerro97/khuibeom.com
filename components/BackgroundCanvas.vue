@@ -6,7 +6,7 @@ let ctx: any = null
 let spawnWidth = 0
 const CONTENT_WIDTH = 800
 
-const initCanvas = () => {
+function initCanvas() {
   canvas = document.getElementById('canvas')
   canvas.width = window.innerWidth
   canvas.height = window.innerHeight
@@ -29,11 +29,11 @@ interface CanvasObject {
 const fireflies: CanvasObject[] = []
 
 // HELPER
-const sinLerp = (t: number) => {
+function sinLerp(t: number) {
   return Math.sin(t * Math.PI / 180)
 }
 
-const getVelocity = () => {
+function getVelocity() {
   if (Math.random() < 0.5)
     return (Math.random() + 0.5) * 0.5
 
@@ -41,7 +41,7 @@ const getVelocity = () => {
     return (Math.random() - 1.5) * 0.5
 }
 
-const getInScreenPos = () => {
+function getInScreenPos() {
   if (Math.random() < 0.5)
     return Math.random() * spawnWidth
 
@@ -50,26 +50,27 @@ const getInScreenPos = () => {
 }
 
 // UPDATE
-const updateOpacity = (entity: CanvasObject) => {
+function updateOpacity(entity: CanvasObject) {
   entity.timer++
   entity.opacity = sinLerp(entity.timer) - 0.2
 }
 
-const updatePos = (entity: CanvasObject) => {
+function updatePos(entity: CanvasObject) {
   entity.x += entity.velX
   entity.y += entity.velY
 }
 
-const isOffScreen = (entity: CanvasObject) => {
+function isOffScreen(entity: CanvasObject) {
   if (entity.x < 0 || entity.x > canvas.width
-  || (entity.x > spawnWidth && entity.x < (CONTENT_WIDTH + spawnWidth))
-  || entity.y < 0 || entity.y > canvas.height)
+    || (entity.x > spawnWidth && entity.x < (CONTENT_WIDTH + spawnWidth))
+    || entity.y < 0 || entity.y > canvas.height) {
     return true
+  }
 
   return false
 }
 
-const updateWhenOffScreen = (entity: CanvasObject) => {
+function updateWhenOffScreen(entity: CanvasObject) {
   if (isOffScreen(entity)) {
     entity.x = getInScreenPos()
     entity.y = Math.random() * canvas.height
@@ -79,7 +80,7 @@ const updateWhenOffScreen = (entity: CanvasObject) => {
   }
 }
 
-const update = () => {
+function update() {
   fireflies.forEach((firefly) => {
     updateWhenOffScreen(firefly)
     updateOpacity(firefly)
@@ -88,11 +89,11 @@ const update = () => {
 }
 
 // RENDER
-const clearCanvas = () => {
+function clearCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height)
 }
 
-const drawFirefly = () => {
+function drawFirefly() {
   fireflies.forEach((firefly) => {
     if (firefly.type === 'base') {
       ctx.fillStyle = `rgba(183, 255, 0, ${firefly.opacity})`
@@ -109,7 +110,7 @@ const drawFirefly = () => {
   })
 }
 
-const render = () => {
+function render() {
   clearCanvas()
   drawFirefly()
 }
@@ -122,7 +123,7 @@ let then = Date.now()
 let elapsed = null
 let loopReq = null
 
-const loop = () => {
+function loop() {
   requestAnimationFrame(loop)
 
   now = Date.now()
@@ -136,7 +137,7 @@ const loop = () => {
 }
 
 // INIT
-const generateFirefly = () => {
+function generateFirefly() {
   const size = Math.random() + 2.5
   const type = Math.random() < 0.75 ? 'base' : Math.random() < 0.3 ? 'big' : 'small'
 
@@ -155,7 +156,7 @@ const generateFirefly = () => {
 }
 
 onMounted(() => {
-  if (process.client) {
+  if (import.meta.client) {
     initCanvas()
 
     const fireflyCount = canvas.width > 1920

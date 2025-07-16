@@ -12,7 +12,7 @@ onMounted(async () => {
   searchWord.value = ''
 })
 
-const createTokens = () => {
+function createTokens() {
   Object.entries(tags.value).forEach(([key, value]) => {
     if (value)
       tokens.value[key] = 'tag'
@@ -28,7 +28,7 @@ const createTokens = () => {
   })
 }
 
-const deleteToken = (key: string | number, type: 'tag' | 'category') => {
+function deleteToken(key: string | number, type: 'tag' | 'category') {
   if (type === 'tag')
     tags.value[key] = false
   else

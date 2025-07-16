@@ -23,14 +23,14 @@ This project was an experimental ground for me, since I tried out bunch of new t
 
 Specifically, I wanted to use the new server components that React 18 introduced, so I decided to go with Next 13, using the beta `app` directory. I also wanted to learn about stale-while-revalidate, so I tried out React Query for caching data fetches. While not entirely new, I got more familiar with Supabase for managing database and the PostgreSQL's row level security for authentication as well!
 
-Lastly, I got more familiar with Typescript, mostly because I had to pass the type check command in order to make a commit. 
+Lastly, I got more familiar with Typescript, mostly because I had to pass the type check command in order to make a commit.
 
 ## Challenges
-As mentioned before, this was my first time using Next 13 and React Query, so it required more time and effort to understand how both frameworks worked. Utilizing cache was another challenge for me as well, since it added a layer of complication on top of the regular data fetches that I was used to. 
+As mentioned before, this was my first time using Next 13 and React Query, so it required more time and effort to understand how both frameworks worked. Utilizing cache was another challenge for me as well, since it added a layer of complication on top of the regular data fetches that I was used to.
 
 Luckily, both Next 13 and React Query was fairly easy to get used to and there were a lot of good resources to learn from.
 
 ## What can be improved
-If you have explored the site, you might have noticed that it seems as if the user can create/update/delete data, but if you do try to create/update/delete the data, there is prompt saying that you first need to login. Well, this is confusing and I should definitely hide these options (such as the + buttons in main page) from unathorized users. For now though, I will leave it as it is, because I want to show the work I put in... 
+If you have explored the site, you might have noticed that it seems as if the user can create/update/delete data, but if you do try to create/update/delete the data, there is prompt saying that you first need to login. Well, this is confusing and I should definitely hide these options (such as the + buttons in main page) from unathorized users. For now though, I will leave it as it is, because I want to show the work I put in...
 
 Speaking of login, there is no way of signing up for new users. Only I can create the quizzes and questions as of now. Originally, I was thinking of not implementing login and database at all and use markdown files to store data locally. However, because I wanted to practice using supabase and react query, I decided to implement auth and database, even when it's only meant for myself.

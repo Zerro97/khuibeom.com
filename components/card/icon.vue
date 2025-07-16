@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const props = defineProps<{
-  logo?: String
+defineProps<{
+  logo?: string
   size?: 'lg' | 'base'
 }>()
 </script>

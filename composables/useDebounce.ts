@@ -1,4 +1,4 @@
-export const useDebounce = (func: Function, timeout = 300) => {
+export function useDebounce<T extends (...args: any[]) => any>(func: T, timeout = 300) {
   let timer: ReturnType<typeof setTimeout> | undefined
 
   return (...args: any) => {

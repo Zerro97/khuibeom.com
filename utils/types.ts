@@ -1,7 +1,6 @@
 export interface Skill {
-  maxLevel: Number
-  curLevel: Number
-  logo: String
-  name: String
+  maxLevel: number
+  curLevel: number
+  logo: string
+  name: string
 }
-

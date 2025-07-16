@@ -6,7 +6,7 @@ banner: '/blogs/post-3.jpg'
 icon: 'logos:javascript'
 time: 15
 slug: javascript-fundamentals-what-is-javascript
-categories: 
+categories:
   - Front End
 tags:
   - javascript
@@ -16,7 +16,7 @@ tags:
 ---
 
 ## Preface
-Something that I realized while I worked on many of frontend tasks is that, I often use online resources as a confirmation of what I'm doing, even trival ones, such as using substring method in Javascript. I'm not saying searching for answers online is bad. Opposite of it, in fact, since it lets you discover new and better ways of dealing with problem. 
+Something that I realized while I worked on many of frontend tasks is that, I often use online resources as a confirmation of what I'm doing, even trival ones, such as using substring method in Javascript. I'm not saying searching for answers online is bad. Opposite of it, in fact, since it lets you discover new and better ways of dealing with problem.
 
 What was concerning for me, however, is how quickly I forget about this findings. I often end up searching for same thing over in internet, even ones that I thought interesting.
 
@@ -48,7 +48,7 @@ Unfortunately, due to internal pressure at Netscape, Brendan Eich had to rush th
 
 Initially, Eich code-named Javascript as Mocha and internally at Netscape, it was referred to as Livescript. When it came to publically announcing the language, however, "Javascript" was used.
 
-Why "Javascript"? Javascript was supposed to be lightweight language that people with little programming background would be able to use. Hence the word "script" was used. Also, Netscape wanted to appeal to the audience of Java developer and marketed it as an alternative to writing Java. 
+Why "Javascript"? Javascript was supposed to be lightweight language that people with little programming background would be able to use. Hence the word "script" was used. Also, Netscape wanted to appeal to the audience of Java developer and marketed it as an alternative to writing Java.
 
 While keeping syntax close to Java was not the original intention behind Javascript, marketing force changed that. So on the surface, both Java and Javascript's syntax looks similar because both targeted the developers who are familiar with C syntax.
 
@@ -61,7 +61,7 @@ Another interesting aspect of Javascript name is that, the official trademark fo
 Also note that the official name for Javascript is **ECMAScript** as formalized by TC39. Since 2016, this official name is also suffixed by the revision year (ex. ECMAScript 2022) and abbreviated as ES (ex. ES2022).
 
 ## Javascript Specification
-Javascript is maintained by [TC39](https://tc39.es/), an international group of committees comprised of around 50 to 100 people from web-invested companies (Mozilla, Google, Samsung etc). TC39 is also responsible for deciding what changes are going to be applied to Javascript. 
+Javascript is maintained by [TC39](https://tc39.es/), an international group of committees comprised of around 50 to 100 people from web-invested companies (Mozilla, Google, Samsung etc). TC39 is also responsible for deciding what changes are going to be applied to Javascript.
 
 When a new feature is going to be added, a proposal is made. Interestingly, all of the new proposals are managed in open source [github repository](https://github.com/tc39/ecma262/) so anyone can participate in making a proposal. However, only TC39 committees are responsible for deciding which proposals will take effect, through series of meetings and votes.
 
@@ -71,7 +71,7 @@ A newly made proposals goes through [TC39 process](https://tc39.es/process-docum
 
 One thing about Javascript specification is that, there are no multiple versions of Javascript. There is only a single, central specification as maintained by TC39.
 
-The time at which different web browsers implement the new feature, however, can differ. Chrome might implement a new feature in their Javascript engine earlier than Firefox and vice versa. Nonetheless, it should never be the case that web browser engines implement the feature differently from Javascript specification. 
+The time at which different web browsers implement the new feature, however, can differ. Chrome might implement a new feature in their Javascript engine earlier than Firefox and vice versa. Nonetheless, it should never be the case that web browser engines implement the feature differently from Javascript specification.
 
 This implies that developers can be rest assured that the same Javascript can be applied in multiple environments.
 
@@ -84,8 +84,8 @@ As mentioned earlier, there is only single Javascript specification. However, va
 
 Take a look at below code:
 
-```javascript
-alert("Hello World!")
+```js
+alert('Hello World!')
 ```
 
 `alert()` function is web API that is offered by all the major web browsers. Web APIs, however, are not part of Javascript specification.
@@ -112,7 +112,7 @@ Backward compatible means that once a new feature is added to Javascript, it wou
 
 Forward compatible means that including a new feature to a program will not break the program ran in older Javascript engine. Unfortunately, Javascript is not forward compatible and using newer syntax (ex. ES2022) in older javascript engine (ex. IE 6) would break the program.
 
-Since Javascript is not forward compatible, does this imply that developers should always use older syntax that is supported by older Javascript engines? Not really, as developers have come up with ways to counter this, namely **transpilation** and **polyfills**. 
+Since Javascript is not forward compatible, does this imply that developers should always use older syntax that is supported by older Javascript engines? Not really, as developers have come up with ways to counter this, namely **transpilation** and **polyfills**.
 
 Both of the concept has to do with solving forward compatible issue by making sure newer syntax can be run on older JS engines. The difference is:
 
@@ -121,24 +121,24 @@ Both of the concept has to do with solving forward compatible issue by making su
 
 Here is the example of polyfill from [You don't know js](https://github.com/getify/You-Dont-Know-JS):
 
-```javascript 
+```js
 if (!Promise.prototype.finally) {
-    Promise.prototype.finally = function f(fn){
-        return this.then(
-            function t(v){
-                return Promise.resolve( fn() )
-                    .then(function t(){
-                        return v;
-                    });
-            },
-            function c(e){
-                return Promise.resolve( fn() )
-                    .then(function t(){
-                        throw e;
-                    });
-            }
-        );
-    };
+  Promise.prototype.finally = function f(fn) {
+    return this.then(
+      (v) => {
+        return Promise.resolve(fn())
+          .then(() => {
+            return v
+          })
+      },
+      (e) => {
+        return Promise.resolve(fn())
+          .then(() => {
+            throw e
+          })
+      }
+    )
+  }
 }
 ```
 
@@ -155,22 +155,22 @@ Compiled languages refer to languages that are first parsed and then converted t
 
 Let's also examine how Javascript code gets processed. Briefly, the following happens during code execution:
 
-1. The source code gets converted by transpiler (ex. Babel), then packed by a bundler (ex. Vite, Webpack). 
+1. The source code gets converted by transpiler (ex. Babel), then packed by a bundler (ex. Vite, Webpack).
 2. Javascript engine parses the code into AST(Abstract Syntax Tree)
-3. Javascript engine converts AST into bytecode using interpretor which is further optimized by JIT compiler 
+3. Javascript engine converts AST into bytecode using interpretor which is further optimized by JIT compiler
 4. Javascript VM executes the optimized program.
 
-So Javascript code is first parsed into AST and AST is converted to bytecode which is then optimized by JIT compiler. 
+So Javascript code is first parsed into AST and AST is converted to bytecode which is then optimized by JIT compiler.
 
 What do I mean by AST and JIT compiler?
 
 Abstract Syntax Tree (AST) is tree representation of source code. Below code:
 
-```javascript
-var a = 42;
+```js
+const a = 42
 
 function add(b, c) {
-    return b + c;
+  return b + c
 }
 ```
 
@@ -186,7 +186,7 @@ figure: Abstract Syntax Tree
 
 You can explore this with online tools like [AST Explorer](https://astexplorer.net/) and [AST Visualizer](https://www.jointjs.com/demos/abstract-syntax-tree)
 
-As for JIT (just in time) compiler, it is compiler that compiles code during code execution instead of ahead of time (AOT). So in Javascript engine, there is profiler/monitor that watch how many times different statements get executed. If it gets executed multiple times, it is marked either as 'warm' or 'hot'. Baseline compiler optimize the code marked by profiler and compile them into "stub". When profiler sees that same code is getting executed again, it uses the compiled version to speed things up. 
+As for JIT (just in time) compiler, it is compiler that compiles code during code execution instead of ahead of time (AOT). So in Javascript engine, there is profiler/monitor that watch how many times different statements get executed. If it gets executed multiple times, it is marked either as 'warm' or 'hot'. Baseline compiler optimize the code marked by profiler and compile them into "stub". When profiler sees that same code is getting executed again, it uses the compiled version to speed things up.
 
 As for parts of the code that becomes really "hot", the profiler send it to optimizing compiler which then creates even faster version of the code. It makes some assumptions about the code in order to do this, however, and when this assumptions become invalid, the compiled code is trashed. This trashing process is called deoptimization or bailing out. Note that, Javascript can be progressively promoted to higher level of optimization or it can drop down to slower, less optimized code.
 
@@ -210,12 +210,12 @@ There are two characteristics of compiled languages:
 1. Language is parsed
 2. Language performs code generation (after it was parsed)
 
-Remember that Javascript is parsed into AST and then further optimized by the JIT compiler? Also note that Javascript informs us of syntatic errors before the code is executed. These are characterstics that are closer to compiled language than interpreted language. 
+Remember that Javascript is parsed into AST and then further optimized by the JIT compiler? Also note that Javascript informs us of syntatic errors before the code is executed. These are characterstics that are closer to compiled language than interpreted language.
 
 Having said that, people today consider Javascript as compiled language and I personally think that Javascript is compiled language as well.
 
 ## Web Assembly
-I briefly explained about the Javascript code execution process and how it gets optimized through JIT compiler. However, engineers from Mozilla actually came up with ways that made the process even faster. They invented asm.js, a subset of Javascript, which focused on compiling C/C++ into Javascript. 
+I briefly explained about the Javascript code execution process and how it gets optimized through JIT compiler. However, engineers from Mozilla actually came up with ways that made the process even faster. They invented asm.js, a subset of Javascript, which focused on compiling C/C++ into Javascript.
 
 Using Mozilla’s Emscripten compiler, C/C++ is compiled to asm.js which is then passed to Javascript engine for further processing. One thing to note about asm.js is that, it skips some of the monitoring and optimization steps as illustrated below:
 
@@ -261,10 +261,10 @@ figure: Shared Linear Memory Decoding Process
 ### Design Goals
 Alright, let's step back a bit and look at some of design goals of WebAssembly.
 
-#### Security 
+#### Security
 WebAssembly modules are *sandboxed*, meaning code execution cannot escape the runtime environment. As mentioned before, runtime environment has no I/O capability (ex. write to filesystem) and only use export/import section and shared linear memory to interact with outside environment.
 
-#### Portability 
+#### Portability
 WASM binary format can be executed on variety of system environments, both within browser and outside browser. When WASM communicate with hosting environment, it makes no assumptions (including web specific assumptions)
 
 #### Performance
@@ -272,7 +272,7 @@ When WASM module is passed to browser, it needs to be decoded and compiled. This
 
 ---
 
-One final thing to note about WebAssembly is that it supports wide range of programming languages. 
+One final thing to note about WebAssembly is that it supports wide range of programming languages.
 
 If you remember from earlier in this section, Emscripten compiler is used to compile C/C++, not only to asm.js but also to WebAssembly. Originally, Emscripten compiler was used to compile Rust as well. Recently though, LLVM (low level virtual machine), which is a toolkit for building other compilers, is used to compile Rust into WebAssembly. If you come from .NET background, blazor, framework for building client side web app, is used to compile C# into WebAssembly. Other than that, there are still many other compilers that supports compiling languages such as Python, Go, Swift, Javascript and more.
 

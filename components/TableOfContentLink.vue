@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { PropType } from 'vue'
 import type { TocLink } from '@nuxt/content/dist/runtime/types'
+import type { PropType } from 'vue'
 
-const props = defineProps({
+defineProps({
   links: {
     type: Array as PropType<TocLink[]>,
     default: () => [],
@@ -12,7 +12,7 @@ const props = defineProps({
 const router = useRouter()
 const { activeHeadings, updateHeadings } = useScrollSpy()
 
-if (process.client) {
+if (import.meta.client) {
   let header1: NodeListOf<HTMLHeadingElement>
   let header2: NodeListOf<HTMLHeadingElement>
   let header3: NodeListOf<HTMLHeadingElement>

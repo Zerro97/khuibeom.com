@@ -17,7 +17,7 @@ tags:
 Whenever I looked into developer interview questions online, one of the concepts that often came out was about object oriented programming. I thought it would be helpful to go through object oriented programming in detail so I know how to explain a concept that seems quite fundamental for being a developer.
 
 ## What is OOP?
-**Object oriented programming** or OOP is a programming paradigm in which related variables and functions are grouped together in a unit called **object**. These objects are used to represent the real world entities. For example, we could have a cat as an object, its name and age as the variable and makeNoise() as the function. 
+**Object oriented programming** or OOP is a programming paradigm in which related variables and functions are grouped together in a unit called **object**. These objects are used to represent the real world entities. For example, we could have a cat as an object, its name and age as the variable and makeNoise() as the function.
 
 ```java
 class Cat {
@@ -30,7 +30,7 @@ class Cat {
 }
 ```
 
-Here, I have defined a **class** called Cat. We can think about class as a blueprint, something that defines what the entity is going to be like. We call **object** as an **instance** of the class and we create the object by **instantiating** the class. 
+Here, I have defined a **class** called Cat. We can think about class as a blueprint, something that defines what the entity is going to be like. We call **object** as an **instance** of the class and we create the object by **instantiating** the class.
 
 So, we could have other class instantiating the Cat class:
 ```java
@@ -66,8 +66,8 @@ Encapsulation and abstraction is a concept about hiding the information from the
 
 Then, what is the difference between encapsulation and abstraction?
 
-- Abstraction focuses on hiding unnecessary information so that interface becomes simpler. 
-- Encapsulation focuses on hiding internal data so that the data is protected from outside world. 
+- Abstraction focuses on hiding unnecessary information so that interface becomes simpler.
+- Encapsulation focuses on hiding internal data so that the data is protected from outside world.
 
 ### Access Modifier
 In java, we achieve different levels of abstraction using **access modifier**. Access modifier help restrict the scope of a class, constructor, variable or method. There are 3 types of modifiers:
@@ -78,8 +78,7 @@ In java, we achieve different levels of abstraction using **access modifier**. A
 | `protected`{lang="java"} | variable, method and class are only accessible on the package it belongs |
 | `public`{lang="java"} | variable, method and class are accessible everywhere |
 
-It is generally good practice to use `private`{lang="java"} over `public`{lang="java"} since using `public`{lang="java"} makes any change on the internal structure of class very difficult because it affects all clients using it. 
-
+It is generally good practice to use `private`{lang="java"} over `public`{lang="java"} since using `public`{lang="java"} makes any change on the internal structure of class very difficult because it affects all clients using it.
 
 ## Inheritance
 **Inheritance** is a mechanism in which one object acquires all the properties and behaviors of a parent object. For example, we could have vehicle as a parent class and a truck as a child class. In vehicle class, we can have a function that all of its child classes would have, such as `drive()`{lang="java"}. The main advantage of this is that it reduces redunduncy in code.
@@ -88,13 +87,13 @@ When we talk about the relationship between classes, there are two types to cons
 1. **inheritance**
 2. **composition**
 
-I briefly explained what inheritance is but there is different way of thinking about this. Inheritance is `is a` relationship whereas composition is `has a` relationship. For example, car **is a** vehicle but car **has a** car engine. 
+I briefly explained what inheritance is but there is different way of thinking about this. Inheritance is `is a` relationship whereas composition is `has a` relationship. For example, car **is a** vehicle but car **has a** car engine.
 
 ```java
 // Composition: has-a relationship
 public class Car {
     private Engine engine;
-   
+
     public Car(){
         this.engine = new Engine();
     }
@@ -103,9 +102,9 @@ public class Car {
 
 ```java
 // Inheritance: is-a relationship
-public class Car extends Vehicle{   
+public class Car extends Vehicle{
     public Car(){
-        
+
     }
 }
 ```
@@ -150,8 +149,6 @@ class Main {
 }
 ```
 
-
-
 ### Method Overriding
 
 Method overriding is a **run time** polymorphism and it happens when the child class have a definition for the function that exist in the parent class:
@@ -165,7 +162,7 @@ class Animal{
 }
 
 // Child Class
-class Cat extends Animal{   
+class Cat extends Animal{
     @Override
     public void makeNoise() {
         System.out.println("meow!");
@@ -189,11 +186,11 @@ On the right side of equal statement, we are creating an object of type `Cat` wi
 
 On the left side of equal statement, we are creating a **reference variable** of type `Animal` called kitty. Reference variable is a variable that stores the address of the object, not the object itself.
 
-So we have reference variable of type Animal called kitty, that points to the address of object that is of type Cat. 
+So we have reference variable of type Animal called kitty, that points to the address of object that is of type Cat.
 
 Then, what happens if reference variable kitty make the function call `kitty.makeNoise()`{lang="java"}? Which function would this method call invoke if reference variable and actual object in memory have different types?
 
-Java solves this in a process known as binding. **Binding** is when Java associate the method call to the appropriate method body. In the case of calling overridden function, Java uses **dynamic binding** to determine which function to call. 
+Java solves this in a process known as binding. **Binding** is when Java associate the method call to the appropriate method body. In the case of calling overridden function, Java uses **dynamic binding** to determine which function to call.
 
 #### Dynamic Binding
 In dynamic binding, we call the function according to the type of object in memory (ie. Cat class) instead of reference type (ie. Animal class). This means that `kitty.makeNoise()`{lang="java"} will call method defined in an object in memory, which is Cat class.
