@@ -2,13 +2,13 @@ import transformerDirective from '@unocss/transformer-directives'
 
 export default defineNuxtConfig({
   modules: [
+    '@nuxtjs/seo',
     '@nuxt/content',
     '@nuxt/image',
     '@nuxt/icon',
     '@unocss/nuxt',
     'nuxt-headlessui',
     '@nuxtjs/color-mode',
-    '@nuxtjs/seo',
   ],
   experimental: {
     componentIslands: true,

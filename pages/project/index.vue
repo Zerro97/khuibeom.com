@@ -10,8 +10,8 @@ useHead({
 })
 
 useSeoMeta({
-  title: 'Project | Hui Beom',
-  ogTitle: 'Project | Hui Beom',
+  title: 'Project',
+  ogTitle: 'Project',
   description: 'List of projects that I worked in the past',
   ogDescription: 'List of projects that I worked in the past',
 })
