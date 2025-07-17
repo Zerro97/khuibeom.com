@@ -24,6 +24,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
+      titleTemplate: '%s | khuibeom.com',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'copyright', content: 'Hui Beom Kim' },
