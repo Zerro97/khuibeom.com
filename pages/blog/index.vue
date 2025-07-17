@@ -11,8 +11,8 @@ useHead({
 })
 
 useSeoMeta({
-  title: 'Blog | Hui Beom',
-  ogTitle: 'Blog | Hui Beom',
+  title: 'Blog',
+  ogTitle: 'Blog',
   description: 'Articles & Tutorials on Web Development',
   ogDescription: 'Articles & Tutorials on Web Development',
 })
