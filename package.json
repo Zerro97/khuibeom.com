@@ -1,55 +1,34 @@
 {
+  "name": "nuxt-app",
+  "type": "module",
   "private": true,
-  "packageManager": "pnpm@8.7.0+sha1.4a6f863625170af87d027789f72662e0601ecb57",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "commit": "cz",
-    "lint": "eslint",
-    "lint:fix": "eslint --fix",
-    "test": "vitest --run --reporter verbose",
-    "test:watch": "vitest",
-    "typecheck": "tsc --noEmit --incremental false --skipLibCheck"
+    "postinstall": "nuxt prepare"
   },
-  "devDependencies": {
-    "@antfu/eslint-config": "^4.16.2",
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
-    "@iconify-json/mdi": "^1.2.3",
-    "@nuxt/content": "^3.6.2",
-    "@nuxt/icon": "^1.15.0",
-    "@nuxt/image": "^1.10.0",
-    "@nuxt/test-utils": "^3.19.2",
-    "@nuxtjs/color-mode": "3.5.2",
-    "@nuxtjs/seo": "3.1.0",
-    "@unocss/nuxt": "^66.3.2",
-    "@unocss/reset": "^66.3.2",
-    "@unocss/transformer-directives": "^66.3.2",
-    "better-sqlite3": "^12.2.0",
-    "commitizen": "^4.3.1",
-    "cypress": "^14.5.1",
-    "cz-conventional-changelog": "^3.3.0",
+  "dependencies": {
+    "@antfu/eslint-config": "^5.4.1",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@nuxt/content": "3.7.1",
+    "@nuxt/eslint": "1.9.0",
+    "@nuxt/image": "1.11.0",
+    "@nuxt/scripts": "0.12.1",
+    "@nuxt/test-utils": "3.19.2",
+    "@nuxt/ui": "4.0.0",
+    "@unhead/vue": "^2.0.3",
+    "better-sqlite3": "^12.4.1",
     "date-fns": "^4.1.0",
-    "eslint": "^9.30.1",
+    "eslint": "^9.0.0",
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.2",
-    "nuxt": "^3.17.6",
-    "nuxt-headlessui": "^1.2.0",
-    "typescript": "^5.8.3",
-    "unocss": "^66.3.2",
-    "vitest": "^3.2.4"
+    "lint-staged": "^16.2.3",
+    "nuxt": "^4.1.2",
+    "typescript": "^5.6.3",
+    "vue": "^3.5.22",
+    "vue-router": "^4.5.1"
   },
-  "lint-staged": {
-    "**/*.{js,ts,vue,json}": [
-      "pnpm lint"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  }
+  "packageManager": "pnpm@8.7.0+sha1.4a6f863625170af87d027789f72662e0601ecb57"
 }
