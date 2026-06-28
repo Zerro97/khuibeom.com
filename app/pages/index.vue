@@ -1,7 +1,5 @@
 <script setup lang="ts">
-definePageMeta({
-  layout: 'main',
-})
+import type { Collections, BlogCollectionItem } from '@nuxt/content'
 
 useHead({
   meta: [
@@ -11,26 +9,23 @@ useHead({
 
 useSeoMeta({
   title: 'Home',
-  ogTitle: 'Home',
   description: 'Hi, I\'m Hui Beom. I\'m software developer from South Korea. I\'m using this site to document my learnings and share with the world what I have learnt.',
-  ogDescription: 'Hi, I\'m Hui Beom. I\'m software developer from South Korea. I\'m using this site to document my learnings and share with the world what I have learnt.',
 })
 
-// defineOgImageStatic({
-//   component: 'MyOgImage',
-//   title: 'Welcome to my site 👋',
-//   description: '',
-//   background: '#27272a',
-// })
 const route = useRoute()
-const { data: posts } = await useAsyncData(`${route.path}_post`, () => {
-  return queryCollection('blog')
+const { data: posts } = await useAsyncData('post', () => {
+  const collection = 'blog' as keyof Collections
+
+  return queryCollection(collection)
     .order('date', 'DESC')
     .limit(4)
     .all()
 })
+
 const { data: projects } = await useAsyncData(`${route.path}_project`, () => {
-  return queryCollection('project')
+  const collection = 'project' as keyof Collections
+
+  return queryCollection(collection)
     .order('from_date', 'DESC')
     .limit(4)
     .all()
@@ -38,73 +33,83 @@ const { data: projects } = await useAsyncData(`${route.path}_project`, () => {
 </script>
 
 <template>
-  <section class="flex flex-col w-full mt-14 sm:mt-16 md:mt-20">
-    <h1 data-cy="home-title">
-      Hi, I'm
-      <span class="whitespace-nowrap">Hui Beom</span>
-    </h1>
-    <p class="mt-6 max-w-[450px]">
-      Welcome to my site. 👋<br><br>
-      I aim to use this site to share and document what I have learnt. Hope you enjoy!
-    </p>
-    <div class="flex flex-wrap mt-8 gap-y-2 gap-x-4">
-      <LinkButton to="/about" label="about">
-        Learn more about me
-      </LinkButton>
-      <LinkButton to="/blog" label="blog">
-        Blog
-      </LinkButton>
-    </div>
-  </section>
-  <section class="flex flex-col w-full mt-14 sm:mt-16 md:mt-20">
-    <div class="flex items-center justify-between">
-      <h2>
-        Latest Posts
-      </h2>
-      <LinkButton to="/blog" label="blog">
-        View All
-      </LinkButton>
-    </div>
-    <div class="grid grid-cols-1 gap-4 mt-6 md:grid-cols-2">
-      <CardPost
-        v-for="(post, index) in posts"
-        :key="post.slug"
-        :tags="post.tags"
-        :categories="post.categories"
-        :title="post.title"
-        :description="post.description"
-        :date="post.date"
-        :time="post.time"
-        :banner="post.banner"
-        :icon="post.icon"
-        :link="post.slug"
-        :class="`translate-x-[${index * 50}px]`"
-      />
-    </div>
-  </section>
-  <section class="flex flex-col w-full mt-14 sm:mt-16 md:mt-20">
-    <div class="flex items-center justify-between">
-      <h2>
-        Projects
-      </h2>
-      <LinkButton to="/project" label="project">
-        View All
-      </LinkButton>
-    </div>
-    <div class="grid w-full grid-cols-1 gap-2 mt-6 sm:grid-cols-2 lg:grid-cols-3">
-      <CardProject
-        v-for="project in projects"
-        :key="project.slug"
-        :title="project.title"
-        :description="project.description"
-        :year="project.year"
-        :image="project.image"
-        :slug="project.slug"
-        :livelink="project.livelink"
-        :repo="project.repo"
-      />
-    </div>
-  </section>
+  <div class="mt-14 sm:mt-16 md:mt-20">
+    <section class="flex flex-col w-full">
+      <h1>
+        Hi, I'm
+        <span class="whitespace-nowrap">Hui Beom</span>
+      </h1>
+      <p class="mt-6 text-xl">
+        Welcome to my site. 👋<br><br>
+        I aim to use this site to share and document what I have learnt.<br> Hope you enjoy!
+      </p>
+      <div class="flex flex-wrap mt-8 gap-y-2 gap-x-4">
+        <NuxtLink to="/about" label="about">
+          <UButton class="glass-button">
+            Learn more about me
+          </UButton>
+        </NuxtLink>
+        <NuxtLink to="/blog" label="blog">
+          <UButton class="glass-button">
+            Blog
+          </UButton>
+        </NuxtLink>
+      </div>
+    </section>
+    <section class="flex flex-col w-full mt-14 sm:mt-16 md:mt-20">
+      <div class="flex items-center justify-between">
+        <h2>
+          Latest Posts
+        </h2>
+        <NuxtLink to="/blog" label="blog">
+          <UButton class="glass-button">
+            View All
+          </UButton>
+        </NuxtLink>
+      </div>
+      <div class="grid grid-cols-1 gap-4 mt-6 md:grid-cols-2">
+        <PostCard
+          v-for="(post, index) in posts"
+          :key="post.slug"
+          :tags="post.tags"
+          :categories="post.categories"
+          :title="post.title"
+          :description="post.description"
+          :date="post.date"
+          :time="post.time"
+          :banner="post.banner"
+          :icon="post.icon"
+          :link="post.slug"
+          :class="`translate-x-[${index * 50}px]`"
+        />
+      </div>
+    </section>
+    <section class="flex flex-col w-full mt-14 sm:mt-16 md:mt-20">
+      <div class="flex items-center justify-between">
+        <h2>
+          Projects
+        </h2>
+        <NuxtLink to="/project" label="project">
+          <UButton class="glass-button">
+            View All
+          </UButton>
+        </NuxtLink>
+      </div>
+      <div class="grid w-full grid-cols-1 gap-2 mt-6 sm:grid-cols-2 lg:grid-cols-3">
+        <CardProject
+          v-for="project in projects"
+          :key="project.slug"
+          :title="project.title"
+          :description="project.description"
+          :year="project.year"
+          :image="project.image"
+          :slug="project.slug"
+          :livelink="project.livelink"
+          :repo="project.repo"
+        />
+      </div>
+    </section>
+  </div>
 </template>
 
 <style>

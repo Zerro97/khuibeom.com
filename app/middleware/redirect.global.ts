@@ -1,7 +1,7 @@
 export default defineNuxtRouteMiddleware((to) => {
   switch (to.path) {
-    case '/docs': {
-      return navigateTo('/docs/introduction')
+    case '/notes': {
+      return navigateTo('/notes/introduction')
     }
   }
 })
