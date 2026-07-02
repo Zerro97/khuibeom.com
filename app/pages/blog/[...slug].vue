@@ -32,7 +32,8 @@ if (page.value) {
 </script>
 
 <template>
-  <article class="mt-6 sm:mt-8 md:mt-10">
+  <article class="w-full mt-6 sm:mt-8 md:mt-10">
+    <ReadingProgress />
     <template v-if="page">
       <section v-if="page.title" class="flex flex-col mb-6">
         <div class="relative mb-6">

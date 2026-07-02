@@ -24,7 +24,7 @@ function isMatching(path: RegExp) {
 </script>
 
 <template>
-  <div class="fixed flex justify-center z-50 w-screen py-2 border-b border-neutral-800 backdrop-blur-md bg-neutral-900">
+  <div class="flex justify-center w-screen py-2">
     <div class="flex justify-between items-center max-w-[1080px] w-[90vw]">
       <NuxtLink to="/" class="transition p-1 rounded hover:bg-neutral-800" aria-label="Link to home">
         <NuxtImg width="34" height="34" alt="ladybug" src="/logo/ladybug.png" />

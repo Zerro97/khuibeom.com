@@ -17,7 +17,7 @@ html {
 }
 
 body {
-    @apply text-neutral-100;
+    @apply text-neutral-100 bg-neutral-900;
     overflow-x: clip;
     scrollbar-gutter: stable both-edges;
     font-family: "SUIT";
@@ -106,15 +106,104 @@ strong {
 
 /* Custom */
 .glass-button {
-  @apply relative px-6 py-2 text-white text-base font-sans rounded bg-white/5 hover:bg-white/8 hover:cursor-pointer backdrop-blur-sm;
+  @apply px-4 py-1.5 text-base text-neutral-300 rounded border border-neutral-700 hover:bg-neutral-800 hover:text-white cursor-pointer transition-colors;
 }
 
-.glass-button::before {
-  content: '';
-  @apply absolute inset-0 -z-10 rounded p-[1px]
-          bg-gradient-to-br from-neutral-900 via-neutral-600 to-neutral-900;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+/* Aura blobs */
+.aura-container {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.aura {
+  position: absolute;
+  filter: blur(100px);
+}
+
+.aura-1 {
+  top: -5%;
+  left: 15%;
+  width: 700px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, var(--color-primary-500) 0%, transparent 70%);
+  animation: aura-drift-1 6s ease-in-out infinite;
+}
+
+.aura-2 {
+  top: 25%;
+  right: 5%;
+  width: 200px;
+  height: 550px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, var(--color-primary-400) 0%, transparent 70%);
+  animation: aura-drift-2 7s ease-in-out infinite;
+}
+
+.aura-3 {
+  top: 55%;
+  left: 5%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, var(--color-primary-600) 0%, transparent 70%);
+  animation: aura-drift-3 6.5s ease-in-out infinite;
+}
+
+.aura-4 {
+  top: 10%;
+  right: 25%;
+  width: 160px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, var(--color-primary-500) 0%, transparent 70%);
+  animation: aura-drift-4 8s ease-in-out infinite;
+}
+
+.aura-5 {
+  bottom: 5%;
+  left: 35%;
+  width: 650px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, var(--color-primary-400) 0%, transparent 70%);
+  animation: aura-drift-5 5.5s ease-in-out infinite;
+}
+
+@keyframes aura-drift-1 {
+  0%, 100% { opacity: 0.10; transform: translate(0, 0) scale(1) rotate(0deg); }
+  25% { opacity: 0.20; transform: translate(250px, 150px) scale(1.2) rotate(8deg); }
+  50% { opacity: 0.13; transform: translate(-100px, 250px) scale(0.85) rotate(-5deg); }
+  75% { opacity: 0.22; transform: translate(-200px, 80px) scale(1.1) rotate(6deg); }
+}
+
+@keyframes aura-drift-2 {
+  0%, 100% { opacity: 0.10; transform: translate(0, 0) scale(1) rotate(0deg); }
+  25% { opacity: 0.18; transform: translate(-180px, 200px) scale(1.15) rotate(-6deg); }
+  50% { opacity: 0.12; transform: translate(150px, -120px) scale(0.8) rotate(10deg); }
+  75% { opacity: 0.21; transform: translate(200px, 140px) scale(1.18) rotate(-3deg); }
+}
+
+@keyframes aura-drift-3 {
+  0%, 100% { opacity: 0.10; transform: translate(0, 0) scale(1) rotate(0deg); }
+  25% { opacity: 0.19; transform: translate(180px, -140px) scale(1.25) rotate(5deg); }
+  50% { opacity: 0.12; transform: translate(-220px, 100px) scale(0.88) rotate(-8deg); }
+  75% { opacity: 0.23; transform: translate(80px, -180px) scale(1.1) rotate(4deg); }
+}
+
+@keyframes aura-drift-4 {
+  0%, 100% { opacity: 0.10; transform: translate(0, 0) scale(1) rotate(0deg); }
+  25% { opacity: 0.17; transform: translate(-140px, -180px) scale(1.12) rotate(-5deg); }
+  50% { opacity: 0.25; transform: translate(200px, 120px) scale(1.2) rotate(8deg); }
+  75% { opacity: 0.13; transform: translate(-160px, 200px) scale(0.85) rotate(-6deg); }
+}
+
+@keyframes aura-drift-5 {
+  0%, 100% { opacity: 0.10; transform: translate(0, 0) scale(1) rotate(0deg); }
+  25% { opacity: 0.20; transform: translate(220px, -100px) scale(1.18) rotate(7deg); }
+  50% { opacity: 0.14; transform: translate(-150px, -160px) scale(0.9) rotate(-9deg); }
+  75% { opacity: 0.22; transform: translate(100px, 180px) scale(1.15) rotate(5deg); }
 }

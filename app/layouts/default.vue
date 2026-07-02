@@ -3,12 +3,18 @@
 </script>
 
 <template>
-  <div class="min-h-screen min-w-screen flex flex-col bg-neutral-900">
+  <div class="min-h-screen min-w-screen flex flex-col">
     <LayoutLoadingIndicator />
+    <div class="aura-container">
+      <div class="aura aura-1" />
+      <div class="aura aura-2" />
+      <div class="aura aura-3" />
+      <div class="aura aura-4" />
+      <div class="aura aura-5" />
+    </div>
     <div class="flex flex-col items-center relative">
-      <div class="absolute top-0 left-0 right-0 h-[400px] bg-gradient-to-b from-primary-500/8 via-transparent to-transparent pointer-events-none" />
       <LayoutNavBar />
-      <main class="flex flex-col items-center max-w-[1080px] w-[90vw] mt-[60px]">
+      <main class="flex flex-col items-center max-w-[1080px] w-[90vw]">
         <slot />
       </main>
       <LayoutFooter />

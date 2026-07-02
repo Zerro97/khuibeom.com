@@ -1,179 +1,135 @@
 <script setup lang="ts">
 let canvas: HTMLCanvasElement | null = null
-let ctx: any = null
+let ctx: CanvasRenderingContext2D | null = null
+let rafId: number | null = null
 
-// width of side visible screen (excluding main screen area)
-let spawnWidth = 0
-const CONTENT_WIDTH = 800
+const CONTENT_WIDTH = 1080
 
-function initCanvas() {
-  canvas = document.getElementById('canvas')
-  canvas.width = window.innerWidth
-  canvas.height = window.innerHeight
-  ctx = canvas.getContext('2d')
-  spawnWidth = (window.innerWidth - CONTENT_WIDTH) / 2
-}
-
-interface CanvasObject {
-  type: string
+interface Particle {
   x: number
   y: number
   velX: number
   velY: number
-  width: number
-  height: number
+  size: number
   opacity: number
-  timer: number
+  maxOpacity: number
+  phase: number
 }
 
-const fireflies: CanvasObject[] = []
+const particles: Particle[] = []
 
-// HELPER
-function sinLerp(t: number) {
-  return Math.sin(t * Math.PI / 180)
-}
+function getSpawnX(): number {
+  const margin = (canvas!.width - CONTENT_WIDTH) / 2
+  if (margin <= 40) return Math.random() * canvas!.width
 
-function getVelocity() {
   if (Math.random() < 0.5)
-    return (Math.random() + 0.5) * 0.5
-
+    return Math.random() * margin
   else
-    return (Math.random() - 1.5) * 0.5
+    return canvas!.width - margin + Math.random() * margin
 }
 
-function getInScreenPos() {
-  if (Math.random() < 0.5)
-    return Math.random() * spawnWidth
-
-  else
-    return Math.random() * spawnWidth + (spawnWidth + CONTENT_WIDTH)
-}
-
-// UPDATE
-function updateOpacity(entity: CanvasObject) {
-  entity.timer++
-  entity.opacity = sinLerp(entity.timer) - 0.2
-}
-
-function updatePos(entity: CanvasObject) {
-  entity.x += entity.velX
-  entity.y += entity.velY
-}
-
-function isOffScreen(entity: CanvasObject) {
-  if (entity.x < 0 || entity.x > canvas.width
-    || (entity.x > spawnWidth && entity.x < (CONTENT_WIDTH + spawnWidth))
-    || entity.y < 0 || entity.y > canvas.height) {
-    return true
-  }
-
-  return false
-}
-
-function updateWhenOffScreen(entity: CanvasObject) {
-  if (isOffScreen(entity)) {
-    entity.x = getInScreenPos()
-    entity.y = Math.random() * canvas.height
-    entity.velX = entity.type === 'firefly' ? getVelocity() : 0
-    entity.velY = entity.type === 'firefly' ? getVelocity() : Math.random() - 1.5 * 0.5
-    entity.timer = 0
+function createParticle(): Particle {
+  return {
+    x: getSpawnX(),
+    y: canvas!.height + Math.random() * 20,
+    velX: (Math.random() - 0.5) * 0.15,
+    velY: -(0.15 + Math.random() * 0.25),
+    size: 1 + Math.random() * 1.5,
+    opacity: 0,
+    maxOpacity: 0.04 + Math.random() * 0.08,
+    phase: Math.random() * Math.PI * 2,
   }
 }
 
 function update() {
-  fireflies.forEach((firefly) => {
-    updateWhenOffScreen(firefly)
-    updateOpacity(firefly)
-    updatePos(firefly)
-  })
-}
+  for (let i = particles.length - 1; i >= 0; i--) {
+    const p = particles[i]
 
-// RENDER
-function clearCanvas() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height)
-}
+    p.x += p.velX + Math.sin(p.phase) * 0.03
+    p.y += p.velY
+    p.phase += 0.008
 
-function drawFirefly() {
-  fireflies.forEach((firefly) => {
-    if (firefly.type === 'base') {
-      ctx.fillStyle = `rgba(183, 255, 0, ${firefly.opacity})`
-      ctx.fillRect(firefly.x, firefly.y, firefly.width, firefly.height)
+    const progress = 1 - (p.y / canvas!.height)
+    if (progress < 0.1)
+      p.opacity = Math.min(p.maxOpacity, p.opacity + 0.002)
+    else if (progress > 0.85)
+      p.opacity = Math.max(0, p.opacity - 0.002)
+    else
+      p.opacity += (p.maxOpacity - p.opacity) * 0.02
+
+    if (p.y < -10 || p.opacity <= 0 && progress > 0.9) {
+      particles.splice(i, 1)
     }
-    else if (firefly.type === 'big') {
-      ctx.fillStyle = `rgba(255, 162, 0, ${firefly.opacity})`
-      ctx.fillRect(firefly.x, firefly.y, firefly.width + 0.5, firefly.height + 0.5)
-    }
-    else {
-      ctx.fillStyle = `rgba(186, 186, 186, ${firefly.opacity})`
-      ctx.fillRect(firefly.x, firefly.y, firefly.width - 0.5, firefly.height - 0.5)
-    }
-  })
+  }
+
+  const targetCount = canvas!.width > 1920 ? 50 : canvas!.width > 1200 ? 35 : 20
+  if (particles.length < targetCount && Math.random() < 0.06) {
+    particles.push(createParticle())
+  }
 }
 
 function render() {
-  clearCanvas()
-  drawFirefly()
+  ctx!.clearRect(0, 0, canvas!.width, canvas!.height)
+
+  particles.forEach((p) => {
+    const gradient = ctx!.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 3)
+    gradient.addColorStop(0, `rgba(200, 190, 220, ${p.opacity})`)
+    gradient.addColorStop(0.5, `rgba(200, 190, 220, ${p.opacity * 0.4})`)
+    gradient.addColorStop(1, 'rgba(200, 190, 220, 0)')
+
+    ctx!.beginPath()
+    ctx!.arc(p.x, p.y, p.size * 3, 0, Math.PI * 2)
+    ctx!.fillStyle = gradient
+    ctx!.fill()
+
+    ctx!.beginPath()
+    ctx!.arc(p.x, p.y, p.size * 0.5, 0, Math.PI * 2)
+    ctx!.fillStyle = `rgba(220, 215, 235, ${p.opacity * 1.2})`
+    ctx!.fill()
+  })
 }
 
-// MAIN LOOP
 const fps = 30
 const fpsInterval = 1000 / fps
-let now = null
-let then = Date.now()
-let elapsed = null
-let loopReq = null
+let then = 0
 
 function loop() {
-  requestAnimationFrame(loop)
+  rafId = requestAnimationFrame(loop)
 
-  now = Date.now()
-  elapsed = now - then
+  const now = performance.now()
+  if (now - then < fpsInterval) return
+  then = now - ((now - then) % fpsInterval)
 
-  if (elapsed > fpsInterval) {
-    then = now - (elapsed % fpsInterval)
-    update()
-    render()
-  }
+  update()
+  render()
 }
 
-// INIT
-function generateFirefly() {
-  const size = Math.random() + 2.5
-  const type = Math.random() < 0.75 ? 'base' : Math.random() < 0.3 ? 'big' : 'small'
-
-  const newFirefly = {
-    type,
-    x: getInScreenPos(),
-    y: Math.random() * canvas.height,
-    velX: getVelocity(),
-    velY: getVelocity(),
-    width: size,
-    height: size,
-    opacity: 0,
-    timer: Math.random() * 360,
+function handleResize() {
+  if (canvas) {
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
   }
-  fireflies.push(newFirefly)
 }
 
 onMounted(() => {
   if (import.meta.client) {
-    initCanvas()
+    canvas = document.getElementById('bgCanvas') as HTMLCanvasElement
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+    ctx = canvas.getContext('2d')!
 
-    const fireflyCount = canvas.width > 1920
-      ? 26
-      : canvas.width > 1540 ? 20 : 12
-    for (let i = 0; i < fireflyCount; i++)
-      generateFirefly()
-
-    loopReq = requestAnimationFrame(loop)
+    then = performance.now()
+    rafId = requestAnimationFrame(loop)
+    window.addEventListener('resize', handleResize)
   }
 })
 
 onBeforeUnmount(() => {
-  cancelAnimationFrame(loopReq)
+  if (rafId) cancelAnimationFrame(rafId)
+  window.removeEventListener('resize', handleResize)
 })
 </script>
 
 <template>
-  <canvas id="canvas" class="fixed z-0 hidden lg:block" />
+  <canvas id="bgCanvas" class="fixed top-0 left-0 inset-0 pointer-events-none" style="z-index: -1" />
 </template>

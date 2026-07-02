@@ -45,14 +45,14 @@ const { data: projects } = await useAsyncData(`${route.path}_project`, () => {
       </p>
       <div class="flex flex-wrap mt-8 gap-y-2 gap-x-4">
         <NuxtLink to="/about" label="about">
-          <UButton class="glass-button">
+          <button class="glass-button">
             Learn more about me
-          </UButton>
+          </button>
         </NuxtLink>
         <NuxtLink to="/blog" label="blog">
-          <UButton class="glass-button">
+          <button class="glass-button">
             Blog
-          </UButton>
+          </button>
         </NuxtLink>
       </div>
     </section>
@@ -62,9 +62,9 @@ const { data: projects } = await useAsyncData(`${route.path}_project`, () => {
           Latest Posts
         </h2>
         <NuxtLink to="/blog" label="blog">
-          <UButton class="glass-button">
+          <button class="glass-button">
             View All
-          </UButton>
+          </button>
         </NuxtLink>
       </div>
       <div class="grid grid-cols-1 gap-4 mt-6 md:grid-cols-2">
@@ -90,9 +90,9 @@ const { data: projects } = await useAsyncData(`${route.path}_project`, () => {
           Projects
         </h2>
         <NuxtLink to="/project" label="project">
-          <UButton class="glass-button">
+          <button class="glass-button">
             View All
-          </UButton>
+          </button>
         </NuxtLink>
       </div>
       <div class="grid w-full grid-cols-1 gap-2 mt-6 sm:grid-cols-2 lg:grid-cols-3">

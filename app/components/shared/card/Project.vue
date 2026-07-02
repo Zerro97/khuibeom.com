@@ -12,7 +12,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="flex flex-col justify-between p-4 border rounded border-neutral-700">
+  <div class="flex flex-col justify-between p-4 border rounded border-neutral-700 bg-neutral-900">
     <div class="flex flex-col">
       <div class="flex justify-between">
         <div>
