@@ -1,3 +1,6 @@
+
+</think>
+
 <div align="center">
   <h1>khuibeom.com</h1>
   <p>💻 Personal developer blog made with Nuxt 3</p>
@@ -7,6 +10,18 @@
 [![License][license-src]][license-href]
 
 Personal blog on the web where I post articles, projects and anything else that I want to share with the world
+
+## 🚀 Getting Started
+
+1. Install dependencies:
+```bash
+pnpm install
+```
+
+2. Start the development server:
+```bash
+pnpm dev
+```
 
 ## ✨ Features
 -   [x] 🧹 ESLint
